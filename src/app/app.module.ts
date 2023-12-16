@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent
+    TopbarComponent,
+    SettingsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
