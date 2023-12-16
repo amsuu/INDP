@@ -20,7 +20,8 @@
     height: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+    border-bottom: solid 1px map-get(map-get($themes, $theme), border);
+    // border-bottom: rgba(255, 255, 255, 0.1) solid 1px;
 
     position: absolute;
     top: 0;
@@ -28,8 +29,8 @@
     width: 100%;
 
     button {
-        background-color: map-get(map-get($themes, light), background);
-        color: map-get(map-get($themes, light), text);
+        background-color: map-get(map-get($themes, $theme), background);
+        color: map-get(map-get($themes, $theme), text);
         padding: 0.5rem;
         border: none;
         height: 100%;
@@ -42,15 +43,16 @@
         border-radius: 6px;
 
         // &:hover {
-        //     // background-color: darken(map-get(map-get($themes, light), background), 10%);
-        //     background-color: map-get(map-get($themes, light), accent);
-        //     color: map-get(map-get($themes, light), background);
+        //     // background-color: darken(map-get(map-get($themes, $theme), background), 10%);
+        //     background-color: map-get(map-get($themes, $theme), accent);
+        //     color: map-get(map-get($themes, $theme), background);
         // }
 
         &:hover {
-            // background-color: darken(map-get(map-get($themes, light), background), 10%);
-            // color: lighten(map-get(map-get($themes, light), text), 20%);
-            color: darken(map-get(map-get($themes, light), background), 35%);
+            // background-color: darken(map-get(map-get($themes, $theme), background), 10%);
+            // color: $themeen(map-get(map-get($themes, $theme), text), 20%);
+            // color: darken(map-get(map-get($themes, $theme), background), 35%);
+            color: map-get(map-get($themes, $theme), alt-background);
         }
     }
 }

@@ -1,19 +1,34 @@
 @use 'sass:color';
 
+$theme: dark;
+
+
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-size: 22pt;
 $themes: (
   light: (
     text: #210d11,
+    supressed-heading: color.scale(#210d11, $whiteness: 55%), // #656565, originally color.scale(map-get(map-get($themes, $theme), text), $whiteness: 55%)
     background: #f7e8eb,
+    alt-background: darken(#f7e8eb, 35%), // #c96478, originally darken(map-get(map-get($themes, $theme), background), 35%);
+    border: rgba(0, 0, 0, 0.1),
     primary: #792032,
     secondary: #e17086,
     accent: #b51c3b,
   ),
   dark: (
     text: #f2dee2,
+    heading: #e34a69, // same as accent
+    heading-2: color.scale(#210d11, $lightness: 60%), // same as supressed-heading
+    // accent-text: color.scale(#17080b, $lightness: 55%),
+    // accent-text: color.scale(#210d11, $lightness: 55%),
+    // supressed-text: color.scale(#f2dee2, $blackness: 55%),
+    // supressed-text: color.scale(#17080b, $lightness: 55%),
+    supressed-heading: color.scale(#210d11, $lightness: 60%),
     background: #17080b,
+    alt-background: lighten(#17080b, 35%),
+    border: rgba(255, 255, 255, 0.1),
     primary: #df8698,
     secondary: #8f1e35,
     accent: #e34a69,
