@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "sass:color";
+
+@import 'src/variables';
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: start;
+}
+h1 {
+    margin-bottom: 1rem;
+}
+h2 {
+    margin-top: 1rem;
+    color: color.scale(map-get(map-get($themes, light), text), $whiteness: 55%);
+}
+
+.theme-selector {
+
+    font-size: 18pt;
+
+    // background-color: color.scale(map-get(map-get($themes, light), background), $whiteness: 50%);
+    background-color: map-get(map-get($themes, light), background);
+    color: map-get(map-get($themes, light), text);
+    // background-color: lighten(map-get(map-get($themes, light), background), 5%);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+
+    width: fit-content;
+    margin-inline-start: 1rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >* {
+        font-size: 18pt;
+        border: none;
+        background-color: #00000000;
+
+        padding: 0.75rem;
+        
+        border-radius: 2rem;
+        
+
+        &.active-theme {
+            background-color: map-get(map-get($themes, light), accent);
+            color: map-get(map-get($themes, light), background);
+        }
+    }
+}

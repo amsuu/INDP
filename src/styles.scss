@@ -30,12 +30,24 @@ body, body[font="sans"] {
         font-family: $font-sans;
     }
 }
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 body[font="serif"] {
     font-family: $font-serif;
     * {
         font-family: $font-serif;
     }
 }
+
+app-settings {
+    display: block;
+    width: 80vw;
+}
+
+
 
 label, button, select, summary,
 [type=radio], [type=submit], [type=checkbox] {
@@ -55,9 +67,16 @@ h1, h2 {
     text-align: center;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
+// button.accent-btn {
+//     background-color: map-get(map-get($themes, light), accent);
+//     color: map-get(map-get($themes, light), background);
+// }
+// button.primary-btn {
+//     background-color: map-get(map-get($themes, light), primary);
+//     color: map-get(map-get($themes, light), background);
+// }
+// button.secondary-btn {
+//     background-color: map-get(map-get($themes, light), secondary);
+//     color: map-get(map-get($themes, light), background);
+// }
