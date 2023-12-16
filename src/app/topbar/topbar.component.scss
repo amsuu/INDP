@@ -18,7 +18,8 @@
 #topbar {
 
     height: 4rem;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
 
     position: absolute;
@@ -29,9 +30,27 @@
     button {
         background-color: map-get(map-get($themes, light), background);
         color: map-get(map-get($themes, light), text);
-        border: none;
         padding: 0.5rem;
+        border: none;
+        height: 100%;
         
-        font-size: $font-size;
+        font-size: $font-size * 0.8;
+        font-weight: 500;
+
+        transition: all 150ms ease-in-out;
+
+        border-radius: 6px;
+
+        // &:hover {
+        //     // background-color: darken(map-get(map-get($themes, light), background), 10%);
+        //     background-color: map-get(map-get($themes, light), accent);
+        //     color: map-get(map-get($themes, light), background);
+        // }
+
+        &:hover {
+            // background-color: darken(map-get(map-get($themes, light), background), 10%);
+            // color: lighten(map-get(map-get($themes, light), text), 20%);
+            color: darken(map-get(map-get($themes, light), background), 35%);
+        }
     }
 }

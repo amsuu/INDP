@@ -11,6 +11,11 @@ html {
     scrollbar-width: thin;    
 }
 
+*::selection {
+    background-color: map-get(map-get($themes, light), accent);
+    color: map-get(map-get($themes, light), background);
+}
+
 body {
     margin: 0px;
     font-size: $font-size;
