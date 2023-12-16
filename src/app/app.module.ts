@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HomeComponent } from './home/home.component';
+import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     SettingsComponent,
-    HomeComponent
+    HomeComponent,
+    ThemeSelectorComponent
   ],
   imports: [
     BrowserModule,
