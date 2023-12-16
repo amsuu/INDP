@@ -3,8 +3,8 @@
 
 Color scheme:
 <div class="theme-selector">
-    <button id="theme-selection-light" class="active-theme">light</button>
-    <button id="theme-selection-dark">dark</button>
+    <button id="theme-selection-light" class="active-theme" click="document.querySelector('html').setAttribute('theme', 'light');">light</button>
+    <button id="theme-selection-dark" click="document.querySelector('html').setAttribute('theme', 'dark');">dark</button>
 </div>
 
 <h1>Troubleshooting</h1>
@@ -15,3 +15,25 @@ w x y z ž ź <br>
 A Å B C Č Ć D Đ D́ E Ė Ě Ę F G H I J K <br>
 L Ĺ M N Ń O Ȯ P Q R Ŕ S Š Ś T T́ U Ų V <br>
 W X Y Z Ž Ź
+
+<script defer>
+    const darkThemeBtn = document.querySelector('#theme-selection-dark')
+    const lightThemeBtn = document.querySelector('#theme-selection-light')
+
+    darkThemeBtn.addEventListener('click', toggleTheme);
+    lightThemeBtn.addEventListener('click', toggleTheme);
+
+    function toggleTheme() {
+        const html = document.querySelector('html');
+        const currentTheme = html.getAttribute('theme');
+
+        if (currentTheme === 'dark' || currentTheme === null || currentTheme === undefined) {
+            
+        } else {
+            setTheme('dark');
+        }
+    }
+
+    function setTheme(theme) {
+    }
+</script>

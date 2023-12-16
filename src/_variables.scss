@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-$theme: dark;
+$theme: light;
 
 
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
@@ -34,3 +34,26 @@ $themes: (
     accent: #e34a69,
   ),
 );
+
+
+
+
+
+:root {
+    @each $color, $value in map-get($themes, $theme) {
+        @debug $color, $value;
+        --#{$color}: #{$value};
+    }
+}
+
+html[theme='dark'] {
+    @each $color, $value in map-get($themes, dark) {
+        --#{$color}: #{$value};
+    }
+}
+html[theme='light'] {
+    @each $color, $value in map-get($themes, light) {
+        --#{$color}: #{$value};
+    }
+}
+  

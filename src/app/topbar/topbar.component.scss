@@ -20,7 +20,7 @@
     height: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    border-bottom: solid 1px map-get(map-get($themes, $theme), border);
+    border-bottom: solid 1px var(--border);
     // border-bottom: rgba(255, 255, 255, 0.1) solid 1px;
 
     position: absolute;
@@ -29,8 +29,8 @@
     width: 100%;
 
     button {
-        background-color: map-get(map-get($themes, $theme), background);
-        color: map-get(map-get($themes, $theme), text);
+        background-color: var(--background);
+        color: var(--text);
         padding: 0.5rem;
         border: none;
         height: 100%;
@@ -43,16 +43,16 @@
         border-radius: 6px;
 
         // &:hover {
-        //     // background-color: darken(map-get(map-get($themes, $theme), background), 10%);
-        //     background-color: map-get(map-get($themes, $theme), accent);
-        //     color: map-get(map-get($themes, $theme), background);
+        //     // background-color: darken(var(--background), 10%);
+        //     background-color: var(--accent);
+        //     color: var(--background);
         // }
 
         &:hover {
-            // background-color: darken(map-get(map-get($themes, $theme), background), 10%);
-            // color: $themeen(map-get(map-get($themes, $theme), text), 20%);
-            // color: darken(map-get(map-get($themes, $theme), background), 35%);
-            color: map-get(map-get($themes, $theme), alt-background);
+            // background-color: darken(var(--background), 10%);
+            // color: $themeen(var(--text), 20%);
+            // color: darken(var(--background), 35%);
+            color: var(--alt-background);
         }
     }
 }

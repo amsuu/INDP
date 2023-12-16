@@ -14,7 +14,7 @@ h2 {
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    color: map-get(map-get($themes, $theme), supressed-heading);
+    color: var(--supressed-heading);
 }
 
 
@@ -26,11 +26,11 @@ h2 {
 
     font-size: 18pt;
 
-    background-color: map-get(map-get($themes, $theme), accent);
-    color: map-get(map-get($themes, $theme), background);
+    background-color: var(--accent);
+    color: var(--background);
     // background-color: color.scale(map-get(map-get($themes, light), background), $whiteness: 50%);
     // background-color: lighten(map-get(map-get($themes, light), background), 5%);
-    border: map-get(map-get($themes, $theme), border);
+    border: var(--border);
 
     width: fit-content;
     margin-inline-start: 1rem;
@@ -53,8 +53,8 @@ h2 {
         
 
         &.active-theme {
-            background-color: map-get(map-get($themes, $theme), background);
-            color: map-get(map-get($themes, $theme), text);
+            background-color: var(--background);
+            color: var(--text);
         }
     }
 }
