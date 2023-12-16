@@ -1,0 +1,19 @@
+$font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
+$font-serif: 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
+$font-size: 22pt;
+$themes: (
+ light: (
+   text: #210d11,
+   background: #f7e8eb,
+   primary: #792032,
+   secondary: #e17086,
+   accent: #b51c3b,
+ ),
+ dark: (
+   text: #f2dee2,
+   background: #17080b,
+   primary: #df8698,
+   secondary: #8f1e35,
+   accent: #e34a69,
+ ),
+);

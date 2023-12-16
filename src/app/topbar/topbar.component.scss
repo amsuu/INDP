@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@import 'src/variables';
+
+
+#topbar, #topbar>* {
+
+    background-color: #00000000;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: fit-content;
+
+    font-size: $font-size;
+}
+
+#topbar {
+
+    height: 4rem;
+    padding: 1rem;
+    border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    button {
+        background-color: map-get(map-get($themes, light), background);
+        color: map-get(map-get($themes, light), text);
+        border: none;
+        padding: 0.5rem;
+        
+        font-size: $font-size;
+    }
+}
