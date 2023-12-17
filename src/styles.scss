@@ -12,8 +12,8 @@ html {
 }
 
 *::selection {
-    background-color: map-get(map-get($themes, $theme), accent);
-    color: map-get(map-get($themes, $theme), background);
+    background-color: var(--accent);
+    color: var(--background);
 }
 
 body {
@@ -21,8 +21,8 @@ body {
     font-size: $font-size;
     line-height: 1.5;
 
-    background-color: map-get(map-get($themes, $theme), background);
-    color: map-get(map-get($themes, $theme), text);
+    background-color: var(--background);
+    color: var(--text);
 }
 body, body[font="sans"] {
     font-family: $font-sans;
@@ -68,12 +68,12 @@ h1, h2 {
 }
 
 h1 {
-    color: map-get(map-get($themes, $theme), accent-text);
-    color: map-get(map-get($themes, $theme), heading);
+    color: var(--accent-text);
+    color: var(--heading);
 }
 
 h2 {
-    color: map-get(map-get($themes, $theme), heading-2);
+    color: var(--heading)-2;
 }
 
 
