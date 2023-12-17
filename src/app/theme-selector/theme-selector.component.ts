@@ -11,13 +11,7 @@ export class ThemeSelectorComponent {
 
   ngAfterViewInit() {
 
-    let currentTheme = this.funcs.getCurrentTheme() === 'dark' ? 'dark' : 'light';
-
-    this.toggleThemeHandler();
-
-    if (currentTheme === 'light') {
-      this.toggleThemeHandler();
-    }
+    this.updateThemeSelector();
 
     this.elementRef.nativeElement.querySelector('#theme-selection-light')
     .addEventListener('click', this.toggleThemeHandler.bind(this));
