@@ -15,7 +15,7 @@ export class ThemeSelectorComponent {
 
     this.toggleThemeHandler();
 
-    if (currentTheme === 'light' || !currentTheme) {
+    if (currentTheme === 'light') {
       this.toggleThemeHandler();
     }
 

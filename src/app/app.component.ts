@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FuncsService } from './funcs.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'INDP';
+
+  constructor (private funcs: FuncsService) {}
+  
+  ngOnInit() {
+
+    let currentTheme = this.funcs.getCurrentTheme() === 'dark' ? 'dark' : 'light';
+
+    this.funcs.toggleTheme();
+
+    if (currentTheme === 'light') {
+      this.funcs.toggleTheme();
+    }
+  }
 }
