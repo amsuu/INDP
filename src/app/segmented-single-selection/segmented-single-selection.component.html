@@ -1,0 +1,6 @@
+<div class="segmented-single-selection">
+    <button *ngFor="let option of options; index as i"
+        class="selection" [ngClass]="selection === i ? 'active' : ''"
+        (click)="selection = i"
+    >{{option}}</button>
+</div>

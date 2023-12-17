@@ -8,11 +8,10 @@
 <!-- </label> -->
 
 <!-- abeceda <app-switch></app-switch> кирилица -->
-<!-- <app-segmented-single-selection
-    [options]="[
-        {name: 'abeceda', status: false},
-        {name: 'кирилица', status: false},
-    ]"></app-segmented-single-selection> -->
+<app-segmented-single-selection
+    [options]="['abeceda', 'кирилица']"
+    [localStorageReference]="'script'"
+></app-segmented-single-selection>
 
 <h2>etymological spelling</h2>
 <app-segmented-multiple-selection
@@ -26,7 +25,9 @@
         {name: 'ś ź', status: false},
         {name: 'ć', status: false},
         {name: 'đ', status: false}
-    ]"></app-segmented-multiple-selection>
+    ]"
+    [localStorageReference]="'etymological-spelling-latin'"
+></app-segmented-multiple-selection>
 
 
 <br>

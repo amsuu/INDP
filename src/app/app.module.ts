@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
 import { SwitchComponent } from './switch/switch.component';
 import { SegmentedMultipleSelectionComponent } from './segmented-multiple-selection/segmented-multiple-selection.component';
+import { SegmentedSingleSelectionComponent } from './segmented-single-selection/segmented-single-selection.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SegmentedMultipleSelectionComponent } from './segmented-multiple-select
     HomeComponent,
     ThemeSelectorComponent,
     SwitchComponent,
-    SegmentedMultipleSelectionComponent
+    SegmentedMultipleSelectionComponent,
+    SegmentedSingleSelectionComponent
   ],
   imports: [
     BrowserModule,
