@@ -16,7 +16,7 @@ export class ThemeSelectorComponent {
   }
   
   toggleTheme() {
-    let currentTheme = document.body.getAttribute('theme') || 'light'
+    let currentTheme = document.body.getAttribute('theme') || 'light';
     document.body.setAttribute('theme', currentTheme === 'light' ? 'dark' : 'light');
     this.elementRef.nativeElement.querySelector('#theme-selection-light').classList.toggle('active-theme');
     this.elementRef.nativeElement.querySelector('#theme-selection-dark').classList.toggle('active-theme');
