@@ -7,6 +7,8 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HomeComponent } from './home/home.component';
 import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
+import { SwitchComponent } from './switch/switch.component';
+import { SegmentedMultipleSelectionComponent } from './segmented-multiple-selection/segmented-multiple-selection.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ThemeSelectorComponent } from './theme-selector/theme-selector.componen
     TopbarComponent,
     SettingsComponent,
     HomeComponent,
-    ThemeSelectorComponent
+    ThemeSelectorComponent,
+    SwitchComponent,
+    SegmentedMultipleSelectionComponent
   ],
   imports: [
     BrowserModule,

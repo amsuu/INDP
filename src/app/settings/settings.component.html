@@ -1,6 +1,40 @@
+<h1>Translation Settings</h1>
+<h2>alphabet</h2>
+<!-- <label for="alphabet">alphabet: -->
+    <!-- <select id="alphabet" name="alphabet">
+        <option value="volvo">abeceda</option>
+        <option value="saab">кирилица</option>
+    </select> -->
+<!-- </label> -->
+
+<!-- abeceda <app-switch></app-switch> кирилица -->
+<!-- <app-segmented-single-selection
+    [options]="[
+        {name: 'abeceda', status: false},
+        {name: 'кирилица', status: false},
+    ]"></app-segmented-single-selection> -->
+
+<h2>etymological spelling</h2>
+<app-segmented-multiple-selection
+    [options]="[
+        {name: 'å', status: false},
+        {name: 'ę ų', status: false},
+        {name: 'ė ȯ', status: false},
+        {name: 'ŕ', status: false},
+        {name: 'ĺ ń', status: false},
+        {name: 't́ d́', status: false},
+        {name: 'ś ź', status: false},
+        {name: 'ć', status: false},
+        {name: 'đ', status: false}
+    ]"></app-segmented-multiple-selection>
+
+
+<br>
+
 <h1>Appearance</h1>
 <h2>theme</h2>
 
+dark mode: <app-switch></app-switch>
 Color scheme:
 <app-theme-selector></app-theme-selector>
 

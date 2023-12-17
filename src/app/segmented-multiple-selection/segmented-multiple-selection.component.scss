@@ -1,0 +1,27 @@
+.segmented-multiple-selection {
+
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 2px var(--border);
+    background-color: var(--border);
+
+    width: 75%;
+    border-radius: 1rem;
+    gap: 2px;
+
+    >* {
+        flex: 1 1 0;
+        height: 100%;
+        padding: 0.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
