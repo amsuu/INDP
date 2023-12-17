@@ -14,7 +14,8 @@ $themes: (
     supressed-heading: color.scale(#210d11, $whiteness: 55%), // #656565, originally color.scale(map-get(map-get($themes, $theme), text), $whiteness: 55%)
     background: #f7e8eb,
     alt-background: darken(#f7e8eb, 35%), // #c96478, originally darken(map-get(map-get($themes, $theme), background), 35%);
-    border: rgba(0, 0, 0, 0.1),
+    border: hsla(348, 25%, 41%, 0.102),
+    // border: rgba(0,0,0,0.1),
     primary: #792032,
     secondary: #e17086,
     secondary20: lighten(#e17086, 20%),
@@ -31,7 +32,8 @@ $themes: (
     supressed-heading: color.scale(#210d11, $lightness: 60%),
     background: #17080b,
     alt-background: lighten(#17080b, 35%),
-    border: rgba(255, 255, 255, 0.1),
+    border: hsla(348, 25%, 59%, 0.102),
+    // border: rgba(255, 255, 255, 0.1),
     primary: #df8698,
     secondary: #8f1e35,
     secondary20: darken(#8f1e35, 20%),

@@ -7,7 +7,9 @@
     font-size: $font-size - 4;
 
     background-color: var(--accent);
+    background-color: var(--secondary20);
     color: var(--background);
+    color: var(--text);
     // background-color: color.scale(map-get(map-get($themes, light), background), $whiteness: 50%);
     // background-color: lighten(map-get(map-get($themes, light), background), 5%);
     border: var(--border);
@@ -34,7 +36,9 @@
 
         &.active-theme {
             background-color: var(--background);
+            background-color: var(--accent);
             color: var(--text);
+            color: var(--background);
         }
     }
 }
