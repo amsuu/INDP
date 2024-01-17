@@ -23,6 +23,17 @@
     align-items: center;
     justify-content: center;
 
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+        >* {
+
+            background-color: var(--secondary);
+        }
+    }
+
     >* {
         font-size: 18pt;
         border: none;

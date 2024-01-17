@@ -10,6 +10,7 @@ import { ThemeSelectorComponent } from './theme-selector/theme-selector.componen
 import { SwitchComponent } from './switch/switch.component';
 import { SegmentedMultipleSelectionComponent } from './segmented-multiple-selection/segmented-multiple-selection.component';
 import { SegmentedSingleSelectionComponent } from './segmented-single-selection/segmented-single-selection.component';
+import { Level1QuizQuestionComponent } from './level-1-quiz-question/level-1-quiz-question.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SegmentedSingleSelectionComponent } from './segmented-single-selection/
     ThemeSelectorComponent,
     SwitchComponent,
     SegmentedMultipleSelectionComponent,
-    SegmentedSingleSelectionComponent
+    SegmentedSingleSelectionComponent,
+    Level1QuizQuestionComponent
   ],
   imports: [
     BrowserModule,

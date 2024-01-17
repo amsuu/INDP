@@ -110,12 +110,16 @@ button {
     transition: all 200ms ease-in-out;
 
     &:hover {
-        background-color: var(--alt-background)
+        background-color: var(--secondary);
     }
 
     &.active {
         background-color: var(--secondary20);
         color: var(--accent);
+
+        &:hover {
+            background-color: var(--secondary);
+        }
     }
 }
 

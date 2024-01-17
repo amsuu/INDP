@@ -13,9 +13,20 @@ $themes: (
     heading-2: color.scale(#210d11, $whiteness: 55%), // same as supressed-heading
     supressed-heading: color.scale(#210d11, $whiteness: 55%), // #656565, originally color.scale(map-get(map-get($themes, $theme), text), $whiteness: 55%)
     background: #f7e8eb,
+
+    context-btn-bg: hsla(348, 73%, 41%, 0.5), // accent 0.25 opacity
+    context-btn-text: hsla(348, 48%, 94%, 0.75),  // background 0.75 opacity
+    context-btn-bg-hover: #b51c3b, // accent
+    context-btn-text-hover: #f7e8eb,  // background
+  
+    // card-bg: #b51c3b, // secondary20
+    // card-text: lighten(#e17086, 20%), // accent
+    
+    card-bg: #e17086, // secondary
+    card-text: #210d11, // text
+
     alt-background: darken(#f7e8eb, 35%), // #c96478, originally darken(map-get(map-get($themes, $theme), background), 35%);
-    border: hsla(348, 25%, 41%, 0.102),
-    // border: rgba(0,0,0,0.1),
+    border: hsla(348, 25%, 41%, 0.1),
     primary: #792032,
     secondary: #e17086,
     secondary20: lighten(#e17086, 20%),
@@ -25,15 +36,23 @@ $themes: (
     text: #f2dee2,
     heading: #e34a69, // same as accent
     heading-2: color.scale(#210d11, $lightness: 60%), // same as supressed-heading
-    // accent-text: color.scale(#17080b, $lightness: 55%),
-    // accent-text: color.scale(#210d11, $lightness: 55%),
-    // supressed-text: color.scale(#f2dee2, $blackness: 55%),
-    // supressed-text: color.scale(#17080b, $lightness: 55%),
     supressed-heading: color.scale(#210d11, $lightness: 60%),
     background: #17080b,
     alt-background: lighten(#17080b, 35%),
-    border: hsla(348, 25%, 59%, 0.102),
-    // border: rgba(255, 255, 255, 0.1),
+
+    context-btn-bg: hsla(348, 73%, 59%, 0.5), // accent 0.25 opacity
+    context-btn-text: hsla(348, 48%, 6%, 0.75),  // background 0.75 opacity
+
+    context-btn-bg-hover: hsla(348, 73%, 59%), // accent
+    context-btn-text-hover: hsla(348, 48%, 6%),  // background
+
+    // card-bg: darken(#8f1e35, 20%), // secondary20
+    // card-text: #e34a69, // accent
+
+    card-bg: #8f1e35, // secondary
+    card-text: #f2dee2, // text
+    
+    border: hsla(348, 25%, 59%, 0.1),
     primary: #df8698,
     secondary: #8f1e35,
     secondary20: darken(#8f1e35, 20%),
