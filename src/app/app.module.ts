@@ -11,6 +11,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { SegmentedMultipleSelectionComponent } from './segmented-multiple-selection/segmented-multiple-selection.component';
 import { SegmentedSingleSelectionComponent } from './segmented-single-selection/segmented-single-selection.component';
 import { Level1QuizQuestionComponent } from './level-1-quiz-question/level-1-quiz-question.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Level1QuizQuestionComponent } from './level-1-quiz-question/level-1-qui
     SwitchComponent,
     SegmentedMultipleSelectionComponent,
     SegmentedSingleSelectionComponent,
-    Level1QuizQuestionComponent
+    Level1QuizQuestionComponent,
+    HelpPageComponent,
   ],
   imports: [
     BrowserModule,
