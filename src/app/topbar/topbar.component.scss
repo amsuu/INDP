@@ -29,10 +29,15 @@
     width: 100%;
 
     button {
+
+        background-color: var(--background);
+        color: var(--accent);
+        color: var(--text);
+
         height: 100%;
 
 
-        border-radius: 6px;
+        // border-radius: 6px;
 
         // &:hover {
         //     // background-color: darken(var(--background), 10%);
@@ -46,6 +51,14 @@
             // color: darken(var(--background), 35%);
             background-color: var(--background);
             color: var(--alt-background);
+        }
+        
+        &.current-page {
+            background-color: var(--background);
+            color: var(--text);
+            color: var(--accent);
+            border-bottom: 0.1rem solid var(--text);
+            border-bottom: 0.1rem solid var(--accent);
         }
     }
 }

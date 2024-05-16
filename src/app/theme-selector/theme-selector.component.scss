@@ -4,7 +4,7 @@
 @import 'src/variables';
 
 .theme-selector {
-    font-size: $font-size - 4;
+    font-size: $settings-font-size - 4;
 
     background-color: var(--accent);
     background-color: var(--secondary20);
@@ -36,6 +36,7 @@
 
     >* {
         font-size: 18pt;
+        font-size: $settings-font-size - 4;
         border: none;
         background-color: inherit;
         color: inherit;

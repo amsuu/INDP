@@ -1,5 +1,5 @@
 <div id="topbar">
-    <div id="settings"><button routerLink="/" routerLinkActive="active-page">Home</button></div>
-    <div id="settings"><button routerLink="/settings" routerLinkActive="active-page">Settings</button></div>
-    <div id="settings"><button routerLink="/help" routerLinkActive="active-page">Help</button></div>
+    <div id="settings"><button routerLink="/home" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Home</button></div>
+    <div id="settings"><button routerLink="/settings" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Settings</button></div>
+    <div id="settings"><button routerLink="/help" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Help</button></div>
 </div>
