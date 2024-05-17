@@ -1,18 +1,26 @@
 <div class="level-1-quiz-question-wrapper">
-    <div>
+    <div class="card-and-title-container">
         <h1>Word:</h1>
         <!-- <div class="card">brat<button class="context" routerLink="/settings"><span class="material-symbols-outlined"><b>...</b></span></button></div> -->
-        <div class="card">brat<button class="context" routerLink="/settings"><span></span></button></div>
+        <div class="card-container">
+            <div class="card">brat<button class="context" routerLink="/settings"><span class="card-context-button"></span></button></div>
+        </div>
     </div>
 
-    <div>
+    <div class="card-and-title-container target-card-container">
         <h1>Target Case:</h1>
         <!-- <div class="card">Dative<button class="context" routerLink="/help"><span><b>?</b></span></button></div> -->
-        <div class="card">Dative<button class="context" routerLink="/help"><span></span></button></div>
+        <div class="card-container target-card-container">
+            <div class="card target-card target-case-card">Dative<button class="context" routerLink="/help"><span class="card-context-button"></span></button></div>
+            <div class="card target-card target-number-card">singular</div>
+        </div>
     </div>
 
-    <div>
+    <div class="card-and-title-container answer-card-container">
         <h1>Answer:</h1>
-        <div class="card answer-card"><input type="text" placeholder="brat" name="" id=""></div>
+        <div class="card-container answer-card-container">
+            <div class="card answer-card"><input type="text" placeholder="brat" name="" id=""></div>
+            <button class="answer-reveal-button">Reveal</button>
+        </div>
     </div>
 </div>

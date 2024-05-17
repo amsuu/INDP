@@ -7,7 +7,10 @@ $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-size: 22pt;
 $settings-font-size: 22pt;
+
 $themes: (
+  
+  // https://www.realtimecolors.com/?colors=210d11-f7e8eb-792032-e17086-b51c3b&fonts=Poppins-Poppins //
   light: (
     text: #210d11,
     heading: #b51c3b, // same as accent

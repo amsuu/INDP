@@ -35,11 +35,11 @@
     align-items: flex-start;
     gap: 3.75rem;
 
-    >* {
+    >div.card-and-title-container {
         width: 12.5rem;
         height: 8.25rem;
         flex-shrink: 0;
-
+        
         h1 {
             color: var(--text);
             text-align: center;
@@ -49,91 +49,125 @@
             font-weight: 400;
             line-height: normal;
         }
-        div.card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            width: 12.5rem;
-            height: 3.75rem;
-            flex-shrink: 0;
-
+        div.card-container {
             border-radius: 0.625rem;
-            // background-color: var(--secondary);
-            // background-color: var(--secondary20);
-            // background-color: var(--accent);
-            // background-color: var(--card-bg);
-            background-color: var(--secondary);
-
-            // color: var(--text);
-            // color: var(--accent);
-            // color: var(--secondary20);
-            // color: var(--card-text);
-            color: var(--text);
-            text-align: center;
-            font-size: 2rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-
-
-            &.answer-card {
-                background-color: var(--primary);
-                background-color: var(--primary);
-                input {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #00000000;
-                    border: none;
-                    font-size: inherit;
-                    text-align: inherit;
-                    color: var(--background);
+        
+            &.target-card-container {
+                background-color: var(--secondary20);
                 
-                    &::-webkit-input-placeholder {
-                        color: var(--primary);
-                    }
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 0.8rem;
+                height: fit-content;
+            }
+            &.answer-card-container {
+                background-color: var(--secondary);
+                height: 3.75rem + 2rem;
+
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 0;
+
+                .answer-reveal-button {
+                    width: 100%;
+                    flex-grow: 1;
+                    display: inline;
+                    font-size: 1rem;
+                    margin: 0;
+                    padding: 0;
+                    background: #00000000;
                 }
             }
 
-            position: relative;
-            button.context {
-                position: absolute;
-                top: 0;
-                right: 0;
-                
-                width: 1.875rem;
-                height: 1.875rem;
-                flex-shrink: 0;
-
+            div.card {
                 display: flex;
-                width: 1.875rem;
-                height: 1.875rem;
-                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+
+                width: 12.5rem;
+                height: 3.75rem;
                 flex-shrink: 0;
 
-                span {
+                border-radius: inherit;
+                // background-color: var(--secondary);
+                // background-color: var(--secondary20);
+                // background-color: var(--accent);
+                // background-color: var(--card-bg);
+                background-color: var(--secondary);
 
-                    color: var(--context-btn-text);
-                    text-align: center;
-                    font-family: Roboto Slab;
-                    font-size: 1rem;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                    
+                // color: var(--text);
+                // color: var(--accent);
+                // color: var(--secondary20);
+                // color: var(--card-text);
+                color: var(--text);
+                text-align: center;
+                font-size: 2rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+
+
+                &.answer-card {
+                    background-color: var(--primary);
+                    background-color: var(--primary);
+                    input {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #00000000;
+                        border: none;
+                        font-size: inherit;
+                        text-align: inherit;
+                        color: var(--background);
+
+                        &::placeholder,
+                        &::-moz-placeholder,
+                        &::-webkit-input-placeholder {
+                            color: var(--text);
+                            opacity: 1;
+                        }
+                    }
                 }
 
-                border-radius: 0rem 0.625rem;
-                // opacity: 0.25;
-                background-color: var(--context-btn-bg);
-                color: var(--context-btn-text);
+                position: relative;
+                button.context {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    
+                    width: 1.875rem;
+                    height: 1.875rem;
+                    flex-shrink: 0;
 
-                &:hover {
-                    background-color: var(--context-btn-bg-hover);
-                    color: var(--context-btn-text-hover);
+                    display: flex;
+                    width: 1.875rem;
+                    height: 1.875rem;
+                    flex-direction: column;
+                    justify-content: center;
+                    flex-shrink: 0;
 
+                    span.card-context-button {
+
+                        color: var(--context-btn-text);
+                        text-align: center;
+                        font-family: Roboto Slab;
+                        font-size: 1rem;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    border-radius: 0rem 0.625rem;
+                    // opacity: 0.25;
+                    background-color: var(--context-btn-bg);
+                    color: var(--context-btn-text);
+
+                    &:hover {
+                        background-color: var(--context-btn-bg-hover);
+                        color: var(--context-btn-text-hover);
+
+                    }
                 }
             }
         }
