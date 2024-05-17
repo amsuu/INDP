@@ -5,9 +5,9 @@
     font-style: normal;
     font-weight: 100 700;
     src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v154/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
-  }
+}
   
-  .material-symbols-outlined {
+.material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
@@ -22,7 +22,7 @@
     font-feature-settings: 'liga';
     -moz-font-feature-settings: 'liga';
     -moz-osx-font-smoothing: grayscale;
-  }
+}
 
 .level-1-quiz-question-wrapper {
     display: flex;
@@ -109,7 +109,7 @@
 
 
                 &.answer-card {
-                    background-color: var(--primary);
+                    background-color: var(--secondary20);  // light mode -- change from styles.scss
                     background-color: var(--primary);
                     input {
                         display: block;
@@ -119,11 +119,13 @@
                         border: none;
                         font-size: inherit;
                         text-align: inherit;
+                        color: var(--text);  // light mode -- change from styles.scss
                         color: var(--background);
 
                         &::placeholder,
                         &::-moz-placeholder,
                         &::-webkit-input-placeholder {
+                            color: var(--background);  // light mode -- change from styles.scss
                             color: var(--text);
                             opacity: 1;
                         }

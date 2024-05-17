@@ -146,3 +146,25 @@ button {
 //     background-color: map-get(map-get($themes, light), secondary);
 //     color: map-get(map-get($themes, light), background);
 // }
+
+
+body[theme="light"] {
+    .level-1-quiz-question-wrapper {
+        >div.card-and-title-container {
+            div.card-container {
+                div.card.answer-card {
+                    background-color: var(--secondary20) !important;  // light mode override
+                    input {
+                        color: var(--text) !important;  // light mode override
+                        
+                        &::placeholder,
+                        &::-moz-placeholder,
+                        &::-webkit-input-placeholder {
+                            color: var(--background) !important;  // light mode override
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
