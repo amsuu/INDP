@@ -18,11 +18,11 @@ $themes: (
     secondary: #e17086,
     accent: #b51c3b,
     
-    alt-background: darken(#f7e8eb, 35%), // #c96478, originally darken(map-get(map-get($themes, $theme), background), 35%);
+    alt-background: darken(#f7e8eb, 35%),
     
     border: hsla(348, 25%, 41%, 0.1),
     
-    supressed-heading: color.scale(#210d11, $whiteness: 55%), // #656565, originally color.scale(map-get(map-get($themes, $theme), text), $whiteness: 55%)
+    supressed-heading: color.scale(#210d11, $whiteness: 55%),
     
     secondary20: lighten(#e17086, 20%),
     
