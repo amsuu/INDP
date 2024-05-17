@@ -29,18 +29,15 @@
     width: 100%;
 
     button {
+
         background-color: var(--background);
+        color: var(--accent);
         color: var(--text);
-        padding: 0.5rem;
-        border: none;
+
         height: 100%;
-        
-        font-size: $font-size * 0.8;
-        font-weight: 500;
 
-        transition: all 150ms ease-in-out;
 
-        border-radius: 6px;
+        // border-radius: 6px;
 
         // &:hover {
         //     // background-color: darken(var(--background), 10%);
@@ -52,7 +49,16 @@
             // background-color: darken(var(--background), 10%);
             // color: $themeen(var(--text), 20%);
             // color: darken(var(--background), 35%);
+            background-color: var(--background);
             color: var(--alt-background);
+        }
+        
+        &.current-page {
+            background-color: var(--background);
+            color: var(--text);
+            color: var(--accent);
+            border-bottom: 0.1rem solid var(--text);
+            border-bottom: 0.1rem solid var(--accent);
         }
     }
 }

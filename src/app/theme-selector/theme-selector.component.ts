@@ -12,11 +12,13 @@ export class ThemeSelectorComponent {
   ngAfterViewInit() {
 
     this.updateThemeSelector();
-
-    this.elementRef.nativeElement.querySelector('#theme-selection-light')
+    
+    this.elementRef.nativeElement.querySelector('.theme-selector')
     .addEventListener('click', this.toggleThemeHandler.bind(this));
-    this.elementRef.nativeElement.querySelector('#theme-selection-dark')
-    .addEventListener('click', this.toggleThemeHandler.bind(this));
+    // this.elementRef.nativeElement.querySelector('#theme-selection-light')
+    // .addEventListener('click', this.toggleThemeHandler.bind(this));
+    // this.elementRef.nativeElement.querySelector('#theme-selection-dark')
+    // .addEventListener('click', this.toggleThemeHandler.bind(this));
   }
 
   toggleThemeHandler() {

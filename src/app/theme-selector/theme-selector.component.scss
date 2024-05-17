@@ -4,10 +4,12 @@
 @import 'src/variables';
 
 .theme-selector {
-    font-size: $font-size - 4;
+    font-size: $settings-font-size - 4;
 
     background-color: var(--accent);
+    background-color: var(--secondary20);
     color: var(--background);
+    color: var(--text);
     // background-color: color.scale(map-get(map-get($themes, light), background), $whiteness: 50%);
     // background-color: lighten(map-get(map-get($themes, light), background), 5%);
     border: var(--border);
@@ -21,8 +23,20 @@
     align-items: center;
     justify-content: center;
 
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+        >* {
+
+            background-color: var(--secondary);
+        }
+    }
+
     >* {
         font-size: 18pt;
+        font-size: $settings-font-size - 4;
         border: none;
         background-color: inherit;
         color: inherit;
@@ -34,7 +48,9 @@
 
         &.active-theme {
             background-color: var(--background);
+            background-color: var(--accent);
             color: var(--text);
+            color: var(--background);
         }
     }
 }

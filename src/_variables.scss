@@ -4,36 +4,49 @@ $theme: light;
 
 
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
-$font-serif: 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
+$font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-size: 22pt;
+$settings-font-size: 22pt;
+
 $themes: (
+  
+  // https://www.realtimecolors.com/?colors=210d11-f7e8eb-792032-e17086-b51c3b&fonts=Poppins-Poppins //
   light: (
     text: #210d11,
-    heading: #b51c3b, // same as accent
-    heading-2: color.scale(#210d11, $whiteness: 55%), // same as supressed-heading
-    supressed-heading: color.scale(#210d11, $whiteness: 55%), // #656565, originally color.scale(map-get(map-get($themes, $theme), text), $whiteness: 55%)
     background: #f7e8eb,
-    alt-background: darken(#f7e8eb, 35%), // #c96478, originally darken(map-get(map-get($themes, $theme), background), 35%);
-    border: rgba(0, 0, 0, 0.1),
     primary: #792032,
     secondary: #e17086,
     accent: #b51c3b,
+    
+    alt-background: darken(#f7e8eb, 35%),
+    
+    border: hsla(348, 25%, 41%, 0.1),
+    
+    supressed-heading: color.scale(#210d11, $whiteness: 55%),
+    
+    secondary20: lighten(#e17086, 20%),
+    
+    context-btn-bg: #b51c3b80, // accent 0.25 opacity
+    context-btn-text: #f7e8ebbf,  // background 0.75 opacity
   ),
   dark: (
     text: #f2dee2,
-    heading: #e34a69, // same as accent
-    heading-2: color.scale(#210d11, $lightness: 60%), // same as supressed-heading
-    // accent-text: color.scale(#17080b, $lightness: 55%),
-    // accent-text: color.scale(#210d11, $lightness: 55%),
-    // supressed-text: color.scale(#f2dee2, $blackness: 55%),
-    // supressed-text: color.scale(#17080b, $lightness: 55%),
-    supressed-heading: color.scale(#210d11, $lightness: 60%),
     background: #17080b,
-    alt-background: lighten(#17080b, 35%),
-    border: rgba(255, 255, 255, 0.1),
     primary: #df8698,
     secondary: #8f1e35,
     accent: #e34a69,
+
+    
+    alt-background: lighten(#17080b, 35%),
+    
+    border: hsla(348, 25%, 59%, 0.1),
+    
+    secondary20: darken(#8f1e35, 20%),
+
+    supressed-heading: color.scale(#210d11, $lightness: 60%),
+
+    context-btn-bg: #e34a6980, // accent 0.25 opacity
+    context-btn-text: #17080bbf,  // background 0.75 opacity
   ),
 );
 

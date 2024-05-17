@@ -1,21 +1,56 @@
-<h1>Appearance</h1>
-<h2>theme</h2>
+<div class="settings">
 
+
+
+<h1 id="translation-settings">Translation Settings</h1>
+<h2 id="alphabet">alphabet</h2>
+<app-segmented-single-selection
+    [options]="['latinica', 'кирилица']"
+    [localStorageReference]="'script'"
+></app-segmented-single-selection>
+
+<h2 id="etymological-spelling">etymological spelling</h2>
+<app-segmented-multiple-selection
+    [options]="[
+        {name: 'å', status: false},
+        {name: 'ę ų', status: false},
+        {name: 'ė ȯ', status: false},
+        {name: 'ŕ', status: false},
+        {name: 'ĺ ń', status: false},
+        {name: 'ť ď', status: false},
+        {name: 'ś ź', status: false},
+        {name: 'ć', status: false},
+        {name: 'đ', status: false}
+    ]"
+    [localStorageReference]="'etymological-spelling-latin'"
+></app-segmented-multiple-selection>
+
+
+<br>
+
+<h1 id="appearance">Appearance</h1>
+<h2 id="theme">theme</h2>
 Color scheme:
 <app-theme-selector></app-theme-selector>
 
+<br>
+
 <h1>Troubleshooting</h1>
 <h2>fonts</h2>
-a å b c č ć d đ d́ e ė ě ę f g h i j k <br>
-l ĺ m n ń o ȯ p q r ŕ s š ś t t́ u ų v <br>
-w x y z ž ź <br>
-A Å B C Č Ć D Đ D́ E Ė Ě Ę F G H I J K <br>
-L Ĺ M N Ń O Ȯ P Q R Ŕ S Š Ś T T́ U Ų V <br>
-W X Y Z Ž Ź <br>
+a å b c č ć d đ d́ ď e ė ě ę f g ǧ ǵ h ȟ i j k ǩ <br>
+l ĺ ł ľ m n ń ň o ȯ p q r ŕ ř s š ś t t́ ť u ů ų <br>
+v w x y z ž ź <br>
+A Å B C Č Ć D Đ D́ Ď E Ė Ě Ę F G Ǧ Ǵ H Ȟ I J K Ǩ <br>
+L Ĺ Ł Ľ M N Ń Ň O Ȯ P Q R Ŕ Ř S Š Ś T T́ Ť U Ů Ų <br>
+V W X Y Z Ž Ź <br>
 <br>
 а б в г ѓ ґ д ђ е ѐ ё ѣ є ж з ѕ и і ї <br>
 ѝ ӣ ј й к ќ л љ м н њ о п р с т ћ у ў <br>
-ӯ ф х ц ч џ ш щ ь ы ъ э ю я <br>
+ӯ ф х ц ч џ ш щ ь ы ꙑ ъ э ю я ѧ ѩ ѫ ѭ ѥ <br>
 А Б В Г Ѓ Ґ Д Ђ Е Ѐ Ё Ѣ Є Ж З Ѕ И І Ї <br>
 Ѝ Ӣ Ј Й К Ќ Л Љ М Н Њ О П Р С Т Ћ У Ў <br>
-Ӯ Ф Х Ц Ч Џ Ш Щ Ь Ы Ъ Э Ю Я <br>
+Ӯ Ф Х Ц Ч Џ Ш Щ Ь Ы Ꙑ Ъ Э Ю Я Ѧ Ѩ Ѫ Ѭ Ѥ<br>
+
+
+
+</div>

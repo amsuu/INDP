@@ -1,5 +1,5 @@
 @use "sass:map";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'variables';
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -14,6 +14,7 @@ html {
 *::selection {
     background-color: var(--accent);
     color: var(--background);
+    text-decoration-color: var(--background);
 }
 
 body {
@@ -39,41 +40,97 @@ body[font="serif"] {
     font-family: $font-serif;
     * {
         font-family: $font-serif;
+        // font-feature-settings: ;
+        font-weight: medium;
     }
 }
-
 app-settings {
     display: block;
     width: 80vw;
-}
-
-
-
-label, button, select, summary,
-[type=radio], [type=submit], [type=checkbox] {
-    cursor: pointer;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
-img {
-    display: block;
-    max-width: 100%;
+label, button, select, summary,
+[type=radio], [type=submit], [type=checkbox] {
+    cursor: pointer;
 }
 
 h1, h2 {
     text-align: center;
 }
-
 h1 {
     color: var(--accent-text);
-    color: var(--heading);
+    color: var(--accent);
+    margin-bottom: 1rem;
+    // &::selection {
+    //     color: var(--text);
+    // }
+}
+h2 {
+    // color: var(--accent)-2;
+
+    font-size: $font-size + 8;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--supressed-heading);
+
+    // &::selection {
+    //     color: var(--secondary20);
+    // }
 }
 
-h2 {
-    color: var(--heading)-2;
+
+input[type="checkbox"], select {
+    font-family: inherit;
+    font-size: $font-size;
+
+    vertical-align: baseline;
+}
+input[type="checkbox"] {
+    
+    height: $font-size / 2;
+
+    aspect-ratio: 1 / 1;
+    
+    vertical-align: middle;
+}
+select {
+    margin: 0px;
+    min-height: $font-size;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--accent);
+    color: var(--background);
+    border: none;
+}
+
+button {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 0.5rem;
+    border: none;
+    
+    font-size: $font-size * 0.8;
+    font-weight: 500;
+
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        background-color: var(--secondary);
+    }
+
+    &.active {
+        background-color: var(--secondary20);
+        color: var(--accent);
+
+        &:hover {
+            background-color: var(--secondary);
+        }
+    }
 }
 
 
@@ -89,3 +146,26 @@ h2 {
 //     background-color: map-get(map-get($themes, light), secondary);
 //     color: map-get(map-get($themes, light), background);
 // }
+
+
+body[theme="light"] {
+    .level-1-quiz-question-wrapper {
+        >div.card-and-title-container {
+            div.card-container {
+                div.card.answer-card {
+                    background-color: var(--secondary20) !important;  // light mode override
+                    input {
+                        color: var(--text) !important;  // light mode override
+                        
+                        &::placeholder,
+                        &::-moz-placeholder,
+                        &::-webkit-input-placeholder {
+                            color: var(--text) !important;  // light mode override
+                            opacity: 50% !important;  // light mode override
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
