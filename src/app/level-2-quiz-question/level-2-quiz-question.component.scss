@@ -1,6 +1,29 @@
 @import '../../variables';
 
 .level-2-quiz-question-wrapper {
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    button {
+        border-radius: 0.625rem;
+        border: solid 0.15rem var(--border);
+        padding: 0 1rem;
+
+        // background-color: var(--accent);
+        // color: var(--text);
+
+        &:hover {
+            background-color: var(--secondary);
+        }
+        &:active {
+            background-color: var(--accent);
+            color: var(--background);
+        }
+    }
+
     .level-2-phrase-wrapper, .level-2-phrase-wrapper>* {
 
         display: flex;
@@ -23,8 +46,13 @@
                 font-size: $font-size;
                 border-radius: 0.625rem;
                 width: unset;
+                max-width: fit-content;
                 transition: all 50ms linear !important;
                 text-align: center;
+
+                &:focus, &:focus-within {
+                    background-color: var(--secondary);
+                }
             }
             
             // .level-2-bracket {

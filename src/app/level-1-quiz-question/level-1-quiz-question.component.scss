@@ -43,6 +43,16 @@
                 flex-flow: column nowrap;
                 gap: 0;
 
+                &:has(> .answer-reveal-button:hover) {
+                    background-color: var(--accent);  // light mode
+                    background-color: var(--secondary20);
+
+                    > .answer-reveal-button:hover {
+                        color: var(--background);  // light mode
+                        color: var(--text);
+                    }
+                }
+
                 .answer-reveal-button {
                     width: 100%;
                     flex-grow: 1;

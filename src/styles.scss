@@ -190,6 +190,12 @@ body[theme="light"] {
     .level-1-quiz-question-wrapper {
         >div.card-and-title-container {
             div.card-container {
+                &.answer-card-container:has(> .answer-reveal-button:hover) {
+                    background-color: var(--accent) !important;  // light mode override
+                    > .answer-reveal-button:hover {
+                        color: var(--background) !important;  // light mode override
+                    }
+                }
                 div.card.answer-card {
                     background-color: var(--secondary20) !important;  // light mode override
                     input {
