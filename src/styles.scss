@@ -46,6 +46,12 @@ html {
     font-style: italic;
 }
 
+.vollkorn-hr {
+    font-feature-settings: "dlig";
+    width: 100%;
+    text-align: center;
+}
+
 body {
     display: flex;
     align-items: center;

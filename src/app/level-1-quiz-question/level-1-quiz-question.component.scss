@@ -83,7 +83,6 @@
 
 
                 &.answer-card {
-                    background-color: var(--secondary20);  // light mode -- change from styles.scss
                     background-color: var(--primary);
                     input {
                         display: block;
@@ -93,13 +92,11 @@
                         border: none;
                         font-size: inherit;
                         text-align: inherit;
-                        color: var(--text);  // light mode -- change from styles.scss
                         color: var(--background);
 
                         &::placeholder,
                         &::-moz-placeholder,
                         &::-webkit-input-placeholder {
-                            color: var(--background);  // light mode -- change from styles.scss
                             color: var(--text);
                             opacity: 1;
                         }

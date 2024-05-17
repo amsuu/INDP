@@ -1,0 +1,35 @@
+@import '../../variables';
+
+.level-2-quiz-question-wrapper {
+    .level-2-phrase-wrapper, .level-2-phrase-wrapper>* {
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: start;
+        align-items: stretch;
+        gap: 1rem;
+
+        .level-2-phrase {
+
+        }
+
+        .level-2-empty {
+            gap: 0.5rem;
+
+            .level-2-input {
+                background-color: var(--secondary20);
+                color: var(--text);
+                border: none;
+                font-size: $font-size;
+                border-radius: 0.625rem;
+                width: unset;
+                transition: all 50ms linear !important;
+                text-align: center;
+            }
+            
+            // .level-2-bracket {
+                // 
+            // }
+        }
+    }
+}

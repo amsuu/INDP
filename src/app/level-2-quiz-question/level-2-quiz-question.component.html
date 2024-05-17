@@ -1,0 +1,12 @@
+<div class="level-2-quiz-question-wrapper">
+    <div class="level-2-phrase-wrapper">
+        <span class="level-2-phrase">Ja vidžų</span>
+        <span class="level-2-empty" id="level-2-empty-0-0">
+            <input #input type="text" class="level-2-input"
+                placeholder="(mųž)" id="level-2-input-0-0"
+                (input)="input.style.width = input.value.length === 0 ? 'unset' : (input.value.length + 2) + 'ch'"
+            />
+            <span class="level-2-phrase">.</span>
+        </span>
+    </div>
+</div>
