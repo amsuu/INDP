@@ -4,23 +4,28 @@
 
 <h1 id="translation-settings">Translation Settings</h1>
 <h2 id="alphabet">alphabet</h2>
-<app-segmented-single-selection
+<app-segmented-single-selection id="script"
     [options]="['latinica', 'кирилица']"
     [localStorageReference]="'script'"
 ></app-segmented-single-selection>
+<!-- <app-segmented-single-selection id="script"
+    [options]="['latinica', 'кирилица', 'българска кирилица', 'српска ћирилица']"
+    [localizations]="['en', 'ru', 'bg', 'sr']"
+    [localStorageReference]="'script'"
+></app-segmented-single-selection> -->
 
 <h2 id="etymological-spelling">etymological spelling</h2>
-<app-segmented-multiple-selection
+<app-segmented-multiple-selection id="etymological-spelling-latin"
     [options]="[
-        {name: 'å', status: false},
+        {name: 'å',   status: false},
         {name: 'ę ų', status: false},
         {name: 'ė ȯ', status: false},
-        {name: 'ŕ', status: false},
+        {name: 'ŕ',   status: false},
         {name: 'ĺ ń', status: false},
         {name: 'ť ď', status: false},
         {name: 'ś ź', status: false},
-        {name: 'ć', status: false},
-        {name: 'đ', status: false}
+        {name: 'ć',   status: false},
+        {name: 'đ',   status: false}
     ]"
     [localStorageReference]="'etymological-spelling-latin'"
 ></app-segmented-multiple-selection>

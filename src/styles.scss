@@ -1,5 +1,4 @@
 @use "sass:map";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'variables';
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -7,8 +6,33 @@
     }
 }
 
+// @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0');
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 100 700;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v154/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
+}
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    // font-size: 20px !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    font-feature-settings: 'liga' !important;
+    -moz-font-feature-settings: 'liga' !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
 html {
-    scrollbar-width: thin;    
+    scrollbar-width: thin;
 }
 
 *::selection {
@@ -17,7 +41,16 @@ html {
     text-decoration-color: var(--background);
 }
 
+*[lang="sr"] {
+    font-feature-settings: "ss05";
+    font-style: italic;
+}
+
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     margin: 0px;
     font-size: $font-size;
     line-height: 1.5;
@@ -30,11 +63,6 @@ body, body[font="sans"] {
     * {
         font-family: $font-sans;
     }
-}
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 body[font="serif"] {
     font-family: $font-serif;
@@ -51,11 +79,16 @@ app-settings {
 
 *, *::before, *::after {
     box-sizing: border-box;
+    transition: all 200ms ease-in-out;
 }
 
 label, button, select, summary,
 [type=radio], [type=submit], [type=checkbox] {
     cursor: pointer;
+}
+
+abbr {
+    cursor: help;
 }
 
 h1, h2 {
@@ -117,7 +150,6 @@ button {
     font-size: $font-size * 0.8;
     font-weight: 500;
 
-    transition: all 200ms ease-in-out;
 
     &:hover {
         background-color: var(--secondary);

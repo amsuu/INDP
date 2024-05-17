@@ -6,9 +6,10 @@ import { AfterViewInit, Component, Input, ElementRef } from '@angular/core';
   styleUrls: ['./segmented-single-selection.component.scss']
 })
 export class SegmentedSingleSelectionComponent {
-  @Input() options = [''];
-  @Input() selection = 0;
-  @Input({ required: true }) localStorageReference = '';
+  @Input() public options = [''];
+  @Input() public localizations = [''];
+  @Input() public selection = 0;
+  @Input({ required: true }) public localStorageReference = '';
 
   constructor(private elementRef: ElementRef) {}
 

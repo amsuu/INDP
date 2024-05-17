@@ -1,0 +1,38 @@
+.level-select-cards {
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.2rem;
+
+    .level-select-card {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: var(--accent);
+        }
+        
+        width: 16rem;
+        height: 9rem;
+        border-radius: 1.2rem;
+        border: solid var(--border) 0.15rem;
+        overflow: hidden;
+        
+        &:hover {
+            background: var(--accent);
+            color: var(--background);
+            h1, h2 {
+                color: var(--secondary20);
+            }
+        }
+    }
+}

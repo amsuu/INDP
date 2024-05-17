@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
-import { FuncsService } from '../funcs.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-theme-selector',
@@ -7,7 +7,7 @@ import { FuncsService } from '../funcs.service';
   styleUrls: ['./theme-selector.component.scss']
 })
 export class ThemeSelectorComponent {
-  constructor(private elementRef: ElementRef, private funcs: FuncsService) {}
+  constructor(private elementRef: ElementRef, private funcs: ThemeService) {}
 
   ngAfterViewInit() {
 
