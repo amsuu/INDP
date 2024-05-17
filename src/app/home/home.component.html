@@ -1,9 +1,9 @@
-<h1>Level 1</h1>
-<h2>Word -> target case</h2>
+<h1>Welcome to the <abbr title="Interslavic noun declention practice">INDP</abbr> tool!</h1>
+<h2>Please select a level below:</h2>
 
-<app-level-1-quiz-question [word]="'brat'" [case]="'Dative'"></app-level-1-quiz-question>
-<!-- <div class="exercise-target-case">
-    <div class="word" word="brat">brat</div>
-    <div class="target-case" case="dative"></div>
-    <div class="target-word"></div>
-</div> -->
+<app-level-select-cards [levels]="[
+    {levelOption: 'Level 1', routerLink: '/level-1', description: 'word to target case'},
+    {levelOption: 'Level 2', routerLink: '/level-2', description: 'word in phrase'},
+    {levelOption: 'Level 3', routerLink: '/level-3', description: 'word in context'},
+    {levelOption: 'Level 4', routerLink: '/level-4', description: ''},
+]"></app-level-select-cards>

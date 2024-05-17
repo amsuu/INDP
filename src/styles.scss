@@ -51,11 +51,16 @@ app-settings {
 
 *, *::before, *::after {
     box-sizing: border-box;
+    transition: all 200ms ease-in-out;
 }
 
 label, button, select, summary,
 [type=radio], [type=submit], [type=checkbox] {
     cursor: pointer;
+}
+
+abbr {
+    cursor: help;
 }
 
 h1, h2 {
@@ -117,7 +122,6 @@ button {
     font-size: $font-size * 0.8;
     font-weight: 500;
 
-    transition: all 200ms ease-in-out;
 
     &:hover {
         background-color: var(--secondary);

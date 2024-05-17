@@ -1,0 +1,6 @@
+<div class="level-select-cards">
+    <button *ngFor="let level of levels" id="{{level.routerLink}}" class="level-select-card" routerLink="{{level.routerLink}}">
+        <h2>{{level.levelOption}}</h2>
+        <p>{{level.description}}</p>
+    </button>
+</div>
