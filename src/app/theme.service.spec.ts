@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FuncsService } from './funcs.service';
+import { ThemeService } from './theme.service';
 
-describe('FuncsService', () => {
-  let service: FuncsService;
+describe('ThemeService', () => {
+  let service: ThemeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FuncsService);
+    service = TestBed.inject(ThemeService);
   });
 
   it('should be created', () => {

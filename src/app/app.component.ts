@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuncsService } from './funcs.service';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { FuncsService } from './funcs.service';
 export class AppComponent {
   title = 'INDP';
 
-  constructor (private funcs: FuncsService) {}
+  constructor (private funcs: ThemeService) {}
   
   ngOnInit() {
 
