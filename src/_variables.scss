@@ -3,7 +3,9 @@
 $theme: light;
 
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-size: 22pt;
 $settings-font-size: 22pt;

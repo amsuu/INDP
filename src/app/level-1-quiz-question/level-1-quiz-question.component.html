@@ -19,8 +19,8 @@
     <div class="card-and-title-container answer-card-container">
         <h1>Answer:</h1>
         <div class="card-container answer-card-container">
-            <div class="card answer-card"><input type="text" placeholder="brat" name="" id=""></div>
-            <button class="answer-reveal-button">Reveal</button>
+            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" #answerInput type="text" placeholder="brat" name="" id="answer"></div>
+            <button (click)="answerButtonClicked(answerButton)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
         </div>
     </div>
 </div>
