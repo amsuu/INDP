@@ -1,26 +1,24 @@
 <div class="level-1-quiz-question-wrapper">
     <div class="card-and-title-container">
-        <h1>Word:</h1>
-        <!-- <div class="card">brat<button class="context" routerLink="/settings"><span class="material-symbols-rounded"><b>...</b></span></button></div> -->
+        <h1 *ngIf="showTitles">Word:</h1>
         <div class="card-container">
-            <div class="card">brat<button class="context" routerLink="/settings"><span class="card-context-button material-symbols-rounded">settings</span></button></div>
+            <div class="card">{{word}}<button class="context" routerLink="/settings"><span class="card-context-button material-symbols-rounded">settings</span></button></div>
         </div>
     </div>
 
     <div class="card-and-title-container target-card-container">
-        <h1>Target Case:</h1>
-        <!-- <div class="card">Dative<button class="context" routerLink="/help"><span><b>?</b></span></button></div> -->
+        <h1 *ngIf="showTitles">Target Case:</h1>
         <div class="card-container target-card-container">
-            <div class="card target-card target-case-card">Dative<button class="context" routerLink="/help"><span class="card-context-button material-symbols-rounded">question_mark</span></button></div>
-            <div class="card target-card target-number-card">singular</div>
+            <div class="card target-card target-case-card">{{case}}<button class="context" routerLink="/help"><span class="card-context-button material-symbols-rounded">question_mark</span></button></div>
+            <div class="card target-card target-number-card">{{number}}</div>
         </div>
     </div>
 
     <div class="card-and-title-container answer-card-container">
-        <h1>Answer:</h1>
+        <h1 *ngIf="showTitles">Answer:</h1>
         <div class="card-container answer-card-container">
             <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" #answerInput type="text" placeholder="brat" name="" id="answer"></div>
-            <button (click)="answerButtonClicked(answerButton)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
+            <button (click)="answerButtonClicked(answerInput, answerButton)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
         </div>
     </div>
 </div>

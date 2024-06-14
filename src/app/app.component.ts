@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeService } from './theme.service';
+import { HueService } from './hue.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,11 @@ import { ThemeService } from './theme.service';
 export class AppComponent {
   title = 'INDP';
 
-  constructor (private funcs: ThemeService) {}
+  constructor (private themeService: ThemeService, private hueService: HueService) {}
   
   ngOnInit() {
-
-    let currentTheme = this.funcs.getCurrentTheme() === 'dark' ? 'dark' : 'light';
-
-    this.funcs.toggleTheme();
-
-    if (currentTheme === 'light') {
-      this.funcs.toggleTheme();
-    }
+    this.themeService.syncTheme();
+    this.hueService.syncHue();
   }
+
 }

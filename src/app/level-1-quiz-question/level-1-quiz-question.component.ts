@@ -10,33 +10,43 @@ export class Level1QuizQuestionComponent {
   @Input() case: string = '';
   @Input() number: string = '';
   @Input() answer: string = '';
+  @Input() showTitles: boolean = false;
   // @Input() random: boolean = true;
 
-  appropriateAnswerButtonText: "Hint" | "Reveal" = 'Hint';
+  appropriateAnswerButtonText: "Hint" | "Reveal" | 'Check' = 'Hint';
   
   ngOnInit() { }
 
   constructor () { }
 
   answerInputTyped(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
-    if (answerInput.value == '') {
-      answerButton.innerText = "Check";
+    if (answerInput.value === '') {
+      this.appropriateAnswerButtonText = "Hint";
     } else {
-      answerButton.innerText = this.appropriateAnswerButtonText;
+      this.appropriateAnswerButtonText = "Check";
     }
   }
 
-  answerButtonClicked(answerButton: HTMLButtonElement) {
+  answerButtonClicked(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
 
-    console.log('s')
-
-    if (this.appropriateAnswerButtonText == 'Hint') {
+    if (this.appropriateAnswerButtonText === 'Hint') {
+      this.showHint(answerInput, answerButton);
+      this.appropriateAnswerButtonText = 'Reveal';
+    } else if (this.appropriateAnswerButtonText === 'Check') {
+      this.checkAnswer(answerInput, answerButton);
       this.appropriateAnswerButtonText = 'Reveal'
-      this.showHint();
+    }  else if (this.appropriateAnswerButtonText === 'Reveal') {
+      this.revealAnswer(answerInput, answerButton);
     }
   }
 
-  showHint() {
+  showHint(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
     
+  }
+  checkAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
+
+  }
+  revealAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
+
   }
 }

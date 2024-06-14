@@ -56,9 +56,10 @@ hr {
 }
 
 *::selection {
-    background-color: var(--accent);
-    color: var(--background);
-    text-decoration-color: var(--background);
+    // background-color: var(--accent);
+    // color: var(--background);
+    // text-decoration-color: var(--background);
+    background-color: var(--secondary20);
 }
 
 *[lang="sr"] {

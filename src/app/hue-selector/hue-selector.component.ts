@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { HueService, hueNames } from '../hue.service';
 
 @Component({
   selector: 'app-hue-selector',
@@ -7,46 +8,15 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class HueSelectorComponent {
 
-  constructor() {
-    let locSt = localStorage.getItem('hue');
-    if (locSt) {
-      let indOf = this.hueNames.indexOf(locSt);
-      if (indOf !== -1) {
-        this.currentHue = indOf;
-      }
-    }
+  constructor(private hueService: HueService) {}
 
-    this.changeHue(this.currentHue);
-  }
+  currentHue = this.hueService.getCurrentHueOrZero();
 
-  docStyle = getComputedStyle(document.documentElement);
-  
-  currentHue = 0;
-  hueNames = [
-    'red',
-    'orange',
-    'yellow',
-    'yellow-green',
-    'green',
-    'goluboy',
-    'blue',
-    'blue-purple',
-    'purple',
-    'magenta',
-    'pink',
-  ]
-
-  
-
+  hueNames = hueNames;
 
   changeHue(n: number) {
     this.currentHue = n;
-    let newHueName = this.hueNames[n];
-
-    localStorage.setItem('hue', newHueName);
-    document.documentElement.style.setProperty('--hue', `var(--hue-${newHueName})`);
-
-
+    this.hueService.changeHue(n);
   }
 
   uncollapse(hueSel: HTMLDivElement) {
