@@ -23,5 +23,20 @@
         &:hover {
             cursor: pointer;
         }
+
+        &.selected-hue {
+            order: -1
+        }
+    }
+
+    &[collapsed="true"] {
+
+        .hue {
+            display: none;
+            
+            &.selected-hue {
+                display: unset;
+            }
+        }
     }
 }

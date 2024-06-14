@@ -45,5 +45,14 @@ export class HueSelectorComponent {
 
     localStorage.setItem('hue', newHueName);
     document.documentElement.style.setProperty('--hue', `var(--hue-${newHueName})`);
+
+
+  }
+
+  uncollapse(hueSel: HTMLDivElement) {
+    hueSel.setAttribute('collapsed', 'false');
+  }
+  collapse(hueSel: HTMLDivElement) {
+    hueSel.setAttribute('collapsed', 'true');
   }
 }
