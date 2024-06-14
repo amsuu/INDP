@@ -1,12 +1,13 @@
 .level-1-quiz-question-wrapper {
     display: flex;
     width: 50rem;
-    height: 31.25rem;
+    // height: 31.25rem;
     padding: 11.125rem 2.5rem 11.875rem 2.5rem;
     padding: 2.5rem;
-    // padding: 2.5rem;
+    margin-bottom: 6rem;
     justify-content: center;
     align-items: flex-start;
+    align-items: center;
     gap: 3.75rem;
 
     >div.card-and-title-container {
@@ -92,29 +93,16 @@
                 line-height: normal;
 
 
-                &.answer-card {
-                    background-color: var(--primary);
-                    input {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        background-color: #00000000;
-                        border: none;
-                        font-size: inherit;
-                        text-align: inherit;
-                        color: var(--background);
 
-                        &::placeholder,
-                        &::-moz-placeholder,
-                        &::-webkit-input-placeholder {
-                            color: var(--text);
-                            opacity: 1;
-                        }
+                &:hover {
+                    button.context {
+                        opacity: 100%;
                     }
                 }
 
                 position: relative;
                 button.context {
+                    opacity: 0%;
                     position: absolute;
                     top: 0;
                     right: 0;
@@ -145,6 +133,34 @@
                         background-color: var(--accent);
                         color: var(--background);
 
+                    }
+                }
+            }
+
+            &.answer-card-container {
+
+                &:hover {
+                    
+                }
+                
+                .answer-card {
+                    background-color: var(--primary);
+                    input {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #00000000;
+                        border: none;
+                        font-size: inherit;
+                        text-align: inherit;
+                        color: var(--background);
+
+                        &::placeholder,
+                        &::-moz-placeholder,
+                        &::-webkit-input-placeholder {
+                            color: var(--text);
+                            opacity: 1;
+                        }
                     }
                 }
             }

@@ -19,6 +19,18 @@ export class ThemeService {
     localStorage.setItem('theme', newTheme);
   }
 
+  
+  syncTheme() {
+
+    let currentTheme = this.getCurrentTheme() === 'dark' ? 'dark' : 'light';
+
+    this.toggleTheme();
+
+    if (currentTheme === 'light') {
+      this.toggleTheme();
+    }
+  }
+
 
   getOppositeTheme = (theme: string) => theme === 'light' ? 'dark' : 'light';
 }

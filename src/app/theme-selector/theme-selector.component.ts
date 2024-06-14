@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { OnInit, Component, ElementRef } from '@angular/core';
 import { ThemeService } from '../theme.service';
 
 @Component({
@@ -7,10 +7,9 @@ import { ThemeService } from '../theme.service';
   styleUrls: ['./theme-selector.component.scss']
 })
 export class ThemeSelectorComponent {
-  constructor(private elementRef: ElementRef, private funcs: ThemeService) {}
+  constructor(private elementRef: ElementRef, private themeService: ThemeService) {}
 
-  ngAfterViewInit() {
-
+  ngOnInit() {
     this.updateThemeSelector();
     
     this.elementRef.nativeElement.querySelector('.theme-selector')
@@ -23,7 +22,7 @@ export class ThemeSelectorComponent {
 
   toggleThemeHandler() {
     
-    this.funcs.toggleTheme();
+    this.themeService.toggleTheme();
 
     let newTheme = localStorage.getItem('theme');
 
@@ -31,14 +30,14 @@ export class ThemeSelectorComponent {
     this.updateThemeSelector(newTheme === 'light' ? 'light' : 'dark');
   }
 
-  updateThemeSelector(theme: 'light' | 'dark' = this.funcs.getCurrentTheme()) {
+  updateThemeSelector(theme: 'light' | 'dark' = this.themeService.getCurrentTheme()) {
 
     this.elementRef.nativeElement
     .querySelector(`#theme-selection-${theme}`)
     .classList.add('active-theme');
 
     this.elementRef.nativeElement
-    .querySelector(`#theme-selection-${this.funcs.getOppositeTheme(theme)}`)
+    .querySelector(`#theme-selection-${this.themeService.getOppositeTheme(theme)}`)
     .classList.remove('active-theme');
   }
 }

@@ -36,24 +36,26 @@
             gap: 0.5rem;
 
             .level-2-input {
+                font-size: $font-size;
+
                 background-color: var(--secondary20);
                 color: var(--text);
-                border: none;
-                font-size: $font-size;
-                border-radius: 0.625rem;
+
                 width: unset;
                 max-width: fit-content;
+
+                border: none;
+                border-radius: 0.625rem;
+
                 transition: all 50ms linear !important;
+
                 text-align: center;
 
                 &:focus, &:focus-within {
                     background-color: var(--secondary);
+                    // color: var(--text);
                 }
             }
-            
-            // .level-2-bracket {
-                // 
-            // }
         }
     }
 }

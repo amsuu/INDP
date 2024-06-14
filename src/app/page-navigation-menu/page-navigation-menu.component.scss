@@ -4,16 +4,22 @@
 .page-navigation-menu {
 
     font-size: $font-size - 4pt;
-
     background-color: var(--secondary20);
+    color: var(--text);
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     
     border-radius: 1rem;
+    padding: 2rem;
+
     &, * {
         width: fit-content;
         height: fit-content;
     }
-    
-    padding: 2rem;
 
 
     &[collapsed="false"] {
@@ -30,6 +36,7 @@
             position: relative;
             top: -0.5rem;
             left: -0.5rem;
+            gap: 0.5rem;
 
             &:hover {
                 cursor: pointer;
@@ -51,7 +58,6 @@
                 }
             }
         }
-
         hr {
             margin: 0;
             margin-bottom: 1rem;
@@ -62,43 +68,38 @@
         }
         a {
             text-decoration: solid underline;
-        }
-    }
-    
-    
-    .nav-heading-lvl {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 1rem;
-        .subheading-wrapper {
-            margin-inline-start: 1rem;
-            font-size: $font-size - 7pt;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 0.5rem;
-            .subheading {
-                color: var(--supressed-heading);
+            &:visited {
+                color: var(--accent);
             }
         }
+
+        
+        .nav-heading-lvl {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+            .subheading-wrapper {
+                margin-inline-start: 1rem;
+                font-size: $font-size - 7pt;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 0.5rem;
+                .subheading {
+                    color: var(--supressed-heading);
+                }
+            }
+        }
+
     }
+    
+    
 
     
-    display: flex;
-    justify-content: center;
-
-    overflow: hidden;
-
-    gap: 1rem;
-
-    color: var(--text);
     
-    a:visited {
-        color: var(--accent);
-    }
 
 
     &[collapsed="true"] {
