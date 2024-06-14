@@ -1,0 +1,128 @@
+@import '../../variables';
+
+
+.page-navigation-menu {
+
+    background-color: var(--secondary20);
+    
+    border-radius: 1rem;
+    &, * {
+        width: fit-content;
+        height: fit-content;
+    }
+    
+    padding: 2rem;
+
+
+    &[collapsed="false"] {
+        
+        padding: 2rem;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+
+        .uncollapse {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        span.navmenu-uncoll-text {
+            display: inline;
+            text-wrap: nowrap;
+        }
+
+        span.navmenu-uncoll-icon {
+            aspect-ratio: 1 / 1;
+            padding: 1rem;
+            border-radius: 1rem;
+            &:hover {
+                background-color: var(--accent);
+                color: var(--background);
+                cursor: pointer;
+            }
+            position: relative;
+            top: -0.5rem;
+            left: -0.5rem;
+        }
+
+        hr {
+            margin: 0;
+            margin-bottom: 1rem;
+            width: calc(100% + 4rem);
+            position: relative;
+            left: -2rem;
+            border-color: var(--text);
+        }
+    }
+    
+    
+    .nav-heading-lvl {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+        .subheading-wrapper {
+            margin-inline-start: 1rem;
+            font-size: $font-size - 3pt;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            .subheading {
+                color: var(--supressed-heading);
+            }
+        }
+    }
+
+    
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+
+    gap: 1rem;
+
+    color: var(--text);
+    
+    a:visited {
+        color: var(--accent);
+    }
+
+
+    &[collapsed="true"] {
+        >* {
+            display: none;
+        }
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+
+        .uncollapse {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding: 2rem;
+            &:hover {
+                background-color: var(--accent);
+                span {
+                    color: var(--background);
+                }
+                cursor: pointer;
+            }
+            border-radius: inherit;
+        }
+        
+        padding: 0rem;
+    }
+}

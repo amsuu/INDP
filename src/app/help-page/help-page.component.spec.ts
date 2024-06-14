@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HelpPageComponent } from './help-page.component';
 
+import { PageNavigationMenuComponent } from '../page-navigation-menu/page-navigation-menu.component';
+
 describe('HelpPageComponent', () => {
   let component: HelpPageComponent;
   let fixture: ComponentFixture<HelpPageComponent>;

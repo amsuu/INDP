@@ -1,0 +1,11 @@
+.level-info, .level-1-quiz-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+p {
+    text-align: start;
+    text-indent: 2rem;
+    width: 70%;
+}

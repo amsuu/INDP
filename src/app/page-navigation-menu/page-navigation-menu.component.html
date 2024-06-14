@@ -1,0 +1,19 @@
+<div #navmenu class="page-navigation-menu" collapsed="true">
+    <div class="uncollapse" (click)="toggleCollapse(navmenu)">
+        <span class="navmenu-uncoll-icon material-symbols-rounded">list</span>
+        <span class="navmenu-uncoll-text"> Page navigation</span>
+    </div>
+    <hr>
+    
+    <div class="nav-heading-lvl" *ngFor="let nav of navs">
+        <a [href]="currpage + '#' + nav.id">{{nav.title}}</a>
+        <ng-container *ngIf="nav.subheadings !== undefined">
+            <span class="subheading-wrapper">
+                <span class="material-symbols-rounded">arrow_forward</span>
+                <a class="subheading" *ngFor="let subheading of nav.subheadings"
+                [href]="currpage + '#' + subheading.id">{{subheading.title}}</a>
+            </span>
+        </ng-container>
+    </div>
+
+</div>
