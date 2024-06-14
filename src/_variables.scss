@@ -1,56 +1,96 @@
-@use 'sass:color';
-
-$theme: light;
-
+@use 'sass:color' as color;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-$font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+$font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-size: 22pt;
 $settings-font-size: 22pt;
 
+$theme-dark: dark;
+$theme-light: light;
+$theme: light;
+
+
+// ~52 step
+$hue-red:           348;
+$hue-orange:        40;
+$hue-yellow:        58;
+$hue-yellow-green:  92;
+$hue-green:         144;
+$hue-goluboy:       196;
+$hue-blue:          222;
+$hue-blue-purple:   250;
+$hue-purple:        264;
+$hue-magenta:       286;
+$hue-pink:          300;
+
+$hue: $hue-pink;
+
+// @media (prefers-color-scheme: dark) {
+//   $theme: $theme-dark;
+// }
+// @media (prefers-color-scheme: light) {
+//   $theme: $theme-light;
+// }
+
+:root {
+  --hue-red:           348;
+  --hue-orange:        40;
+  --hue-yellow:        58;
+  --hue-yellow-green:  92;
+  --hue-green:         144;
+  --hue-goluboy:       196;
+  --hue-blue:          222;
+  --hue-blue-purple:   250;
+  --hue-purple:        264;
+  --hue-magenta:       286;
+  --hue-pink:          300;
+
+  --hue: var(--hue-pink);
+}
+
+
+
+// https://www.realtimecolors.com/?colors=210d11-f7e8eb-792032-e17086-b51c3b&fonts=Poppins-Poppins //
 $themes: (
   
-  // https://www.realtimecolors.com/?colors=210d11-f7e8eb-792032-e17086-b51c3b&fonts=Poppins-Poppins //
   light: (
-    text: #210d11,
-    background: #f7e8eb,
-    primary: #792032,
-    secondary: #e17086,
-    accent: #b51c3b,
+    text: hsl($hue, 43%, 9%),
+    background: hsl($hue, 48%, 94%),
+    primary: hsl($hue, 58%, 30%),
+    secondary: hsl($hue, 65%, 66%),
+    accent: hsl($hue, 73%, 41%),
     
-    alt-background: darken(#f7e8eb, 35%),
+    alt-background: darken(hsl($hue, 48%, 94%), 35%),
     
-    border: hsla(348, 25%, 41%, 0.1),
+    border: hsla($hue, 24%, 41%, 0.1),
     
-    supressed-heading: color.scale(#210d11, $whiteness: 55%),
+    supressed-heading: color.scale(hsl($hue, 43%, 9%), $whiteness: 55%),
     
-    secondary20: lighten(#e17086, 20%),
+    secondary20: lighten(hsl($hue, 65%, 66%), 20%),  // secondary 20% darker
     
-    context-btn-bg: #b51c3b80, // accent 0.25 opacity
-    context-btn-text: #f7e8ebbf,  // background 0.75 opacity
+    context-btn-bg: hsla($hue, 73%, 41%, 0.502),  // accent 0.25 opacity
+    context-btn-text: hsla($hue, 48%, 94%, 0.749),  // background 0.75 opacity
   ),
   dark: (
-    text: #f2dee2,
-    background: #17080b,
-    primary: #df8698,
-    secondary: #8f1e35,
-    // secondary-yellow: hsl(45, 65%, 34%),
-    accent: #e34a69,
-    // accent-yellow: hsl(45, 73%, 59%),
+    text: hsl($hue, 43%, 91%),
+    background: hsl($hue, 48%, 6%),
+    primary: hsl($hue, 58%, 70%),
+    secondary: hsl($hue, 65%, 34%),
+    accent: hsl($hue, 73%, 59%),
 
+    alt-background: lighten(hsl($hue, 48%, 6%), 35%),
     
-    alt-background: lighten(#17080b, 35%),
+    border: hsla($hue, 25%, 59%, 0.1),
     
-    border: hsla(348, 25%, 59%, 0.1),
-    
-    secondary20: darken(#8f1e35, 20%),
+    secondary20: darken(hsl($hue, 65%, 34%), 20%),  // secondary 20% darker
 
-    supressed-heading: color.scale(#210d11, $lightness: 60%),
+    supressed-heading: color.scale(hsl($hue, 43%, 9%), $lightness: 60%),
 
-    context-btn-bg: #e34a6980, // accent 0.25 opacity
-    context-btn-text: #17080bbf,  // background 0.75 opacity
+    context-btn-bg: hsla($hue, 73%, 59%, 0.502),  // accent 0.25 opacity
+    context-btn-text: hsla($hue, 48%, 6%, 0.749),   // background 0.75 opacity
   ),
 );
 
@@ -58,31 +98,20 @@ $themes: (
 
 
 
-:root {
-    @each $color, $value in map-get($themes, $theme) {
-        @debug $color, $value;
-        --#{$color}: #{$value};
-    }
-}
+// :root {
+//     @each $color, $value in map-get($themes, $theme) {
+//         @debug $color, $value;
+//         --#{$color}: #{$value};
+//     }
+// }
 
 body[theme='dark'] {
-    @each $color, $value in map-get($themes, dark) {
+    @each $color, $value in map-get($themes, $theme-dark) {
         --#{$color}: #{$value};
     }
 }
 body[theme='light'] {
-    @each $color, $value in map-get($themes, light) {
+    @each $color, $value in map-get($themes, $theme-light) {
         --#{$color}: #{$value};
     }
 }
-
-// @media (prefers-color-scheme: dark) {
-//     @each $color, $value in map-get($themes, dark) {
-//         --#{$color}: #{$value};
-//     }
-// }
-// @media (prefers-color-scheme: light) {
-//     @each $color, $value in map-get($themes, light) {
-//         --#{$color}: #{$value};
-//     }
-// }
