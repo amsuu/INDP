@@ -1,7 +1,37 @@
-<h1>Level 1</h1>
-<h2>Word -> target case</h2>
+<div class="level-info">
+    <h1>Level 1</h1>
+    <h2>Word -> target case</h2>
+    <p>
+        Each question has three columns. In the first one
+        you will be presented with your word. In the second column
+        there are the target case and number. And you must input your
+        answer in the third column.
+    </p>
+    <p>
+        Click on the settings icon to change localizations, appearance,
+        typgraphy and such options. Click on the question mark to get
+        more information on cases, what they mean, when they're used
+        and so on.
+    </p>
+    <p>
+        If you get stuck you can tap on "Hint" under the input field
+        to show you the conjucation table.
+    </p>
+    <p>
+        You may write your answers either in normal or etymological
+        orthographies, cyrillic or latin, as you wish. (Note that
+        incorrect usage of "ě" and/or the letters ž, č, š as opposed
+        to e, z, c, s will be deemed an error. If you are having
+        trouble inputting these characters, you can find a list
+        of Windows, MacOS, and GBoard layouts <a href="">here</a>)
+    </p>
+</div>
 
-<app-level-1-quiz-question [word]="'brat'" [case]="'Dative'"></app-level-1-quiz-question>
+<hr>
+
+<div class="level-1-quiz-wrapper">
+    <app-level-1-quiz-question [word]="'brat'" [case]="'Dative'"></app-level-1-quiz-question>
+</div>
 <!-- <div class="exercise-target-case">
     <div class="word" word="brat">brat</div>
     <div class="target-case" case="dative"></div>

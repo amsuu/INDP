@@ -37,6 +37,18 @@ html {
     scrollbar-width: thin;
 }
 
+a {
+    color: var(--accent);
+    text-decoration: wavy underline;
+    &:visited {
+        color: var(--secondary);
+    }
+}
+
+hr {
+    margin: 0px 8rem;
+}
+
 *::selection {
     background-color: var(--accent);
     color: var(--background);
