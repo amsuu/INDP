@@ -3,10 +3,15 @@
 
 
 <h1 id="translation-settings">Translation Settings</h1>
+<h2 id="language">language</h2>
+<app-segmented-single-selection id="lang"
+    [options]="['English', 'Međuslovjansky', 'Меджусловјанскы']"
+    localStorageReference="lang"
+></app-segmented-single-selection>
 <h2 id="alphabet">alphabet</h2>
 <app-segmented-single-selection id="script"
     [options]="['latinica', 'кирилица']"
-    [localStorageReference]="'script'"
+    localStorageReference="script"
 ></app-segmented-single-selection>
 <!-- <app-segmented-single-selection id="script"
     [options]="['latinica', 'кирилица', 'българска кирилица', 'српска ћирилица']"
@@ -27,7 +32,7 @@
         {name: 'ć',   status: false},
         {name: 'đ',   status: false}
     ]"
-    [localStorageReference]="'etymological-spelling-latin'"
+    localStorageReference="etymological-spelling-latin"
 ></app-segmented-multiple-selection>
 
 
