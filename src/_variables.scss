@@ -63,16 +63,16 @@ $themes: (
     secondary: hsl($hue, 65%, 66%),
     accent: hsl($hue, 73%, 41%),
     
-    alt-background: darken(hsl($hue, 48%, 94%), 35%),
+    alt-background: hsl($hue, 48%, 59%),  // background 35% darker
     
     border: hsla($hue, 24%, 41%, 0.1),
     
-    supressed-heading: color.scale(hsl($hue, 43%, 9%), $whiteness: 55%),
+    supressed-heading: hsl($hue, 0%, 40%),  // #656565
     
-    secondary20: lighten(hsl($hue, 65%, 66%), 20%),  // secondary 20% darker
+    secondary20: hsl($hue, 65%, 86%),  // secondary 20% lighter
     
-    context-btn-bg: hsla($hue, 73%, 41%, 0.502),  // accent 0.25 opacity
-    context-btn-text: hsla($hue, 48%, 94%, 0.749),  // background 0.75 opacity
+    context-btn-bg: hsla($hue, 73%, 41%, 0.5),  // accent 0.25 opacity
+    context-btn-text: hsla($hue, 48%, 94%, 0.75),  // background 0.75 opacity
   ),
   dark: (
     text: hsl($hue, 43%, 91%),
@@ -81,16 +81,17 @@ $themes: (
     secondary: hsl($hue, 65%, 34%),
     accent: hsl($hue, 73%, 59%),
 
-    alt-background: lighten(hsl($hue, 48%, 6%), 35%),
+    alt-background: hsl($hue, 48%, 41%),  // background 35% lighter
     
     border: hsla($hue, 25%, 59%, 0.1),
     
-    secondary20: darken(hsl($hue, 65%, 34%), 20%),  // secondary 20% darker
+    secondary20: hsl($hue, 65%, 14%),  // secondary 20% darker
 
-    supressed-heading: color.scale(hsl($hue, 43%, 9%), $lightness: 60%),
+    // supressed-heading: color.scale(hsl($hue, 43%, 9%), $lightness: 60%),
+    supressed-heading: hsl($hue, 43%, 64%),
 
-    context-btn-bg: hsla($hue, 73%, 59%, 0.502),  // accent 0.25 opacity
-    context-btn-text: hsla($hue, 48%, 6%, 0.749),   // background 0.75 opacity
+    context-btn-bg: hsla($hue, 73%, 59%, 0.5),  // accent 0.25 opacity
+    context-btn-text: hsla($hue, 48%, 6%, 0.75),   // background 0.75 opacity
   ),
 );
 
