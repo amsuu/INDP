@@ -112,7 +112,7 @@ body[theme='dark'] {
   }
 }
 body[theme='light'] {
-@each $color, $values in map-get($themes, $theme-dark) {
+@each $color, $values in map-get($themes, $theme-light) {
     --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
 }
 }
