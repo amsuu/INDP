@@ -8,9 +8,10 @@
     <div class="nav-heading-lvl" *ngFor="let nav of navs">
         <a [href]="currpage + '#' + nav.id">{{nav.title}}</a>
         <ng-container *ngIf="nav.subheadings !== undefined">
-            <span class="subheading-wrapper">
+            <span class="subheading-wrapper" 
+            *ngFor="let subheading of nav.subheadings">
                 <span class="material-symbols-rounded">arrow_forward</span>
-                <a class="subheading" *ngFor="let subheading of nav.subheadings"
+                <a class="subheading"
                 [href]="currpage + '#' + subheading.id">{{subheading.title}}</a>
             </span>
         </ng-container>

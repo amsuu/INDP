@@ -1,12 +1,112 @@
-<app-page-navigation-menu currpage="help" [navs]="[
-    {id: 'cases', title: 'What are cases?'},
-    {id: 'writing', title: 'How to write in Interslavic', subheadings: [
-        {id: 'keyboards', title: 'Keyboard Layouts for Windows, GBoard, and more'},
-    ]},
-]"></app-page-navigation-menu>
+<div class="big-help-page-wrapper">
+    <div class="small-help-page-wrapper">
 
-<h1>Cases</h1>
-<h2>Nominative</h2>
-The default case. It is used in the dictionary form of words
-and when the word in question is the subject of a sentence.
-<br>
+    
+    <app-page-navigation-menu currpage="help" [navs]="[
+        {id: 'cases', title: 'Cases', subheadings: [
+            {id: 'what-are-cases', title: 'What are cases?'},
+            {id: 'nom', title: 'Nominative'},
+            {id: 'acc', title: 'Accusative'},
+            {id: 'gen', title: 'Genitive'},
+            {id: 'loc', title: 'Locative'},
+            {id: 'dat', title: 'Dative'},
+            {id: 'ins', title: 'Instrumental'},
+            {id: 'voc', title: 'Vocative'},
+        ]},
+        {id: 'writing', title: 'How do I write Interslavic?', subheadings: [
+            {id: 'keyboards', title: 'Keyboard Layouts for Windows, GBoard, and more'},
+        ]},
+        {id: 'links', title: 'Useful links and other learning materials'}
+    ]"></app-page-navigation-menu>
+
+
+<h1 id="cases">Cases</h1>
+<h2 id="what-are-cases">What are cases?</h2>
+<p>
+    In most Slavic languages, alongside with grammatical gender (like in
+    languages such as German and Spanish) and grammatical number (which
+    you are surely familiar with), there is a declension category called a
+    “Case.” These cases help communicate the
+    <app-phrase-with-more-info phrase="syntactical role">
+    </app-phrase-with-more-info>
+    of any given word in a given sentence.
+</p>
+<app-phrase-explaination explaination
+="The syntactical role is basically stuff like the subject and object
+    of a sentence. And if you don't know what that is, the subject is
+    the one who is performing the action (the verb), and the object
+    is the one recieving it. In Slavic languages, this extends to
+    posession, location, and even method/instrument as you'll read futher."
+></app-phrase-explaination>
+
+<h2 id="nom">Nominative</h2>
+<p>
+    The default case. It is used in the dictionary <i>(“lemma”)</i> form of words
+    and when the word in question is the subject of a sentence. For
+    example:
+</p>
+
+<h2 id="acc">Accusative</h2>
+<p>
+    This is the case of the direct object. It is used when the word
+    in question is the direct recipient of the action. It is also used
+    with the following prepositions: 
+</p>
+
+<h2 id="gen">Genitive</h2>
+<p>
+    The genitive case is commonly used to show posession. It gets
+    applied to the posessor rather than than the posessed, similar
+    to the English “'s” suffix . There
+    are also other uses of the case:
+</p>
+<p>
+    And it is also used with the following prepositions:
+</p>
+
+<h2 id="loc">Locative</h2>
+<p>
+    The locative case shows a location (metaphorical or literal). For
+    example:
+</p>
+<p>
+    The prepositions are:
+</p>
+<p>
+    And contexts in which you are also likely to encounter Locative
+    include:
+</p>
+
+<h2 id="dat">Dative</h2>
+<p>
+    Dative is the case of the indirect object. <strong>To</strong>
+    whom the action is being commited. The most common example is
+    with phrases relating to giving something <strong>to</strong>
+    someone. For example:
+</p>
+
+<h2 id="ins">Instrumental</h2>
+<p>
+    Instrumental is typically used with the meaning of "with" in
+    English. Be it "alongside" or "by means of". Examples are:
+</p>
+<p>
+    The prepositions that require instrumental are:
+</p>
+
+<h2 id="voc">Vocative</h2>
+<p>
+    Vocative is when you are calling to someone/something and
+    talking directly to them or wanting to grab their attention.
+    <br>
+    For example:
+</p>
+
+<h1 id="writing">How to write in Interslavic</h1>
+
+
+
+
+
+    </div>
+</div>

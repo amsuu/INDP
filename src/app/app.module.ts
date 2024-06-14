@@ -17,6 +17,8 @@ import { LevelSelectCardsComponent } from './level-select-cards/level-select-car
 import { Level2QuizQuestionComponent } from './level-2-quiz-question/level-2-quiz-question.component';
 import { Level2PageComponent } from './level-2-page/level-2-page.component';
 import { PageNavigationMenuComponent } from './page-navigation-menu/page-navigation-menu.component';
+import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with-more-info.component';
+import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { PageNavigationMenuComponent } from './page-navigation-menu/page-navigat
     Level2QuizQuestionComponent,
     Level2PageComponent,
     PageNavigationMenuComponent,
+    PhraseWithMoreInfoComponent,
+    PhraseExplainationComponent,
   ],
   imports: [
     BrowserModule,
