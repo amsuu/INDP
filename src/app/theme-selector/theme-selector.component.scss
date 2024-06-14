@@ -34,12 +34,13 @@
         }
     }
 
-    >* {
+    >button {
         font-size: 18pt;
         font-size: $settings-font-size - 4;
         border: none;
         background-color: inherit;
         color: inherit;
+        aspect-ratio: 1 / 1;
 
         padding: 0.75rem;
         
