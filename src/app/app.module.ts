@@ -19,6 +19,7 @@ import { Level2PageComponent } from './level-2-page/level-2-page.component';
 import { PageNavigationMenuComponent } from './page-navigation-menu/page-navigation-menu.component';
 import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with-more-info.component';
 import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
+import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PhraseExplainationComponent } from './phrase-explaination/phrase-explai
     PageNavigationMenuComponent,
     PhraseWithMoreInfoComponent,
     PhraseExplainationComponent,
+    HueSelectorComponent,
   ],
   imports: [
     BrowserModule,

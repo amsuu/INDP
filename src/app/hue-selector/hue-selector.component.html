@@ -1,0 +1,7 @@
+<div class="hue-selector">
+    <div *ngFor="let hue of hueNames; index as i"
+        id="hue-{{i}}" class="hue hue-{{hue}}"
+        [style]="'background-color: hsl(var(--hue-' + hue + '), 73%, 41%);'"
+        (click)="changeHue(i)"
+    ></div>
+</div>
