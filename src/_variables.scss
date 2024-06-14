@@ -1,4 +1,5 @@
 @use 'sass:color' as color;
+@use 'sass:map' as map;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
@@ -35,7 +36,7 @@ $hue: $hue-red;
 //   $theme: $theme-light;
 // }
 
-:root {
+html {
   --hue-red:           348;
   --hue-orange:        40;
   --hue-yellow:        58;
@@ -57,40 +58,40 @@ $hue: $hue-red;
 $themes: (
   
   light: (
-    text: hsl($hue, 43%, 9%),
-    background: hsl($hue, 48%, 94%),
-    primary: hsl($hue, 58%, 30%),
-    secondary: hsl($hue, 65%, 66%),
-    accent: hsl($hue, 73%, 41%),
+    text: (s: 43%, l: 9%, a: 1.0),
+    background: (s: 48%, l: 94%, a: 1.0),
+    primary: (s: 58%, l: 30%, a: 1.0),
+    secondary: (s: 65%, l: 66%, a: 1.0),
+    accent: (s: 73%, l: 41%, a: 1.0),
     
-    alt-background: darken(hsl($hue, 48%, 94%), 35%),
+    alt-background: (s: 48%, l: 59%, a: 1.0),  // background 35% darker
     
-    border: hsla($hue, 24%, 41%, 0.1),
+    border: (s: 24%, l: 41%, a: 0.1),
     
-    supressed-heading: color.scale(hsl($hue, 43%, 9%), $whiteness: 55%),
+    supressed-heading: (s: 0%, l: 40%, a: 1.0),  // #656565
     
-    secondary20: lighten(hsl($hue, 65%, 66%), 20%),  // secondary 20% darker
+    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
     
-    context-btn-bg: hsla($hue, 73%, 41%, 0.502),  // accent 0.25 opacity
-    context-btn-text: hsla($hue, 48%, 94%, 0.749),  // background 0.75 opacity
+    context-btn-bg: (s: 73%, l: 41%, a: 0.5),  // accent 0.25 opacity
+    context-btn-text: (s: 48%, l: 94%, a: 0.75),  // background 0.75 opacity
   ),
   dark: (
-    text: hsl($hue, 43%, 91%),
-    background: hsl($hue, 48%, 6%),
-    primary: hsl($hue, 58%, 70%),
-    secondary: hsl($hue, 65%, 34%),
-    accent: hsl($hue, 73%, 59%),
+    text: (s: 43%, l: 91%, a: 1.0),
+    background: (s: 48%, l: 6%, a: 1.0),
+    primary: (s: 58%, l: 70%, a: 1.0),
+    secondary: (s: 65%, l: 34%, a: 1.0),
+    accent: (s: 73%, l: 59%, a: 1.0),
 
-    alt-background: lighten(hsl($hue, 48%, 6%), 35%),
+    alt-background: (s: 48%, l: 41%, a: 1.0),  // background 35% lighter
     
-    border: hsla($hue, 25%, 59%, 0.1),
+    border: (s: 25%, l: 59%, a: 0.1),
     
-    secondary20: darken(hsl($hue, 65%, 34%), 20%),  // secondary 20% darker
+    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
 
-    supressed-heading: color.scale(hsl($hue, 43%, 9%), $lightness: 60%),
+    supressed-heading: (s: 43%, l: 64%, a: 1.0),
 
-    context-btn-bg: hsla($hue, 73%, 59%, 0.502),  // accent 0.25 opacity
-    context-btn-text: hsla($hue, 48%, 6%, 0.749),   // background 0.75 opacity
+    context-btn-bg: (s: 73%, l: 59%, a: 0.5),  // accent 0.25 opacity
+    context-btn-text: (s: 48%, l: 6%, a: 0.75),   // background 0.75 opacity
   ),
 );
 
@@ -106,12 +107,14 @@ $themes: (
 // }
 
 body[theme='dark'] {
-    @each $color, $value in map-get($themes, $theme-dark) {
-        --#{$color}: #{$value};
-    }
+  @each $color, $values in map-get($themes, $theme-dark) {
+      --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
+  }
+  --accent-sl: #{map-get($themes, $theme-dark, accent, s)}, #{map-get($themes, $theme-dark, accent, l)};
 }
 body[theme='light'] {
-    @each $color, $value in map-get($themes, $theme-light) {
-        --#{$color}: #{$value};
-    }
+@each $color, $values in map-get($themes, $theme-light) {
+    --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
+    --accent-sl: #{map-get($themes, $theme-light, accent, s)}, #{map-get($themes, $theme-light, accent, l)};
+}
 }

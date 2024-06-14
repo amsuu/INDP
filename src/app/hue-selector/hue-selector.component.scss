@@ -1,0 +1,42 @@
+.hue-selector {
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;  // vertically
+    justify-content: flex-start;  // horizontally
+
+    gap: 1rem;
+    padding: 0.5rem;
+    margin: 1rem;
+
+    background-color: var(--secondary20);
+
+    width: fit-content;
+
+    border-radius: 2rem;
+    
+    .hue {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border-radius: inherit;
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.selected-hue {
+            order: -1
+        }
+    }
+
+    &[collapsed="true"] {
+
+        .hue {
+            display: none;
+            
+            &.selected-hue {
+                display: unset;
+            }
+        }
+    }
+}
