@@ -26,29 +26,30 @@
             display: flex;
             flex-flow: row nowrap;
             justify-content: center;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        
-        span.navmenu-uncoll-text {
-            display: inline;
-            text-wrap: nowrap;
-        }
-
-        span.navmenu-uncoll-icon {
-            aspect-ratio: 1 / 1;
-            padding: 1rem;
-            border-radius: 1rem;
-            &:hover {
-                background-color: var(--accent);
-                color: var(--background);
-                cursor: pointer;
-            }
+            align-items: center;
             position: relative;
             top: -0.5rem;
             left: -0.5rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        
+            span.navmenu-uncoll-text {
+                display: inline;
+                text-wrap: nowrap;
+            }
+    
+            span.navmenu-uncoll-icon {
+                aspect-ratio: 1 / 1;
+                padding: 1rem;
+                border-radius: 1rem;
+                &:hover {
+                    background-color: var(--accent);
+                    color: var(--background);
+                    cursor: pointer;
+                }
+            }
         }
 
         hr {
@@ -58,6 +59,9 @@
             position: relative;
             left: -2rem;
             border-color: var(--text);
+        }
+        a {
+            text-decoration: solid underline;
         }
     }
     
