@@ -25,15 +25,11 @@
     &[collapsed="false"] {
         
         padding: 2rem;
-        // padding-top: 5.5rem;
         flex-flow: column nowrap;
         align-items: flex-start;
 
-        // position: relative;
-
         .uncollapse {
             display: flex;
-            flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
             position: relative;
@@ -42,14 +38,7 @@
             gap: 0.5rem;
             border-radius: 1rem;
 
-            padding: 0.5rem;
-            padding-left: 0;
-            padding-right: 1rem;
-
-            // position: absolute;
-            // top: 1.5rem;
-            // left: 1.5rem;
-
+            padding: 0.5rem 1rem 0.5rem 0rem;
 
             &:hover {
                 cursor: pointer;
@@ -60,7 +49,6 @@
             span.navmenu-uncoll-text {
                 display: inline;
                 text-wrap: nowrap;
-                // display: none;
             }
     
             span.navmenu-uncoll-icon {
@@ -82,8 +70,6 @@
             position: relative;
             left: -2rem;
             border-color: var(--text);
-
-            // display: none;
         }
         a {
             text-decoration: solid underline;
@@ -115,10 +101,6 @@
 
     }
     
-    
-
-    
-    
 
 
     &[collapsed="true"] {
@@ -147,10 +129,6 @@
                 cursor: pointer;
             }
             border-radius: inherit;
-            
-            // span.navmenu-uncoll-text {
-            //     display: none;
-            // }
         }
         
         padding: 0rem;
