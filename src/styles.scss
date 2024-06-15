@@ -44,7 +44,10 @@ a {
         color: var(--secondary);
     }
 }
-
+ul {
+    list-style-type: '— ';
+    list-style-position: inside;
+}
 
 p {
     text-align: start;

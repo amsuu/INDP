@@ -44,6 +44,27 @@
                 flex-flow: column nowrap;
                 gap: 0;
 
+                .answer-card {
+                    background-color: var(--primary);
+                    input {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #00000000;
+                        border: none;
+                        font-size: inherit;
+                        text-align: inherit;
+                        color: var(--background);
+
+                        &::placeholder,
+                        &::-moz-placeholder,
+                        &::-webkit-input-placeholder {
+                            color: var(--text);
+                            opacity: 1;
+                        }
+                    }
+                }
+
                 &:has(> .answer-button:hover) {
                     background-color: var(--accent);  // light mode
                     background-color: var(--secondary20);
@@ -115,6 +136,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    align-items: center;
 
 
                     span.card-context-button {
@@ -139,30 +161,6 @@
 
             &.answer-card-container {
 
-                &:hover {
-                    
-                }
-                
-                .answer-card {
-                    background-color: var(--primary);
-                    input {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        background-color: #00000000;
-                        border: none;
-                        font-size: inherit;
-                        text-align: inherit;
-                        color: var(--background);
-
-                        &::placeholder,
-                        &::-moz-placeholder,
-                        &::-webkit-input-placeholder {
-                            color: var(--text);
-                            opacity: 1;
-                        }
-                    }
-                }
             }
         }
     }
