@@ -11,7 +11,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { SegmentedMultipleSelectionComponent } from './segmented-multiple-selection/segmented-multiple-selection.component';
 import { SegmentedSingleSelectionComponent } from './segmented-single-selection/segmented-single-selection.component';
 import { Level1QuizQuestionComponent } from './level-1-quiz-question/level-1-quiz-question.component';
-import { HelpPageComponent } from './help-page/help-page.component';
+import { LearnPageComponent } from './learn-page/learn-page.component';
 import { HomeComponent } from './home/home.component';
 import { LevelSelectCardsComponent } from './level-select-cards/level-select-cards.component';
 import { Level2QuizQuestionComponent } from './level-2-quiz-question/level-2-quiz-question.component';
@@ -20,6 +20,7 @@ import { PageNavigationMenuComponent } from './page-navigation-menu/page-navigat
 import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with-more-info.component';
 import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
 import { HueSelectorComponent } from './hue-selector/hue-selector.component';
+import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HueSelectorComponent } from './hue-selector/hue-selector.component';
     SegmentedMultipleSelectionComponent,
     SegmentedSingleSelectionComponent,
     Level1QuizQuestionComponent,
-    HelpPageComponent,
+    LearnPageComponent,
     HomeComponent,
     LevelSelectCardsComponent,
     Level2QuizQuestionComponent,
@@ -41,6 +42,7 @@ import { HueSelectorComponent } from './hue-selector/hue-selector.component';
     PhraseWithMoreInfoComponent,
     PhraseExplainationComponent,
     HueSelectorComponent,
+    SentenceExampleComponent,
   ],
   imports: [
     BrowserModule,

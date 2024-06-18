@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelpPageComponent } from './help-page.component';
+import { LearnPageComponent } from './learn-page.component';
 
 import { PageNavigationMenuComponent } from '../page-navigation-menu/page-navigation-menu.component';
 
-describe('HelpPageComponent', () => {
-  let component: HelpPageComponent;
-  let fixture: ComponentFixture<HelpPageComponent>;
+describe('LearnPageComponent', () => {
+  let component: LearnPageComponent;
+  let fixture: ComponentFixture<LearnPageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HelpPageComponent]
+      declarations: [LearnPageComponent]
     });
-    fixture = TestBed.createComponent(HelpPageComponent);
+    fixture = TestBed.createComponent(LearnPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

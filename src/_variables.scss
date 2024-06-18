@@ -122,13 +122,12 @@ $themes: (
     accent: (s: 73%, l: 41%, a: 1.0),
     
     alt-background: (s: 48%, l: 59%, a: 1.0),  // background 35% darker
+    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
     
     border: (s: 24%, l: 41%, a: 0.1),
     
-    // supressed-heading: (s: 0%, l: 40%, a: 1.0),  // #656565
-    supressed-heading: (s: 57%, l: 36%, a: 1.0),  // #656565
-    
-    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
+    supressed-heading: (s: 57%, l: 36%, a: 1.0),
+    h3-heading: (s: 43%, l: 40%, a: 1.0),  // #656565
     
     context-btn-bg: (s: 73%, l: 41%, a: 0.5),  // accent 0.25 opacity
     context-btn-text: (s: 48%, l: 94%, a: 0.75),  // background 0.75 opacity
@@ -141,12 +140,12 @@ $themes: (
     accent: (s: 73%, l: 59%, a: 1.0),
 
     alt-background: (s: 48%, l: 41%, a: 1.0),  // background 35% lighter
+    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
     
     border: (s: 25%, l: 59%, a: 0.1),
-    
-    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
 
     supressed-heading: (s: 43%, l: 64%, a: 1.0),
+    h3-heading: (s: 43%, l: 60%, a: 1.0),
 
     context-btn-bg: (s: 73%, l: 59%, a: 0.5),  // accent 0.25 opacity
     context-btn-text: (s: 48%, l: 6%, a: 0.75),   // background 0.75 opacity
