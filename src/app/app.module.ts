@@ -21,6 +21,7 @@ import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with
 import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
 import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
+import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SentenceExampleComponent } from './sentence-example/sentence-example.co
     PhraseExplainationComponent,
     HueSelectorComponent,
     SentenceExampleComponent,
+    TheoryLearnPageComponent,
   ],
   imports: [
     BrowserModule,

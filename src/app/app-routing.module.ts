@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'level-1', component: Level1pageComponent },
   { path: 'level-2', component: Level2PageComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'help', component: LearnPageComponent}
+  { path: 'learn', component: LearnPageComponent}
 ];
 
 @NgModule({
