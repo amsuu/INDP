@@ -32,16 +32,13 @@ export class HueSelectorComponent {
 
 
     if (hueSel.getAttribute('collapsed') === 'false') {
-      console.log('counter set to 0 (override)');
       this.uncollapseTapCounter = 0;
     }
   
     if (this.uncollapseTapCounter === 0) {
-      console.log('uncollapse: ' + this.uncollapseTapCounter);
       this.uncollapse(hueSel);
       this.uncollapseTapCounter = 1;
     } else {
-      console.log('counter reset to 0');
       this.uncollapseTapCounter = 0;
     }
   }
