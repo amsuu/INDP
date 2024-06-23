@@ -4,16 +4,6 @@
         <span class="navmenu-uncoll-text"> Page navigation</span>
     </div>
     <hr>
-    
-    <div class="nav-heading-lvl" *ngFor="let nav of navs">
-        <a [href]="currpage + '#' + nav.id">{{nav.title}}</a>
-        <ng-container *ngIf="nav.subheadings !== undefined">
-            <span class="subheading-wrapper" 
-            *ngFor="let subheading of nav.subheadings">
-                <span class="material-symbols-rounded">arrow_forward</span>
-                <a class="subheading"
-                [href]="currpage + '#' + subheading.id">{{subheading.title}}</a>
-            </span>
-        </ng-container>
-    </div>
+    <app-page-navigation-menu-content [navs]="navs" [currpage]="currpage"
+    ></app-page-navigation-menu-content>
 </div>

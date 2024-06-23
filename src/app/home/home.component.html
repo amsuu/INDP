@@ -1,9 +1,18 @@
 <h1>Welcome to the <abbr title="Interslavic noun declension practice">INDP</abbr> tool!</h1>
-<h2>Please select a level below:</h2>
+
+<p>
+    This tool was created for people learning Interslavic, so that
+    they can have a dedicated place for practicing cases and noun 
+    declension. Here you can find a variety of exercises and
+    challenges, as well as explainations of the theory and practice
+    of using cases in Interslavic.
+</p>
+
+<h2>To start, choose a level below, or visit the “<a href="/learn">Learn</a>” page.</h2>
 
 <app-level-select-cards [levels]="[
-    {levelOption: 'Level 1', routerLink: '/level-1', description: 'word to target case'},
-    {levelOption: 'Level 2', routerLink: '/level-2', description: 'word in phrase'},
-    {levelOption: 'Level 3', routerLink: '/level-3', description: 'word in context'},
-    {levelOption: 'Level 4', routerLink: '/level-4', description: 'comprehension'},
+    {levelOption: 'Level 1', routerLink: '/level/1', description: 'word to target case'},
+    {levelOption: 'Level 2', routerLink: '/level/2', description: 'word in phrase'},
+    {levelOption: 'Level 3', routerLink: '/level/3', description: 'word in context'},
+    {levelOption: 'Level 4', routerLink: '/level/4', description: 'comprehension'},
 ]"></app-level-select-cards>

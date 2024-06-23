@@ -3,7 +3,7 @@
 
 .page-navigation-menu {
 
-    font-size: $font-size - 4pt;
+    font-size: calc(var(--font-size) - 4pt);
     background-color: var(--secondary20);
     color: var(--text);
 
@@ -25,15 +25,11 @@
     &[collapsed="false"] {
         
         padding: 2rem;
-        // padding-top: 5.5rem;
         flex-flow: column nowrap;
         align-items: flex-start;
 
-        // position: relative;
-
         .uncollapse {
             display: flex;
-            flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
             position: relative;
@@ -42,25 +38,12 @@
             gap: 0.5rem;
             border-radius: 1rem;
 
-            padding: 0.5rem;
-            padding-left: 0;
-            padding-right: 1rem;
+            padding: 0.5rem 1rem 0.5rem 0rem;
 
-            // position: absolute;
-            // top: 1.5rem;
-            // left: 1.5rem;
-
-
-            &:hover {
-                cursor: pointer;
-                background-color: var(--accent);
-                color: var(--background);
-            }
         
             span.navmenu-uncoll-text {
                 display: inline;
                 text-wrap: nowrap;
-                // display: none;
             }
     
             span.navmenu-uncoll-icon {
@@ -82,42 +65,8 @@
             position: relative;
             left: -2rem;
             border-color: var(--text);
-
-            // display: none;
         }
-        a {
-            text-decoration: solid underline;
-            &:visited {
-                color: var(--accent);
-            }
-        }
-
-        
-        .nav-heading-lvl {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 1rem;
-            .subheading-wrapper {
-                margin-inline-start: 1rem;
-                font-size: $font-size - 7pt;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 0.5rem;
-                .subheading {
-                    color: var(--supressed-heading);
-                }
-            }
-        }
-
     }
-    
-    
-
-    
     
 
 
@@ -131,6 +80,7 @@
         align-items: flex-start;
         justify-content: flex-start;
 
+        padding: 0rem;
 
         .uncollapse {
             display: flex;
@@ -139,20 +89,23 @@
             justify-content: flex-start;
             gap: 1rem;
             padding: 2rem;
-            &:hover {
-                background-color: var(--accent);
-                span {
-                    color: var(--background);
-                }
-                cursor: pointer;
-            }
             border-radius: inherit;
-            
-            // span.navmenu-uncoll-text {
-            //     display: none;
-            // }
         }
-        
-        padding: 0rem;
     }
+}
+
+@media (hover: hover) {
+    .page-navigation-menu {
+        .uncollapse:hover {
+            cursor: pointer;
+            background-color: var(--accent);
+            color: var(--background);
+        }
+    }
+}
+
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    
 }

@@ -1,0 +1,35 @@
+<h1>Welcome to the “Learn” page</h1>
+<p style="text-align: center;" class="note">
+    I have split this page into three parts, called “Theory”, “Practice”,
+    and “Concise”.
+    <br>
+    Once again going from simplest to most complex
+</p>
+
+<app-level-select-cards [levels]="[
+    {levelOption: 'Theory', routerLink: '/learn/theory', description: 'Foundational theory'},
+    {levelOption: 'Practice', routerLink: '/learn/practice', description: 'Examples in practice'},
+    {levelOption: 'Concise', routerLink: '/learn/concise', description: 'Cheat sheet'},
+]"></app-level-select-cards>
+
+<p>
+    <strong class="note">“Theory”</strong> outlines the basic theoretical 
+    grammatical concepts behind cases and explains them in simple but descriptive 
+    language, assuming minimal prior grammatical knowledge. It
+    gives mostly examples in English and explains any grammatical
+    terms used.
+</p>
+<p>
+    <strong class="note">“Practice”</strong> gives more examples in
+    Interslavic compared to “Theory”, and also shows some declension tables.
+    It contains minimal to moderate amounts of explaination
+</p>
+<p>
+    <strong class="note">“Concise”</strong> consists purely of concisely
+    organized declension tables for the Interslavic language, as well
+    as the list of Prepostitions. Think of it sort of like a cheat sheet.
+</p>
+
+<br>
+
+<p style="text-align: center;" class="note"><strong>Good luck! :)</strong></p>

@@ -1,0 +1,25 @@
+.nav-heading-lvl {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    .subheading-wrapper {
+        margin-inline-start: 1rem;
+        font-size: calc(var(--font-size) - 7pt);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        .subheading {
+            color: var(--supressed-heading);
+        }
+    }
+    a {
+        text-decoration: solid underline;
+        &:visited {
+            color: var(--accent);
+        }
+    }
+}

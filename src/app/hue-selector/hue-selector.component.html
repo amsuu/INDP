@@ -1,9 +1,9 @@
-<div class="hue-selector" collapsed="true" (mouseenter)="uncollapse(hueSel)" (mouseleave)="collapse(hueSel)" #hueSel>
+<div class="hue-selector" collapsed="true" (mouseenter)="uncollapse(hueSel)" (mouseleave)="collapse(hueSel)" (click)="uncollapseTAP(hueSel)" #hueSel>
     <div *ngFor="let hue of hueNames; index as i"
         [ngClass]="currentHue === i ? 'selected-hue' : ''"
         id="hue-{{i}}" class="hue hue-{{hue}}"
         [style]="'background-color: hsl(var(--hue-' + hue + '), var(--accent-sl));'"
         (click)="changeHue(i)"
-        (click)="collapse(hueSel)"
+        (click)="currentHue === i ? collapse(hueSel) : collapse(hueSel)"
     ></div>
 </div>

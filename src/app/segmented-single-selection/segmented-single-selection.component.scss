@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .segmented-single-selection {
 
     overflow: hidden;
@@ -9,6 +11,8 @@
 
     border: solid 0.07rem var(--border);
     background-color: var(--border);
+
+
 
     width: 75%;
     border-radius: 1rem;
@@ -25,5 +29,33 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+// larger screens
+@media only screen and (min-width: $screen-size--laptop) {
+    .segmented-single-selection {
+        width: 75%;
+    }
+}
+
+// smaller screens
+@media only screen and (max-width: $main-element-width--laptop) {
+    .segmented-single-selection {
+        width: 100%;
+    }
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .segmented-single-selection {
+        flex-wrap: wrap;
+        min-width: max-content;
+        > button {
+            flex: unset;
+            flex-grow: 1;
+            min-width: max-content;
+            width: 33%;
+        }
     }
 }

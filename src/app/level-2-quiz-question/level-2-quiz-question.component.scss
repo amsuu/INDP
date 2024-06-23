@@ -36,7 +36,7 @@
             gap: 0.5rem;
 
             .level-2-input {
-                font-size: $font-size;
+                font-size: var(--font-size);
 
                 background-color: var(--secondary20);
                 color: var(--text);

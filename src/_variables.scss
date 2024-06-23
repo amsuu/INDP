@@ -6,8 +6,46 @@
 
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
+$font-sizes: (
+  font-size: 20pt,
+  font-size-cards: 20pt,  // used in the level selection cards
+  font-size-topbar: 20pt,
+  // settings-font-size: 22pt,
+  font-size-settings: 22pt,
+);
 $font-size: 20pt;
-$settings-font-size: 22pt;
+$font-size-cards: 20pt;  // used in the level selection cards
+$font-size-topbar: 20pt;
+$font-size-settings: 22pt;
+
+
+body {
+  @each $varname, $value in $font-sizes {
+    --#{$varname}: #{$value};
+  }
+}
+
+
+$main-element-width--desktop: 100rem;
+$main-element-width--laptop: 78rem;
+$main-element-width--tablet: 56rem;
+$main-element-width--phone: 42rem;
+$main-element-leftandright-padding-each: 2rem;
+$main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
+$screen-size--desktop: $main-element-width--desktop;
+$screen-size--laptop: calc($main-element-width--laptop + 1rem);
+$screen-size--tablet: calc($main-element-width--tablet + 1rem);
+$screen-size--phone: calc($main-element-width--tablet + 1rem);
+
+
+$desktop: "only screen and (min-width: #{$main-element-width--desktop})";
+// $laptop: "only screen and (min-width: #{$main-element-width--desktop})";
+// $laptop: "only screen (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
+$laptop: "only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
+
+
+
+
 
 
 // /* Smartphones (portrait and landscape) ----------- */
@@ -122,13 +160,12 @@ $themes: (
     accent: (s: 73%, l: 41%, a: 1.0),
     
     alt-background: (s: 48%, l: 59%, a: 1.0),  // background 35% darker
+    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
     
     border: (s: 24%, l: 41%, a: 0.1),
     
-    // supressed-heading: (s: 0%, l: 40%, a: 1.0),  // #656565
-    supressed-heading: (s: 57%, l: 36%, a: 1.0),  // #656565
-    
-    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
+    supressed-heading: (s: 57%, l: 36%, a: 1.0),
+    h3-heading: (s: 43%, l: 40%, a: 1.0),  // #656565
     
     context-btn-bg: (s: 73%, l: 41%, a: 0.5),  // accent 0.25 opacity
     context-btn-text: (s: 48%, l: 94%, a: 0.75),  // background 0.75 opacity
@@ -141,12 +178,12 @@ $themes: (
     accent: (s: 73%, l: 59%, a: 1.0),
 
     alt-background: (s: 48%, l: 41%, a: 1.0),  // background 35% lighter
+    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
     
     border: (s: 25%, l: 59%, a: 0.1),
-    
-    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
 
     supressed-heading: (s: 43%, l: 64%, a: 1.0),
+    h3-heading: (s: 43%, l: 60%, a: 1.0),
 
     context-btn-bg: (s: 73%, l: 59%, a: 0.5),  // accent 0.25 opacity
     context-btn-text: (s: 48%, l: 6%, a: 0.75),   // background 0.75 opacity
@@ -171,8 +208,8 @@ body[theme='dark'] {
   --accent-sl: #{map-get($themes, $theme-dark, accent, s)}, #{map-get($themes, $theme-dark, accent, l)};
 }
 body[theme='light'] {
-@each $color, $values in map-get($themes, $theme-light) {
+  @each $color, $values in map-get($themes, $theme-light) {
     --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
-    --accent-sl: #{map-get($themes, $theme-light, accent, s)}, #{map-get($themes, $theme-light, accent, l)};
-}
+  }
+  --accent-sl: #{map-get($themes, $theme-light, accent, s)}, #{map-get($themes, $theme-light, accent, l)};
 }

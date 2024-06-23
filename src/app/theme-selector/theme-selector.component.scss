@@ -4,7 +4,11 @@
 @import 'src/variables';
 
 .theme-selector {
-    font-size: $settings-font-size - 4;
+    // font-size: calc(var(--font-size-settings) - 4);
+
+    // * {
+        // font-size: calc(var(--font-size-settings) - 4) !important;
+    // }
 
     background-color: var(--accent);
     background-color: var(--secondary20);
@@ -15,6 +19,7 @@
     border: var(--border);
  
     width: fit-content;
+    min-height: fit-content;
     margin-inline-start: 1rem;
     padding: 0.5rem;
     border-radius: 2rem;
@@ -25,18 +30,10 @@
 
     transition: all 200ms ease-in-out;
 
-    &:hover {
-        background-color: var(--secondary);
-        cursor: pointer;
-        >* {
-
-            background-color: var(--secondary);
-        }
-    }
 
     >button {
         font-size: 18pt;
-        font-size: $settings-font-size - 4;
+        font-size: calc(var(--font-size-settings) - 4pt);
         border: none;
         background-color: inherit;
         color: inherit;
@@ -55,6 +52,42 @@
             background-color: var(--accent);
             color: var(--text);
             color: var(--background);
+        }
+    }
+}
+
+@media (hover: hover) {
+    .theme-selector:hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+        >* {
+
+            background-color: var(--secondary);
+        }
+    }
+}
+
+
+// bigger screens
+@media only screen and (min-width: $main-element-width--phone) {
+    .theme-selector {
+        flex-flow: row nowrap;
+        height: 100%;
+        .phone-spacer {
+            display: none;
+        }
+    }
+}
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .theme-selector {
+        flex-flow: column nowrap;
+        min-height: fit-content;
+        margin-inline-start: 0.5rem;
+        height: 100%;
+        .phone-spacer {
+            display: unset;
+            flex-grow: 1;
         }
     }
 }
