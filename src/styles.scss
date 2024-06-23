@@ -46,7 +46,6 @@ a {
 }
 ul {
     list-style-type: '— ';
-    list-style-position: inside;
 }
 
 p {
@@ -352,6 +351,9 @@ main {
             }
         }
     }
+    ul {
+        list-style-position: inside;
+    }
 }
 
 // phone screens
@@ -387,5 +389,17 @@ main {
         margin-bottom: 5rem;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
+    }
+    ul {
+        list-style-position: outside;
+    }
+
+    body[theme="light"] {
+        #topbar {
+            // shadow for light mode, border for dark mode.
+            // (see light mode overrides in styles.scss)
+            box-shadow: 0rem 0rem 5rem var(--border);
+            border-top: none;
+        }
     }
 }

@@ -45,13 +45,6 @@
         //     color: var(--background);
         // }
 
-        &:hover {
-            // background-color: darken(var(--background), 10%);
-            // color: $themeen(var(--text), 20%);
-            // color: darken(var(--background), 35%);
-            background-color: var(--background);
-            color: var(--alt-background);
-        }
         
         &.current-page {
             background-color: var(--background);
@@ -63,16 +56,23 @@
     }
 }
 
+@media (hover: hover) {
+    #topbar {
+        &:hover {
+            background-color: var(--background);
+            color: var(--alt-background);
+        }
+    }
+}
+
 // bigger screens
 @media only screen and (min-width: $main-element-width--phone) {
     #topbar {
-        >* {
-            &.text {
-                display: flex;
-            }
-            &.icon{
-                display: none;
-            }
+        div > button > span.text {
+            display: inline;
+        }
+        div > button > span.icon {
+            display: none !important;
         }
     }
 }
@@ -82,12 +82,31 @@
     #topbar {
         justify-content: space-around;
 
-        >* {
+
+        // shadow for light mode, border for dark mode.
+        // (see light mode overrides in styles.scss)
+        box-shadow: none;
+        border-top: 0.1rem solid var(--border);
+
+        span {
             &.text {
                 display: none;
             }
             &.icon{
                 display: flex;
+            }
+        }
+
+        &.showtext-mobile {
+            button {
+                display: flex;
+                flex-flow: column-reverse nowrap;
+                justify-content: center;
+                align-items: center;
+
+                span.text {
+                    display: flex;
+                }
             }
         }
     }

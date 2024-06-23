@@ -30,14 +30,6 @@
 
     transition: all 200ms ease-in-out;
 
-    &:hover {
-        background-color: var(--secondary);
-        cursor: pointer;
-        >* {
-
-            background-color: var(--secondary);
-        }
-    }
 
     >button {
         font-size: 18pt;
@@ -60,6 +52,17 @@
             background-color: var(--accent);
             color: var(--text);
             color: var(--background);
+        }
+    }
+}
+
+@media (hover: hover) {
+    .theme-selector:hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+        >* {
+
+            background-color: var(--secondary);
         }
     }
 }

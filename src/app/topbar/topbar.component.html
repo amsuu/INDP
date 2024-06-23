@@ -1,9 +1,5 @@
-<div id="topbar">
-    <div class="text" id="home"><button routerLink="/home" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Home</button></div>
-    <div class="text" id="settings"><button routerLink="/settings" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Settings</button></div>
-    <div class="text" id="learn"><button routerLink="/learn" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page">Learn</button></div>
-
-    <div class="icon" id="home"><button routerLink="/home" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="material-symbols-rounded">home</span></button></div>
-    <div class="icon" id="settings"><button routerLink="/settings" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="material-symbols-rounded">settings</span></button></div>
-    <div class="icon" id="learn"><button routerLink="/learn" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="material-symbols-rounded">school</span></button></div>
+<div id="topbar" class="showtext-mobile">
+    <div id="home"><button routerLink="/home" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="text">Home</span><span class="material-symbols-rounded icon">home</span></button></div>
+    <div id="settings"><button routerLink="/settings" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="text">Settings</span><span class="material-symbols-rounded icon">settings</span></button></div>
+    <div id="learn"><button routerLink="/learn" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current-page"><span class="text">Learn</span><span class="material-symbols-rounded icon">school</span></button></div>
 </div>

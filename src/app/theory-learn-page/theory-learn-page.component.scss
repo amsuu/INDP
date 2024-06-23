@@ -42,3 +42,25 @@ p {
     text-indent: 1.5rem;
     // margin-top: 0;
 }
+
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    h1, h2, h3, h4, h5, h6 {
+        text-align: start;
+    } h1 {
+        text-indent: 0.5rem;
+    } h2 {
+        text-indent: 1rem;
+    } h3 {
+        text-indent: 2rem;
+        margin: 0.5rem auto;
+    } h4, h5, h6 {
+        text-indent: 3rem;
+        margin: 0.5rem auto;
+    }
+    
+    p {
+        text-indent: 0.5rem;
+    }
+}
