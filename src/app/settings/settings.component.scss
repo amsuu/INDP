@@ -46,3 +46,15 @@ div.row {
         display: block;
     }
 }
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .row:has(app-hue-selector) {
+        display: flex;
+        align-items: flex-start;
+        align-items: stretch;
+        app-hue-selector {
+            margin-top: 0rem;
+        }
+    }
+}

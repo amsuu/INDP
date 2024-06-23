@@ -43,3 +43,17 @@
         width: 100%;
     }
 }
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .segmented-multiple-selection {
+        flex-wrap: wrap;
+        min-width: max-content;
+        > * {
+            flex: unset;
+            flex-grow: 1;
+            min-width: max-content;
+            width: 33%;
+        }
+    }
+}

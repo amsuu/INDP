@@ -190,21 +190,22 @@ button {
     font-size: calc(var(--font-size) * 0.8);
     font-weight: 500;
 
-
-    &:hover {
-        background-color: var(--secondary);
-    }
-
     &.active {
         background-color: var(--secondary20);
         color: var(--accent);
+    }
+}
+@media (hover: hover) {
+    button{
 
         &:hover {
             background-color: var(--secondary);
         }
+        &:active:hover {
+            background-color: var(--secondary);
+        }
     }
 }
-
 
 
 .note {
@@ -310,24 +311,6 @@ body[theme="light"] {
     }
 }
 
-// phone screens
-@media only screen and (max-width: $main-element-width--phone) {
-    body {
-        --font-size: 12pt;
-        // --font-size-cards: 18pt;
-        --font-size-topbar: 16pt;
-    }
-    p {
-        text-indent: 1rem;
-    }
-    main {
-        // width: calc(#{$main-element-width--tablet} + 12rem);
-        // width: #{$main-element-width--laptop};
-        width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
 
 app-topbar {
     left: 0;
@@ -340,6 +323,8 @@ main {
     margin-bottom: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
+
+
     // padding-left:  12rem;
     // padding-right: 12rem;
 
@@ -352,10 +337,6 @@ main {
 
 // bigger screens
 @media only screen and (min-width: $main-element-width--phone) {
-    main {
-        margin-top: 5rem;
-        margin-bottom: 0rem;
-    }
     app-topbar {
         position: absolute;
         top: 0;
@@ -375,10 +356,6 @@ main {
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
-    main {
-        margin-top: 2rem;
-        margin-bottom: 0rem;
-    }
     app-topbar {
         position: fixed;
         top: unset;
@@ -393,5 +370,22 @@ main {
                 }
             }
         }
+    }
+    body {
+        --font-size: 12pt;
+        // --font-size-cards: 18pt;
+        --font-size-topbar: 16pt;
+    }
+    p {
+        text-indent: 1rem;
+    }
+    main {
+        // width: calc(#{$main-element-width--tablet} + 12rem);
+        // width: #{$main-element-width--laptop};
+        width: 100vw;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
     }
 }

@@ -8,7 +8,14 @@ import { Component, Input } from '@angular/core';
 export class PageNavigationMenuComponent {
 
   @Input() currpage: string = '';
-  @Input() navs: {id: string, title: string, subheadings?: {id: string, title: string}[]}[] = [{id: '', title: ''}];
+  @Input() navs: {
+    id: string,
+    title: string,
+    subheadings?:{
+      id: string,
+      title: string
+    }[]
+  }[] = [{id: '', title: ''}];
 
   toggleCollapse(navmenu: HTMLDivElement) {
     navmenu.setAttribute("collapsed",
@@ -16,7 +23,5 @@ export class PageNavigationMenuComponent {
         === "true" ? "false" : "true"
       }`
     )
-
-
   }
 }

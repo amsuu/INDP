@@ -19,6 +19,7 @@
     border: var(--border);
  
     width: fit-content;
+    min-height: fit-content;
     margin-inline-start: 1rem;
     padding: 0.5rem;
     border-radius: 2rem;
@@ -59,6 +60,31 @@
             background-color: var(--accent);
             color: var(--text);
             color: var(--background);
+        }
+    }
+}
+
+
+// bigger screens
+@media only screen and (min-width: $main-element-width--phone) {
+    .theme-selector {
+        flex-flow: row nowrap;
+        height: 100%;
+        .phone-spacer {
+            display: none;
+        }
+    }
+}
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .theme-selector {
+        flex-flow: column nowrap;
+        min-height: fit-content;
+        margin-inline-start: 0.5rem;
+        height: 100%;
+        .phone-spacer {
+            display: unset;
+            flex-grow: 1;
         }
     }
 }
