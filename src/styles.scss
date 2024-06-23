@@ -286,7 +286,7 @@ body[theme="light"] {
 }
 
 // smaller desktop and laptop screens
-@media only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop}) {
+@media only screen and (min-width: $screen-size--laptop) and (max-width: #{$main-element-width--desktop}) {
     body {
         --font-size: 20pt;
     }

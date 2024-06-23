@@ -25,7 +25,7 @@ div.row {
 
 
 // larger screens
-@media only screen and (min-width: #{$screen-size--laptop}) {
+@media only screen and (min-width: $screen-size--laptop) {
     app-segmented-single-selection, app-segmented-multiple-selection {
         display: block;
         width: unset;

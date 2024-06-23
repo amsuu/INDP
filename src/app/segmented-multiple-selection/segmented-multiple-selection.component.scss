@@ -31,7 +31,7 @@
 }
 
 // larger screens
-@media only screen and (min-width: #{$screen-size--laptop}) {
+@media only screen and (min-width: $screen-size--laptop) {
     .segmented-multiple-selection {
         width: 75%;
     }
