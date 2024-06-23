@@ -296,7 +296,7 @@ body[theme="light"] {
 }
 
 // tablet screens
-@media only screen and (max-width: $main-element-width--laptop) {
+@media only screen and (min-width: $main-element-width--phone) and (max-width: $main-element-width--laptop) {
     body {
         --font-size: 18pt;
         --font-size-cards: 8pt;
@@ -307,5 +307,91 @@ body[theme="light"] {
         width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    body {
+        --font-size: 12pt;
+        // --font-size-cards: 18pt;
+        --font-size-topbar: 16pt;
+    }
+    p {
+        text-indent: 1rem;
+    }
+    main {
+        // width: calc(#{$main-element-width--tablet} + 12rem);
+        // width: #{$main-element-width--laptop};
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+app-topbar {
+    left: 0;
+    right: 0;
+
+    background-color: var(--background);
+}
+main {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    // padding-left:  12rem;
+    // padding-right: 12rem;
+
+    // width: calc(100% - 20rem);
+    // position: relative;
+    // left: 10rem;
+
+    // width: 100%;
+}
+
+// bigger screens
+@media only screen and (min-width: $main-element-width--phone) {
+    main {
+        margin-top: 5rem;
+        margin-bottom: 0rem;
+    }
+    app-topbar {
+        position: absolute;
+        top: 0;
+        bottom: unset;
+        #topbar {
+            >* {
+                &.text {
+                    display: flex;
+                }
+                &.icon{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    main {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+    }
+    app-topbar {
+        position: fixed;
+        top: unset;
+        bottom: 0;
+        #topbar {
+            >* {
+                &.text {
+                    display: none;
+                }
+                &.icon{
+                    display: flex;
+                }
+            }
+        }
     }
 }

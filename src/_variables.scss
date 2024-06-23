@@ -29,11 +29,13 @@ body {
 $main-element-width--desktop: 100rem;
 $main-element-width--laptop: 78rem;
 $main-element-width--tablet: 56rem;
+$main-element-width--phone: 56rem;
 $main-element-leftandright-padding-each: 2rem;
 $main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
 $screen-size--desktop: $main-element-width--desktop;
 $screen-size--laptop: calc($main-element-width--laptop + 1rem);
 $screen-size--tablet: calc($main-element-width--tablet + 1rem);
+$screen-size--phone: calc($main-element-width--tablet + 1rem);
 
 
 $desktop: "only screen and (min-width: #{$main-element-width--desktop})";
