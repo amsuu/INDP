@@ -82,7 +82,7 @@ body {
     justify-content: center;
 
     margin: 0px;
-    font-size: $font-size;
+    font-size: var(--font-size);
     line-height: 1.5;
 
     background-color: var(--background);
@@ -102,10 +102,17 @@ body[font="serif"] {
         font-weight: medium;
     }
 }
-app-settings {
-    display: block;
-    width: 80vw;
+app-root > * {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
 }
+// app-settings {
+//     display: block;
+//     width: 80vw;
+// }
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -135,7 +142,7 @@ h1 {
 h2 {
     // color: var(--accent)-2;
 
-    font-size: $font-size + 8;
+    font-size: calc(var(--font-size) + 8pt);
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -152,13 +159,13 @@ h3 {
 
 input[type="checkbox"], select {
     font-family: inherit;
-    font-size: $font-size;
+    font-size: var(--font-size);
 
     vertical-align: baseline;
 }
 input[type="checkbox"] {
     
-    height: calc($font-size / 2);
+    height: calc(var(--font-size) / 2);
 
     aspect-ratio: 1 / 1;
     
@@ -166,7 +173,7 @@ input[type="checkbox"] {
 }
 select {
     margin: 0px;
-    min-height: $font-size;
+    min-height: var(--font-size);
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: var(--accent);
@@ -180,7 +187,7 @@ button {
     padding: 0.5rem;
     border: none;
     
-    font-size: $font-size * 0.8;
+    font-size: calc(var(--font-size) * 0.8);
     font-weight: 500;
 
 
@@ -196,6 +203,12 @@ button {
             background-color: var(--secondary);
         }
     }
+}
+
+
+
+.note {
+    color: var(--h3-heading);
 }
 
 
@@ -238,5 +251,61 @@ body[theme="light"] {
                 }
             }
         }
+    }
+}
+
+
+
+// @media (min-width: 992px) {
+//     main {
+//         background-color: aliceblue;
+//     }
+// }
+
+// @media (min-width: 768px) and (max-width: 991px) {
+//     main {
+//         background-color: antiquewhite;
+//     }
+// }
+
+// @media (max-width: 767px) {
+//     main {
+//         background-color: aquamarine;
+//     }
+// }
+
+
+// big desktop screens
+@media only screen and (min-width: #{$screen-size--desktop}) {
+    body {
+        --font-size: 20pt;
+    }
+    main {
+        width: #{$main-element-width--desktop};
+    }
+}
+
+// smaller desktop and laptop screens
+@media only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop}) {
+    body {
+        --font-size: 20pt;
+    }
+    main {
+        width: #{$main-element-width--laptop};
+    }
+}
+
+// tablet screens
+@media only screen and (max-width: $main-element-width--laptop) {
+    body {
+        --font-size: 18pt;
+        --font-size-cards: 8pt;
+    }
+    main {
+        // width: calc(#{$main-element-width--tablet} + 12rem);
+        // width: #{$main-element-width--laptop};
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }

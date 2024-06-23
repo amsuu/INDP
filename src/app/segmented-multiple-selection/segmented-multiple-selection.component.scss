@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .segmented-multiple-selection {
 
     overflow: hidden;
@@ -25,5 +27,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+// larger screens
+@media only screen and (min-width: #{$screen-size--laptop}) {
+    .segmented-multiple-selection {
+        width: 75%;
+    }
+}
+
+// smaller screens
+@media only screen and (max-width: $main-element-width--laptop) {
+    .segmented-multiple-selection {
+        width: 100%;
     }
 }

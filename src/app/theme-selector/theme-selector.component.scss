@@ -4,7 +4,11 @@
 @import 'src/variables';
 
 .theme-selector {
-    font-size: $settings-font-size - 4;
+    // font-size: calc(var(--font-size-settings) - 4);
+
+    // * {
+        // font-size: calc(var(--font-size-settings) - 4) !important;
+    // }
 
     background-color: var(--accent);
     background-color: var(--secondary20);
@@ -36,7 +40,7 @@
 
     >button {
         font-size: 18pt;
-        font-size: $settings-font-size - 4;
+        font-size: calc(var(--font-size-settings) - 4pt);
         border: none;
         background-color: inherit;
         color: inherit;

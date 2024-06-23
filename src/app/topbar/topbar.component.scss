@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@import 'src/variables';
+@import '../../variables';
 
 
 #topbar, #topbar>* {
@@ -12,7 +12,7 @@
     justify-content: flex-start;
     min-height: fit-content;
 
-    font-size: $font-size;
+    font-size: var(--font-size-topbar);
 }
 
 #topbar {

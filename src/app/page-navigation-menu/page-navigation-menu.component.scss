@@ -3,7 +3,7 @@
 
 .page-navigation-menu {
 
-    font-size: $font-size - 4pt;
+    font-size: calc(var(--font-size) - 4pt);
     background-color: var(--secondary20);
     color: var(--text);
 
@@ -87,7 +87,7 @@
             gap: 1rem;
             .subheading-wrapper {
                 margin-inline-start: 1rem;
-                font-size: $font-size - 7pt;
+                font-size: calc(var(--font-size) - 7pt);
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: flex-start;

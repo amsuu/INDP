@@ -3,7 +3,7 @@
 
 @import 'src/variables';
 
-// $font-size: 18pt;
+// var(--font-size): 18pt;
 
 // .settings {
 //     font-size: $settings-font-size;
@@ -23,3 +23,26 @@ div.row {
     align-items: center;
 }
 
+
+// larger screens
+@media only screen and (min-width: #{$screen-size--laptop}) {
+    app-segmented-single-selection, app-segmented-multiple-selection {
+        display: block;
+        width: unset;
+    }
+    .row:has(app-hue-selector) {
+        display: flex;
+    }
+}
+
+// smaller screens
+@media only screen and (max-width: $main-element-width--laptop) {
+
+    app-segmented-single-selection, app-segmented-multiple-selection {
+        display: block;
+        width: 100% !important;
+    }
+    .row:has(app-hue-selector) {
+        display: block;
+    }
+}
