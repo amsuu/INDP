@@ -1,170 +1,149 @@
 @import '../../variables';
 
 .level-1-quiz-question-wrapper {
-    display: flex;
-    width: 50rem;
-    // height: 31.25rem;
-    padding: 11.125rem 2.5rem 11.875rem 2.5rem;
-    padding: 2.5rem;
-    margin-bottom: 6rem;
-    justify-content: center;
-    align-items: flex-start;
-    align-items: center;
-    gap: 3.75rem;
+  display: flex;
+  width: 50rem;
+  padding: 2.5rem;
+  margin-bottom: 6rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3.75rem;
 
-    >div.card-and-title-container {
-        width: 12.5rem;
-        height: 8.25rem;
-        flex-shrink: 0;
-        
-        h1 {
-            color: var(--text);
-            text-align: center;
-            font-size: 2rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
+  >div.card-and-title-container {
+    width: 12.5rem;
+    height: 8.25rem;
+    flex-shrink: 0;
 
-        div.card-container {
-            border-radius: 0.625rem;
-        
-            &.target-card-container {
-                background-color: var(--secondary20);
-                
-                display: flex;
-                flex-flow: column nowrap;
-                gap: 0.8rem;
-                height: fit-content;
-            }
-            &.answer-card-container {
-                background-color: var(--secondary);
-                height: 3.75rem + 2rem;
-
-                display: flex;
-                flex-flow: column nowrap;
-                gap: 0;
-
-                .answer-card {
-                    background-color: var(--primary);
-                    input {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        background-color: #00000000;
-                        border: none;
-                        font-size: inherit;
-                        text-align: inherit;
-                        color: var(--background);
-
-                        &::placeholder,
-                        &::-moz-placeholder,
-                        &::-webkit-input-placeholder {
-                            color: var(--text);
-                            opacity: 1;
-                        }
-                    }
-                }
-
-                &:has(> .answer-button:hover) {
-                    background-color: var(--accent);  // light mode
-                    background-color: var(--secondary20);
-
-                    > .answer-button:hover {
-                        color: var(--background);  // light mode
-                        color: var(--text);
-                    }
-                }
-
-                .answer-button {
-                    width: 100%;
-                    flex-grow: 1;
-                    display: inline;
-                    font-size: 1rem;
-                    margin: 0;
-                    padding: 0;
-                    background: #00000000;
-                }
-            }
-
-            div.card {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                width: 12.5rem;
-                height: 3.75rem;
-                flex-shrink: 0;
-
-                border-radius: inherit;
-                background-color: var(--secondary);
-
-                color: var(--text);
-                text-align: center;
-                font-size: 2rem;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-
-
-
-                &:hover {
-                    button.context {
-                        opacity: 100%;
-                    }
-                }
-
-                position: relative;
-                button.context {
-                    opacity: 0%;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    
-                    width: 1.875rem;
-                    height: 1.875rem;
-                    flex-shrink: 0;
-                    padding: 0;
-
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-
-
-                    span.card-context-button {
-                        font-size: 18px !important;
-
-                        color: var(--context-btn-text);
-                        text-align: center;
-                    }
-
-                    border-radius: 0rem 0.625rem;
-                    background-color: var(--context-btn-bg);
-                    color: var(--context-btn-text);
-
-                    &:hover {
-                        background-color: var(--accent);
-                        color: var(--background);
-
-                    }
-                }
-            }
-
-            // &.answer-card-container:hover {
-
-            // }
-        }
+    h1 {
+      color: var(--text);
+      text-align: center;
+      font-size: 2rem;
     }
+
+    div.card-container {
+      border-radius: 0.625rem;
+
+      &.target-card-container {
+        background-color: var(--secondary20);
+
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.8rem;
+        height: fit-content;
+      }
+
+      &.answer-card-container {
+        background-color: var(--secondary);
+        height: 3.75rem + 2rem;
+
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0;
+
+        .answer-card {
+          background-color: var(--primary);
+
+          input {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #00000000;
+            border: none;
+            font-size: inherit;
+            text-align: inherit;
+            color: var(--background);
+
+            &::placeholder,
+            &::-moz-placeholder,
+            &::-webkit-input-placeholder {
+              color: var(--text);
+              opacity: 1;
+            }
+          }
+        }
+
+        &:has(> .answer-button:hover) {
+          background-color: var(--secondary20);
+
+          >.answer-button:hover {
+            color: var(--text);
+          }
+        }
+
+        .answer-button {
+          width: 100%;
+          flex-grow: 1;
+          display: inline;
+          font-size: 1rem;
+          margin: 0;
+          padding: 0;
+          background: #00000000;
+        }
+      }
+
+      div.card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 12.5rem;
+        height: 3.75rem;
+        flex-shrink: 0;
+
+        border-radius: inherit;
+        background-color: var(--secondary);
+
+        color: var(--text);
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+
+
+        &:hover {
+          button.context {
+            opacity: 100%;
+          }
+        }
+
+        position: relative;
+
+        button.context {
+          opacity: 0%;
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          width: 1.875rem;
+          height: 1.875rem;
+          flex-shrink: 0;
+          padding: 0;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+
+          span.card-context-button {
+            font-size: 18px !important;
+
+            color: var(--context-btn-text);
+            text-align: center;
+          }
+
+          border-radius: 0rem 0.625rem;
+          background-color: var(--context-btn-bg);
+          color: var(--context-btn-text);
+
+          &:hover {
+            background-color: var(--accent);
+            color: var(--background);
+          }
+        }
+      }
+    }
+  }
 }
-
-
-
-// phone screens
-// @media only screen and (max-width: $main-element-width--phone) {
-//     .level-1-quiz-question-wrapper {
-//         display: flex;
-//         flex-flow: row wrap;
-
-//     }
-// }
