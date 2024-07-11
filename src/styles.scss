@@ -101,12 +101,17 @@ body[font="serif"] {
         font-weight: medium;
     }
 }
-app-root > * {
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
+app-root {
+    > * {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    app-settings {
+        align-items: flex-start;
+    }
 }
 // app-settings {
 //     display: block;
@@ -163,11 +168,11 @@ input[type="checkbox"], select {
     vertical-align: baseline;
 }
 input[type="checkbox"] {
-    
+
     height: calc(var(--font-size) / 2);
 
     aspect-ratio: 1 / 1;
-    
+
     vertical-align: middle;
 }
 select {
@@ -185,7 +190,7 @@ button {
     color: var(--text);
     padding: 0.5rem;
     border: none;
-    
+
     font-size: calc(var(--font-size) * 0.8);
     font-weight: 500;
 
@@ -240,7 +245,7 @@ body[theme="light"] {
                     background-color: var(--secondary20) !important;  // light mode override
                     input {
                         color: var(--text) !important;  // light mode override
-                        
+
                         &::placeholder,
                         &::-moz-placeholder,
                         &::-webkit-input-placeholder {
