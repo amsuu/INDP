@@ -12,7 +12,7 @@ Run `npm run start-open` to run a dev server on your local IP (WARNING: this may
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component, `ng generate service` for a service. You can also use `ng generate directive|pipe|class|guard|interface|enum|module`.
 
 ## Build
 
