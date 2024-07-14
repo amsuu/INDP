@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Level2QuizQuestionComponent } from '../level-2-quiz-question/level-2-quiz-question.component';
 
 @Component({
   selector: 'app-level-2-page',
