@@ -14,13 +14,7 @@ export class Level1QuizQuestionComponent {
   @Input() showTitles: boolean = false;
   // @Input() random: boolean = true;
 
-  appropriateAnswerButtonText
-    : "Hint"
-    | "Reveal"
-    | "Check"
-    | "Correct"
-    | "False"
-  = 'Hint';
+  appropriateAnswerButtonText = 'Hint';
   
   ngOnInit() { }
 
@@ -34,15 +28,14 @@ export class Level1QuizQuestionComponent {
     }
   }
 
-  answerButtonClicked(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
+  answerButtonClicked(answerInput: HTMLInputElement, answerButton: HTMLButtonElement, answerCardContainter: HTMLDivElement) {
     
     if (this.appropriateAnswerButtonText === 'Hint') {
       this.showHint(answerInput, answerButton);
       this.appropriateAnswerButtonText = 'Reveal';
     }
     else if (this.appropriateAnswerButtonText === 'Check') {
-      this.checkAnswer(answerInput, answerButton);
-      this.appropriateAnswerButtonText = 'Reveal'
+      this.checkAnswer(answerInput, answerButton, answerCardContainter);
     }
     else if (this.appropriateAnswerButtonText === 'Reveal') {
       this.revealAnswer(answerInput, answerButton);
@@ -54,29 +47,45 @@ export class Level1QuizQuestionComponent {
     
   }
   // During input
-  checkAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
-
+  checkAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement, answerCardContainter: HTMLDivElement) {
+    if (this.verifyAnswerInput(answerInput)) {
+      this.revealAnswer(answerInput, answerButton);
+    } else {
+      // answerInput.style.textDecoration = "line-through 0.1rem hsl(var(--hue-red), var(--accent-sl))";
+      if (document.body.getAttribute('theme') === 'dark') {
+        answerInput.setAttribute("style", "color: var(--background) !important; background-color: hsl(var(--hue-red), var(--accent-sl));");
+      } else {
+        answerInput.setAttribute("style", "color: var(--text) !important; background-color: hsl(var(--hue-red), var(--secondary-sl)) !important;");
+        answerCardContainter.setAttribute("style", "background-color: hsl(var(--hue-red), var(--accent-sl));");
+        answerButton.setAttribute("style", "color: var(--background);");
+      }
+      this.appropriateAnswerButtonText = "Reveal";
+    }
   }
   // After hint + while no input
   revealAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
-    this.verifyAnswerInput(answerInput, answerButton)
+    this.verifyAnswerInput(answerInput);
     answerInput.value = this.answer;
-    this.lockAnswer(answerInput, answerButton);
+    this.lockAnswer(answerInput);
   }
 
 
-  lockAnswer(answerinput: HTMLInputElement, answerButton: HTMLButtonElement) {
+  lockAnswer(answerinput: HTMLInputElement) {
     answerinput.setAttribute('disabled', 'true');
   }
 
-  verifyAnswerInput(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
-    const currAns = answerInput.value;
+  isAnswerCorrect(answerInput: HTMLInputElement) {
+    return (answerInput.value === this.answer);
+  }
 
-    if (currAns === this.answer) {
+  verifyAnswerInput(answerInput: HTMLInputElement) {
+    const answerIsCorrect = this.isAnswerCorrect(answerInput);
+    if (answerIsCorrect) {
       this.appropriateAnswerButtonText = "Correct";
     }
-    else if (currAns !== this.answer) {
-      this.appropriateAnswerButtonText = "False";
+    else {
+      this.appropriateAnswerButtonText = "Wrong";
     }
+    return answerIsCorrect;
   }
 }

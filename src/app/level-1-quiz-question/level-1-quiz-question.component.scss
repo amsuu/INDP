@@ -41,12 +41,15 @@
                 background-color: var(--secondary);
                 height: 3.75rem + 2rem;
 
+                overflow: hidden;
+
                 display: flex;
                 flex-flow: column nowrap;
                 gap: 0;
 
                 .answer-card {
                     background-color: var(--primary);
+                    overflow: hidden;
                     input {
                         display: block;
                         width: 100%;
