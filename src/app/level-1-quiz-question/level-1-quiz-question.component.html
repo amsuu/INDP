@@ -22,7 +22,7 @@
     <div class="card-and-title-container answer-card-container">
         <h1 *ngIf="showTitles">Answer:</h1>
         <div class="card-container answer-card-container" #answerCardContainer>
-            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" #answerInput type="text" placeholder="brat" name="" id="answer"></div>
+            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{word}}" name="" id="answer"></div>
             <button (click)="answerButtonClicked(answerInput, answerButton, answerCardContainer)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
         </div>
     </div>
