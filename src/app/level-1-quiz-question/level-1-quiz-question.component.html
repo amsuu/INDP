@@ -1,3 +1,8 @@
+<!-- Note: some HTML structures are written on a single line, well-exceeding
+ 80 characters per line. This is done to avoid trailing whitespace in the
+ elements' contents when rendered/compiled/whatevered by the website
+ -->
+
 <div class="level-1-quiz-question-wrapper">
     <div class="card-and-title-container">
         <h1 *ngIf="showTitles">Word:</h1>
@@ -16,9 +21,9 @@
 
     <div class="card-and-title-container answer-card-container">
         <h1 *ngIf="showTitles">Answer:</h1>
-        <div class="card-container answer-card-container">
-            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" #answerInput type="text" placeholder="brat" name="" id="answer"></div>
-            <button (click)="answerButtonClicked(answerInput, answerButton)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
+        <div class="card-container answer-card-container" #answerCardContainer>
+            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{word}}" name="" id="answer"></div>
+            <button (click)="answerButtonClicked(answerInput, answerButton, answerCardContainer)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
         </div>
     </div>
 </div>

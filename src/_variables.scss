@@ -206,10 +206,12 @@ body[theme='dark'] {
       --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
   }
   --accent-sl: #{map-get($themes, $theme-dark, accent, s)}, #{map-get($themes, $theme-dark, accent, l)};
+  --secondary-sl: #{map-get($themes, $theme-dark, secondary, s)}, #{map-get($themes, $theme-dark, secondary, l)};
 }
 body[theme='light'] {
   @each $color, $values in map-get($themes, $theme-light) {
     --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
   }
   --accent-sl: #{map-get($themes, $theme-light, accent, s)}, #{map-get($themes, $theme-light, accent, l)};
+  --secondary-sl: #{map-get($themes, $theme-light, secondary, s)}, #{map-get($themes, $theme-light, secondary, l)};
 }

@@ -10,7 +10,7 @@ INDP stands for "Interslavic Noun Declension Practice". It was created for learn
 
 Run `npm run start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `npm run start-open` to run a dev server on your local IP (WARNING: this may pose security vulnerabilities to your network)
+Run `npm run start-open` to run a dev server on your local IP (WARNING: this may pose security vulnerabilities to your network), which allows connections from, for example, another device, different from the host, like a phone -- for testing adaptive design.
 
 ## Code scaffolding
 
