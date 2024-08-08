@@ -133,7 +133,7 @@ export class Level1QuizQuestionComponent {
       this.appropriateAnswerButtonText = "Correct";
     }
     else {
-      this.appropriateAnswerButtonText = "Wrong";
+      this.appropriateAnswerButtonText = "Correct";
     }
     return answerIsCorrect;
   }
