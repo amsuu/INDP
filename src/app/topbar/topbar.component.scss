@@ -17,11 +17,15 @@
 
 #topbar {
 
+    z-index: 1000;
+
     height: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
     border-bottom: solid 1px var(--border);
     // border-bottom: rgba(255, 255, 255, 0.1) solid 1px;
+
+    background-color: var(--background);
 
     // position: absolute;
     // top: 0;
@@ -45,7 +49,7 @@
         //     color: var(--background);
         // }
 
-        
+
         &.current-page {
             background-color: var(--background);
             color: var(--text);
