@@ -216,7 +216,6 @@ button {
     color: var(--h3-heading);
 }
 
-
 // button.accent-btn {
 //     background-color: map-get(map-get($themes, light), accent);
 //     color: map-get(map-get($themes, light), background);
@@ -393,8 +392,8 @@ main {
         width: 100vw;
         margin-top: 1rem;
         margin-bottom: 5rem;
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
     ul {
         list-style-position: outside;
