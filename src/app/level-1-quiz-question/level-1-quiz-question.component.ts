@@ -116,6 +116,7 @@ export class Level1QuizQuestionComponent {
     answerInput.value = this.answer;
     this.lock(answerInput);
     this.lock(answerButton);
+    answerButton.blur();
   }
 
 
