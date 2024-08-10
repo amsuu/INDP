@@ -210,7 +210,13 @@ button {
         }
     }
 }
-
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    button {
+        font-size: var(--font-size) !important;
+        padding: calc(0.5rem * 0.8);  // to compensate for the 0.8 -> 1 font size increase
+    }
+}
 
 .note {
     color: var(--h3-heading);
@@ -225,6 +231,9 @@ button {
 @media only screen and (max-width: $main-element-width--phone) {
     .mobile-only {
         display: unset;
+    }
+    .no-mobile {
+        display: hidden;
     }
 }
 
