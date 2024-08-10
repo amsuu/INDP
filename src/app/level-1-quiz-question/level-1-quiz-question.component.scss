@@ -118,7 +118,8 @@
                     }
                 }
 
-                // position: relative;
+                position: relative;
+                z-index: 1;
                 button.context {
                     opacity: 0%;
                     position: absolute;
@@ -168,6 +169,7 @@
 @media only screen and (max-width: $main-element-width--phone) {
     .level-1-quiz-question-wrapper {
         flex-flow: column nowrap;
+        gap: 2rem;
         width: fit-content;
     }
 }

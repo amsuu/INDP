@@ -1,26 +1,33 @@
 <div class="level-2-quiz-question-wrapper">
     <div class="level-2-phrase-wrapper">
-        <span class="level-2-phrase">Ja vidžų</span>
-        <span class="level-2-empty" id="level-2-empty-0-0">
-            <!--
-                this is a method to make the input element's width
-                match the size of the placeholder
-                (no, there's no other way)
-            -->
-            <div class="input-wrapper">
-                <div class="input-placeholder-width" aria-hidden="true">
-                    (mųž)
+
+
+        <ng-container *ngFor="let phraseEl of phrase; index as i">
+            <span *ngIf="phraseEl !== ''" class="level-2-phrase">
+                {{phraseEl}}
+            </span>
+            <span *ngIf="phraseEl === ''" class="level-2-empty" id="level-2-empty-0-0">
+                <!--
+                    this is a method to make the input element's width
+                    match the size of the placeholder
+                    (no, there's no other (good) way)
+                -->
+                <div class="input-wrapper">
+                    <div class="input-placeholder-width" aria-hidden="true">
+                        ({{getPlaceholderFromPhrase(i)}})
+                    </div>
+                    <input #input type="text" class="level-2-input"
+                        placeholder="({{getPlaceholderFromPhrase(i)}})" id="level-2-input-0-0"
+                        (input)="input.style.width = input.value.length === 0 ? 'unset' : (input.value.length + 2) + 'ch'"
+                    />
                 </div>
-                <input #input type="text" class="level-2-input"
-                    placeholder="(mųž)" id="level-2-input-0-0"
-                    (input)="input.style.width = input.value.length === 0 ? 'unset' : (input.value.length + 2) + 'ch'"
-                />
-            </div>
-            <span class="level-2-phrase">.</span>
-        </span>
+            </span>
+        </ng-container>
     </div>
+
+
     <div class="level-2-button-wrapper">
         <button class="level-2-hint-button">Hint</button>
-        <button class="level-2-reveal-button">Reveal/Check</button>
+        <button class="level-2-reveal-button">Check</button>
     </div>
 </div>
