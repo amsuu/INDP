@@ -17,7 +17,7 @@ export class Level2QuizQuestionComponent {
    * These are the placeholders (the pre-text that disappears when you
    * type something) of the input elements in the blank spots of the
    * phrase.
-   * The length must be phrase.length - 1
+   * Analagous to Level-1's "root words"
    */
   @Input() placeholders = [''];
   /**
@@ -27,7 +27,9 @@ export class Level2QuizQuestionComponent {
    */
   @Input() correctAnswers = [''];
 
-  constructor() { }
+  constructor() {
 
-  
+  }
+
+
 }

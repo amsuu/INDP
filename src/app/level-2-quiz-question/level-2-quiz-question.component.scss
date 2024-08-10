@@ -1,11 +1,15 @@
 @import '../../variables';
 
-.level-2-quiz-question-wrapper {
+.level-2-quiz-question-wrapper, .level-2-button-wrapper {
 
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     gap: 2rem;
+
+    .level-2-button-wrapper {
+
+    }
 
     button {
         border-radius: 0.625rem;
@@ -41,9 +45,6 @@
                 background-color: var(--secondary20);
                 color: var(--text);
 
-                width: unset;
-                max-width: fit-content;
-
                 border: none;
                 border-radius: 0.625rem;
 
@@ -59,3 +60,37 @@
         }
     }
 }
+
+.input-wrapper {
+
+    display: inline-block;
+    max-width: min-content;
+    >* {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .input-placeholder-width {
+        height: 0;
+        visibility: hidden;
+    }
+
+    input {
+        display: inline;
+        width: 100%;
+    }
+}
+
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .level-2-phrase-wrapper>* {
+        height: 2rem;
+    }
+    .level-2-quiz-question-wrapper {
+        flex-flow: row wrap;
+        gap: 0.5rem;
+        width: 100%;
+    }
+}
+

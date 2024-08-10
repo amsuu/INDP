@@ -216,6 +216,18 @@ button {
     color: var(--h3-heading);
 }
 
+.mobile-only {
+    width: 0;
+    display: hidden;
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .mobile-only {
+        display: unset;
+    }
+}
+
 // button.accent-btn {
 //     background-color: map-get(map-get($themes, light), accent);
 //     color: map-get(map-get($themes, light), background);

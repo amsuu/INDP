@@ -37,7 +37,7 @@
         border: solid var(--border) 0.15rem;
         overflow: hidden;
 
-        &:hover {
+        &:hover, &:active {
             background: var(--accent);
             color: var(--background);
             // background-color: var(--secondary20);

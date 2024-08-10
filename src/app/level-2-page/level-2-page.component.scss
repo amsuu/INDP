@@ -8,4 +8,10 @@ ol {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 2rem;
+    li {
+        width: 100%;
+        >* {
+            width: 100%;
+        }
+    }
 }
