@@ -1,5 +1,4 @@
-import { I18nPluralPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { I18nPluralPipe } from '@angular/common'; import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-level-2-quiz-question',
@@ -54,4 +53,7 @@ export class Level2QuizQuestionComponent {
     return this.placeholders[this.phraseToPlaceholderMap[i]];
   }
 
+  inputted(input: HTMLInputElement) {
+    input.style.width = input.value.length === 0 ? '100%' : (input.value.length + 3) + 'ch';
+  }
 }

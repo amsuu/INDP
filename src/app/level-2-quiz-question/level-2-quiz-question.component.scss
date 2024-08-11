@@ -87,6 +87,7 @@ $border-radius: 0.625rem;
     input {
         display: inline;
         width: 100%;
+        min-width: 100%;
         &, button {
             height: 2.75rem;
         }
