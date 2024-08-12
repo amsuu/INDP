@@ -1,14 +1,33 @@
 <div class="level-2-quiz-question-wrapper">
     <div class="level-2-phrase-wrapper">
-        <span class="level-2-phrase">Ja vidžų</span>
-        <span class="level-2-empty" id="level-2-empty-0-0">
-            <input #input type="text" class="level-2-input"
-                placeholder="(mųž)" id="level-2-input-0-0"
-                (input)="input.style.width = input.value.length === 0 ? 'unset' : (input.value.length + 2) + 'ch'"
-            />
-            <span class="level-2-phrase">.</span>
-        </span>
+
+
+        <ng-container *ngFor="let phraseEl of phrase; index as i">
+            <span *ngIf="phraseEl !== ''" class="level-2-phrase">
+                {{phraseEl}}
+            </span>
+            <span *ngIf="phraseEl === ''" class="level-2-empty" id="level-2-empty-0-0">
+                <!--
+                    this is a method to make the input element's width
+                    match the size of the placeholder
+                    (no, there's no other (good) way)
+                -->
+                <div class="input-wrapper">
+                    <div class="input-placeholder-width" aria-hidden="true">
+                        ({{getPlaceholderFromPhrase(i)}})
+                    </div>
+                    <input #input type="text" class="level-2-input"
+                        placeholder="({{getPlaceholderFromPhrase(i)}})" id="level-2-input-0-0"
+                        (input)="inputted(input)"
+                    />
+                </div>
+            </span>
+        </ng-container>
     </div>
-    <button class="level-2-hint-button">Hint</button>
-    <button class="level-2-reveal-button">Reveal/Check</button>
+
+
+    <div class="level-2-button-wrapper">
+        <button #hintButton class="level-2-hint-button" (click)="hint(hintButton)">Hint</button>
+        <button #checkButton class="level-2-check-button" (click)="checkAnswers(hintButton, checkButton)">Check</button>
+    </div>
 </div>

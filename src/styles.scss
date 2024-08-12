@@ -210,12 +210,32 @@ button {
         }
     }
 }
-
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    button {
+        font-size: var(--font-size) !important;
+        padding: calc(0.5rem * 0.8);  // to compensate for the 0.8 -> 1 font size increase
+    }
+}
 
 .note {
     color: var(--h3-heading);
 }
 
+.mobile-only {
+    width: 0;
+    display: hidden;
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .mobile-only {
+        display: unset;
+    }
+    .no-mobile {
+        display: hidden;
+    }
+}
 
 // button.accent-btn {
 //     background-color: map-get(map-get($themes, light), accent);
@@ -317,6 +337,7 @@ body[theme="light"] {
 
 
 app-topbar {
+    z-index: 100;
     left: 0;
     right: 0;
 
@@ -393,8 +414,8 @@ main {
         width: 100vw;
         margin-top: 1rem;
         margin-bottom: 5rem;
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
     ul {
         list-style-position: outside;

@@ -1,9 +1,11 @@
+@import '../../variables';
+
 .level-info, .level-1-quiz-wrapper {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
-    
+
     // h1{
     //     margin-bottom: 0rem
     // }
@@ -15,3 +17,14 @@
         margin-top: 0;
     }
 }
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .level-info, .level-1-quiz-wrapper {
+        p {
+            width: 95%;
+            text-align: justify;
+        }
+    }
+}
+

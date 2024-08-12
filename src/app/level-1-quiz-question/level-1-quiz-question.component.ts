@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputLabelClassKey } from '@material-ui/core';
+import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 
 @Component({
   selector: 'app-level-1-quiz-question',
@@ -15,10 +16,10 @@ export class Level1QuizQuestionComponent {
   // @Input() random: boolean = true;
 
   appropriateAnswerButtonText = 'Hint';
-  
+
   ngOnInit() { }
 
-  constructor() { }
+  constructor(private coloring: AnswerButtonColoringService) { }
 
 
   answerInputTyped(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
@@ -39,7 +40,7 @@ export class Level1QuizQuestionComponent {
       this.checkAnswer(answerInput, answerButton, answerCardContainter);
     }
     else if (
-      this.appropriateAnswerButtonText !== 'Wrong' as string
+      this.appropriateAnswerButtonText !== 'Incorrect' as string
     ||this.appropriateAnswerButtonText !== 'Correct' as string
     ) {
       this.revealAnswer(answerInput, answerButton);
@@ -55,53 +56,28 @@ export class Level1QuizQuestionComponent {
 
   // During input
   checkAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement, answerCardContainter: HTMLDivElement) {
-    
+
 
     // calling this function itself changes the button text
-    if (this.verifyAnswerInput(answerInput)) {
+    let correct = this.verifyAnswerInput(answerInput)
 
-      if (document.body.getAttribute('theme') === 'dark') {
-        answerInput.setAttribute("style", `
-          color: var(--background) !important;
-          background-color: hsl(var(--hue-green), var(--accent-sl));
-        `);
-      } else {
-        answerInput.setAttribute("style", `
-          color: var(--text) !important;
-          background-color: hsl(var(--hue-green), var(--secondary-sl)) !important;
-        `);
-        answerCardContainter.setAttribute("style", `
-          background-color: hsl(var(--hue-green), var(--accent-sl));
-        `);
-        answerButton.setAttribute("style", 
-          `color: var(--background);
-        `);
+    this.coloring.colorAppropriately(answerInput, correct);
+
+    if (correct) {
+
+      if (document.body.getAttribute('theme') === 'light') {
+        this.coloring.addStyle(answerCardContainter, 'background-color: hsl(var(--hue-green), var(--accent-sl));');
+        this.coloring.addStyle(answerButton, 'color: var(--background);');
       }
-
       this.revealAnswer(answerInput, answerButton);
 
     } else {
 
-      if (document.body.getAttribute('theme') === 'dark') {
-        answerInput.setAttribute("style", `
-          color: var(--background) !important;
-          background-color: hsl(var(--hue-red), var(--accent-sl));
-        `);
-      } else {
-        answerInput.setAttribute("style", `
-          color: var(--text) !important;
-          background-color: hsl(var(--hue-red), var(--secondary-sl)) !important;
-        `);
-        answerCardContainter.setAttribute("style", `
-          background-color: hsl(var(--hue-red), var(--accent-sl));
-        `);
-        answerButton.setAttribute("style", 
-          `color: var(--background);
-        `);
+      if (document.body.getAttribute('theme') !== 'dark') {
+        this.coloring.addStyle(answerCardContainter, 'background-color: hsl(var(--hue-red), var(--accent-sl));');
+        this.coloring.addStyle(answerButton, 'color: var(--background);');
       }
-
       this.appropriateAnswerButtonText = "Reveal";
-
       // no revealAnswer here because we want the user to be able to
       // look at their mistakes before they view the right answer
       // instead we just change the text which will make the next
@@ -116,6 +92,7 @@ export class Level1QuizQuestionComponent {
     answerInput.value = this.answer;
     this.lock(answerInput);
     this.lock(answerButton);
+    answerButton.blur();
   }
 
 
