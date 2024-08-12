@@ -27,7 +27,7 @@
 
 
     <div class="level-2-button-wrapper">
-        <button class="level-2-hint-button">Hint</button>
-        <button class="level-2-reveal-button">Check</button>
+        <button #hintButton class="level-2-hint-button" (click)="hint(hintButton)">Hint</button>
+        <button #checkButton class="level-2-check-button" (click)="checkAnswers(hintButton, checkButton)">Check</button>
     </div>
 </div>

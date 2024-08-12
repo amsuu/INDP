@@ -1,4 +1,5 @@
-import { I18nPluralPipe } from '@angular/common'; import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
+import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 
 @Component({
   selector: 'app-level-2-quiz-question',
@@ -29,7 +30,7 @@ export class Level2QuizQuestionComponent {
 
   phraseToPlaceholderMap: number[] = [ ]
 
-  constructor() {
+  constructor(private el: ElementRef, private renderer: Renderer2, private coloring: AnswerButtonColoringService) {
 
     // the following initiates the phraseToPlaceholderMap element.
     // the idea is to make a map between the indexes of the
@@ -55,5 +56,43 @@ export class Level2QuizQuestionComponent {
 
   inputted(input: HTMLInputElement) {
     input.style.width = input.value.length === 0 ? '100%' : (input.value.length + 3) + 'ch';
+  }
+
+  hint(hintButton: HTMLButtonElement) {
+
+  }
+
+  checkAnswers(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+    let inputs = this.el.nativeElement.querySelectorAll('input');
+    let correct = true;
+    let incorrects: number[] = [];
+
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+
+      if (input.value !== this.correctAnswers[i]) {
+        correct = false;
+        incorrects.push(i);
+      }
+    }
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+      this.coloring.colorAppropriately(input, !incorrects.includes(i), {
+        slOverride: {light: 'secondary20', dark: 'secondary20'}
+      });
+      this.coloring.setForeground(input, 'var(--text) !important');
+    }
+    if (correct) {
+      this.correctAnswer(hintButton, checkButton);
+    } else {
+      this.incorrectAnswer(hintButton, checkButton);
+    }
+  }
+
+
+  incorrectAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+  }
+
+  correctAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
   }
 }
