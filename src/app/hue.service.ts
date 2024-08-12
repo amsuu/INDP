@@ -44,6 +44,7 @@ export class HueService {
 
     localStorage.setItem('hue', newHueName);
     document.documentElement.style.setProperty('--hue', `var(--hue-${newHueName})`);
+    document.body.setAttribute('hue', newHueName);
   }
 
   syncHue() {

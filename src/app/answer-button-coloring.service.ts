@@ -35,6 +35,7 @@ export class AnswerButtonColoringService {
   }
 
   colorCorrect(el: HTMLElement, opts: colorOpts) {
+    let hue = document.body.getAttribute('hue');
     if (document.body.getAttribute('theme') === 'dark') {
       this.addStyle(el, `
         color: var(--background) !important;
