@@ -6,6 +6,8 @@
 
 INDP stands for "Interslavic Noun Declension Practice". It was created for learners of the Interslavic (ISV) language, so that they can have a special place to practice cases and noun declension. This is useful for speakers of languages without cases or with fewer cases than ISV, as well as to clear up ambiguities of case uses between slavic languages (for example, in one scenario, Russian may use the dative, but Polish - the accusative).
 
+For more information on the Interslavic language, visit [http://steen.free.fr/interslavic/history.html](http://steen.free.fr/interslavic/history.html)
+
 ## Development server
 
 Run `npm run start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
