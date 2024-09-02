@@ -16,6 +16,14 @@ export class HueService {
 
   constructor() { }
 
+  hueNtoS(n: number) {
+    return hueNames[n];
+  }
+
+  getCurrentHueName() {
+    return this.hueNtoS(this.getCurrentHue());
+  }
+
   getCurrentHue() {
     let currentHue = -1;
     let locStg = localStorage.getItem('hue');

@@ -8,24 +8,18 @@ export class ThemeService {
   constructor() { }
 
   toTheme(v: unknown): 'light'|'dark' {
-    if (typeof v === typeof '') {
+    if (v instanceof String) {
       return v === 'dark' ? 'dark' : 'light';
-    } else if (typeof v === typeof 0) {
+    } else if (v instanceof Number) {
       return v === 0 ? 'dark' : 'light';
-    } else if (typeof v === typeof true) {
+    } else if (v instanceof Boolean) {
       return v ? 'light' : 'dark'
     } else {
       return 'light';
     }
   }
 
-  getCurrentTheme(): 'light'|'dark' {
-    return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-  }
-
-  isCurrentTheme(check: string) {
-    return this.getCurrentTheme() === this.toTheme(check);
-  }
+  getCurrentTheme: 'light'|'dark' = () => localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 
   toggleTheme() {
 
