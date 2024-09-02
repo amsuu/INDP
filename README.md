@@ -18,7 +18,7 @@ Run `ng generate component component-name` to generate a new component, `ng gene
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `docs/` directory.
+Run `npm run build` to build the project. (DON'T run `ng build` unless you know what you're doing, or running the exact script of `npm run build`, the build URL has to be very specific or else everything breaks for some reason :/) The build artifacts will be stored in the `docs/` directory.
 
 In the current workflow, the project should only be built to the `gh-pages` branch. I'm thinking to change this workflow soon, but if you are reading this, then it's still this way.
 
