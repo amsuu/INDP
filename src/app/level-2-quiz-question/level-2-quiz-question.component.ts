@@ -77,9 +77,7 @@ export class Level2QuizQuestionComponent {
     }
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
-      this.coloring.colorAppropriately(input, !incorrects.includes(i),
-        {}
-      );
+      this.coloring.colorAppropriately(input, !incorrects.includes(i));
       // this.coloring.setForeground(input, 'var(--text) !important');
     }
     if (correct) {

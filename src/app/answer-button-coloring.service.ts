@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core';
 import { ThemeService } from './theme.service';
 import { HueService } from './hue.service';
 
+// this file is OOP hell...
+
 type AppropriateColoring = {
   correct: OverridableThemeableColoring,
   incorrect: OverridableThemeableColoring,
 }
+const overrideableThemes = ["light", "dark"];
+// ^ These should match v
 type OverridableThemeableColoring = {
   light: OverridableColoring,
   dark: OverridableColoring,
@@ -16,7 +20,7 @@ type OverridableColoring = {
 };
 type HueOverride = {
 	hue: string,
-  override: ThemeableColoring[],
+  override: ThemeableColoring,
 };
 type ThemeableColoring = {
   light: Coloring,
@@ -97,21 +101,39 @@ export class AnswerButtonColoringService {
     }
   }
 
-  function colorThemeable(el: HTMLElement, opts: OverridableThemeableColoring) {
+  colorThemeable(el: HTMLElement, opts: OverridableThemeableColoring) {
 
-    for (let i = 0; i < opts.length; i++) {
-      let theme = opts[i];
+    let usedOverrideableColoring: OverridableColoring = this.theme.isCurrentThemeName("dark") ? opts.dark : opts.light;
 
-      if (hueName === theme.hue) {
-        colors.bg.hue = this.theme.isCurrentTheme("dark") ? theme.slOverride.dark : theme.slOverride.light;
+    this.colorHueOverrideable(el, usedOverrideableColoring);
+
+  }
+
+  colorHueOverrideable(el: HTMLElement, opts: OverridableColoring) {
+
+    let coloring: Coloring = opts.default;
+
+    if (opts.hueOverrides) {
+      for (let i = 0; i < opts.hueOverrides.length; i++) {
+        const hueOverride: HueOverride = opts.hueOverrides[i];
+
+        if (this.hue.isCurrentHueName(hueOverride.hue)) {
+          coloring = this.theme.isCurrentThemeName("dark") ? hueOverride.override.dark : hueOverride.override.light;
+        }
       }
     }
 
-    style += `color: var(--${colors.text}) !important;`;
-    style += `background-color: hsl(var(--hue-${colors.bg.hue}), var(--${colors.bg.sl}-sl)) !important;`
+    this.colorColoring(el, coloring);
+
+  }
+
+  colorColoring(el: HTMLElement, coloring: Coloring) {
+
+    let style = `
+      color: var(--${coloring.text}) !important;
+      background-color: hsl(var(--hue-${coloring.bg.hue}), var(--${coloring.bg.sl}-sl)) !important;
+    `;
 
     this.addStyle(el, style);
   }
-
-
 }

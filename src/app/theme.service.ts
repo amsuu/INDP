@@ -19,12 +19,12 @@ export class ThemeService {
     }
   }
 
-  getCurrentTheme(): 'light'|'dark' {
+  getCurrentThemeName(): 'light'|'dark' {
     return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
   }
 
-  isCurrentTheme(check: string) {
-    return this.getCurrentTheme() === this.toTheme(check);
+  isCurrentThemeName(check: string) {
+    return this.getCurrentThemeName() === this.toTheme(check);
   }
 
   toggleTheme() {
@@ -40,7 +40,7 @@ export class ThemeService {
 
   syncTheme() {
 
-    let currentTheme = this.getCurrentTheme() === 'dark' ? 'dark' : 'light';
+    let currentTheme = this.getCurrentThemeName() === 'dark' ? 'dark' : 'light';
 
     this.toggleTheme();
 
