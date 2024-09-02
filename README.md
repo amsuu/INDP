@@ -2,7 +2,7 @@
 
 (This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.)
 
-(subsequently updated to 18.1.0 ...see [d296350](https://github.com/amsuu/INDP/commit/d296350))
+(subsequently updated to 18.1.0... badly ...see [d296350](https://github.com/amsuu/INDP/commit/d296350))
 
 INDP stands for "Interslavic Noun Declension Practice". It was created for learners of the Interslavic (ISV) language, so that they can have a special place to practice cases and noun declension. This is useful for speakers of languages without cases or with fewer cases than ISV, as well as to clear up ambiguities of case uses between slavic languages (for example, in one scenario, Russian may use the dative, but Polish - the accusative).
 
