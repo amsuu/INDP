@@ -20,11 +20,7 @@ type OverridableColoring = {
 };
 type HueOverride = {
 	hue: string,
-  override: ThemeableColoring,
-};
-type ThemeableColoring = {
-  light: Coloring,
-  dark: Coloring,
+  override: Coloring,
 };
 type Coloring = {
   text: string,
@@ -43,14 +39,27 @@ export class AnswerButtonColoringService {
   constructor(private hue: HueService, private theme: ThemeService) { }
 
   addStyle(el: HTMLElement, css: string) {
+    let correctedCSS = css;
+
+    // auto semicolon and trimspace at end, only if needed
+    while (css[css.length-1] == ' ') {
+      css = css.substring(0, css.length-1);
+    }
+    if (css[css.length-1] === ';') {
+      css += ';';
+    }
+
     el.setAttribute('style', `${el.getAttribute('style') || ''} ${css}`);
   }
 
-  setForeground(el: HTMLElement, color: string) {
-    this.addStyle(el, `color: ${color};`)
+  setBackgroundHSL(el: HTMLElement, hue: string, sl: string) {
+    this.addStyle(el, `background-color: hsl(var(--hue-${hue}), var(--${sl}-sl))`);
+  }
+  setForegroundVar(el: HTMLElement, color: string) {
+    this.addStyle(el, `color: var(--${color})`)
   }
 
-  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts:AppropriateColoring = {
+  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: AppropriateColoring = {
     correct: {
       light: {
         default: {
@@ -86,7 +95,7 @@ export class AnswerButtonColoringService {
           text: 'background',
           bg: {
             hue: 'red',
-            sl: 'secondary',
+            sl: 'accent',
           },
         },
       },
@@ -118,7 +127,7 @@ export class AnswerButtonColoringService {
         const hueOverride: HueOverride = opts.hueOverrides[i];
 
         if (this.hue.isCurrentHueName(hueOverride.hue)) {
-          coloring = this.theme.isCurrentThemeName("dark") ? hueOverride.override.dark : hueOverride.override.light;
+          coloring = hueOverride.override;
         }
       }
     }

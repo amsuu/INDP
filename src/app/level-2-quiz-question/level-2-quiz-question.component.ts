@@ -88,8 +88,10 @@ export class Level2QuizQuestionComponent {
   }
 
   incorrectAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+
   }
 
   correctAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+
   }
 }
