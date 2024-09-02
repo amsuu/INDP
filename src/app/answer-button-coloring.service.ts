@@ -1,65 +1,148 @@
 import { Injectable } from '@angular/core';
-type colorOpts = {
-  slOverride: {
-    light: string,
-    dark: string,
+import { ThemeService } from './theme.service';
+import { HueService } from './hue.service';
+
+// this file is OOP hell...
+
+type AppropriateColoring = {
+  correct: OverridableThemeableColoring,
+  incorrect: OverridableThemeableColoring,
+}
+const overrideableThemes = ["light", "dark"];
+// ^ These should match v
+type OverridableThemeableColoring = {
+  light: OverridableColoring,
+  dark: OverridableColoring,
+};
+type OverridableColoring = {
+  default: Coloring,
+  hueOverrides?: HueOverride[],
+};
+type HueOverride = {
+	hue: string,
+  override: Coloring,
+};
+type Coloring = {
+  text: string,
+  bg: {
+    hue: string,
+    sl: string,
   },
 };
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnswerButtonColoringService {
 
-  constructor() { }
+  constructor(private hue: HueService, private theme: ThemeService) { }
 
   addStyle(el: HTMLElement, css: string) {
-    el.setAttribute('style', `${el.getAttribute('style')} ${css}`);
+    let correctedCSS = css;
+
+    // auto semicolon and trimspace at end, only if needed
+    while (css[css.length-1] == ' ') {
+      css = css.substring(0, css.length-1);
+    }
+    if (css[css.length-1] === ';') {
+      css += ';';
+    }
+
+    el.setAttribute('style', `${el.getAttribute('style') || ''} ${css}`);
   }
 
-  setForeground(el: HTMLElement, color: string) {
-    this.addStyle(el, `color: ${color};`)
+  setBackgroundHSL(el: HTMLElement, hue: string, sl: string) {
+    this.addStyle(el, `background-color: hsl(var(--hue-${hue}), var(--${sl}-sl))`);
+  }
+  setForegroundVar(el: HTMLElement, color: string) {
+    this.addStyle(el, `color: var(--${color})`)
   }
 
-  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: colorOpts = {
-    slOverride: {
-      light: 'accent',
-      dark: 'secondary',
+  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: AppropriateColoring = {
+    correct: {
+      light: {
+        default: {
+          text: 'text',
+          bg: {
+            hue: 'green',
+            sl: 'secondary',
+          }
+        },
+      },
+      dark: {
+        default: {
+          text: 'background',
+          bg: {
+            hue: 'green',
+            sl: 'accent',
+          },
+        },
+      },
+    },
+    incorrect: {
+      light: {
+        default: {
+          text: 'text',
+          bg: {
+            hue: 'red',
+            sl: 'secondary',
+          },
+        },
+      },
+      dark: {
+        default: {
+          text: 'background',
+          bg: {
+            hue: 'red',
+            sl: 'accent',
+          },
+        },
+      },
     },
   }) {
+    let style = '';
+
     if (correct) {
-      this.colorCorrect(el, opts);
+      this.colorThemeable(el, opts.correct);
     } else {
-      this.colorIncorrect(el, opts);
+      this.colorThemeable(el, opts.incorrect);
     }
   }
 
-  colorCorrect(el: HTMLElement, opts: colorOpts) {
-    if (document.body.getAttribute('theme') === 'dark') {
-      this.addStyle(el, `
-        color: var(--background) !important;
-        background-color: hsl(var(--hue-green), var(--${opts.slOverride.light}-sl));
-      `);
-    } else {
-      this.addStyle(el, `
-        color: var(--text) !important;
-        background-color: hsl(var(--hue-green), var(--${opts.slOverride.dark}-sl)) !important;
-      `);
-    }
+  colorThemeable(el: HTMLElement, opts: OverridableThemeableColoring) {
+
+    let usedOverrideableColoring: OverridableColoring = this.theme.isCurrentThemeName("dark") ? opts.dark : opts.light;
+
+    this.colorHueOverrideable(el, usedOverrideableColoring);
+
   }
 
-  colorIncorrect(el: HTMLElement, opts: colorOpts) {
+  colorHueOverrideable(el: HTMLElement, opts: OverridableColoring) {
 
-      if (document.body.getAttribute('theme') === 'dark') {
-        this.addStyle(el, `
-          color: var(--background) !important;
-          background-color: hsl(var(--hue-red), var(--${opts.slOverride.light}-sl));
-        `);
-      } else {
-        this.addStyle(el, `
-          color: var(--text) !important;
-          background-color: hsl(var(--hue-red), var(--${opts.slOverride.dark}-sl)) !important;
-        `);
+    let coloring: Coloring = opts.default;
+
+    if (opts.hueOverrides) {
+      for (let i = 0; i < opts.hueOverrides.length; i++) {
+        const hueOverride: HueOverride = opts.hueOverrides[i];
+
+        if (this.hue.isCurrentHueName(hueOverride.hue)) {
+          coloring = hueOverride.override;
+        }
       }
+    }
+
+    this.colorColoring(el, coloring);
+
+  }
+
+  colorColoring(el: HTMLElement, coloring: Coloring) {
+
+    let style = `
+      color: var(--${coloring.text}) !important;
+      background-color: hsl(var(--hue-${coloring.bg.hue}), var(--${coloring.bg.sl}-sl)) !important;
+    `;
+
+    this.addStyle(el, style);
   }
 }

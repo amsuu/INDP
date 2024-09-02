@@ -77,10 +77,8 @@ export class Level2QuizQuestionComponent {
     }
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
-      this.coloring.colorAppropriately(input, !incorrects.includes(i), {
-        slOverride: {light: 'secondary20', dark: 'secondary20'}
-      });
-      this.coloring.setForeground(input, 'var(--text) !important');
+      this.coloring.colorAppropriately(input, !incorrects.includes(i));
+      // this.coloring.setForeground(input, 'var(--text) !important');
     }
     if (correct) {
       this.correctAnswer(hintButton, checkButton);
@@ -89,10 +87,11 @@ export class Level2QuizQuestionComponent {
     }
   }
 
-
   incorrectAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+
   }
 
   correctAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
+
   }
 }

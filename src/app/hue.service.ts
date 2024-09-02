@@ -16,7 +16,22 @@ export class HueService {
 
   constructor() { }
 
-  getCurrentHue() {
+  isCurrentHueName(hueName: string) {
+    return hueName === this.getCurrentHueName();
+  }
+  isCurrentHueNumber(hueNum: number) {
+    return hueNum === this.getCurrentHueNumber();
+  }
+
+  hueNtoS(n: number) {
+    return hueNames[n];
+  }
+
+  getCurrentHueName() {
+    return this.hueNtoS(this.getCurrentHueNumber());
+  }
+
+  getCurrentHueNumber() {
     let currentHue = -1;
     let locStg = localStorage.getItem('hue');
     if (locStg) {
@@ -30,7 +45,7 @@ export class HueService {
   }
 
   getCurrentHueOrZero() {
-    let currentHue = this.getCurrentHue();
+    let currentHue = this.getCurrentHueNumber();
 
     if (currentHue === -1) {
       currentHue = 0;
@@ -44,6 +59,7 @@ export class HueService {
 
     localStorage.setItem('hue', newHueName);
     document.documentElement.style.setProperty('--hue', `var(--hue-${newHueName})`);
+    document.body.setAttribute('hue', newHueName);
   }
 
   syncHue() {

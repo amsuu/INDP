@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { InputLabelClassKey } from '@material-ui/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-level-1-quiz-question',
@@ -19,7 +20,7 @@ export class Level1QuizQuestionComponent {
 
   ngOnInit() { }
 
-  constructor(private coloring: AnswerButtonColoringService) { }
+  constructor(private coloring: AnswerButtonColoringService, private themeing: ThemeService) { }
 
 
   answerInputTyped(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
@@ -63,26 +64,26 @@ export class Level1QuizQuestionComponent {
 
     this.coloring.colorAppropriately(answerInput, correct);
 
+    this.coloring.setBackgroundHSL(answerCardContainter,
+      correct ? 'green' : 'red',
+      this.themeing.isCurrentThemeName("light") ? 'accent' : 'secondary'
+    );
+
+    if (this.themeing.isCurrentThemeName("light")) {
+      this.coloring.setForegroundVar(answerButton, 'background');
+    }
+
     if (correct) {
-
-      if (document.body.getAttribute('theme') === 'light') {
-        this.coloring.addStyle(answerCardContainter, 'background-color: hsl(var(--hue-green), var(--accent-sl));');
-        this.coloring.addStyle(answerButton, 'color: var(--background);');
-      }
       this.revealAnswer(answerInput, answerButton);
-
     } else {
-
-      if (document.body.getAttribute('theme') !== 'dark') {
-        this.coloring.addStyle(answerCardContainter, 'background-color: hsl(var(--hue-red), var(--accent-sl));');
-        this.coloring.addStyle(answerButton, 'color: var(--background);');
-      }
       this.appropriateAnswerButtonText = "Reveal";
       // no revealAnswer here because we want the user to be able to
       // look at their mistakes before they view the right answer
       // instead we just change the text which will make the next
       // click of the answerbutton call revealAnswer.
     }
+
+    answerInput.disabled = true;
   }
 
 

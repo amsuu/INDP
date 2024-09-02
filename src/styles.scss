@@ -57,6 +57,21 @@ hr {
     margin: 0px 8rem;
 }
 
+code {
+  font-family: 'Cascadia Code', 'JetBrains Mono Semibold', 'Fira Code', 'mononoki', monospace !important;
+
+  &.inline {
+    display: inline;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    background-color: var(--secondary20);
+  }
+
+  &::selection {
+    background-color: var(--secondary);
+  }
+}
+
 *::selection {
     // background-color: var(--accent);
     // color: var(--background);

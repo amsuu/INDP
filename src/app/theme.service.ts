@@ -7,7 +7,25 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   constructor() { }
 
-  getCurrentTheme = () => localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+  toTheme(v: unknown): 'light'|'dark' {
+    if (typeof v === typeof '') {
+      return v === 'dark' ? 'dark' : 'light';
+    } else if (typeof v === typeof 0) {
+      return v === 0 ? 'dark' : 'light';
+    } else if (typeof v === typeof true) {
+      return v ? 'light' : 'dark'
+    } else {
+      return 'light';
+    }
+  }
+
+  getCurrentThemeName(): 'light'|'dark' {
+    return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  isCurrentThemeName(check: string) {
+    return this.getCurrentThemeName() === this.toTheme(check);
+  }
 
   toggleTheme() {
 
@@ -19,10 +37,10 @@ export class ThemeService {
     localStorage.setItem('theme', newTheme);
   }
 
-  
+
   syncTheme() {
 
-    let currentTheme = this.getCurrentTheme() === 'dark' ? 'dark' : 'light';
+    let currentTheme = this.getCurrentThemeName() === 'dark' ? 'dark' : 'light';
 
     this.toggleTheme();
 

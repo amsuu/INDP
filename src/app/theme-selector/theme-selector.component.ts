@@ -11,7 +11,7 @@ export class ThemeSelectorComponent {
 
   ngOnInit() {
     this.updateThemeSelector();
-    
+
     this.elementRef.nativeElement.querySelector('.theme-selector')
     .addEventListener('click', this.toggleThemeHandler.bind(this));
     // this.elementRef.nativeElement.querySelector('#theme-selection-light')
@@ -21,7 +21,7 @@ export class ThemeSelectorComponent {
   }
 
   toggleThemeHandler() {
-    
+
     this.themeService.toggleTheme();
 
     let newTheme = localStorage.getItem('theme');
@@ -30,7 +30,7 @@ export class ThemeSelectorComponent {
     this.updateThemeSelector(newTheme === 'light' ? 'light' : 'dark');
   }
 
-  updateThemeSelector(theme: 'light' | 'dark' = this.themeService.getCurrentTheme()) {
+  updateThemeSelector(theme: 'light' | 'dark' = this.themeService.getCurrentThemeName()) {
 
     this.elementRef.nativeElement
     .querySelector(`#theme-selection-${theme}`)
