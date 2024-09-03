@@ -50,7 +50,7 @@ If you need more help on the project, for now the only way to reach me is to cre
 
 ## Prerequisites
 - A fairly new LTS version of [**NodeJS**](https://nodejs.org/en/download/) and NPM (Node Package Manager). _(Node Version Manager or [**NVM**](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/) is also [reccomended](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) but not required)_
-- [**Git CLI**](https://github.com/git-guides/install-git), or a way to execute git commands from your machine.
+- [**Git CLI**](https://github.com/git-guides/install-git), or any way to execute git commands from your machine.
 - Angular CLI installed via NPM _(If not installed by following the below instructions)_
 - All others will be installed by NPM from the file `package.json`
 
