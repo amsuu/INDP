@@ -65,20 +65,17 @@ Enter inside the directory in which you want the project folder to be
 cd {dir of your choice}
 ```
 
-
-After forking the repo, clone your fork using Git CLI:
+After forking the repo, clone your fork using Git CLI, and enter the folder: _(Replacing `{Your Name}` with your github username)_
 ```
 git clone https://github.com/{Your Name}/INDP
 cd INDP
 ```
-(Replacing `{Your Name}` with your github username)
 
-Create a branch to work on:
+Create a branch to work on: _(Replacing {Branch Name} with a name of your choice, the **same name** in both cases)_
 ```console
 git branch {Branch Name}
 git checkout {Branch Name}
 ```
-(Replacing {Branch Name} with a name of your choice, the **same name** in both cases)
 
 Finally install the packages required by the repo using NPM. The main ones that will be installed are Angular, Angular CLI, Typescript, and SASS.
 ```console
