@@ -66,7 +66,7 @@ cd {dir of your choice}
 ```
 
 After forking the repo, clone your fork using Git CLI, and enter the folder: _(Replacing `{Your Name}` with your github username)_
-```
+```console
 git clone https://github.com/{Your Name}/INDP
 cd INDP
 ```
