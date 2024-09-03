@@ -60,10 +60,10 @@ If you need more help on the project, for now the only way to reach me is to cre
 
 ### Using terminal (untested)
 
+Enter inside the directory in which you want the project folder to be
 ```console
 cd {dir of your choice}
 ```
-Enter inside the directory in which you want the project folder to be
 
 
 After forking the repo, clone your fork using Git CLI:
