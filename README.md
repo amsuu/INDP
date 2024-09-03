@@ -42,4 +42,57 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-If you need more help on the project, for now the only way to reach me is to create an issue. Also check the discussions here on GitHub.
+If you need more help on the project, for now the only way to reach me is to create an issue. Also check the "discussions" here on GitHub.
+
+
+
+# Getting started (for developers)
+
+## Prerequisites
+- A fairly new LTS version of [**NodeJS**](https://nodejs.org/en/download/) and NPM (Node Package Manager) (Node Version Manager or [**NVM**](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/) is also reccomended but not required)
+- [**Git CLI**](https://github.com/git-guides/install-git), or a way to execute git commands from your machine.
+- Angular CLI installed via NPM _(If not installed by following the below instructions)_
+- All others will be installed by NPM from the file `package.json`
+
+## Setting up development enviroment
+
+- [**Make a fork of the repo**](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+
+### Using terminal (untested)
+
+```console
+cd {dir of your choice}
+```
+Enter inside the directory in which you want the project folder to be
+
+
+After forking the repo, clone your fork using Git CLI:
+```
+git clone https://github.com/{Your Name}/INDP
+cd INDP
+```
+(Replacing `{Your Name}` with your github username)
+
+Create a branch to work on:
+```console
+git branch {Branch Name}
+git checkout {Branch Name}
+```
+(Replacing {Branch Name} with a name of your choice, the **same name** in both cases)
+
+Finally install the packages required by the repo using NPM. The main ones that will be installed are Angular, Angular CLI, Typescript, and SASS.
+```console
+npm install
+```
+_(Note to self: the other packages, which are not related to angular core etc., but are still installed, are a result of my debugging and should really be cleaned up.)_
+
+### Using VSCode Source control (untested)
+
+- After forking the repo, clone your fork repository at link `https://github.com/{YOUR NAME}/INDP` following [this guide by microsoft](https://learn.microsoft.com/en-us/azure/developer/javascript/how-to/with-visual-studio-code/clone-github-repository?tabs=activity-bar).
+
+- After that, [create a branch to work on](https://learn.microsoft.com/en-us/azure/developer/javascript/how-to/with-visual-studio-code/clone-github-repository?tabs=activity-bar#create-a-branch-for-changes) (same guide).
+
+- Then, a simple `npm install` command in the integrated terminal to install the dependencies should be enough.
+
+
+## Developing
