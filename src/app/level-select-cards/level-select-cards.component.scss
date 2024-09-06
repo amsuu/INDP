@@ -68,8 +68,15 @@
 @media only screen and (max-width: $main-element-width--phone) {
     .level-select-cards {
         .level-select-card {
-            height: 8rem;
-            width: 10rem;
+            padding: 0.5rem;
+            height: 7rem;
+            width: 9rem;
+            h2 {
+              font-size: 130%;
+            }
+            p {
+              font-size: 90%;
+            }
         }
     }
 }

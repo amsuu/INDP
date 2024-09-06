@@ -6,36 +6,34 @@
     flex-flow: row nowrap;
     align-items: center;  // vertically
     justify-content: flex-start;  // horizontally
-
     gap: 1rem;
+
     padding: 0.5rem;
     margin: 1rem;
-
-    background-color: var(--secondary20);
-
     width: fit-content;
 
+    background-color: var(--secondary20);
     border-radius: 2rem;
-    
+
     .hue {
         display: inline-block;
         width: 3rem;
         height: 3rem;
         border-radius: inherit;
+
         &:hover {
             cursor: pointer;
         }
 
+        // display the current hue first in the list
         &.selected-hue {
             order: -1
         }
     }
 
     &[collapsed="true"] {
-
         .hue {
             display: none;
-            
             &.selected-hue {
                 display: unset;
             }
@@ -49,18 +47,18 @@
         flex: unset;
     }
 }
-
+// this undoes the changes for smaller screens
 
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
+
+    // make the hue selector wrap at 3 colors per row
     .hue-selector[collapsed="false"]{
         width: calc(3rem * 3 + 3rem);  // 3el + 3gap
         flex-wrap: wrap;
-        // > * {
-        //     flex: 0 0 calc(33% - 2rem);  // 2gap
-        // }
     }
+    // slightly reduce the overall margin
     .hue-selector {
         margin: 0rem;
         margin-inline-start: 0.7rem;

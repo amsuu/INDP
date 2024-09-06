@@ -33,49 +33,61 @@
     -moz-osx-font-smoothing: grayscale !important;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+    transition: all 200ms ease-in-out;
+}
+
 html {
     scrollbar-width: thin;
-}
 
-a {
-    color: var(--accent);
-    text-decoration: wavy underline;
-    &:visited {
-        color: var(--secondary);
+    a {
+        color: var(--accent);
+        text-decoration: wavy underline;
+        &:visited {
+            color: var(--secondary);
+        }
     }
-}
-ul {
-    list-style-type: '— ';
-}
 
-p {
-    text-align: start;
-    text-indent: 2rem;
-}
+    ul {
+        list-style-type: '— ';
+    }
 
-hr {
-    margin: 0px 8rem;
-}
+    p {
+        text-align: start;
+        text-indent: 2rem;
+    }
 
-code {
-  font-family: 'Cascadia Code', 'JetBrains Mono Semibold', 'Fira Code', 'mononoki', monospace !important;
+    hr {
+        margin: 0px 8rem;
+    }
 
-  &.inline {
-    display: inline;
-    padding: 0.3rem;
-    border-radius: 0.3rem;
-    background-color: var(--secondary20);
-  }
+    code {
+      font-family: 'Cascadia Code', 'JetBrains Mono Semibold', 'Fira Code', 'mononoki', monospace !important;
 
-  &::selection {
-    background-color: var(--secondary);
-  }
+      &.inline {
+        display: inline;
+        padding: 0.3rem;
+        border-radius: 0.3rem;
+        background-color: var(--secondary20);
+      }
+
+      &::selection {
+        background-color: var(--secondary);
+      }
+    }
+
+    label, button, select, summary,
+    [type=radio], [type=submit], [type=checkbox] {
+        cursor: pointer;
+    }
+
+    abbr {
+        cursor: help;
+    }
 }
 
 *::selection {
-    // background-color: var(--accent);
-    // color: var(--background);
-    // text-decoration-color: var(--background);
     background-color: var(--secondary20);
 }
 
@@ -84,6 +96,10 @@ code {
     font-style: italic;
 }
 
+// makes use of the ligature in the Vollkorn font
+// which is a horizontal line when typing "-.-"
+// the problem (i think) is that the Google fonts
+// version doesn't have discretionatory ligatures
 .vollkorn-hr {
     font-feature-settings: "dlig";
     width: 100%;
@@ -112,7 +128,6 @@ body[font="serif"] {
     font-family: $font-serif;
     * {
         font-family: $font-serif;
-        // font-feature-settings: ;
         font-weight: medium;
     }
 }
@@ -133,19 +148,6 @@ app-root {
 //     width: 80vw;
 // }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    transition: all 200ms ease-in-out;
-}
-
-label, button, select, summary,
-[type=radio], [type=submit], [type=checkbox] {
-    cursor: pointer;
-}
-
-abbr {
-    cursor: help;
-}
 
 h1, h2 {
     text-align: center;
@@ -359,7 +361,7 @@ app-topbar {
     background-color: var(--background);
 }
 main {
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -403,16 +405,6 @@ main {
         position: fixed;
         top: unset;
         bottom: 0;
-        #topbar {
-            >* {
-                &.text {
-                    display: none;
-                }
-                &.icon{
-                    display: flex;
-                }
-            }
-        }
     }
     body {
         --font-size: 12pt;
@@ -421,6 +413,7 @@ main {
     }
     p {
         text-indent: 1rem;
+        font-size: 14pt;
     }
     main {
         // width: calc(#{$main-element-width--tablet} + 12rem);
@@ -440,8 +433,9 @@ main {
         #topbar {
             // shadow for light mode, border for dark mode.
             // (see light mode overrides in styles.scss)
-            box-shadow: 0rem 0rem 5rem var(--border);
+            box-shadow: 0rem 0rem 5rem hsla(var(--hue), var(--border-sl), 0.2);
             border-top: none;
         }
+        padding-bottom: 2rem;
     }
 }

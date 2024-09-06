@@ -90,13 +90,17 @@
         box-shadow: none;
         border-top: 0.1rem solid var(--border);
 
-        span {
+        >* {
             &.text {
                 display: none;
             }
             &.icon{
                 display: flex;
             }
+        }
+
+        #learn {
+          order: -1;
         }
 
         &.showtext-mobile {
