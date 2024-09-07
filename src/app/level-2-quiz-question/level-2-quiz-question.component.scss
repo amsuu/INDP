@@ -34,7 +34,9 @@ $border-radius: 0.625rem;
         }
         @media (hover: none) and (pointer: coarse) {
             &:active {
-              transition: none;
+              &, * {
+                  transition: none;
+              }
             }
         }
         &:active {

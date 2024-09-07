@@ -86,7 +86,9 @@
 
                 @media (hover: none) and (pointer: coarse) {
                     &:has(> .answer-button:active) {
-                        transition: none;
+                        &, * {
+                            transition: none;
+                        }
                         background-color: var(--accent);  // light mode
                         background-color: var(--secondary20);
 
