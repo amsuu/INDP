@@ -5,60 +5,43 @@
 
 #topbar, #topbar>* {
 
-    background-color: #00000000;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
     min-height: fit-content;
 
     font-size: var(--font-size-topbar);
+
+    background-color: #00000000;
 }
 
 #topbar {
 
     height: 4rem;
+    width: 100%;
+
     padding-left: 1rem;
     padding-right: 1rem;
-    border-bottom: solid 1px var(--border);
-    // border-bottom: rgba(255, 255, 255, 0.1) solid 1px;
 
     background-color: var(--background);
-
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    width: 100%;
+    border-bottom: solid 1px var(--border);
 
     button {
 
-        background-color: var(--background);
-        color: var(--accent);
-        color: var(--text);
-
         height: 100%;
 
-
-        // border-radius: 6px;
-
-        // &:hover {
-        //     // background-color: darken(var(--background), 10%);
-        //     background-color: var(--accent);
-        //     color: var(--background);
-        // }
-
+        background-color: var(--background);
+        color: var(--text);
 
         &.current-page {
             background-color: var(--background);
-            color: var(--text);
             color: var(--accent);
-            border-bottom: 0.1rem solid var(--text);
             border-bottom: 0.1rem solid var(--accent);
         }
     }
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     #topbar {
         &:hover {
             background-color: var(--background);
@@ -83,7 +66,6 @@
 @media only screen and (max-width: $main-element-width--phone) {
     #topbar {
         justify-content: space-around;
-
 
         // shadow for light mode, border for dark mode.
         // (see light mode overrides in styles.scss)
