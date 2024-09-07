@@ -72,13 +72,27 @@
                     }
                 }
 
-                &:has(> .answer-button:hover) {
-                    background-color: var(--accent);  // light mode
-                    background-color: var(--secondary20);
+                @media (hover: hover) and (pointer: coarse) {
+                    &:has(> .answer-button:hover) {
+                        background-color: var(--accent);  // light mode
+                        background-color: var(--secondary20);
 
-                    > .answer-button:hover {
-                        color: var(--background);  // light mode
-                        color: var(--text);
+                        > .answer-button:hover {
+                            color: var(--background);  // light mode
+                            color: var(--text);
+                        }
+                    }
+                }
+
+                @media (hover: none) and (pointer: coarse) {
+                    &:has(> .answer-button:active) {
+                        background-color: var(--accent);  // light mode
+                        background-color: var(--secondary20);
+
+                        > .answer-button:active {
+                            color: var(--background);  // light mode
+                            color: var(--text);
+                        }
                     }
                 }
 
@@ -114,7 +128,7 @@
                 font-weight: 400;
 
 
-                @media (hover: hover) {
+                @media (hover: hover) and (pointer: fine) {
                     &:hover {
                         button.context {
                             opacity: 100%;
@@ -168,10 +182,6 @@
                     }
                 }
             }
-
-            // &.answer-card-container:hover {
-
-            // }
         }
     }
 }
