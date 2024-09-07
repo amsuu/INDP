@@ -9,15 +9,13 @@ div.big-help-page-wrapper {
 
     // larger screens
     @media only screen and (min-width: $screen-size--laptop) {
-        
         div.small-help-page-wrapper {
             width: 85%;
         }
     }
-    
+
     // tablet screens
     @media only screen and (max-width: $main-element-width--laptop) {
-        
         div.small-help-page-wrapper {
             width: 100%;
         }
@@ -26,21 +24,25 @@ div.big-help-page-wrapper {
 
 h1, h2, h3, h4, h5, h6 {
     text-align: start;
-} h1 {
+}
+
+h1 {
     text-indent: 2rem;
-} h2 {
+}
+h2 {
     text-indent: 4rem;
-} h3 {
+}
+h3 {
     text-indent: 5rem;
     margin: 1rem auto;
-} h4, h5, h6 {
+}
+h4, h5, h6 {
     text-indent: 5.5rem;
     margin: 1rem auto;
 }
 
 p {
     text-indent: 1.5rem;
-    // margin-top: 0;
 }
 
 
@@ -48,18 +50,23 @@ p {
 @media only screen and (max-width: $main-element-width--phone) {
     h1, h2, h3, h4, h5, h6 {
         text-align: start;
-    } h1 {
+    }
+
+    h1 {
         text-indent: 0.5rem;
-    } h2 {
+    }
+    h2 {
         text-indent: 1rem;
-    } h3 {
+    }
+    h3 {
         text-indent: 2rem;
         margin: 0.5rem auto;
-    } h4, h5, h6 {
+    }
+    h4, h5, h6 {
         text-indent: 3rem;
         margin: 0.5rem auto;
     }
-    
+
     p {
         text-indent: 0.5rem;
     }
