@@ -282,6 +282,7 @@ body[theme="light"] {
                 }
                 @media (hover: none) and (pointer: coarse) {
                     &.answer-card-container:has(> .answer-button:active) {
+                        transition: none;
                         background-color: var(--accent) !important;  // light mode override
                         > .answer-button:active {
                             color: var(--background) !important;  // light mode override

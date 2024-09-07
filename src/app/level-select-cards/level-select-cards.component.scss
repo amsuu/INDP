@@ -39,12 +39,28 @@
         overflow: hidden;
         padding: 1rem;
 
-        &:hover, &:active {
+        &:active {
             background: var(--accent);
             color: var(--background);
             // background-color: var(--secondary20);
             h1, h2 {
                 color: var(--secondary20);
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background: var(--accent);
+                color: var(--background);
+                // background-color: var(--secondary20);
+                h1, h2 {
+                    color: var(--secondary20);
+                }
+            }
+        }
+        @media (hover: none) and (pointer: coarse) {
+            &:active {
+                transition: none;
             }
         }
 

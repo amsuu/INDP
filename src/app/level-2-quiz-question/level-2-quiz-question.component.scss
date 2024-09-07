@@ -27,8 +27,15 @@ $border-radius: 0.625rem;
         // background-color: var(--accent);
         // color: var(--text);
 
-        &:hover {
-            background-color: var(--secondary);
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background-color: var(--secondary);
+            }
+        }
+        @media (hover: none) and (pointer: coarse) {
+            &:active {
+              transition: none;
+            }
         }
         &:active {
             background-color: var(--accent);

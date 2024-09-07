@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    
+
     border-radius: 1rem;
     padding: 2rem;
 
@@ -23,7 +23,7 @@
 
 
     &[collapsed="false"] {
-        
+
         padding: 2rem;
         flex-flow: column nowrap;
         align-items: flex-start;
@@ -40,12 +40,12 @@
 
             padding: 0.5rem 1rem 0.5rem 0rem;
 
-        
+
             span.navmenu-uncoll-text {
                 display: inline;
                 text-wrap: nowrap;
             }
-    
+
             span.navmenu-uncoll-icon {
                 aspect-ratio: 1 / 1;
                 padding: 1rem;
@@ -67,7 +67,7 @@
             border-color: var(--text);
         }
     }
-    
+
 
 
     &[collapsed="true"] {
@@ -94,7 +94,7 @@
     }
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     .page-navigation-menu {
         .uncollapse:hover {
             cursor: pointer;
@@ -103,9 +103,14 @@
         }
     }
 }
-
-
-// phone screens
-@media only screen and (max-width: $main-element-width--phone) {
-    
+@media (hover: none) and (pointer: coarse) {
+    .page-navigation-menu {
+        .uncollapse:active {
+            transition: none;
+            cursor: pointer;
+            background-color: var(--accent);
+            color: var(--background);
+        }
+    }
 }
+
