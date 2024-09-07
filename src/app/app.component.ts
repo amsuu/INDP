@@ -11,10 +11,9 @@ export class AppComponent {
   title = 'INDP';
 
   constructor (private themeService: ThemeService, private hueService: HueService) {}
-  
+
   ngOnInit() {
     this.themeService.syncTheme();
     this.hueService.syncHue();
   }
-
 }

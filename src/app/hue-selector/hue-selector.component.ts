@@ -34,7 +34,7 @@ export class HueSelectorComponent {
     if (hueSel.getAttribute('collapsed') === 'false') {
       this.uncollapseTapCounter = 0;
     }
-  
+
     if (this.uncollapseTapCounter === 0) {
       this.uncollapse(hueSel);
       this.uncollapseTapCounter = 1;

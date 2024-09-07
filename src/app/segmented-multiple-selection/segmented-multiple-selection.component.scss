@@ -46,9 +46,11 @@
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
     .segmented-multiple-selection {
+        font-size: var(--font-size) !important;
         flex-wrap: wrap;
-        min-width: max-content;
+        max-width: 90vw;
         > * {
+            font-size: calc(var(--font-size) * 1.1) !important;
             flex: unset;
             flex-grow: 1;
             min-width: max-content;

@@ -13,17 +13,22 @@ export class SegmentedSingleSelectionComponent {
 
   constructor(private elementRef: ElementRef) {}
 
+  // update with option already stored in local storage
+  // if such value exists
   ngOnInit() {
     this.selection = +(localStorage.getItem(this.localStorageReference) || this.selection);
   }
 
+  // add event listeners to buttons
   ngAfterViewInit() {
     this.elementRef.nativeElement.querySelector('.segmented-single-selection')
     .addEventListener('click', this.changeSelection.bind(this));
   }
 
+  // change visual AND localstorage AND local variable selected element
+  // visual is changed by changing the variable. this is due to the
+  // ngClass attribute IN THE HTML FILE being bound to the local variable
   changeSelection() {
     localStorage.setItem(this.localStorageReference, `${this.selection}`);
   }
-  
 }

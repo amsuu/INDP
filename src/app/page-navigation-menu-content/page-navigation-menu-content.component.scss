@@ -4,14 +4,18 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1rem;
+
     .subheading-wrapper {
-        margin-inline-start: 1rem;
         font-size: calc(var(--font-size) - 7pt);
+
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
         gap: 0.5rem;
+
+        margin-inline-start: 1rem;
+
         .subheading {
             color: var(--supressed-heading);
         }

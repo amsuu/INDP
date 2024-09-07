@@ -38,8 +38,8 @@ export class AnswerButtonColoringService {
 
   constructor(private hue: HueService, private theme: ThemeService) { }
 
+  // appends a style to an elements, adding a semicolon if needed
   addStyle(el: HTMLElement, css: string) {
-    let correctedCSS = css;
 
     // auto semicolon and trimspace at end, only if needed
     while (css[css.length-1] == ' ') {
@@ -59,6 +59,10 @@ export class AnswerButtonColoringService {
     this.addStyle(el, `color: var(--${color})`)
   }
 
+  // this mess of a chain of functions basically
+  // takes in the AppropriateColoring type and each
+  // function in the chain removes one layer -- be it
+  // a theme, an override, correct-incorrects, etc.
   colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: AppropriateColoring = {
     correct: {
       light: {
@@ -109,7 +113,7 @@ export class AnswerButtonColoringService {
       this.colorThemeable(el, opts.incorrect);
     }
   }
-
+  // chain
   colorThemeable(el: HTMLElement, opts: OverridableThemeableColoring) {
 
     let usedOverrideableColoring: OverridableColoring = this.theme.isCurrentThemeName("dark") ? opts.dark : opts.light;
@@ -117,7 +121,7 @@ export class AnswerButtonColoringService {
     this.colorHueOverrideable(el, usedOverrideableColoring);
 
   }
-
+  // chain
   colorHueOverrideable(el: HTMLElement, opts: OverridableColoring) {
 
     let coloring: Coloring = opts.default;
@@ -135,7 +139,7 @@ export class AnswerButtonColoringService {
     this.colorColoring(el, coloring);
 
   }
-
+  // chain
   colorColoring(el: HTMLElement, coloring: Coloring) {
 
     let style = `

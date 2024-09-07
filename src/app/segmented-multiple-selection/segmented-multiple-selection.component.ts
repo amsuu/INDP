@@ -11,9 +11,13 @@ export class SegmentedMultipleSelectionComponent {
 
   constructor (private elementRef: ElementRef) {}
 
+  // update with options already stored in local storage
+  // if such values exist
   ngOnInit() {
     if (localStorage.getItem(this.localStorageReference)) {
-      let localStorageStatuses = JSON.parse(localStorage.getItem(this.localStorageReference) || "");
+      let localStorageStatuses = JSON.parse(
+        localStorage.getItem(this.localStorageReference) || ""
+      );
 
       for (let i = 0; i < localStorageStatuses.length; i++) {
         this.options[i].status = localStorageStatuses[i];
@@ -21,19 +25,25 @@ export class SegmentedMultipleSelectionComponent {
     }
   }
 
+  // add event listeners to buttons
   ngAfterViewInit() {
-    let optionButtons = (this.elementRef.nativeElement
-    .querySelector('.segmented-multiple-selection') as HTMLDivElement).children;
-  
+    let optionButtons = (
+      this.elementRef.nativeElement.querySelector('.segmented-multiple-selection') as
+      HTMLDivElement
+    ).children;
+
     for(let i = 0; i < optionButtons.length; i++) {
       optionButtons[i].addEventListener('click', this.changeSelection.bind(this));
     }
   }
 
+  // change visual AND localstorage AND local variable selected elements
+  // visual is changed by changing the variable. this is due to the
+  // ngClass attribute IN THE HTML FILE being bound to the local variable
   changeSelection() {
 
     let json = [];
-    
+
     for (let i = 0; i < this.options.length; i++) {
       json.push(this.options[i].status);
     }

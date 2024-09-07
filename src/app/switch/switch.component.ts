@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./switch.component.scss']
 })
 export class SwitchComponent {
-  
+
 }
