@@ -23,6 +23,7 @@ import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
 import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
+import { DesaturationSliderComponent } from './desaturation-slider/desaturation-slider.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +48,11 @@ import { PageNavigationMenuContentComponent } from './page-navigation-menu-conte
     SentenceExampleComponent,
     TheoryLearnPageComponent,
     PageNavigationMenuContentComponent,
+    DesaturationSliderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

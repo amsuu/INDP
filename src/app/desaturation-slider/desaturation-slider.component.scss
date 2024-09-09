@@ -1,0 +1,37 @@
+@import 'src/variables';
+
+.wrapper {
+    margin-inline-start: 1rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    background-color: var(--secondary20);
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    input {
+        width: 100%;  // cm7b5-fmaj7
+        border-radius: 1.5rem;
+        appearance: none;
+        background: linear-gradient(to right,
+            var(--secondary20), var(--accent)
+        );
+        height: 3rem;
+        overflow: hidden;
+        border: none;
+        &::-webkit-slider-thumb, &::-moz-range-thumb {
+            height: 3.5rem;
+            width:  1rem;
+            background-color: var(--secondary20);
+            border: none;
+        }
+    }
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .wrapper {
+        margin-inline-start: 0.5rem;
+    }
+}
