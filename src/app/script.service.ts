@@ -10,5 +10,4 @@ export class ScriptService {
   getScript() { return localStorage.getItem('script') }
 
   setScript(newScript: string) { localStorage.setItem('script', newScript) }
-
 }

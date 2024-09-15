@@ -48,8 +48,9 @@
     .segmented-single-selection {
         font-size: var(--font-size) !important;
         flex-wrap: wrap;
-        min-width: max-content;
+        max-width: 90vw;
         > button {
+            font-size: calc(var(--font-size) * 1.1) !important;
             flex: unset;
             flex-grow: 1;
             min-width: max-content;

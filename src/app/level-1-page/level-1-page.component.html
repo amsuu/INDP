@@ -1,6 +1,23 @@
+<div class="overlay">
+
+  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
+
+  <button class="b l" #keyboard (click)="keyboardClicked(keyboard)"><span class="material-symbols-rounded">keyboard_keys</span></button>
+
+  <button class="t r" #back
+    (click)="backClicked(back, wrapper)"
+    [ngClass]="currQuestion === -1 ? 'hidden' : ''"
+  ><span class="material-symbols-rounded">arrow_upward</span></button>
+
+  <button class="b r" #next
+    (click)="nextClicked(next, wrapper)"
+    [ngClass]="currQuestion === len - 1 ? 'hidden' : ''"
+  ><span class="material-symbols-rounded">arrow_downward</span></button>
+</div>
+
 <div class="level-info">
     <h1>Level 1</h1>
-    <h2>Word -> target case</h2>
+    <h2>Word → target case</h2>
     <p>
         Each question has three fields. In the first one
         you will be presented with your base word. In the second field
@@ -11,7 +28,7 @@
     </p>
     <p>
         Click on the settings icon to change localizations, appearance,
-        typgraphy and such options. Click on the question mark to get
+        typography and such options. Click on the question mark to get
         more information on cases, what they mean, when they're used
         and so on. If you get stuck you can tap on "Hint" under the input field
         to see the gender of the word or the conjucation table.
@@ -26,17 +43,20 @@
     </p>
     <p>
         For Linux users <i>(specifically of <b>Ubuntu-based</b> distros
-        with <code class="inline">X11</code>)</i> — stay tuned, I'm working
+        and/or with <code class="inline">X11</code>)</i> — stay tuned, I'm working
         on a project just for you.
     </p>
 </div>
 
 <hr>
 
-<div class="level-1-quiz-wrapper">
-    <app-level-1-quiz-question word="brat" case="Dative"       number="singular" answer="bratu" [showTitles]="true"></app-level-1-quiz-question>
-    <app-level-1-quiz-question word="žena" case="Accusative"   number="singular" answer="ženų"></app-level-1-quiz-question>
-    <app-level-1-quiz-question word="duša" case="Instrumental" number="plural"   answer="dušami"></app-level-1-quiz-question>
-    <app-level-1-quiz-question word="dom"  case="Locative"     number="plural"   answer="domah"></app-level-1-quiz-question>
-    <app-level-1-quiz-question word="nož"  case="Instrumental" number="singular" answer="nožem"></app-level-1-quiz-question>
+<div class="level-1-quiz-wrapper" #wrapper>
+    <app-level-1-quiz-question *ngFor="question of this.questions index as i;"
+      id="question-{{i}}"
+      word="{{questions[i].word}}"
+      case="{{questions[i].case}}"
+      number="{{questions[i].number}}"
+      answer="{{questions[i].answer}}"
+      [showTitles]="true"
+    ></app-level-1-quiz-question>
 </div>

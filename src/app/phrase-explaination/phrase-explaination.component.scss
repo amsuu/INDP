@@ -2,7 +2,6 @@
 
 p.phrase-explaination {
     font-style: italic;
-    // font-size: calc(var(--font-size) - 4pt);
 }
 
 
@@ -15,6 +14,6 @@ p.phrase-explaination {
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
     p.phrase-explaination {
-        font-size: calc(var(--font-size) - 2pt);
+        font-size: calc(var(--font-size));
     }
 }

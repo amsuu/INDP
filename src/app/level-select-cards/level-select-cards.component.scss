@@ -39,25 +39,32 @@
         overflow: hidden;
         padding: 1rem;
 
-        &:hover, &:active {
+        @media (hover: hover) and (pointer: fine) {
+            // reverse comments fot another style of hover
+            &:hover {
+                // background: var(--accent);
+                background: var(--secondary20);
+                // color: var(--background);
+                h1, h2 {
+                    // color: var(--secondary20);
+                }
+            }
+        }
+        @media (hover: none) and (pointer: coarse) {
+            &:active {
+                &, * {
+                  transition: none;
+                }
+            }
+        }
+
+        &:active {
             background: var(--accent);
             color: var(--background);
-            // background-color: var(--secondary20);
             h1, h2 {
                 color: var(--secondary20);
             }
         }
-
-        // &:hover {
-        //     background-color: var(--secondary);
-        // }
-        // &:active {
-        //     background-color: var(--accent);
-        //     color: var(--background);
-        //     h1, h2 {
-        //         color: var(--background);
-        //     }
-        // }
     }
 }
 
@@ -68,8 +75,15 @@
 @media only screen and (max-width: $main-element-width--phone) {
     .level-select-cards {
         .level-select-card {
-            height: 8rem;
-            width: 10rem;
+            padding: 0.5rem;
+            height: 7rem;
+            width: 9rem;
+            h2 {
+              font-size: 130%;
+            }
+            p {
+              font-size: 90%;
+            }
         }
     }
 }

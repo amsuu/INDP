@@ -16,6 +16,10 @@ export class HueService {
 
   constructor() { }
 
+  hueNtoS(n: number) {
+    return hueNames[n];
+  }
+
   isCurrentHueName(hueName: string) {
     return hueName === this.getCurrentHueName();
   }
@@ -23,14 +27,9 @@ export class HueService {
     return hueNum === this.getCurrentHueNumber();
   }
 
-  hueNtoS(n: number) {
-    return hueNames[n];
-  }
-
   getCurrentHueName() {
     return this.hueNtoS(this.getCurrentHueNumber());
   }
-
   getCurrentHueNumber() {
     let currentHue = -1;
     let locStg = localStorage.getItem('hue');
@@ -43,7 +42,6 @@ export class HueService {
 
     return currentHue;
   }
-
   getCurrentHueOrZero() {
     let currentHue = this.getCurrentHueNumber();
 

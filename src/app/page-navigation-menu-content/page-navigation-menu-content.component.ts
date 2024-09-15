@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NavsObj } from '../page-navigation-menu/page-navigation-menu.component';
 
 @Component({
   selector: 'app-page-navigation-menu-content',
@@ -8,12 +9,5 @@ import { Component, Input } from '@angular/core';
 export class PageNavigationMenuContentComponent {
 
   @Input() currpage: string = '';
-  @Input() navs: {
-    id: string,
-    title: string,
-    subheadings?:{
-      id: string,
-      title: string
-    }[]
-  }[] = [{id: '', title: ''}];
+  @Input() navs: NavsObj = [{id: '', title: ''}];
 }

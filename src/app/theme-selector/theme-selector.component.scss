@@ -4,48 +4,48 @@
 @import 'src/variables';
 
 .theme-selector {
-    // font-size: calc(var(--font-size-settings) - 4);
-
-    // * {
-        // font-size: calc(var(--font-size-settings) - 4) !important;
-    // }
-
-    background-color: var(--accent);
-    background-color: var(--secondary20);
-    color: var(--background);
-    color: var(--text);
-    // background-color: color.scale(map-get(map-get($themes, light), background), $whiteness: 50%);
-    // background-color: lighten(map-get(map-get($themes, light), background), 5%);
-    border: var(--border);
- 
-    width: fit-content;
-    min-height: fit-content;
-    margin-inline-start: 1rem;
-    padding: 0.5rem;
-    border-radius: 2rem;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
+    width: fit-content;
+    min-height: fit-content;
+
+    margin-inline-start: 1rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+
     transition: all 200ms ease-in-out;
 
+    // switch double declerations across
+    // the stylesheet in order to get
+    // the effect where dark mode is
+    // shown as dark and light mode is
+    // shown as light.
+
+    background-color: var(--accent);
+    background-color: var(--secondary20);
+    color: var(--background);
+    color: var(--text);
+    border: var(--border);
 
     >button {
-        font-size: 18pt;
+
         font-size: calc(var(--font-size-settings) - 4pt);
-        border: none;
-        background-color: inherit;
-        color: inherit;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
         aspect-ratio: 1 / 1;
 
         padding: 0.75rem;
-        
+
+        border: none;
         border-radius: 2rem;
 
-        display: flex;
-        align-items: center;        
-        justify-content: center;
+        background-color: inherit;
+        color: inherit;
 
         &.active-theme {
             background-color: var(--background);
@@ -61,7 +61,6 @@
         background-color: var(--secondary);
         cursor: pointer;
         >* {
-
             background-color: var(--secondary);
         }
     }
@@ -81,11 +80,15 @@
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
     .theme-selector {
+
         flex-flow: column nowrap;
-        min-height: fit-content;
+
         margin-inline-start: 0.5rem;
+
+        min-height: fit-content;
         height: 100%;
-        .phone-spacer {
+
+        .mobile-spacer {
             display: unset;
             flex-grow: 1;
         }
