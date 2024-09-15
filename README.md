@@ -10,8 +10,7 @@ For more information on the Interslavic language, visit [http://steen.free.fr/in
 
 # Getting started (for users)
 
-TODO
-
+The project isn't fully finished yet, but to have a play around with the bits that are working, go to [https://amsuu.github.io/INDP](https://amsuu.github.io/INDP).
 
 # Getting started (for developers)
 
@@ -81,6 +80,13 @@ In the current workflow, the project should only be built to the `gh-pages` bran
 
 Run `npm run build` to build the project. (DON'T run `ng build` unless you know what you're doing, or running the exact script which is under under the hood when you run "`npm run build`", the build URL has to be very specific or else everything breaks for some reason :/) The build artifacts will be stored in the `docs/` directory.
 
+To sync changes with master simply do
+```terminal
+git checkout gh-pages
+git merge master
+git push origin gh-pages
+```
+Github Pages should automatically update the deployment after a while.
 
 ## Tests (not implemented)
 

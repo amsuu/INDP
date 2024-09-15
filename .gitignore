@@ -20,6 +20,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 ~/
+.obsidian/
 
 # Visual Studio Code
 .vscode/*
