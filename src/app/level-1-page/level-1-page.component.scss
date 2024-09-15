@@ -61,16 +61,10 @@
         width: 85%;
         margin-top: 0;
     }
-
-    app-level-1-quiz-question {
-        display: none;
-        &.selected {
-            display: block;
-        }
-    }
 }
+
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 // phone screens

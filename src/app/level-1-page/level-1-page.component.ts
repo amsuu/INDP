@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 type Question = {
   word: string,
@@ -15,6 +16,9 @@ type Question = {
 export class Level1pageComponent {
   len = 5;
   currQuestion = 0;
+
+  constructor (private router: Router) { }
+
   @Input() questions: Question[] = [
     {
       word: 'brat',
@@ -47,15 +51,35 @@ export class Level1pageComponent {
 
   }
   backClicked(back: HTMLButtonElement, wrapper: HTMLDivElement) {
-    if (this.currQuestion === 0) {
+    if (this.currQuestion === 1) {
+      this.router.navigate([]);
       return;
     }
     this.currQuestion--;
+    const id = this.currQuestion;
+    this.navToEl(id);
   }
   nextClicked(next: HTMLButtonElement, wrapper: HTMLDivElement) {
     if (this.currQuestion === this.len - 1) {
       return;
     }
     this.currQuestion++;
+    const id = this.currQuestion;
+    this.navToEl(id);
+  }
+  navToEl(id: number, parent?: HTMLElement) {
+    // const domId = `question-${this.currQuestion - 1}`;
+    // if (parent) {
+      // var target = document.getElementById(domId);
+      // if (target && target.parentNode) {
+        // (target.parentNode as HTMLElement).scrollTop = target.offsetTop;
+      // }
+      // parent.children[id].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    // }
+    // this.router.navigate([], { fragment: domId });
+    // const element = document.getElementById(id);
+    // if (element) {
+      // element.scrollIntoView();
+    // }
   }
 }

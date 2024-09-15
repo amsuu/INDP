@@ -399,12 +399,11 @@ app-topbar {
 }
 html, body {
     &:has(app-level1page) {
+        align-items: flex-start;
         app-topbar {
             display: none;
         }
-        @media only screen and (min-width: #{$screen-size--desktop}) {
-            height: 100%;
-        }
+        height: 100%;
     }
 }
 main {
@@ -415,8 +414,8 @@ main {
 
 
   > app-level1page {
-    min-height: 100%;
-    min-width: 100%;
+    height: 100%;
+    width: 100%;
   }
 
     // padding-left:  12rem;
