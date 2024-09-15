@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 type Question = {
@@ -15,7 +15,7 @@ type Question = {
 })
 export class Level1pageComponent {
   len = 5;
-  currQuestion = 0;
+  currQuestion = -1;
 
   constructor (private router: Router) { }
 
@@ -51,13 +51,14 @@ export class Level1pageComponent {
 
   }
   backClicked(back: HTMLButtonElement, wrapper: HTMLDivElement) {
-    if (this.currQuestion === 1) {
-      this.router.navigate([]);
+    if (this.currQuestion === 0) {
+      this.currQuestion--;
+      this.navToTop();
       return;
     }
     this.currQuestion--;
     const id = this.currQuestion;
-    this.navToEl(id);
+    this.navToQuestion(id);
   }
   nextClicked(next: HTMLButtonElement, wrapper: HTMLDivElement) {
     if (this.currQuestion === this.len - 1) {
@@ -65,21 +66,46 @@ export class Level1pageComponent {
     }
     this.currQuestion++;
     const id = this.currQuestion;
-    this.navToEl(id);
+    this.navToQuestion(id);
   }
-  navToEl(id: number, parent?: HTMLElement) {
-    // const domId = `question-${this.currQuestion - 1}`;
-    // if (parent) {
-      // var target = document.getElementById(domId);
-      // if (target && target.parentNode) {
-        // (target.parentNode as HTMLElement).scrollTop = target.offsetTop;
-      // }
-      // parent.children[id].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    // }
-    // this.router.navigate([], { fragment: domId });
-    // const element = document.getElementById(id);
-    // if (element) {
-      // element.scrollIntoView();
-    // }
+  navToQuestion(id: number) {
+    const el = document.getElementById(`question-${id}`);
+    if (el) {
+      this.navToEl(el);
+    }
+  }
+  navToTop() {
+    const top = document.getElementsByClassName('level-info')[0] as HTMLElement;
+    if (top) {
+      this.navToEl(top);
+    }
+  }
+  navToEl(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+
+  }
+  isBehind(el: HTMLElement) {
+    const elementPosition = el.offsetTop;
+    const scrollPosition = window.pageYOffset;
+
+    return scrollPosition < elementPosition;
+  }
+  isReached(el: HTMLElement) {
+    const elementPosition = el.offsetTop;
+    const scrollPosition = window.pageYOffset;
+
+    return scrollPosition >= elementPosition;
+  }
+  isPassed(el: HTMLElement) {
+    const elementPosition = el.offsetTop;
+    const elementHeight = el.clientHeight;
+    const scrollPosition = window.pageYOffset;
+
+    return scrollPosition >= (elementPosition + elementHeight);
   }
 }

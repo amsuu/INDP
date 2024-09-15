@@ -6,7 +6,7 @@
 
   <button class="t r" #back
     (click)="backClicked(back, wrapper)"
-    [ngClass]="currQuestion === 0 ? 'hidden' : ''"
+    [ngClass]="currQuestion === -1 ? 'hidden' : ''"
   ><span class="material-symbols-rounded">arrow_upward</span></button>
 
   <button class="b r" #next
