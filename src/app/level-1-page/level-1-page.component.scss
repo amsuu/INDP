@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     z-index: 0;
+
     button {
         position: fixed;
         background-color: var(--border);
@@ -22,6 +23,7 @@
 
         &.t {
             top: 6rem;
+            top: 3rem;
         }
         &.b {
             bottom: 3rem;
@@ -48,7 +50,9 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    height: 100%;
 
     h1, h2 {
         margin-bottom: 0rem;
@@ -57,6 +61,16 @@
         width: 85%;
         margin-top: 0;
     }
+
+    app-level-1-quiz-question {
+        display: none;
+        &.selected {
+            display: block;
+        }
+    }
+}
+.hidden {
+    display: none;
 }
 
 // phone screens
