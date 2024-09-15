@@ -362,6 +362,30 @@ body[theme="light"] {
         width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
+
+        app-level1page {
+            .overlay {
+                button {
+                    height: 4.5rem !important;
+                    width: 7rem !important;
+                    > span {
+                        font-size: 2rem !important;
+                    }
+                    &.t {
+                        top: 5rem !important;
+                    }
+                    &.b {
+                        bottom: 1.4rem !important;
+                    }
+                    &.l {
+                        left:  2rem !important;
+                    }
+                    &.r {
+                        right: 2rem !important;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -437,6 +461,31 @@ main {
         margin-bottom: 5rem;
         padding-right: 1rem;
         padding-left: 1rem;
+
+        app-level1page {
+            .overlay {
+                button {
+                    height: 3rem !important;
+                    width: 5rem !important;
+                    background-color: var(--secondary20) !important;
+                    > span {
+                        font-size: 1.5rem !important;
+                    }
+                    &.t {
+                        top: 1.5rem !important;
+                    }
+                    &.b {
+                        bottom: 4.5rem !important;
+                    }
+                    &.l {
+                        left:  1.5rem !important;
+                    }
+                    &.r {
+                        right: 1.5rem !important;
+                    }
+                }
+            }
+        }
     }
     ul {
         list-style-position: outside;
