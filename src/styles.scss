@@ -363,6 +363,30 @@ body[theme="light"] {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    app-level1page {
+        .overlay {
+            button {
+                height: 4.5rem !important;
+                width: 7rem !important;
+                > span {
+                    font-size: 2rem !important;
+                }
+                &.t {
+                    top: 5rem !important;
+                    top: 1.4rem !important;
+                }
+                &.b {
+                    bottom: 1.4rem !important;
+                }
+                &.l {
+                    left:  2rem !important;
+                }
+                &.r {
+                    right: 2rem !important;
+                }
+            }
+        }
+    }
 }
 
 
@@ -373,12 +397,26 @@ app-topbar {
 
     background-color: var(--background);
 }
+html, body {
+    &:has(app-level1page) {
+        align-items: flex-start;
+        app-topbar {
+            display: none;
+        }
+        height: 100%;
+    }
+}
 main {
     margin-top: 4rem;
     margin-bottom: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
 
+
+  > app-level1page {
+    height: 100%;
+    width: 100%;
+  }
 
     // padding-left:  12rem;
     // padding-right: 12rem;
@@ -440,6 +478,32 @@ main {
     }
     ul {
         list-style-position: outside;
+    }
+
+    app-level1page {
+        .overlay {
+            button {
+                height: 3.3rem !important;
+                width: 5rem !important;
+                background-color: var(--secondary20) !important;
+                > span {
+                    font-size: 1.5rem !important;
+                }
+                &.t {
+                    top: 1.5rem !important;
+                }
+                &.b {
+                    bottom: 5rem !important;
+                    bottom: 1.5rem !important;
+                }
+                &.l {
+                    left:  1.5rem !important;
+                }
+                &.r {
+                    right: 1.5rem !important;
+                }
+            }
+        }
     }
 
     body[theme="light"] {
