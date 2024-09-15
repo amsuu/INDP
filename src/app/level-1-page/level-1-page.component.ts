@@ -1,5 +1,4 @@
 import { Component, Input, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
 
 type Question = {
   word: string,
@@ -17,7 +16,7 @@ export class Level1pageComponent {
   len = 5;
   currQuestion = -1;
 
-  constructor (private router: Router) { }
+  constructor () { }
 
   @Input() questions: Question[] = [
     {
