@@ -46,8 +46,8 @@ export class Level1pageComponent {
       answer: "nožem",
     }
   ];
-  keyboardClicked(keyboard: HTMLButtonElement) {
-
+  keyboardClicked(keyboard: HTMLDivElement) {
+    keyboard.classList.toggle("show");
   }
   backClicked(back: HTMLButtonElement, wrapper: HTMLDivElement) {
     if (this.currQuestion === 0) {

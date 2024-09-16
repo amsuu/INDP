@@ -23,6 +23,7 @@ import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
 import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
+import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { PageNavigationMenuContentComponent } from './page-navigation-menu-conte
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OnScreenKeyboardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
