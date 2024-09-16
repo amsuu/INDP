@@ -1,6 +1,12 @@
 @import '../../variables';
 
 .overlay {
+
+    &:has(.on-screen-keyboard.show) {
+        #keyboard-btn {
+            border-radius: 0rem 0rem 0.625rem 0.625rem;
+        }
+    }
     position: fixed;
     top: 0;
     left: 0;

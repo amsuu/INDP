@@ -1,35 +1,21 @@
-<dl class="group">
-    <dt>Standard Orthography</dt>
-    <dd>
-        <ul class="keys">
-            <button>č</button>
-            <button>š</button>
-            <button>ž</button>
-            <button>ě</button>
-        </ul>
-    </dd>
+<!-- (mousedown)="$event.preventDefault()" is to
+prevent the focus shifting on click. We want the
+user's focus to stay on the input element so
+that we know where to write the character. -->
 
-    <dt>Etymological Orthography</dt>
-    <dd>
-        <ul class="keys">
-            <button>å</button>
-            <button>ę</button>
-            <button>ų</button>
-            <button>ė</button>
-            <button>ȯ</button>
-            <button>ć</button>
-            <button>đ</button>
-        </ul>
-        <ul class="keys">
-            <button>ĺ</button>
-            <button>ń</button>
-            <button>ŕ</button>
-            <button>ť</button>
-            <button>ď</button>
-            <button>ś</button>
-            <button>ź</button>
-        </ul>
-        <ul class="keys">
-        </ul>
-    </dd>
+<dl class="group" (mousedown)="$event.preventDefault()">
+    <ng-container
+      *ngFor="let orthography of this.orthographies | keyvalue:keepOriginalOrder"
+    >
+        <dt (mousedown)="$event.preventDefault()">{{orthography.key}}</dt>
+        <dd (mousedown)="$event.preventDefault()">
+            <ul class="keys" *ngFor="let buttonGroup of orthography.value"
+              (mousedown)="$event.preventDefault()"
+            >
+                <button (mousedown)="$event.preventDefault(); write(button)"
+                  *ngFor="let button of buttonGroup"
+                >{{button}}</button>
+            </ul>
+        </dd>
+    </ng-container>
 </dl>

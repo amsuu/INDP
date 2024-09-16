@@ -4,9 +4,12 @@
     <app-on-screen-keyboard></app-on-screen-keyboard>
   </div>
 
-  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
+  <button class="b l" id="keyboard-btn" #keyboard
+    (mousedown)="$event.preventDefault(); keyboardClicked(OSK)"
+  ><span class="material-symbols-rounded">keyboard_keys</span></button>
 
-  <button class="b l" #keyboard (click)="keyboardClicked(OSK)"><span class="material-symbols-rounded">keyboard_keys</span></button>
+
+  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
 
   <button class="t r" #back
     (click)="backClicked(back, wrapper)"
