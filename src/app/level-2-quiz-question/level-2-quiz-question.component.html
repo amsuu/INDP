@@ -1,7 +1,5 @@
-<div class="level-2-quiz-question-wrapper">
-    <div class="level-2-phrase-wrapper">
-
-
+<div class="level-2-quiz-question-wrapper" #qwrap>
+    <div class="level-2-phrase-wrapper" #phwrap>
         <ng-container *ngFor="let phraseEl of phrase; index as i">
             <span *ngIf="phraseEl !== ''" class="level-2-phrase">
                 {{phraseEl}}
@@ -27,7 +25,11 @@
 
 
     <div class="level-2-button-wrapper">
-        <button #hintButton class="level-2-hint-button" (click)="hint(hintButton)">Hint</button>
-        <button #checkButton class="level-2-check-button" (click)="checkAnswers(hintButton, checkButton)">Check</button>
+        <button #hintButton class="level-2-hint-button"
+          (click)="hint(hintButton, qwrap)"
+        >Hint</button>
+        <button #checkButton class="level-2-check-button"
+          (click)="checkAnswers(hintButton, checkButton, phwrap)"
+        >Check</button>
     </div>
 </div>
