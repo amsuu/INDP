@@ -48,11 +48,11 @@ import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboa
     SentenceExampleComponent,
     TheoryLearnPageComponent,
     PageNavigationMenuContentComponent,
+    OnScreenKeyboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OnScreenKeyboardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

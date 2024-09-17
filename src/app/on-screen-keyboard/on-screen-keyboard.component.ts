@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-on-screen-keyboard',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: false,
   templateUrl: './on-screen-keyboard.component.html',
   styleUrl: './on-screen-keyboard.component.scss'
 })
