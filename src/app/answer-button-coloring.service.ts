@@ -30,7 +30,7 @@ type Coloring = {
   },
 };
 
-export const DEFAULTCOLORING = {
+const DEFAULTCOLORING = {
   correct: {
     light: {
       default: {
@@ -82,10 +82,13 @@ export const DEFAULTCOLORING = {
 })
 export class AnswerButtonColoringService {
 
-  defaultColoring;
+  private defaultColoring;
 
   constructor(private hue: HueService, private theme: ThemeService) {
     this.defaultColoring = DEFAULTCOLORING;
+  }
+  copyDefaultColoring() {
+    return JSON.parse(JSON.stringify(this.defaultColoring));
   }
 
   // appends a style to an elements, adding a semicolon if needed

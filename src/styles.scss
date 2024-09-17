@@ -407,7 +407,7 @@ app-topbar {
     background-color: var(--background);
 }
 html, body {
-    &:has(app-level1page) {
+    &:has(app-level1page), &:has(app-level-2-page) {
         align-items: flex-start;
         app-topbar {
             display: none;

@@ -1,0 +1,23 @@
+<div class="overlay">
+
+  <div class="on-screen-keyboard" #OSK>
+    <app-on-screen-keyboard></app-on-screen-keyboard>
+  </div>
+
+  <button class="b l" id="keyboard-btn" #keyboard
+    (mousedown)="$event.preventDefault(); keyboardClicked(OSK)"
+  ><span class="material-symbols-rounded">keyboard_keys</span></button>
+
+
+  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
+
+  <button class="t r" #back
+    (click)="backClicked(back)"
+    [ngClass]="currQuestion === -1 ? 'hidden' : ''"
+  ><span class="material-symbols-rounded">arrow_upward</span></button>
+
+  <button class="b r" #next
+    (click)="nextClicked(next)"
+    [ngClass]="currQuestion === len - 1 ? 'hidden' : ''"
+  ><span class="material-symbols-rounded">arrow_downward</span></button>
+</div>

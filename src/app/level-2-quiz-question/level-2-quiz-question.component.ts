@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 
+export type Level2Question = {
+  phrase: string[],
+  placeholders: string[],
+  correctAnswers: string[],
+};
+
 @Component({
   selector: 'app-level-2-quiz-question',
   templateUrl: './level-2-quiz-question.component.html',
@@ -28,30 +34,26 @@ export class Level2QuizQuestionComponent {
    */
   @Input() correctAnswers = ['dobrogo', 'mųža'];
 
-  phraseToPlaceholderMap: number[] = [ ]
+  @Input({ required: true }) id = 0;
 
-  constructor(private coloring: AnswerButtonColoringService) {
+  constructor(private coloring: AnswerButtonColoringService) { }
 
-    // the following initiates the phraseToPlaceholderMap element.
-    // the idea is to make a map between the indexes of the
-    // elements in "phrase" which are empty (stand-ins for
-    // the input fields in the final question) and the indexes
-    // of the elements in the arrays of "placeholders" and
-    // "correctAnswers" since these are inherintly out-of-sync
-
-    let tracker = 0;
+  convertPhraseIndex(p: number) {
+    let tracker = -1;
     for (let i = 0; i < this.phrase.length; i++) {
-      let phraseEl = this.phrase[i];
-      if (phraseEl === '') {
-        this.phraseToPlaceholderMap[i] = tracker;
+      if (this.phrase[i] === "") {
         tracker++;
       }
+      if (i === p) {
+        break;
+      }
     }
+    return tracker;
   }
 
-
-  getPlaceholderFromPhrase(i: number) {
-    return this.placeholders[this.phraseToPlaceholderMap[i]];
+  getPlaceholderFromPhrase(p: number) {
+    let i = this.convertPhraseIndex(p);
+    return this.placeholders[i];
   }
 
   inputted(input: HTMLInputElement) {
@@ -84,7 +86,7 @@ export class Level2QuizQuestionComponent {
 
 
     let correct = true;
-    let anyIncorrect = true;
+    let anyIncorrect = false;
 
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
@@ -96,7 +98,21 @@ export class Level2QuizQuestionComponent {
         correct = true;
       }
 
-      let coloring = this.coloring.defaultColoring;
+      let coloring = this.coloring.copyDefaultColoring();
+      coloring['correct']['dark']['default'] = {
+        text: 'text',
+        bg: {
+          hue: 'green',
+          sl: 'secondary20',
+        }
+      };
+      coloring['correct']['light']['default'] = {
+        text: 'text',
+        bg: {
+          hue: 'green',
+          sl: 'secondary20',
+        }
+      };
 
       coloring['incorrect']['light']['default'] = {
         text: 'text',
@@ -105,7 +121,6 @@ export class Level2QuizQuestionComponent {
           sl: 'secondary20',
         }
       };
-
       coloring['incorrect']['dark']['default'] = {
         text: 'text',
         bg: {
@@ -113,6 +128,7 @@ export class Level2QuizQuestionComponent {
           sl: 'secondary20',
         }
       };
+      console.log(coloring);
       this.coloring.colorAppropriately(input, correct, coloring);
       if (correct) {
         this.correctAnswer(input);
@@ -123,7 +139,7 @@ export class Level2QuizQuestionComponent {
     if (anyIncorrect) {
       this.anyIncorrect(checkButton);
     } else {
-      this.allCorrect(checkButton);
+      this.allCorrect(hintButton, checkButton);
     }
   }
 
@@ -131,8 +147,44 @@ export class Level2QuizQuestionComponent {
     checkButton.innerText = "Try Again";
   }
 
-  allCorrect(checkButton: HTMLButtonElement) {
+  allCorrect(hintButton:HTMLButtonElement, checkButton: HTMLButtonElement) {
+    checkButton.innerText = "Correct!";
     checkButton.disabled = true;
+
+    let coloring = this.coloring.copyDefaultColoring();
+    coloring['correct']['dark']['default'] = {
+      text: 'text',
+      bg: {
+        hue: 'green',
+        sl: 'secondary',
+      }
+    };
+    coloring['correct']['light']['default'] = {
+      text: 'text',
+      bg: {
+        hue: 'green',
+        sl: 'secondary',
+      }
+    };
+
+    coloring['incorrect']['dark']['default'] = {
+      text: 'text',
+      bg: {
+        hue: 'red',
+        sl: 'secondary',
+      }
+    };
+    coloring['incorrect']['light']['default'] = {
+      text: 'text',
+      bg: {
+        hue: 'red',
+        sl: 'secondary',
+      }
+    };
+
+    this.coloring.colorAppropriately(checkButton, true, coloring);
+
+    hintButton.style.display = "none";
   }
 
   incorrectAnswer(hintButton: HTMLButtonElement, checkButton: HTMLButtonElement) {
