@@ -1,26 +1,4 @@
-<div class="overlay">
-
-  <div class="on-screen-keyboard" #OSK>
-    <app-on-screen-keyboard></app-on-screen-keyboard>
-  </div>
-
-  <button class="b l" id="keyboard-btn" #keyboard
-    (mousedown)="$event.preventDefault(); keyboardClicked(OSK)"
-  ><span class="material-symbols-rounded">keyboard_keys</span></button>
-
-
-  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
-
-  <button class="t r" #back
-    (click)="backClicked(back, wrapper)"
-    [ngClass]="currQuestion === -1 ? 'hidden' : ''"
-  ><span class="material-symbols-rounded">arrow_upward</span></button>
-
-  <button class="b r" #next
-    (click)="nextClicked(next, wrapper)"
-    [ngClass]="currQuestion === len - 1 ? 'hidden' : ''"
-  ><span class="material-symbols-rounded">arrow_downward</span></button>
-</div>
+<app-buttons-overlay [len]="this.len"></app-buttons-overlay>
 
 <div class="level-info">
     <h1>Level 1</h1>
@@ -58,7 +36,7 @@
 
 <hr>
 
-<div class="level-1-quiz-wrapper" #wrapper>
+<div id="level-1-quiz-wrapper">
     <app-level-1-quiz-question *ngFor="question of this.questions index as i;"
       id="question-{{i}}"
       word="{{questions[i].word}}"

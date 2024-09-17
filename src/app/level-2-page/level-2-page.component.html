@@ -1,3 +1,5 @@
+<app-buttons-overlay [len]="len"></app-buttons-overlay>
+
 <h1>Level 2</h1>
 <h2>Word in phrase:</h2>
 <p style="text-align: center;">
@@ -8,7 +10,10 @@
 <hr>
 
 <ol>
-    <li><app-level-2-quiz-question></app-level-2-quiz-question></li>
-    <li><app-level-2-quiz-question></app-level-2-quiz-question></li>
-    <li><app-level-2-quiz-question></app-level-2-quiz-question></li>
+    <li *ngFor="let question of this.questions; index as i"><app-level-2-quiz-question
+      [id]="i"
+      [phrase]="question.phrase"
+      [placeholders]="question.placeholders"
+      [correctAnswers]="question.correctAnswers"
+    /></li>
 </ol>
