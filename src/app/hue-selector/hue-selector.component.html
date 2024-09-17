@@ -2,7 +2,7 @@
     <div *ngFor="let hue of hueNames; index as i"
         [ngClass]="currentHue === i ? 'selected-hue' : ''"
         id="hue-{{i}}" class="hue hue-{{hue}}"
-        [style]="'background-color: hsl(var(--hue-' + hue + '), var(--accent-sl));'"
+        [style]="hue === 'grayscale' ? 'background: var(--double-grayscale)' : 'background: hsl(var(--hue-' + hue + '), var(--accent-sl));'"
         (click)="changeHue(i)"
         (click)="currentHue === i ? collapse(hueSel) : collapse(hueSel)"
     ></div>
