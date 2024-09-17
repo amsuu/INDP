@@ -1,4 +1,4 @@
-import { OnInit, Component, ElementRef } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import { ThemeService } from '../theme.service';
 
 @Component({
@@ -7,15 +7,13 @@ import { ThemeService } from '../theme.service';
   styleUrls: ['./theme-selector.component.scss']
 })
 export class ThemeSelectorComponent {
-  constructor(private elementRef: ElementRef, private themeService: ThemeService) {}
+
+  constructor(private themeService: ThemeService) { }
 
   // get theme from local storage if possible
   // add event listeners
   ngOnInit() {
     this.updateThemeSelector();
-
-    this.elementRef.nativeElement.querySelector('.theme-selector')
-    .addEventListener('click', this.toggleThemeHandler.bind(this));
   }
 
   // Event listener to the buttons.
@@ -36,12 +34,16 @@ export class ThemeSelectorComponent {
   // updates classes to show the correct theme visually
   updateThemeSelector(theme: 'light' | 'dark' = this.themeService.getCurrentThemeName()) {
 
-    this.elementRef.nativeElement
-    .querySelector(`#theme-selection-${theme}`)
-    .classList.add('active-theme');
+    let themeSelActive = document.getElementById(`theme-selection-${
+      theme
+    }`);
+    let themeSelInactive = document.getElementById(`theme-selection-${
+      this.themeService.getOppositeTheme(theme)
+    }`);
 
-    this.elementRef.nativeElement
-    .querySelector(`#theme-selection-${this.themeService.getOppositeTheme(theme)}`)
-    .classList.remove('active-theme');
+    if (themeSelActive && themeSelInactive) {
+      themeSelActive.classList.add('active-theme');
+      themeSelInactive.classList.remove('active-theme');
+    }
   }
 }

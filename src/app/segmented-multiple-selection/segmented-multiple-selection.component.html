@@ -2,6 +2,6 @@
     <button class="selection"
         *ngFor="let option of options; index as i"
         [ngClass]="option.status ? 'active' : ''"
-        (click)="options[i].status = !options[i].status"
+        (click)="changeSelection(i)"
     >{{option.name}}</button>
 </div>

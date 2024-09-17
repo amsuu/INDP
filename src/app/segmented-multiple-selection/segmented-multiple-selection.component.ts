@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-segmented-multiple-selection',
@@ -9,10 +9,12 @@ export class SegmentedMultipleSelectionComponent {
   @Input() options = [{name: '', status: false}];
   @Input({ required: true }) localStorageReference = '';
 
-  constructor (private elementRef: ElementRef) {}
 
   // update with options already stored in local storage
   // if such values exist
+  //
+  // otherwise create local storage reference
+  // with default selection
   ngOnInit() {
     if (localStorage.getItem(this.localStorageReference)) {
       let localStorageStatuses = JSON.parse(
@@ -23,31 +25,25 @@ export class SegmentedMultipleSelectionComponent {
         this.options[i].status = localStorageStatuses[i];
       }
     }
+    this.updateSelection();
   }
 
-  // add event listeners to buttons
-  ngAfterViewInit() {
-    let optionButtons = (
-      this.elementRef.nativeElement.querySelector('.segmented-multiple-selection') as
-      HTMLDivElement
-    ).children;
-
-    for(let i = 0; i < optionButtons.length; i++) {
-      optionButtons[i].addEventListener('click', this.changeSelection.bind(this));
-    }
-  }
-
-  // change visual AND localstorage AND local variable selected elements
-  // visual is changed by changing the variable. this is due to the
-  // ngClass attribute IN THE HTML FILE being bound to the local variable
-  changeSelection() {
-
-    let json = [];
-
+  // syncs var selection and localStorage
+  updateSelection() {
+    let optionStatuses = [];
     for (let i = 0; i < this.options.length; i++) {
-      json.push(this.options[i].status);
+      optionStatuses.push(this.options[i].status);
     }
 
-    localStorage.setItem(this.localStorageReference, JSON.stringify(json));
+    localStorage.setItem(this.localStorageReference, JSON.stringify(optionStatuses));
+  }
+
+  // updates var selection and syncs them with localStorage
+  changeSelection(i: number = -1) {
+    if (i >= 0) {
+      this.options[i].status = ! this.options[i].status
+    }
+
+    this.updateSelection();
   }
 }

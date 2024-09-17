@@ -46,8 +46,9 @@ export class Level1pageComponent {
       answer: "nožem",
     }
   ];
-  keyboardClicked(keyboard: HTMLButtonElement) {
 
+  keyboardClicked(keyboard: HTMLDivElement) {
+    keyboard.classList.toggle("show");
   }
   backClicked(back: HTMLButtonElement, wrapper: HTMLDivElement) {
     if (this.currQuestion === 0) {
@@ -67,10 +68,16 @@ export class Level1pageComponent {
     const id = this.currQuestion;
     this.navToQuestion(id);
   }
+
   navToQuestion(id: number) {
     const el = document.getElementById(`question-${id}`);
     if (el) {
       this.navToEl(el);
+
+      let input = document.querySelector(`#question-${id} input`);
+      if (input) {
+        (input as HTMLElement).focus({ preventScroll: true });
+      }
     }
   }
   navToTop() {
