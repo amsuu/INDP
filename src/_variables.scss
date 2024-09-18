@@ -66,6 +66,7 @@ $hue-pink:          300;
 
 $hue: $hue-red;
 
+
 html {
   --hue-red:           348;
   --hue-orange:        40;
@@ -78,6 +79,7 @@ html {
   --hue-purple:        264;
   --hue-magenta:       286;
   --hue-pink:          300;
+  --double-grayscale: linear-gradient(to bottom right, white 50%, black 50%);
 
   --hue: var(--hue-red);
 }
@@ -153,4 +155,34 @@ body[theme='light'] {
   --secondary-sl: #{map-get($themes, $theme-light, secondary, s)}, #{map-get($themes, $theme-light, secondary, l)};
   --secondary20-sl: #{map-get($themes, $theme-light, secondary20, s)}, #{map-get($themes, $theme-light, secondary20, l)};
   --border-sl: #{map-get($themes, $theme-light, border, s)}, #{map-get($themes, $theme-light, border, l)};
+}
+
+
+body[hue='grayscale'][theme='dark'] {
+    --accent:            hsla(0, 0%, 95%, 1.0);
+    --background:        hsla(0, 0%,  5%, 1.0);
+    --primary:           hsla(0, 0%, 80%, 1.0);
+    --secondary:         hsla(0, 0%, 65%, 1.0);
+    --text:              hsla(0, 0%, 100%, 1.0);
+    --alt-background:    hsla(0, 0%, 41%, 1.0);  // background 35% lighter
+    --secondary20:       hsla(0, 0%, 34%, 1.0);  // secondary 20% darker
+    --border:            hsla(0, 0%, 59%, 0.5);
+    --h3-heading:        hsla(0, 0%, 82%, 1.0);
+    --supressed-heading: hsla(0, 0%, 85%, 1.0);
+    --context-btn-bg:    hsla(0, 0%, 59%, 0.5);  // accent 0.25 opacity
+    --context-btn-text:  hsla(0, 0%,  6%,0.75);   // background 0.75 opacity
+}
+body[hue='grayscale'][theme='light'] {
+    --accent:            hsla(0, 0%, 15%, 1.0);
+    --background:        hsla(0, 0%, 95%, 1.0);
+    --primary:           hsla(0, 0%, 20%, 1.0);
+    --secondary20:       hsla(0, 0%, 85%, 1.0);
+    --text:              hsla(0, 0%,  0%, 1.0);
+    --alt-background:    hsla(0, 0%, 53%, 1.0);  // background 35% lighter
+    --secondary:         hsla(0, 0%, 76%, 1.0);  // secondary 20% darker
+    --border:            hsla(0, 0%, 41%, 0.4);
+    --h3-heading:        hsla(0, 0%, 18%, 1.0);
+    --supressed-heading: hsla(0, 0%, 15%, 1.0);
+    --context-btn-bg:    hsla(0, 0%, 41%, 0.5);  // accent 0.25 opacity
+    --context-btn-text:  hsla(0, 0%, 94%,0.75);   // background 0.75 opacity
 }

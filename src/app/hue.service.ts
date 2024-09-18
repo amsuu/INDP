@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-export type Hue = 'red' | 'orange' | 'yellow' | 'yellow-green' | 'green' | 'goluboy' | 'blue' | 'blue-purple' | 'purple' | 'magenta' | 'pink';
+export type Hue = 'red' | 'orange' | 'yellow' | 'yellow-green' | 'green' | 'goluboy' | 'blue' | 'blue-purple' | 'purple' | 'magenta' | 'pink' | 'grayscale';
 
 export const hueNames = [
   'red', 'orange', 'yellow', 'yellow-green',
   'green', 'goluboy', 'blue', 'blue-purple',
-  'purple', 'magenta', 'pink',
+  'purple', 'magenta', 'pink', 'grayscale'
 ]
 
 @Injectable({
