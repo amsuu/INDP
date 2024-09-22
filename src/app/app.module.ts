@@ -25,6 +25,7 @@ import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
 import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
+import { SlovnikService } from "./slovnik.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.compo
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
