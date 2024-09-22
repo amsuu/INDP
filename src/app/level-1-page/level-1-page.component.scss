@@ -1,52 +1,7 @@
 @import '../../variables';
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
 
-    button {
-        position: fixed;
-        background-color: var(--border);
-        height: 5rem;
-        width: 8rem;
-        border-radius: 0.625rem;
-        z-index: 100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        > span {
-            font-size: 2.5rem;
-        }
-
-        &.t {
-            top: 6rem;
-            top: 3rem;
-        }
-        &.b {
-            bottom: 3rem;
-        }
-        &.l {
-            left: 8rem;
-        }
-        &.r {
-            right: 8rem;
-        }
-        @media (hover: hover) and (pointer: fine) {
-            &:hover {
-                background-color: var(--secondary20);
-            }
-        }
-        &:active {
-            background-color: var(--accent);
-            color: var(--background);
-        }
-    }
-}
-
-.level-info, .level-1-quiz-wrapper {
+.level-info, #level-1-quiz-wrapper {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -63,9 +18,6 @@
     }
 }
 
-.hidden {
-    display: none !important;
-}
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
@@ -76,4 +28,3 @@
         }
     }
 }
-

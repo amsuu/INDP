@@ -1,0 +1,21 @@
+<!-- (mousedown)="$event.preventDefault()" is to
+prevent the focus shifting on click. We want the
+user's focus to stay on the input element so
+that we know where to write the character. -->
+
+<dl class="group" (mousedown)="$event.preventDefault()">
+    <ng-container
+      *ngFor="let orthography of this.orthographies | keyvalue:keepOriginalOrder"
+    >
+        <dt (mousedown)="$event.preventDefault()">{{orthography.key}}</dt>
+        <dd (mousedown)="$event.preventDefault()">
+            <ul class="keys" *ngFor="let buttonGroup of orthography.value"
+              (mousedown)="$event.preventDefault()"
+            >
+                <button (mousedown)="$event.preventDefault(); write(button)"
+                  *ngFor="let button of buttonGroup"
+                >{{button}}</button>
+            </ul>
+        </dd>
+    </ng-container>
+</dl>

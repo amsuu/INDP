@@ -37,6 +37,12 @@
     box-sizing: border-box;
     transition: all 200ms ease-in-out;
 }
+// phone screens
+@media (hover: none) and (pointer: coarse) {
+    *, *::before, *::after {
+        transition: all 160ms ease-in-out;
+    }
+}
 
 html {
     scrollbar-width: thin;
@@ -238,6 +244,9 @@ button {
 .note {
     color: var(--h3-heading);
 }
+.i {
+    font-style: italic;
+}
 
 .mobile-only {
     width: 0;
@@ -398,7 +407,7 @@ app-topbar {
     background-color: var(--background);
 }
 html, body {
-    &:has(app-level1page) {
+    &:has(app-level1page), &:has(app-level-2-page) {
         align-items: flex-start;
         app-topbar {
             display: none;
@@ -413,10 +422,10 @@ main {
     padding-right: 2rem;
 
 
-  > app-level1page {
-    height: 100%;
-    width: 100%;
-  }
+    > app-level1page {
+      height: 100%;
+      width: 100%;
+    }
 
     // padding-left:  12rem;
     // padding-right: 12rem;
@@ -478,32 +487,6 @@ main {
     }
     ul {
         list-style-position: outside;
-    }
-
-    app-level1page {
-        .overlay {
-            button {
-                height: 3.3rem !important;
-                width: 5rem !important;
-                background-color: var(--secondary20) !important;
-                > span {
-                    font-size: 1.5rem !important;
-                }
-                &.t {
-                    top: 1.5rem !important;
-                }
-                &.b {
-                    bottom: 5rem !important;
-                    bottom: 1.5rem !important;
-                }
-                &.l {
-                    left:  1.5rem !important;
-                }
-                &.r {
-                    right: 1.5rem !important;
-                }
-            }
-        }
     }
 
     body[theme="light"] {

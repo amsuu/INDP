@@ -30,13 +30,66 @@ type Coloring = {
   },
 };
 
+const DEFAULTCOLORING = {
+  correct: {
+    light: {
+      default: {
+        text: 'text',
+        bg: {
+          hue: 'green',
+          sl: 'secondary',
+        }
+      },
+      slOverrides: [],
+    },
+    dark: {
+      default: {
+        text: 'background',
+        bg: {
+          hue: 'green',
+          sl: 'accent',
+        },
+      },
+      slOverrides: [],
+    },
+  },
+  incorrect: {
+    light: {
+      default: {
+        text: 'text',
+        bg: {
+          hue: 'red',
+          sl: 'secondary',
+        },
+      },
+      slOverrides: [],
+    },
+    dark: {
+      default: {
+        text: 'background',
+        bg: {
+          hue: 'red',
+          sl: 'accent',
+        },
+      },
+      slOverrides: [],
+    },
+  },
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnswerButtonColoringService {
 
-  constructor(private hue: HueService, private theme: ThemeService) { }
+  private defaultColoring;
+
+  constructor(private hue: HueService, private theme: ThemeService) {
+    this.defaultColoring = DEFAULTCOLORING;
+  }
+  copyDefaultColoring() {
+    return JSON.parse(JSON.stringify(this.defaultColoring));
+  }
 
   // appends a style to an elements, adding a semicolon if needed
   addStyle(el: HTMLElement, css: string) {
@@ -63,48 +116,7 @@ export class AnswerButtonColoringService {
   // takes in the AppropriateColoring type and each
   // function in the chain removes one layer -- be it
   // a theme, an override, correct-incorrects, etc.
-  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: AppropriateColoring = {
-    correct: {
-      light: {
-        default: {
-          text: 'text',
-          bg: {
-            hue: 'green',
-            sl: 'secondary',
-          }
-        },
-      },
-      dark: {
-        default: {
-          text: 'background',
-          bg: {
-            hue: 'green',
-            sl: 'accent',
-          },
-        },
-      },
-    },
-    incorrect: {
-      light: {
-        default: {
-          text: 'text',
-          bg: {
-            hue: 'red',
-            sl: 'secondary',
-          },
-        },
-      },
-      dark: {
-        default: {
-          text: 'background',
-          bg: {
-            hue: 'red',
-            sl: 'accent',
-          },
-        },
-      },
-    },
-  }) {
+  colorAppropriately(el: HTMLElement, correct: boolean /* for now */, opts: AppropriateColoring = DEFAULTCOLORING) {
     let style = '';
 
     if (correct) {

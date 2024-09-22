@@ -1,19 +1,4 @@
-<div class="overlay">
-
-  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
-
-  <button class="b l" #keyboard (click)="keyboardClicked(keyboard)"><span class="material-symbols-rounded">keyboard_keys</span></button>
-
-  <button class="t r" #back
-    (click)="backClicked(back, wrapper)"
-    [ngClass]="currQuestion === -1 ? 'hidden' : ''"
-  ><span class="material-symbols-rounded">arrow_upward</span></button>
-
-  <button class="b r" #next
-    (click)="nextClicked(next, wrapper)"
-    [ngClass]="currQuestion === len - 1 ? 'hidden' : ''"
-  ><span class="material-symbols-rounded">arrow_downward</span></button>
-</div>
+<app-buttons-overlay [len]="this.len"></app-buttons-overlay>
 
 <div class="level-info">
     <h1>Level 1</h1>
@@ -39,18 +24,19 @@
         incorrect usage of the letters “z”, “c”, “s” as opposed to “ž”, “č”, “š”
         will be deemed an error. If you are having trouble inputting these
         characters, you can find a list of Windows, MacOS, and GBoard layouts
-        <a href="https://interslavic.fun/resources/keyboards/">here</a>
+        <a href="https://interslavic.fun/resources/keyboards/">here</a>. Or you
+        can use the on-screen keyboard by pressing the button in the corner.
     </p>
-    <p>
+    <p class="note i">
         For Linux users <i>(specifically of <b>Ubuntu-based</b> distros
-        and/or with <code class="inline">X11</code>)</i> — stay tuned, I'm working
+        and/or using <code class="inline">X11</code>)</i> — stay tuned, I'm working
         on a project just for you.
     </p>
 </div>
 
 <hr>
 
-<div class="level-1-quiz-wrapper" #wrapper>
+<div id="level-1-quiz-wrapper">
     <app-level-1-quiz-question *ngFor="question of this.questions index as i;"
       id="question-{{i}}"
       word="{{questions[i].word}}"
