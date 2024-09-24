@@ -78,6 +78,15 @@ To sync changes with master simply do
 ```terminal
 git checkout gh-pages
 git merge master
+```
+build,
+```terminal
+npm run build
+git add -A
+git commit -am "build"
+```
+and push
+```terminal
 git push origin gh-pages
 ```
 Github Pages should automatically update the deployment after a while.
