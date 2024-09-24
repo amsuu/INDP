@@ -39,12 +39,6 @@ git clone https://github.com/{Your Name}/INDP
 cd INDP
 ```
 
-Create a branch to work on: _(Replacing {Branch Name} with a name of your choice, the **same name** in both cases)_
-```console
-git branch {Branch Name}
-git checkout {Branch Name}
-```
-
 Finally install the packages required by the repo using NPM. The main ones that will be installed are Angular, Angular CLI, Typescript, and SASS.
 ```console
 npm install
