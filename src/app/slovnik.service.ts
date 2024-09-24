@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, Subscription, firstValueFrom } from 'rxjs';
 
 export type Slovnik = {
   // data===========||
@@ -36,14 +36,20 @@ export type Slovnik = {
 export class SlovnikService {
 
   private slovnikURL = 'https://interslavic-dictionary.com/data/basic.json';
+  private SLOVNIK: Slovnik | null = null;
 
   constructor(private http: HttpClient) { }
 
-  getSlovnik(): Observable<Slovnik> {
-    let slovnik = this.http.get<Slovnik>(this.slovnikURL);
-    console.table(slovnik);
-    return slovnik;
+  private getObservableSlovnik(): Observable<Slovnik> {
+    return this.http.get<Slovnik>(this.slovnikURL);
   }
 
-
+  public async getSlovnik(): Promise<Slovnik | null> {
+    if (this.SLOVNIK === null) {
+      this.SLOVNIK = await firstValueFrom(this.getObservableSlovnik());
+      return this.SLOVNIK;
+    } else {
+      return this.SLOVNIK;
+    }
+  }
 }

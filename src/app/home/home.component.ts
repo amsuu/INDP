@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LevelSelectCardsComponent } from '../level-select-cards/level-select-cards.component';
 import { SlovnikService } from "../slovnik.service";
 
@@ -10,7 +10,15 @@ import { SlovnikService } from "../slovnik.service";
 export class HomeComponent {
 
   constructor(private slovnikService: SlovnikService) {
-    this.slovnikService.getSlovnik();
+      console.log('test');
+    (async() => {
+      console.log('test');
+      console.log(await this.slovnikService.getSlovnik());
+      console.log('test');
+    })();
+  }
+
+  NgOnInit() {
   }
 
 }
