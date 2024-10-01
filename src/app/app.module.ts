@@ -27,6 +27,7 @@ import { PageNavigationMenuContentComponent } from './page-navigation-menu-conte
 import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
 import { SlovnikService } from "./slovnik.service";
+import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SlovnikService } from "./slovnik.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SideProgressBarComponent,
   ],
   providers: [
     provideHttpClient(),
