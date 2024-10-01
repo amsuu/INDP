@@ -1,0 +1,49 @@
+@import '../../variables';
+
+.side-progress-bar-wrapper {
+  margin-top: 8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  .side-progress-bar-page {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    border-left: solid var(--border) 0.125rem;
+
+    // primary: (s: 58%, l: 30%, a: 1.0),
+    // secondary: (s: 65%, l: 66%, a: 1.0),
+    // accent: (s: 73%, l: 41%, a: 1.0),
+
+    // alt-background: (s: 48%, l: 59%, a: 1.0),  // background 35% darker
+    // secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
+
+    // border: (s: 24%, l: 41%, a: 0.1),
+
+    // supressed-heading: (s: 57%, l: 36%, a: 1.0),
+    // h3-heading: (s: 43%, l: 40%, a: 1.0),  // #656565
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+        color: var(--h3-heading);
+        border-left: solid var(--secondary) 0.125rem;
+      }
+    }
+
+    &.current {
+      border-left: solid var(--accent) 0.125rem;
+      color: var(--primary);
+    }
+  }
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 100%;
+  margin-right: 3rem;
+  font-size: 1.5rem;
+}
