@@ -19,17 +19,26 @@ export class SideProgressBarComponent {
     }
   }
   getTitleContent(id: string) {
-    let title = document.querySelector(`#${id}`);
+    let title = document.getElementById(id);
     if (title) {
       return (title as HTMLElement).innerText;
     }
     return '';
   }
 
-  navToTitle(id: string) {
-    let title = document.querySelector(`#${id}`);
+  navToTitleIndex(i: number) {
+    let id = this.pages[i];
+    let title = document.getElementById(id);
+    if (i === 0) {
+      title = document.body;
+    }
     if (title) {
+      title.scrollIntoView();
       (title as HTMLElement).focus({ preventScroll: true });
     }
+  }
+
+  changeCurrentPageIndex(i: number) {
+    this.currentPage = i;
   }
 }
