@@ -18,4 +18,18 @@ export class SideProgressBarComponent {
       this.currentPage = this.pages.length - 1;
     }
   }
+  getTitleContent(id: string) {
+    let title = document.querySelector(`#${id}`);
+    if (title) {
+      return (title as HTMLElement).innerText;
+    }
+    return '';
+  }
+
+  navToTitle(id: string) {
+    let title = document.querySelector(`#${id}`);
+    if (title) {
+      (title as HTMLElement).focus({ preventScroll: true });
+    }
+  }
 }

@@ -49,12 +49,13 @@ p {
 
 @media only screen and (min-width: $main-element-width--desktop) {
     div.big-help-page-wrapper {
-        width: 90vw;
-        padding-inline-start: 5rem;
-        gap: 5rem;
+        width: 80vw;
+        padding-inline-end: 10vw;
         app-side-progress-bar {
-            width: fit-content;
-            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 20vw;
         }
     }
 }

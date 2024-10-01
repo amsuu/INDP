@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ButtonsOverlayComponent {
 
   @Input() currQuestion = -1;
-  @Input() page = 1;  // e.g. level 1 page
+  @Input() pageLevel = 1;  // e.g. level 1 page
   @Input({ required: true }) len: number = 0;
 
   keyboardClicked(keyboard: HTMLDivElement) {
@@ -35,7 +35,7 @@ export class ButtonsOverlayComponent {
 
   navToQuestion(id: number) {
     let domId = `question-${id}`;
-    switch (this.page) {
+    switch (this.pageLevel) {
       case 2:
         domId = `question-${id}-0`
         break;
