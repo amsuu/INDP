@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./theory-learn-page.component.scss']
 })
 export class TheoryLearnPageComponent {
-
+  getAllPageIds(level: number): string[] {
+    let ids: string[] = [];
+    Array.from(document.getElementsByTagName(`H${level}`)).forEach(elem => {
+      ids.push(elem.id);
+    });
+    return ids
+  }
 }

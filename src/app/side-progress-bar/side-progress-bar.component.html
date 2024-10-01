@@ -1,0 +1,7 @@
+<div class="side-progress-bar-wrapper">
+  <div class="side-progress-bar-page" id="side-progress-bar-page-{{i}}"
+    *ngFor="let pageID of this.pages; index as i"
+    [ngClass]="i === this.currentPage ? 'current' : ''"
+    (click)="navToTitleIndex(i); changeCurrentPageIndex(i)"
+  >{{getTitleContent(pageID)}}</div>
+</div>

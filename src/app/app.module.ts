@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideHttpClient } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
 import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
+import { SlovnikService } from "./slovnik.service";
+import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
 
 @NgModule({
   declarations: [
@@ -55,8 +58,11 @@ import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SideProgressBarComponent,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

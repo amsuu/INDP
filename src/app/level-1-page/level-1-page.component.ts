@@ -1,4 +1,5 @@
 import { Component, Input, HostListener } from '@angular/core';
+import { NgFor } from "@angular/common";
 
 type Question = {
   word: string,
