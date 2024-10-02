@@ -1,7 +1,16 @@
 @import '../../variables';
 
+.example {
+    // border-inline-start: solid 0.125rem var(--border);
+    background-color: var(--border);
+    border-radius: 5rem;
+    padding-inline-start: 4rem;
+    padding-inline-end: 4rem;
+    padding-top:    1rem;
+    padding-bottom: 2rem;
+    margin-inline-start: 3rem;
+}
 div.big-help-page-wrapper {
-
 
     display: flex;
     flex-flow: row nowrap;
