@@ -470,6 +470,12 @@ main {
         --font-size: 12pt;
         // --font-size-cards: 18pt;
         --font-size-topbar: 16pt;
+
+        &:has(app-theory-learn-page) {
+            app-topbar {
+                display: none;
+            }
+        }
     }
     p {
         text-indent: 1rem;

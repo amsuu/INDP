@@ -1,0 +1,15 @@
+<div class="learn-page-wrapper">
+
+    <div class="article-spacer">
+        <div class="dir">
+        </div>
+        <article>
+            <ng-content />
+        </article>
+    </div>
+
+    <div class="side-progress-bar-spacer">
+        <app-side-progress-bar [pages]="getAllPageIds(2)" [currentPage]="0" />
+    </div>
+
+</div>

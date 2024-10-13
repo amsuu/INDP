@@ -28,6 +28,7 @@ import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboa
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
 import { SlovnikService } from "./slovnik.service";
 import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
+import { LearnPageTemplateComponent } from "./learn-page-template/learn-page-template.component";
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.
     BrowserModule,
     AppRoutingModule,
     SideProgressBarComponent,
+    LearnPageTemplateComponent,
   ],
   providers: [
     provideHttpClient(),
