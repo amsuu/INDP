@@ -1,8 +1,11 @@
 <div class="learn-navigation-compact">
   <span routerLink="/learn" id="learn-icon" class="learn-navigation-compact-icon material-symbols-rounded">school</span>
   <ng-container *ngFor="let elem of this.structure; index as i">
+
     <span class="learn-navigation-compact-arrow material-symbols-rounded" [ngClass]="i === this.structure.length - 1 ? 'active' : ''">chevron_right</span>
+
     <span *ngIf="i === (this.structure.length - 1)" class="learn-navigation-compact-elem">{{ elem }}</span>
+
     <button *ngIf="i < (this.structure.length - 1)" class="learn-navigation-compact-dropdown">
       <span class="dropdown-title">
         {{ elem }}

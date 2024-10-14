@@ -10,5 +10,5 @@ import { RouterLink } from "@angular/router";
   styleUrl: './learn-navigation-compact.component.scss'
 })
 export class LearnNavigationCompactComponent {
-  @Input() structure: string[] = [ 'Cases', 'Meaning of Cases'];
+  @Input() structure: string[] = [ 'Cases', 'Meaning of Cases' ];
 }

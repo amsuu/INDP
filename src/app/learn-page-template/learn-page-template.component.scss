@@ -19,7 +19,7 @@ div.learn-page-wrapper {
     align-items: stretch;
     .article-spacer {
         .dir {
-          display: none;
+            display: none;
         }
     }
 }
@@ -119,8 +119,8 @@ h1, h2, h3, h4, h5, h6 {
         }
         .article-spacer {
             .dir {
-                margin-top: 2rem;
                 display: block;
+                margin-top: 2rem;
             }
             width: 80vw;
             padding-inline-start: 2.5vw;
@@ -199,7 +199,6 @@ h1, h2, h3, h4, h5, h6 {
         text-align: start;
     } h1 {
         text-indent: 1rem;
-        display: none;
     } h2 {
         text-indent: 1.5rem;
     } h3 {
@@ -250,7 +249,6 @@ h1, h2, h3, h4, h5, h6 {
         text-align: start;
     } h1 {
         text-indent: 1rem;
-        display: none;
     } h2 {
         text-indent: 1.5rem;
     } h3 {
@@ -301,7 +299,6 @@ h1, h2, h3, h4, h5, h6 {
         text-align: start;
     } h1 {
         text-indent: 0.5rem;
-        display: none;
     } h2 {
         text-indent: 1rem;
         margin-bottom: 0.25rem;
