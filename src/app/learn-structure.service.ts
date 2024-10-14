@@ -76,8 +76,7 @@ export class LearnStructureService {
         for (i++; i < array.length; i++) {
           adjacentValue = adjacentValues[i];
           bottom.push(adjacentValue);
-        }
-        break;
+        } break;
       } else {
         top.push(adjacentValues);
       }
