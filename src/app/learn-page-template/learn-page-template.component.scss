@@ -118,6 +118,10 @@ h1, h2, h3, h4, h5, h6 {
             display: inline-block;
         }
         .article-spacer {
+            .dir {
+                margin-top: 2rem;
+                display: block;
+            }
             width: 80vw;
             padding-inline-start: 2.5vw;
         }
@@ -161,6 +165,7 @@ h1, h2, h3, h4, h5, h6 {
         margin-inline-start: 1.75rem;
     }
 }
+// 1080p
 @media only screen and (min-width: $screen-size--tablet) and (max-width: $screen-size--1080p) {
     div.learn-page-wrapper {
         width: 95vw;
@@ -177,7 +182,10 @@ h1, h2, h3, h4, h5, h6 {
         }
         .side-progress-bar-spacer, app-side-progress-bar {
             width: 25vw;
-            margin-top: 8rem;
+            height: 100svh;
+            height: 100vh;
+            overflow: scroll;
+            margin-top: 2rem;
             padding: 0.5rem 2rem;
         }
         app-side-progress-bar {
@@ -191,6 +199,58 @@ h1, h2, h3, h4, h5, h6 {
         text-align: start;
     } h1 {
         text-indent: 1rem;
+        display: none;
+    } h2 {
+        text-indent: 1.5rem;
+    } h3 {
+        text-indent: 2rem;
+        margin: 1rem auto;
+    } h4, h5, h6 {
+        text-indent: 3rem;
+        margin: 1rem auto;
+    } p {
+        text-indent: 0.5rem !important;
+    }
+
+    .example {
+        border-radius: 2.5rem;
+        padding-inline-start: 2.5rem;
+        padding-inline-end:   2.5rem;
+        padding-top:    1rem;
+        padding-bottom: 1rem;
+        margin-inline-start: 1.75rem;
+    }
+}
+// tablets
+@media only screen and (min-width: $screen-size--phone) and (max-width: $screen-size--tablet) {
+    div.learn-page-wrapper {
+        width: 95vw;
+        font-size: 90% !important;
+        > * {
+            display: inline-block;
+        }
+        .article-spacer {
+            .dir {
+                display: block;
+            }
+            width: 95vw;
+            padding-inline-start: 2.5vw;
+        }
+        .side-progress-bar-spacer, app-side-progress-bar {
+            display: none;
+        }
+        app-side-progress-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        text-align: start;
+    } h1 {
+        text-indent: 1rem;
+        display: none;
     } h2 {
         text-indent: 1.5rem;
     } h3 {
@@ -229,9 +289,6 @@ h1, h2, h3, h4, h5, h6 {
         }
         .side-progress-bar-spacer, app-side-progress-bar {
             display: none;
-            width: 25vw;
-            margin-top: 8rem;
-            padding: 0.5rem 2rem;
         }
         app-side-progress-bar {
             position: fixed;
@@ -242,26 +299,19 @@ h1, h2, h3, h4, h5, h6 {
 
     h1, h2, h3, h4, h5, h6 {
         text-align: start;
-    }
-
-    h1 {
+    } h1 {
         text-indent: 0.5rem;
         display: none;
-    }
-    h2 {
+    } h2 {
         text-indent: 1rem;
         margin-bottom: 0.25rem;
-    }
-    h3 {
+    } h3 {
         text-indent: 1rem;
         margin: 0.5rem auto;
-    }
-    h4, h5, h6 {
+    } h4, h5, h6 {
         text-indent: 3rem;
         margin: 0.5rem auto;
-    }
-
-    p {
+    } p {
         margin-top: 0rem;
         text-indent: 0.75rem !important;
         text-align: justify !important;

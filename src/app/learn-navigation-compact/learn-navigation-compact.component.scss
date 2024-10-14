@@ -1,15 +1,45 @@
 .learn-navigation-compact {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    > :last-child {
+        background-color: var(--border);
+    }
 }
+
 .learn-navigation-compact-icon, .learn-navigation-compact-elem {
-  padding: 0.5rem;
-  border-radius: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
 }
 .learn-navigation-compact-icon {
-  margin:  0.5rem;
-  background-color: var(--border);
-  border-radius: 50%;
+    margin:  0.5rem;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--background);
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.learn-navigation-compact-elem {
+    font-weight: 600;
+}
+.learn-navigation-compact-dropdown {
+    .dropdown-title {
+        font-weight: 600;
+        font-size: 120% !important;
+    }
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    &, &:hover {
+        background-color: #00000000;
+        color: var(--text);
+    }
 }

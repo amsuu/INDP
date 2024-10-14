@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'level/2', component: Level2PageComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnPageComponent },
-  { path: 'learn/theory', component: TheoryLearnPageComponent },
+  { path: 'learn/theory', redirectTo: 'learn/theory/cases/meaning-of-cases', pathMatch: 'full' },
+  { path: 'learn/theory/cases/meaning-of-cases', component: TheoryLearnPageComponent },
   { path: 'learn/theory/prepositions', component: PreposTheoryLearnPageComponent }
 ];
 

@@ -46,6 +46,7 @@
 
 html {
     scrollbar-width: thin;
+    overflow-x: hidden;
 
     a {
         color: var(--accent);
@@ -458,7 +459,16 @@ main {
         list-style-position: inside;
     }
 }
-
+@media only screen and (max-width: $screen-size--1080p) {
+    body:has(app-theory-learn-page) {
+        app-topbar {
+            display: none;
+        }
+        main {
+            margin-top: 1.5rem;
+        }
+    }
+}
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
     app-topbar {
@@ -470,12 +480,6 @@ main {
         --font-size: 12pt;
         // --font-size-cards: 18pt;
         --font-size-topbar: 16pt;
-
-        &:has(app-theory-learn-page) {
-            app-topbar {
-                display: none;
-            }
-        }
     }
     p {
         text-indent: 1rem;
@@ -486,7 +490,7 @@ main {
         // width: #{$main-element-width--laptop};
         max-width: 100vw;
         width: 100vw;
-        margin-top: 1rem;
+        margin-top: 1rem !important;
         margin-bottom: 5rem;
         padding-right: 1rem;
         padding-left: 1rem;
