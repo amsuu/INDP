@@ -1,0 +1,15 @@
+.learn-navigation-compact {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.learn-navigation-compact-icon, .learn-navigation-compact-elem {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+.learn-navigation-compact-icon {
+  margin:  0.5rem;
+  background-color: var(--border);
+  border-radius: 50%;
+}

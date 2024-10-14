@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SideProgressBarComponent } from "../side-progress-bar/side-progress-bar.component";
+import { LearnNavigationCompactComponent } from "../learn-navigation-compact/learn-navigation-compact.component";
 
 @Component({
   selector: 'learn-page-template',
   standalone: true,
-  imports: [ SideProgressBarComponent ],
+  imports: [ SideProgressBarComponent, LearnNavigationCompactComponent ],
   templateUrl: './learn-page-template.component.html',
   styleUrl: './learn-page-template.component.scss',
 })

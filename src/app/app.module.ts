@@ -29,6 +29,7 @@ import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.compo
 import { SlovnikService } from "./slovnik.service";
 import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
 import { LearnPageTemplateComponent } from "./learn-page-template/learn-page-template.component";
+import { LearnNavigationCompactComponent } from "./learn-navigation-compact/learn-navigation-compact.component";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { LearnPageTemplateComponent } from "./learn-page-template/learn-page-tem
     AppRoutingModule,
     SideProgressBarComponent,
     LearnPageTemplateComponent,
+    LearnNavigationCompactComponent,
   ],
   providers: [
     provideHttpClient(),
