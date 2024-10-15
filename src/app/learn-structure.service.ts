@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AdjacentValues } from "./adjacent-values";
 
 /*
  * the "[root]" values here indicate a page of
@@ -28,21 +29,22 @@ const theoryStructure = {
     'Keyboard Layouts',
     'Orthography',
   ]
-}
-
-const structures = {
+};
+const structures: Record<string, any> = {
   'theory': theoryStructure,
   'practice': {},
   'concise': {},
-}
+};
+
+const nonURLSafeChars = /[\ \;\/\?\:\@\=\&\"\<\>\#\%\{\}\|\^\~\[\]\`]/gi;
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LearnStructureService {
 
-  getAdjacent(subsection: string, path: string[]):
-    { top: string[], _self: string, bottom: string[], all: string[] }
+  getAdjacentValues(subsection: string, path: string[]): AdjacentValues
   {
     // the subsection (e.g. 'theory', 'practice', etc.)
     // in which we are working
@@ -73,12 +75,12 @@ export class LearnStructureService {
       let adjacentValue = adjacentValues[i];
 
       if (adjacentValue === _self) {
-        for (i++; i < array.length; i++) {
+        for (i++; i < adjacentValues.length; i++) {
           adjacentValue = adjacentValues[i];
           bottom.push(adjacentValue);
         } break;
       } else {
-        top.push(adjacentValues);
+        top.push(adjacentValue);
       }
     }
 
@@ -88,5 +90,30 @@ export class LearnStructureService {
       bottom: bottom,
       all: adjacentValues
     }
+  }
+
+
+  private trimChar(str: string, char: string) {
+    return str.replace(
+      new RegExp(
+        `(^\\${char}+)|(\\${char}+$)`,"g"
+      ),
+      ""
+    );
+  }
+  routify(str: string): string {
+    str = str.trim().toLowerCase();
+    let newStr = "";
+
+    for (let i = 0; i < str.length; i++) {
+      const ch = str[i];
+      if (ch.match(nonURLSafeChars)) {
+        newStr += '-';
+      } else {
+        newStr += ch;
+      }
+    }
+
+    return newStr;
   }
 }

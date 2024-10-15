@@ -38,8 +38,19 @@
     justify-content: center;
     gap: 0.25rem;
 
+    height: 4rem;
+    overflow: scroll;
+
     &, &:hover {
         background-color: #00000000;
         color: var(--text);
     }
+}
+.expand-options {
+  .other-expand-option {
+    display: none;
+    &.show {
+      display: unset;
+    }
+  }
 }

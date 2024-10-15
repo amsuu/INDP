@@ -6,13 +6,35 @@
 
     <span *ngIf="i === (this.structure.length - 1)" class="learn-navigation-compact-elem">{{ elem }}</span>
 
-    <button *ngIf="i < (this.structure.length - 1)" class="learn-navigation-compact-dropdown">
-      <span class="dropdown-title">
-        {{ elem }}
-      </span>
-      <span class="dropdown-arrow material-symbols-rounded">
-          unfold_more
-      </span>
-    </button>
+    <div
+      *ngIf="i < (this.structure.length - 1)"
+      class="expand-options"
+      style="display: flex; flex-flow: column nowrap;"
+    >
+      <div
+        class="other-expand-option above-expand-options"
+        *ngFor="let adjacentValue of shorthand(i).top"
+      >
+        <a [routerLink]="this.strct.routify(adjacentValue)" >{{ adjacentValue }}</a>
+      </div>
+
+      <button class="learn-navigation-compact-dropdown" #dropdown (click)="this.revealOtherOptions(dropdown)">
+        <span class="dropdown-title">
+          {{ elem }}
+        </span>
+        <span class="dropdown-arrow material-symbols-rounded">
+            unfold_more
+        </span>
+      </button>
+
+      <div
+        class="other-expand-option above-expand-options"
+        *ngFor="let adjacentValue of shorthand(i).bottom"
+      >
+        <a [routerLink]="this.strct.routify(adjacentValue)" >{{ adjacentValue }}</a>
+      </div>
+
+    </div>
+
   </ng-container>
 </div>
