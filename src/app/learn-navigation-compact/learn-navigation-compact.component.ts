@@ -15,7 +15,7 @@ import { AdjacentValues } from "../adjacent-values";
 export class LearnNavigationCompactComponent {
   @Input() structure: string[] = [ 'Cases', 'Meaning of Cases' ];
   adjacentValuesOfEachStructureElement: AdjacentValues[] = [];
-  shorthand(i: number): AdjacentValues {
+  adjacent(i: number): AdjacentValues {
     return this.adjacentValuesOfEachStructureElement[i];
   }
   constructor(public strct: LearnStructureService) {
@@ -25,12 +25,14 @@ export class LearnNavigationCompactComponent {
     }
   }
 
-  revealOtherOptions(currentOption: HTMLElement) {
-    let parent = currentOption.parentElement;
-    if (parent) {
-      Array.from(parent.children).forEach(child => {
-        child.classList.toggle('show');
-      })
-    }
+  revealOtherOptions(otherOptionsDiv: HTMLDivElement) {
+    // let parent = currentOption.parentElement;
+    // if (parent) {
+      // Array.from(parent.children).forEach(child => {
+        // child.classList.toggle('show');
+      // })
+    // }
+
+    otherOptionsDiv.classList.toggle("show");
   }
 }

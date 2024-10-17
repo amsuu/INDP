@@ -1,40 +1,31 @@
 <div class="learn-navigation-compact">
-  <span routerLink="/learn" id="learn-icon" class="learn-navigation-compact-icon material-symbols-rounded">school</span>
-  <ng-container *ngFor="let elem of this.structure; index as i">
 
-    <span class="learn-navigation-compact-arrow material-symbols-rounded" [ngClass]="i === this.structure.length - 1 ? 'active' : ''">chevron_right</span>
+  <div class="current-structure">
+    <span id="learn-icon"
+      class="learn-navigation-compact-icon material-symbols-rounded"
+      routerLink="/learn"
+    >school</span>
 
-    <span *ngIf="i === (this.structure.length - 1)" class="learn-navigation-compact-elem">{{ elem }}</span>
-
-    <div
-      *ngIf="i < (this.structure.length - 1)"
-      class="expand-options"
-      style="display: flex; flex-flow: column nowrap;"
+    <ng-container
+      *ngFor="let elem of this.structure; index as i"
     >
-      <div
-        class="other-expand-option above-expand-options"
-        *ngFor="let adjacentValue of shorthand(i).top"
-      >
-        <a [routerLink]="this.strct.routify(adjacentValue)" >{{ adjacentValue }}</a>
-      </div>
 
-      <button class="learn-navigation-compact-dropdown" #dropdown (click)="this.revealOtherOptions(dropdown)">
-        <span class="dropdown-title">
-          {{ elem }}
-        </span>
-        <span class="dropdown-arrow material-symbols-rounded">
-            unfold_more
-        </span>
+      <span class="learn-navigation-compact-arrow material-symbols-rounded"
+        [ngClass]="i === this.structure.length - 1 ? 'active' : ''"
+      >chevron_right</span>
+
+      <button class="learn-navigation-compact-button"
+        (click)="this.revealOtherOptions(learnStructure)"
+      >
+        <span class="dropdown-title">{{ elem }}</span>
+        <span class="expand-arrow material-symbols-rounded"
+          *ngIf="i <= (this.structure.length - 1) && adjacent(i).all.length > 1"
+        >unfold_more</span>
       </button>
+    </ng-container>
+  </div>
 
-      <div
-        class="other-expand-option above-expand-options"
-        *ngFor="let adjacentValue of shorthand(i).bottom"
-      >
-        <a [routerLink]="this.strct.routify(adjacentValue)" >{{ adjacentValue }}</a>
-      </div>
+  <div class="learn-structure" #learnStructure>
 
-    </div>
-
-  </ng-container>
+  </div>
 </div>
