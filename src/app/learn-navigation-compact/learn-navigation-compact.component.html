@@ -1,0 +1,31 @@
+<div class="learn-navigation-compact">
+
+  <div class="current-structure">
+    <span id="learn-icon"
+      class="learn-navigation-compact-icon material-symbols-rounded"
+      routerLink="/learn"
+    >school</span>
+
+    <ng-container
+      *ngFor="let elem of this.structure; index as i"
+    >
+
+      <span class="learn-navigation-compact-arrow material-symbols-rounded"
+        [ngClass]="i === this.structure.length - 1 ? 'active' : ''"
+      >chevron_right</span>
+
+      <button class="learn-navigation-compact-button"
+        (click)="this.revealOtherOptions(learnStructure)"
+      >
+        <span class="dropdown-title">{{ elem }}</span>
+        <span class="expand-arrow material-symbols-rounded"
+          *ngIf="i <= (this.structure.length - 1) && adjacent(i).all.length > 1"
+        >unfold_more</span>
+      </button>
+    </ng-container>
+  </div>
+
+  <div class="learn-structure" #learnStructure>
+    <!-- Here should go the same element as is on the normal sidebar at the top. -->
+  </div>
+</div>

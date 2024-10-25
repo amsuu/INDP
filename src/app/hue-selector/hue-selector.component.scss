@@ -50,17 +50,18 @@
 // this undoes the changes for smaller screens
 
 
-// phone screens
-@media only screen and (max-width: $main-element-width--phone) {
+// smaller screens
+@media only screen and (max-width: $screen-size--1080p) {
 
-    // make the hue selector wrap at 3 colors per row
-    .hue-selector[collapsed="false"]{
-        width: calc(3rem * 3 + 3rem);  // 3el + 3gap
-        flex-wrap: wrap;
-    }
     // slightly reduce the overall margin
     .hue-selector {
         margin: 0rem;
         margin-inline-start: 0.7rem;
+        margin-top: 0.625rem;
+    }
+    // make the hue selector wrap at 3 colors per row
+    .hue-selector[collapsed="false"]{
+        width: calc(3rem * 3 + 3rem);  // 3el + 3gap
+        flex-wrap: wrap;
     }
 }

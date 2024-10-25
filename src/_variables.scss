@@ -30,14 +30,16 @@ $main-element-width--laptop: 78rem;
 $main-element-width--tablet: 56rem;
 $main-element-width--phone: 42rem;
 
+$screen-size--desktop: 1800px;  // min size of a big screen
+$screen-size--laptop: 1520px;  // max size of a smaller screen
+$screen-size--lap-tab: 1200px;  // a medial between laptop and tablet, for fine control
+$screen-size--1080p: 1080px;
+$screen-size--tablet: 768px;  // max size of a tablet
+$screen-size--tablet: 860px;  // max size of a tablet
+$screen-size--phone: 480px;  // max size of a phone
+
 $main-element-leftandright-padding-each: 2rem;
 $main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
-
-$screen-size--desktop: $main-element-width--desktop;
-$screen-size--laptop: calc($main-element-width--laptop + 1rem);
-$screen-size--tablet: calc($main-element-width--tablet + 1rem);
-$screen-size--phone: calc($main-element-width--tablet + 1rem);
-
 
 $desktop: "only screen and (min-width: #{$main-element-width--desktop})";
 // $laptop: "only screen and (min-width: #{$main-element-width--desktop})";

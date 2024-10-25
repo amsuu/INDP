@@ -22,12 +22,15 @@ import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with
 import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
 import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
-import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
+import * as _MeaningOfCases from './_learn/theory/cases/meaning-of-cases/meaning-of-cases.component';
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
 import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
 import { SlovnikService } from "./slovnik.service";
 import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
+import { LearnPageTemplateComponent } from "./learn-page-template/learn-page-template.component";
+import { LearnNavigationCompactComponent } from "./learn-navigation-compact/learn-navigation-compact.component";
+import { LearnNavigationSideComponent } from "./learn-navigation-side/learn-navigation-side.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +53,7 @@ import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.
     PhraseExplainationComponent,
     HueSelectorComponent,
     SentenceExampleComponent,
-    TheoryLearnPageComponent,
+    _MeaningOfCases._Component,
     PageNavigationMenuContentComponent,
     OnScreenKeyboardComponent,
     ButtonsOverlayComponent,
@@ -59,6 +62,9 @@ import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.
     BrowserModule,
     AppRoutingModule,
     SideProgressBarComponent,
+    LearnPageTemplateComponent,
+    LearnNavigationCompactComponent,
+    LearnNavigationSideComponent,
   ],
   providers: [
     provideHttpClient(),

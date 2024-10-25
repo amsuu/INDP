@@ -38,8 +38,6 @@ export class SideProgressBarComponent {
       const pos = this.position(el);
       if (pos >= 0 && pos <= vh/2) {
         this.changeCurrentPageIndex(i);
-        console.log(el);
-        console.log(pos);
         break;
       }
     }

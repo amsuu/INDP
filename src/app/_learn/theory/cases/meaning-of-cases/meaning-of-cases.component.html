@@ -1,31 +1,14 @@
-<div class="big-help-page-wrapper">
-    <div class="small-help-page-wrapper">
-
-    <!-- <app-page-navigation-menu currpage="learn/theory" [navs]="[
-        {id: 'cases', title: 'Cases', subheadings: [
-            {id: 'what-are-cases', title: 'What are cases?'},
-            {id: 'nom', title: 'Nominative'},
-            {id: 'acc', title: 'Accusative'},
-            {id: 'gen', title: 'Genitive'},
-            {id: 'loc', title: 'Locative'},
-            {id: 'dat', title: 'Dative'},
-            {id: 'ins', title: 'Instrumental'},
-            {id: 'voc', title: 'Vocative'},
-        ]},
-        {id: 'writing', title: 'How do I write Interslavic?', subheadings: [
-            {id: 'keyboards', title: 'Keyboard Layouts for Windows, GBoard, and more'},
-        ]},
-        {id: 'links', title: 'Useful links and other learning materials'}
-    ]"></app-page-navigation-menu> -->
+<learn-page-template>
 
 
-<h1 id="cases">Cases</h1>
+
+<h1 id="cases">Meaning of Cases</h1>
 <h2 id="what-are-cases">What are cases?</h2>
 <p>
     In most Slavic languages, alongside with grammatical gender (like in
     languages such as German and Spanish) and grammatical number (the
     difference between “duck” and “ducks”), there is a declension
-    category called a “Case.” These cases help communicate the
+    category called a “Case.” These cases help to communicate the
     <app-phrase-with-more-info phrase="syntactical role">
     </app-phrase-with-more-info> of any given word in a given sentence.
 </p>
@@ -41,7 +24,7 @@ posession, location, and even method/instrument as you'll read futher."
     And a lot of the times when there is a
     <app-phrase-with-more-info phrase="preposition"></app-phrase-with-more-info>
     before a word, the word takes a special case. As you'll see in the
-    <a routerLink="/learn/theory/prepositions">Prepositions</a> section.
+    <a routerLink="/learn/theory/cases/prepositions">Prepositions</a> section.
     <strong class="note">
         (Don't go there yet! You still need to understand cases.)
     </strong>
@@ -53,9 +36,9 @@ posession, location, and even method/instrument as you'll read futher."
 ></app-phrase-explaination>
 
 <p>
-    To recap, since it is important to understand this idea before you read further,
-    just like how in English you can't say “I see he” <i class="note">(Who sees whom??)</i>, you
-    have to say “I see him”, in Interslavic you must mark the following
+    To recap, since it is important for you to understand this idea before you read further,
+    just like how in English you can't say “I see he” <i class="note">(Who sees whom??)</i> — you
+    have to say “I see him” — in Interslavic you must mark the following
     <strong>seven</strong> cases (don't be scared, they're not that complex).
 </p>
 
@@ -81,9 +64,10 @@ posession, location, and even method/instrument as you'll read futher."
     </app-phrase-with-more-info>. It is used when the word in question is
     the direct recipient of the action.
 </p>
-<p><i>Think “<u>Accus</u>ative” — “Accuse”</i></p>
+<p><i>Think “<u>Accus</u>ative” — “Accused”</i></p>
 <p>
-    The difference in Interslavic between Nominative and Accusative
+    The difference in Interslavic between Nominative and Accusative is
+    somewhat analogous to the difference in English between “he” and “him”.
     Often, words with this case can be replaced by a simple “him”/“her”.
 </p>
 <h3><i>Wait, what are the “subject” and “direct object”?</i></h3>
@@ -356,10 +340,4 @@ or
 
 
 
-
-
-    </div>
-
-    <app-side-progress-bar [pages]="getAllPageIds(2)" [currentPage]="0"></app-side-progress-bar>
-
-</div>
+</learn-page-template>
