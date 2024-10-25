@@ -30,6 +30,7 @@ import { SlovnikService } from "./slovnik.service";
 import { SideProgressBarComponent } from "./side-progress-bar/side-progress-bar.component";
 import { LearnPageTemplateComponent } from "./learn-page-template/learn-page-template.component";
 import { LearnNavigationCompactComponent } from "./learn-navigation-compact/learn-navigation-compact.component";
+import { LearnNavigationSideComponent } from "./learn-navigation-side/learn-navigation-side.component";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { LearnNavigationCompactComponent } from "./learn-navigation-compact/lear
     SideProgressBarComponent,
     LearnPageTemplateComponent,
     LearnNavigationCompactComponent,
+    LearnNavigationSideComponent,
   ],
   providers: [
     provideHttpClient(),
