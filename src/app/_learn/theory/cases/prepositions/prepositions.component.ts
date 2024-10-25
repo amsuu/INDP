@@ -5,9 +5,9 @@ import { RouterLink, RouterOutlet } from "@angular/router";
   selector: 'app-prepos-theory-learn-page',
   standalone: true,
   imports: [ RouterLink, RouterOutlet ],
-  templateUrl: './prepos-theory-learn-page.component.html',
-  styleUrl: './prepos-theory-learn-page.component.scss'
+  templateUrl: './prepositions.component.html',
+  styleUrl: './prepositions.component.scss'
 })
-export class PreposTheoryLearnPageComponent {
+export class _Component {
 
 }

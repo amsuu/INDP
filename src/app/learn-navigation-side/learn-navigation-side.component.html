@@ -14,12 +14,13 @@
       <div class="children">
         <div class="child"
           *ngFor="let childElem of this.learnStructure.theoryStructure[parentElem]"
+          [routerLink]="'../' + this.learnRouting.routify(childElem)"
         >
           <div class="content">
             <ng-content *ngIf="Object.keys(childElem)">
               <div class="material-symbols-rounded icon">chevron_right</div>
             </ng-content>
-            <div class="learn-navigation-side-title">{{ childElem }}</div>
+            <div class="learn-navigation-side-title"><a>{{ childElem }}</a></div>
           </div>
         </div>
       </div>

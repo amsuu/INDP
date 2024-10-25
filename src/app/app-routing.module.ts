@@ -6,8 +6,8 @@ import { SettingsComponent } from './settings/settings.component'
 import { LearnPageComponent } from './learn-page/learn-page.component';
 import { HomeComponent } from './home/home.component';
 import { Level2PageComponent } from './level-2-page/level-2-page.component';
-import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
-import { PreposTheoryLearnPageComponent } from './prepos-theory-learn-page/prepos-theory-learn-page.component';
+import * as _MeaningOfCases from './_learn/theory/cases/meaning-of-cases/meaning-of-cases.component';
+import * as _Prepositions from './_learn/theory/cases/prepositions/prepositions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnPageComponent },
   { path: 'learn/theory', redirectTo: 'learn/theory/cases/meaning-of-cases', pathMatch: 'full' },
-  { path: 'learn/theory/cases/meaning-of-cases', component: TheoryLearnPageComponent },
-  { path: 'learn/theory/prepositions', component: PreposTheoryLearnPageComponent }
+  { path: 'learn/theory/cases/meaning-of-cases', component: _MeaningOfCases._Component },
+  { path: 'learn/theory/cases/prepositions', component: _Prepositions._Component }
 ];
 
 @NgModule({

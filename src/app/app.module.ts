@@ -22,7 +22,7 @@ import { PhraseWithMoreInfoComponent } from './phrase-with-more-info/phrase-with
 import { PhraseExplainationComponent } from './phrase-explaination/phrase-explaination.component';
 import { HueSelectorComponent } from './hue-selector/hue-selector.component';
 import { SentenceExampleComponent } from './sentence-example/sentence-example.component';
-import { TheoryLearnPageComponent } from './theory-learn-page/theory-learn-page.component';
+import * as _MeaningOfCases from './_learn/theory/cases/meaning-of-cases/meaning-of-cases.component';
 import { PageNavigationMenuContentComponent } from './page-navigation-menu-content/page-navigation-menu-content.component';
 import { OnScreenKeyboardComponent } from "./on-screen-keyboard/on-screen-keyboard.component";
 import { ButtonsOverlayComponent } from "./buttons-overlay/buttons-overlay.component";
@@ -53,7 +53,7 @@ import { LearnNavigationSideComponent } from "./learn-navigation-side/learn-navi
     PhraseExplainationComponent,
     HueSelectorComponent,
     SentenceExampleComponent,
-    TheoryLearnPageComponent,
+    _MeaningOfCases._Component,
     PageNavigationMenuContentComponent,
     OnScreenKeyboardComponent,
     ButtonsOverlayComponent,

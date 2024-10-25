@@ -7,8 +7,6 @@ import { AdjacentValues } from "./adjacent-values";
 })
 export class LearnStructureService {
 
-  nonURLSafeChars = /[\ \;\/\?\:\@\=\&\"\<\>\#\%\{\}\|\^\~\[\]\`]/gi;
-
   /*
   * the "[root]" values here indicate a page of
   * the parent (group) element. E.g. we might want
@@ -126,27 +124,4 @@ export class LearnStructureService {
     return this.getAdjacentValuesOfElemInObject(path[path.length - 1], workingParent);
   }
 
-  private trimChar(str: string, char: string) {
-    return str.replace(
-      new RegExp(
-        `(^\\${char}+)|(\\${char}+$)`,"g"
-      ),
-      ""
-    );
-  }
-  routify(str: string): string {
-    str = str.trim().toLowerCase();
-    let newStr = "";
-
-    for (let i = 0; i < str.length; i++) {
-      const ch = str[i];
-      if (ch.match(this.nonURLSafeChars)) {
-        newStr += '-';
-      } else {
-        newStr += ch;
-      }
-    }
-
-    return newStr;
-  }
 }
