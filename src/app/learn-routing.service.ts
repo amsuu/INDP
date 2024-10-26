@@ -113,6 +113,13 @@ export class LearnRoutingService {
         redirectTo: prefix + progress.join('/'),
         pathMatch: 'full'
       });
+      if (i === 0) {
+        defaults.push({
+          path: prefix.slice(0, -1),
+          redirectTo: prefix + progress.join('/'),
+          pathMatch: 'full'
+        });
+      }
 
       // reset the URL to be free for the next parent
       progress = [];

@@ -15,7 +15,6 @@ let routes: Routes = [
   { path: 'level/2', component: Level2PageComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnPageComponent },
-  { path: 'learn/theory', redirectTo: 'learn/theory/cases/meaning-of-cases', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -34,11 +33,9 @@ export class AppRoutingModule {
     const paths = learnRouting.compiledPaths.paths;
     for (let i = 0; i < defaults.length; i++) {
       routes.push(defaults[i]);
-      console.log(defaults[i]);
     }
     for (let i = 0; i < paths.length; i++) {
       routes.push(paths[i]);
-      console.log(paths[i]);
     }
   }
 }
