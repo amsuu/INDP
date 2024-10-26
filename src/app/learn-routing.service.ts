@@ -77,49 +77,79 @@ export class LearnRoutingService {
     'concise': {},
   };
 
-  compiledPaths: {
-    defaults: RoutingRedirectEntry[],
-    paths: RoutingPathEntry[]
-  } = {
-    defaults: [],
-    paths: []
+  compiledPaths: Record<string, {
+      defaults: RoutingRedirectEntry[],
+      paths: RoutingPathEntry[]
+  }> = {
+    "theory": {
+      defaults: [],
+      paths: []
+    }
   };
 
   constructor() {
-    this.generatePathsForLearnPage('theory');
+    const structureKeys = Object.keys(this.structures);
+    for (let i = 0; i < structureKeys.length; i++) {
+      const structureKey = structureKeys[i];
+
+      this.compiledPaths[structureKey] = {
+        defaults: this.generateDefaultsForLearnPage(structureKey),
+        paths: this.generatePathsForLearnPage(structureKey)
+      }
+    }
+    console.log(this.compiledPaths);
   }
 
-  private generatePathsForLearnPage(learnPageName: string) {
+
+  private generateDefaultsForLearnPage(learnPageName: string): RoutingRedirectEntry[] {
 
     const learnPage = this.structures[learnPageName];
 
     let progress: string[] = [ ];
     let defaults: RoutingRedirectEntry[] = [];
+
+    return defaults;
+  }
+
+  private generatePathsForLearnPage(learnPageName: string): RoutingPathEntry[] {
+
+    const learnPage = this.structures[learnPageName];
+
+    let progress: string[] = [ ];
     let paths: RoutingPathEntry[] = [];
 
+    // for every parent page name
     let parentKeys = Object.keys(learnPage);
     for (let i = 0; i < parentKeys.length; i++) {
       const parentKey = parentKeys[i];
       const parentElem: Record<string, any> = learnPage[parentKey];
 
+      // push it to the URL
       progress.push(this.routify(parentKey));
 
+      // for every child page name
       let childKeys = Object.keys(parentElem);
       for (let j = 0; j < childKeys.length; j++) {
         const childKey = childKeys[j];
         const childElem = parentElem[childKey];
 
+        // push it to the URL
         progress.push(this.routify(childKey));
 
+        // add the url to {paths} along with the appropriate component
         paths.push({
-          path: '/learn/' + progress.join('/'),
+          path: `/learn/${learnPageName}/` + progress.join('/'),
           component: childElem
         });
 
+        // reset the URL to be free for the next child
         progress.pop();
       }
+      // reset the URL to be free for the next parent
       progress.pop();
     }
+
+    return paths;
   }
 
 }
