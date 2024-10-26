@@ -42,20 +42,6 @@ export class LearnRoutingService {
     return newStr;
   }
 
-  /*
-  * the "[root]" values here indicate a page of
-  * the parent (group) element. E.g. we might want
-  * an introductory page to the "Cases" section,
-  * but we don't want it to appear as a page NESTED
-  * WITHIN the "Cases" section, rather, as the section
-  * name itself being the page. This way, if the website
-  * decides to redirect the user to a simple /learn/theory/cases
-  * URL, then it will get the [root] page, which should always be
-  * element 0. Otherwise, it will redirect the user to the
-  * first page of the section, which is most likely the intended
-  * behaviour anyway. Like this, element 0 is always the most likely
-  * intended page for redirection.
-  */
   theoryStructure: LearnPageStructure = {
     'Interslavic. History of Slavic Languages': {
       'History of Slavic Languages': _._Theory._ISV._History._Component,
