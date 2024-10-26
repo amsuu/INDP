@@ -77,14 +77,12 @@ export class LearnRoutingService {
     'concise': {},
   };
 
-  compiledPaths: Record<string, {
+  compiledPaths: {
       defaults: RoutingRedirectEntry[],
       paths: RoutingPathEntry[]
-  }> = {
-    "theory": {
+  } = {
       defaults: [],
       paths: []
-    }
   };
 
   constructor() {
@@ -92,10 +90,8 @@ export class LearnRoutingService {
     for (let i = 0; i < structureKeys.length; i++) {
       const structureKey = structureKeys[i];
 
-      this.compiledPaths[structureKey] = {
-        defaults: this.generateDefaultsForLearnPage(structureKey),
-        paths: this.generatePathsForLearnPage(structureKey)
-      }
+      this.compiledPaths.defaults.push(... this.generateDefaultsForLearnPage(structureKey));
+      this.compiledPaths.paths.push(... this.generatePathsForLearnPage(structureKey));
     }
     console.log(this.compiledPaths);
   }
@@ -107,6 +103,34 @@ export class LearnRoutingService {
 
     let progress: string[] = [ ];
     let defaults: RoutingRedirectEntry[] = [];
+
+    // for every parent page name
+    let parentKeys = Object.keys(learnPage);
+    for (let i = 0; i < parentKeys.length; i++) {
+      const parentKey = parentKeys[i];
+      const parentElem: Record<string, any> = learnPage[parentKey];
+
+      // push it to the URL
+      progress.push(this.routify(parentKey));
+
+      // for every child page name
+      let childKeys: string[] = Object.keys(parentElem);
+
+      // push the first child to the URL
+      progress.push(this.routify(childKeys[0]));
+
+      // add the url to the parent page
+      // and redirect it to the first child
+      let prefix = `/learn/${learnPageName}/`;
+      defaults.push({
+        path: prefix + progress.slice(0, -1).join('/'),
+        redirectTo: prefix + progress.join('/'),
+        pathMatch: 'full'
+      });
+
+      // reset the URL to be free for the next parent
+      progress = [];
+    }
 
     return defaults;
   }
