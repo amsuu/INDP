@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AdjacentValues } from "./adjacent-values";
+import { LearnRoutingService } from "./learn-routing.service";
 
 
 @Injectable({
@@ -7,40 +8,7 @@ import { AdjacentValues } from "./adjacent-values";
 })
 export class LearnStructureService {
 
-  /*
-  * the "[root]" values here indicate a page of
-  * the parent (group) element. E.g. we might want
-  * an introductory page to the "Cases" section,
-  * but we don't want it to appear as a page NESTED
-  * WITHIN the "Cases" section, rather, as the section
-  * name itself being the page. This way, if the website
-  * decides to redirect the user to a simple /learn/theory/cases
-  * URL, then it will get the [root] page, which should always be
-  * element 0. Otherwise, it will redirect the user to the
-  * first page of the section, which is most likely the intended
-  * behaviour anyway. Like this, element 0 is always the most likely
-  * intended page for redirection.
-  */
-  theoryStructure: Record<string, any> = {
-    'Interslavic. History of Slavic Languages': [
-      'History of Slavic Languages',
-      'Why Interslavic? The slavic people and more',
-    ],
-    'Cases': [
-      'Meaning of Cases',
-      'Direct Object? Indirect Object??',
-      'Prepositions',
-    ],
-    'How to write in Interslavic': [
-      'Keyboard Layouts',
-      'Orthography',
-    ]
-  };
-  structures: Record<string, any> = {
-    'theory': this.theoryStructure,
-    'practice': {},
-    'concise': {},
-  };
+  constructor (private learnRouting: LearnRoutingService) { }
 
   isJSON(object: any) {
     return Array.isArray(object) || typeof object === typeof { };
@@ -109,16 +77,22 @@ export class LearnStructureService {
     ).all;
   }
 
+  // unused
   getAdjacentValues(subsection: string, path: string[]): AdjacentValues
   {
     // the subsection (e.g. 'theory', 'practice', etc.)
     // in which we are working
-    let workingSubsection = this.structures[subsection.trim().toLowerCase()];
+    let workingSubsection = this.learnRouting.structures[subsection.trim().toLowerCase()];
 
     // the containing element of the one specified in the "path" argument
-    let workingParent = workingSubsection;
+    let workingParent: Record<string, any> = [];
     for (let i = 0; i < path.length - 1; i++) {
-      workingParent = workingParent[path[i]];
+      workingParent = workingSubsection[path[i]];
+    }
+    let workingParentNamesOnly: string[] = [];
+    for (let i = 0; i < Object.keys(workingParent).length; i++) {
+      const key = Object.keys(workingParent)[i];
+      workingParentNamesOnly.push(key);
     }
 
     return this.getAdjacentValuesOfElemInObject(path[path.length - 1], workingParent);
