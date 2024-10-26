@@ -6,10 +6,9 @@ import { SettingsComponent } from './settings/settings.component'
 import { LearnPageComponent } from './learn-page/learn-page.component';
 import { HomeComponent } from './home/home.component';
 import { Level2PageComponent } from './level-2-page/level-2-page.component';
-import * as _MeaningOfCases from './_learn/theory/cases/meaning-of-cases/meaning-of-cases.component';
-import * as _Prepositions from './_learn/theory/cases/prepositions/prepositions.component';
+import { LearnRoutingService } from "./learn-routing.service";
 
-const routes: Routes = [
+let routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'level/1', component: Level1pageComponent },
@@ -17,8 +16,6 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnPageComponent },
   { path: 'learn/theory', redirectTo: 'learn/theory/cases/meaning-of-cases', pathMatch: 'full' },
-  { path: 'learn/theory/cases/meaning-of-cases', component: _MeaningOfCases._Component },
-  { path: 'learn/theory/cases/prepositions', component: _Prepositions._Component }
 ];
 
 @NgModule({
@@ -31,5 +28,17 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor(private learnRouting: LearnRoutingService) {
+    const defaults = learnRouting.compiledPaths.defaults;
+    const paths = learnRouting.compiledPaths.paths;
+    for (let i = 0; i < defaults.length; i++) {
+      routes.push(defaults[i]);
+      console.log(defaults[i]);
+    }
+    for (let i = 0; i < paths.length; i++) {
+      routes.push(paths[i]);
+      console.log(paths[i]);
+    }
+  }
+}

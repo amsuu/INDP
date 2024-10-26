@@ -4,12 +4,12 @@ import * as _ from './_learn';
 type RoutingRedirectEntry = {
   path: string,
   redirectTo: string,
-  pathMatch: string
-} | [];
+  pathMatch: "full" | "prefix" | undefined
+};
 type RoutingPathEntry = {
   path: string,
   component: any
-} | [];
+};
 type LearnPageStructure = Record<string, Record<string, any>>;
 
 
@@ -90,10 +90,9 @@ export class LearnRoutingService {
     for (let i = 0; i < structureKeys.length; i++) {
       const structureKey = structureKeys[i];
 
-      this.compiledPaths.defaults.push(... this.generateDefaultsForLearnPage(structureKey));
-      this.compiledPaths.paths.push(... this.generatePathsForLearnPage(structureKey));
+      this.compiledPaths.defaults.push(...this.generateDefaultsForLearnPage(structureKey));
+      this.compiledPaths.paths.push(...this.generatePathsForLearnPage(structureKey));
     }
-    console.log(this.compiledPaths);
   }
 
 
@@ -103,6 +102,8 @@ export class LearnRoutingService {
 
     let progress: string[] = [ ];
     let defaults: RoutingRedirectEntry[] = [];
+
+    const prefix = `learn/${learnPageName}/`;
 
     // for every parent page name
     let parentKeys = Object.keys(learnPage);
@@ -121,7 +122,6 @@ export class LearnRoutingService {
 
       // add the url to the parent page
       // and redirect it to the first child
-      let prefix = `/learn/${learnPageName}/`;
       defaults.push({
         path: prefix + progress.slice(0, -1).join('/'),
         redirectTo: prefix + progress.join('/'),
@@ -161,8 +161,9 @@ export class LearnRoutingService {
         progress.push(this.routify(childKey));
 
         // add the url to {paths} along with the appropriate component
+        const prefix = `learn/${learnPageName}/`;
         paths.push({
-          path: `/learn/${learnPageName}/` + progress.join('/'),
+          path: prefix + progress.join('/'),
           component: childElem
         });
 
