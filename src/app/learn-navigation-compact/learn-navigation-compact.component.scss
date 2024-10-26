@@ -1,0 +1,54 @@
+.learn-navigation-compact {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.current-structure {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  > :last-child {
+    background-color: var(--border) !important;
+  }
+
+  .learn-navigation-compact-icon {
+    padding: 0.5rem;
+  }
+  .learn-navigation-compact-button {
+    padding: 0.8rem;
+    border-radius: 1rem;
+  }
+
+  .learn-navigation-compact-icon {
+    margin:  0.5rem;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--background);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .learn-navigation-compact-button {
+
+    .dropdown-title {
+      font-weight: 600;
+      font-size: 120% !important;
+    }
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    &, &:hover {
+      background-color: #00000000;
+      color: var(--text);
+    }
+  }
+}
+
