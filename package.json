@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --base-href https://amsuu.github.io/INDP/",
+    "build": "ng build --configuration production --base-href https://amsuu.github.io/INDP/#/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start-open": "ng serve --host 0.0.0.0"
