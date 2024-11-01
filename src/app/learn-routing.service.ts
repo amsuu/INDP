@@ -10,7 +10,7 @@ type RoutingPathEntry = {
   path: string,
   component: any
 };
-type LearnPageStructure = Record<string, Record<string, any>>;
+export type LearnPageStructure = Record<string, Record<string, any>>;
 
 
 @Injectable({

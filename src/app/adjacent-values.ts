@@ -1,6 +1,6 @@
 export interface AdjacentValues {
-  top: string[],
-  _self: string,
-  bottom: string[],
-  all: string[]
-}
+  top: any[],
+  _self: any,
+  bottom: any[],
+  all: any[]
+};

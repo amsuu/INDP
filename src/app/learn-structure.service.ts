@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AdjacentValues } from "./adjacent-values";
-import { LearnRoutingService } from "./learn-routing.service";
+import { LearnRoutingService, LearnPageStructure } from "./learn-routing.service";
 
 
 @Injectable({
@@ -34,6 +34,7 @@ export class LearnStructureService {
     return this.getAdjacentValuesOfElemInObject(sampleElement, object);
   }
   getAdjacentValuesOfElemInObject(elem: any, object: any): AdjacentValues {
+
     // get all of the adjecent keys or values
     let adjacentValues: string[] = [];
     if (Array.isArray(object)) {
@@ -85,8 +86,8 @@ export class LearnStructureService {
     let workingSubsection = this.learnRouting.structures[subsection.trim().toLowerCase()];
 
     // the containing element of the one specified in the "path" argument
-    let workingParent: Record<string, any> = [];
-    for (let i = 0; i < path.length - 1; i++) {
+    let workingParent: Record<string, any> = workingSubsection;
+    for (let i = 0; i+1 < path.length; i++) {
       workingParent = workingSubsection[path[i]];
     }
     let workingParentNamesOnly: string[] = [];
@@ -96,6 +97,42 @@ export class LearnStructureService {
     }
 
     return this.getAdjacentValuesOfElemInObject(path[path.length - 1], workingParent);
+  }
+  getAdjacentComponent(subsection: string, path: string[]): AdjacentValues
+  {
+    let workingSubsection: LearnPageStructure = this.learnRouting.structures[subsection.trim().toLowerCase()];
+    // Record <string, Record<string, any>>
+
+    let workingParent = workingSubsection[path[0]];
+    let workingChild = workingSubsection[path[1]];
+    let adjacentComponents = Object.values(workingParent);
+
+    // to return
+    let _self = workingChild;
+    let top: string[] = [];
+    let bottom: string[] = [];
+
+    // splits the adjacentComponents into the ones which are
+    // before the value, the value itself, and after the value
+    for (let i = 0; i < adjacentComponents.length; i++) {
+      let adjacentComponent = adjacentComponents[i];
+
+      if (adjacentComponent === _self) {
+        for (i++; i < adjacentComponents.length; i++) {
+          adjacentComponent = adjacentComponents[i];
+          bottom.push(adjacentComponent);
+        } break;
+      } else {
+        top.push(adjacentComponent);
+      }
+    }
+
+    return {
+      top: top,
+      _self: _self,
+      bottom: bottom,
+      all: adjacentComponents
+    }
   }
 
 }
