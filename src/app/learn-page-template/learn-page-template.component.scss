@@ -1,6 +1,19 @@
 @import '../../variables';
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
+$fancy-font: "UnifrakturMaguntia";
 ::ng-deep {
 
+article h2 + p.paragraph-case {
+    &:first-letter {
+        font-size: 800%;
+        float: left;
+        font-family: $fancy-font;
+        border: solid var(--text) 0.5rem;
+        padding: 1rem;
+        margin-inline-end: 1rem;
+    }
+    text-indent: 0rem;
+}
 .example {
     // border-inline-start: solid 0.125rem var(--border);
     background-color: var(--border);

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { LearnPageTemplateComponent } from "../../../../learn-page-template/learn-page-template.component";
 import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-prepos-theory-learn-page',
   standalone: true,
-  imports: [ RouterLink, RouterOutlet ],
+  imports: [ LearnPageTemplateComponent, RouterLink, RouterOutlet ],
   templateUrl: './prepositions.component.html',
   styleUrl: './prepositions.component.scss'
 })

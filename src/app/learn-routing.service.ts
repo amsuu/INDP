@@ -18,7 +18,13 @@ type LearnPageStructure = Record<string, Record<string, any>>;
 })
 export class LearnRoutingService {
 
-  nonURLSafeChars = /[\ \;\/\?\:\@\=\&\"\<\>\#\%\{\}\|\^\~\[\]\`]/gi;
+  // . isn't technically dangerous to use after the first "/"
+  // (i.e.) https://github.com/somethingsomething
+  //                          ~~~~~~~~~~~~~~~~~~~~~
+  //                                    /\
+  //                              here  ||
+  // but it makes for an ugly URL so i include it in the regex anyway
+  nonURLSafeChars = /[\.\ \;\/\?\:\@\=\&\"\<\>\#\%\{\}\|\^\~\[\]\`]/gi;
 
   private trimChar(str: string, char: string) {
     return str.replace(
@@ -32,8 +38,11 @@ export class LearnRoutingService {
 
     for (let i = 0; i < str.length; i++) {
       const ch = str[i];
-      if (ch.match(this.nonURLSafeChars)) {
+      if (ch === ' ') {
         newStr += '-';
+      }
+      if (ch.match(this.nonURLSafeChars)) {
+        // newStr += '-';
       } else {
         newStr += ch;
       }
@@ -55,6 +64,9 @@ export class LearnRoutingService {
     'How to write in Interslavic': {
       'Keyboard Layouts': _._Theory._Writing._Keybs._Component,
       'Orthography': _._Theory._Writing._Orthography._Component,
+    },
+    'Glossary (shortenings)': {
+      'Glossary': _._Theory._Glossary.__Glossary._Component,
     }
   };
   structures: Record<string, LearnPageStructure> = {

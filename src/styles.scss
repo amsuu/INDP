@@ -60,6 +60,48 @@ html {
         list-style-type: '— ';
     }
 
+    table {
+        max-width: 97.5vw !important;
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+    .table-wrapper-no-overflow {
+        display: grid;
+        overflow-x: scroll;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        background: linear-gradient(to left, var(--border), var(--background) 70%);
+    }
+
+    table, th, td {
+        border: 0.125rem solid var(--border);
+        border-collapse: collapse;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        &.accent {
+            color: var(--accent);
+        }
+        &.primary {
+            color: var(--primary);
+        }
+        &.secondary {
+            color: var(--secondary);
+        }
+    }
+
+    img {
+        max-width: 100%;
+        border: solid 0.5rem var(--border);
+    }
+    .src {
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+        display: block;
+        width: 100%;
+        font-size: 80%;
+        font-style: italic;
+        text-align: end;
+    }
+
     p {
         text-align: start;
         text-indent: 2rem;
@@ -100,7 +142,7 @@ html {
 
 *[lang="sr"] {
     font-feature-settings: "ss05";
-    font-style: italic;
+    // font-style: italic;
 }
 
 // makes use of the ligature in the Vollkorn font
