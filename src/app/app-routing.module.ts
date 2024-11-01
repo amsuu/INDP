@@ -22,7 +22,8 @@ let routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes),
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled'
+      scrollPositionRestoration: 'enabled',
+      useHash: true,
     })
   ],
   exports: [RouterModule]
