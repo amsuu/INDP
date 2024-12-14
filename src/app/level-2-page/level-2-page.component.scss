@@ -1,0 +1,19 @@
+app-level-2-quiz-question {
+    display: block;
+    padding-inline-start: 1rem;
+}
+ol {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 2rem;
+
+    li {
+        width: 100%;
+        >* {
+            width: 100%;
+        }
+    }
+}

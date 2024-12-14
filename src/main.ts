@@ -1,6 +1,24 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+// /// <reference types="@angular/localize" />
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+
+// import { provideHttpClient } from '@angular/common/http';
+// import { provideTranslateService } from '@ngx-translate/core';
+import { /* BrowserModule, */bootstrapApplication } from '@angular/platform-browser';
+// import { AppRoutingModule } from './app/app-routing.module';
+import { AppComponent } from './app/app.component';
+// import { importProvidersFrom } from '@angular/core';
+import { appConfig } from './app/app.config';
+
+
+bootstrapApplication(AppComponent, appConfig)// {
+//     providers: [
+//         importProvidersFrom(BrowserModule, AppRoutingModule),
+//         provideHttpClient(),
+//         provideTranslateService({
+//             defaultLanguage: 'en'
+//         })
+//     ]
+// })
+  .catch(err => console.error(err));

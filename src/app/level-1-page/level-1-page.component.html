@@ -1,0 +1,48 @@
+<app-buttons-overlay [len]="this.len"></app-buttons-overlay>
+
+<div class="level-info">
+    <h1>Level 1</h1>
+    <h2>Word → target case</h2>
+    <p>
+        Each question has three fields. In the first one
+        you will be presented with your base word. In the second field
+        there are the target case and number. And you must input your
+        answer in the third field, which consist of the base word,
+        declined/conjugated with respect to the information given to you in
+        the second field.
+    </p>
+    <p>
+        Click on the settings icon to change localizations, appearance,
+        typography and such options. Click on the question mark to get
+        more information on cases, what they mean, when they're used
+        and so on. If you get stuck you can tap on "Hint" under the input field
+        to see the gender of the word or the conjucation table.
+    </p>
+    <p>
+        You may write your answers either in normal or etymological
+        orthographies, cyrillic or latin, as you wish. But please note that
+        incorrect usage of the letters “z”, “c”, “s” as opposed to “ž”, “č”, “š”
+        will be deemed an error. If you are having trouble inputting these
+        characters, you can find a list of Windows, MacOS, and GBoard layouts
+        <a href="https://interslavic.fun/resources/keyboards/">here</a>. Or you
+        can use the on-screen keyboard by pressing the button in the corner.
+    </p>
+    <p class="note i">
+        For Linux users <i>(specifically of <b>Ubuntu-based</b> distros
+        and/or using <code class="inline">X11</code>)</i> — stay tuned, I'm working
+        on a project just for you.
+    </p>
+</div>
+
+<hr>
+
+<div id="level-1-quiz-wrapper">
+    <app-level-1-quiz-question *ngFor="let question of this.questions index as i;"
+      id="question-{{i}}"
+      word="{{questions[i].word}}"
+      case="{{questions[i].case}}"
+      number="{{questions[i].number}}"
+      answer="{{questions[i].answer}}"
+      [showTitles]="true"
+    ></app-level-1-quiz-question>
+</div>

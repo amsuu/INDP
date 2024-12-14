@@ -1,0 +1,54 @@
+@import '../../variables';
+
+* {
+ margin: 0;
+ padding: 0;
+}
+.group {
+    z-index: 1005;
+    padding: 1.5rem 0.5rem;
+    dt {
+        margin-bottom: 0.5rem;
+        margin-top:    0.5rem;
+    }
+    dd {
+        .keys {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            // phone screens
+            @media only screen and (max-width: $main-element-width--phone) {
+                padding-left: 0.5rem;
+                gap: 0.2rem;
+                button {
+                    flex: 1 1 auto;
+                    border-radius: 0.6rem !important;
+                    height: 2.4rem !important;
+                    width:  2.4rem !important;
+                }
+            }
+            button {
+                font-size: 1.3rem;
+                flex: 1 1 auto;
+                height: 3rem;
+                width:  3rem;
+                background-color: var(--secondary);
+                border-radius: 0.66rem;
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: var(--alt-background);
+                    }
+                }
+                &:active {
+                    background-color: var(--accent);
+                    color: var(--background);
+                }
+
+            }
+        }
+    }
+}

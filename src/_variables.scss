@@ -1,0 +1,190 @@
+@use 'sass:color' as color;
+@use 'sass:map' as map;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+$font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
+$font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
+$font-sizes: (
+  font-size: 20pt,
+  font-size-cards: 20pt,  // used in the level selection cards
+  font-size-topbar: 20pt,
+  font-size-settings: 22pt,
+);
+$font-size: 20pt;
+$font-size-cards: 20pt;  // used in the level selection cards
+$font-size-topbar: 20pt;
+$font-size-settings: 22pt;
+
+
+body {
+  @each $varname, $value in $font-sizes {
+    --#{$varname}: #{$value};
+  }
+}
+
+
+$main-element-width--desktop: 100rem;
+$main-element-width--laptop: 78rem;
+$main-element-width--tablet: 56rem;
+$main-element-width--phone: 42rem;
+
+$screen-size--desktop: 1800px;  // min size of a big screen
+$screen-size--laptop: 1520px;  // max size of a smaller screen
+$screen-size--lap-tab: 1200px;  // a medial between laptop and tablet, for fine control
+$screen-size--1080p: 1080px;
+$screen-size--tablet: 768px;  // max size of a tablet
+$screen-size--tablet: 860px;  // max size of a tablet
+$screen-size--phone: 480px;  // max size of a phone
+
+$main-element-leftandright-padding-each: 2rem;
+$main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
+
+$desktop: "only screen and (min-width: #{$main-element-width--desktop})";
+// $laptop: "only screen and (min-width: #{$main-element-width--desktop})";
+// $laptop: "only screen (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
+$laptop: "only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
+
+
+
+$theme-dark: dark;
+$theme-light: light;
+$theme: light;
+
+
+// ~52 step
+$hue-red:           348;
+$hue-orange:        40;
+$hue-yellow:        58;
+$hue-yellow-green:  92;
+$hue-green:         144;
+$hue-goluboy:       196;
+$hue-blue:          222;
+$hue-blue-purple:   250;
+$hue-purple:        264;
+$hue-magenta:       286;
+$hue-pink:          300;
+
+$hue: $hue-red;
+
+
+html {
+  --hue-red:           348;
+  --hue-orange:        40;
+  --hue-yellow:        58;
+  --hue-yellow-green:  92;
+  --hue-green:         144;
+  --hue-goluboy:       196;
+  --hue-blue:          222;
+  --hue-blue-purple:   250;
+  --hue-purple:        264;
+  --hue-magenta:       286;
+  --hue-pink:          300;
+  --double-grayscale: linear-gradient(to bottom right, white 50%, black 50%);
+
+  --hue: var(--hue-red);
+}
+
+
+
+// https://www.realtimecolors.com/?colors=210d11-f7e8eb-792032-e17086-b51c3b&fonts=Poppins-Poppins //
+$themes: (
+
+  light: (
+    text: (s: 43%, l: 9%, a: 1.0),
+    background: (s: 48%, l: 94%, a: 1.0),
+    primary: (s: 58%, l: 30%, a: 1.0),
+    secondary: (s: 65%, l: 66%, a: 1.0),
+    accent: (s: 73%, l: 41%, a: 1.0),
+
+    alt-background: (s: 48%, l: 59%, a: 1.0),  // background 35% darker
+    secondary20: (s: 65%, l: 86%, a: 1.0),  // secondary 20% lighter
+
+    border: (s: 24%, l: 41%, a: 0.1),
+
+    supressed-heading: (s: 57%, l: 36%, a: 1.0),
+    h3-heading: (s: 43%, l: 40%, a: 1.0),  // #656565
+
+    context-btn-bg: (s: 73%, l: 41%, a: 0.5),  // accent 0.25 opacity
+    context-btn-text: (s: 48%, l: 94%, a: 0.75),  // background 0.75 opacity
+  ),
+  dark: (
+    text: (s: 43%, l: 91%, a: 1.0),
+    background: (s: 48%, l: 6%, a: 1.0),
+    primary: (s: 58%, l: 70%, a: 1.0),
+    secondary: (s: 65%, l: 34%, a: 1.0),
+    accent: (s: 73%, l: 59%, a: 1.0),
+
+    alt-background: (s: 48%, l: 41%, a: 1.0),  // background 35% lighter
+    secondary20: (s: 65%, l: 14%, a: 1.0),  // secondary 20% darker
+
+    border: (s: 25%, l: 59%, a: 0.1),
+
+    supressed-heading: (s: 43%, l: 64%, a: 1.0),
+    h3-heading: (s: 43%, l: 60%, a: 1.0),
+
+    context-btn-bg: (s: 73%, l: 59%, a: 0.5),  // accent 0.25 opacity
+    context-btn-text: (s: 48%, l: 6%, a: 0.75),   // background 0.75 opacity
+  ),
+);
+
+
+
+
+// old debugging
+// :root {
+//     @each $color, $value in map-get($themes, $theme) {
+//         @debug $color, $value;
+//         --#{$color}: #{$value};
+//     }
+// }
+
+body[theme='dark'] {
+  @each $color, $values in map-get($themes, $theme-dark) {
+      --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
+  }
+  --accent-sl: #{map-get($themes, $theme-dark, accent, s)}, #{map-get($themes, $theme-dark, accent, l)};
+  --secondary-sl: #{map-get($themes, $theme-dark, secondary, s)}, #{map-get($themes, $theme-dark, secondary, l)};
+  --secondary20-sl: #{map-get($themes, $theme-dark, secondary20, s)}, #{map-get($themes, $theme-dark, secondary20, l)};
+  --border-sl: #{map-get($themes, $theme-dark, border, s)}, #{map-get($themes, $theme-dark, border, l)};
+}
+body[theme='light'] {
+  @each $color, $values in map-get($themes, $theme-light) {
+    --#{$color}: hsla(var(--hue), #{map.get($values, s)}, #{map.get($values, l)}, #{map.get($values, a)});
+  }
+  --accent-sl: #{map-get($themes, $theme-light, accent, s)}, #{map-get($themes, $theme-light, accent, l)};
+  --secondary-sl: #{map-get($themes, $theme-light, secondary, s)}, #{map-get($themes, $theme-light, secondary, l)};
+  --secondary20-sl: #{map-get($themes, $theme-light, secondary20, s)}, #{map-get($themes, $theme-light, secondary20, l)};
+  --border-sl: #{map-get($themes, $theme-light, border, s)}, #{map-get($themes, $theme-light, border, l)};
+}
+
+
+body[hue='grayscale'][theme='dark'] {
+    --accent:            hsla(0, 0%, 95%, 1.0);
+    --background:        hsla(0, 0%,  5%, 1.0);
+    --primary:           hsla(0, 0%, 80%, 1.0);
+    --secondary:         hsla(0, 0%, 65%, 1.0);
+    --text:              hsla(0, 0%, 100%, 1.0);
+    --alt-background:    hsla(0, 0%, 41%, 1.0);  // background 35% lighter
+    --secondary20:       hsla(0, 0%, 34%, 1.0);  // secondary 20% darker
+    --border:            hsla(0, 0%, 59%, 0.5);
+    --h3-heading:        hsla(0, 0%, 82%, 1.0);
+    --supressed-heading: hsla(0, 0%, 85%, 1.0);
+    --context-btn-bg:    hsla(0, 0%, 59%, 0.5);  // accent 0.25 opacity
+    --context-btn-text:  hsla(0, 0%,  6%,0.75);   // background 0.75 opacity
+}
+body[hue='grayscale'][theme='light'] {
+    --accent:            hsla(0, 0%, 15%, 1.0);
+    --background:        hsla(0, 0%, 95%, 1.0);
+    --primary:           hsla(0, 0%, 20%, 1.0);
+    --secondary20:       hsla(0, 0%, 85%, 1.0);
+    --text:              hsla(0, 0%,  0%, 1.0);
+    --alt-background:    hsla(0, 0%, 53%, 1.0);  // background 35% lighter
+    --secondary:         hsla(0, 0%, 76%, 1.0);  // secondary 20% darker
+    --border:            hsla(0, 0%, 41%, 0.4);
+    --h3-heading:        hsla(0, 0%, 18%, 1.0);
+    --supressed-heading: hsla(0, 0%, 15%, 1.0);
+    --context-btn-bg:    hsla(0, 0%, 41%, 0.5);  // accent 0.25 opacity
+    --context-btn-text:  hsla(0, 0%, 94%,0.75);   // background 0.75 opacity
+}
