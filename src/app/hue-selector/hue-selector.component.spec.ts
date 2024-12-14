@@ -8,8 +8,8 @@ describe('HueSelectorComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HueSelectorComponent]
-    });
+    imports: [HueSelectorComponent]
+});
     fixture = TestBed.createComponent(HueSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

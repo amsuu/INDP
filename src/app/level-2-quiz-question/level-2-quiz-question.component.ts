@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
+import { NgFor, NgIf } from '@angular/common';
 
 export type Level2Question = {
   phrase: string[],
@@ -8,9 +9,11 @@ export type Level2Question = {
 };
 
 @Component({
-  selector: 'app-level-2-quiz-question',
-  templateUrl: './level-2-quiz-question.component.html',
-  styleUrls: ['./level-2-quiz-question.component.scss']
+    selector: 'app-level-2-quiz-question',
+    templateUrl: './level-2-quiz-question.component.html',
+    styleUrls: ['./level-2-quiz-question.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgIf]
 })
 export class Level2QuizQuestionComponent {
   /**

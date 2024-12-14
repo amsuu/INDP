@@ -8,8 +8,8 @@ describe('ThemeSelectorComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ThemeSelectorComponent]
-    });
+    imports: [ThemeSelectorComponent]
+});
     fixture = TestBed.createComponent(ThemeSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

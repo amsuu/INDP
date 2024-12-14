@@ -10,8 +10,8 @@ describe('LearnPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LearnPageComponent]
-    });
+    imports: [LearnPageComponent]
+});
     fixture = TestBed.createComponent(LearnPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

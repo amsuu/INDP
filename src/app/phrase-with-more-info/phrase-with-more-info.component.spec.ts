@@ -8,8 +8,8 @@ describe('PhraseWithMoreInfoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PhraseWithMoreInfoComponent]
-    });
+    imports: [PhraseWithMoreInfoComponent]
+});
     fixture = TestBed.createComponent(PhraseWithMoreInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

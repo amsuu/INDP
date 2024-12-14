@@ -5,10 +5,10 @@ import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-level-2-page',
-    standalone: true,
-    imports: [ButtonsOverlayComponent, NgFor, Level2QuizQuestionComponent],
     templateUrl: './level-2-page.component.html',
     styleUrls: ['./level-2-page.component.scss'],
+    standalone: true,
+    imports: [ButtonsOverlayComponent, NgFor, Level2QuizQuestionComponent]
 })
 export class Level2PageComponent {
 

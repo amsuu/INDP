@@ -8,8 +8,8 @@ describe('PhraseExplainationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PhraseExplainationComponent]
-    });
+    imports: [PhraseExplainationComponent]
+});
     fixture = TestBed.createComponent(PhraseExplainationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,9 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { OnScreenKeyboardComponent } from '../on-screen-keyboard/on-screen-keyboard.component';
+import { RouterLink } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-buttons-overlay',
-  templateUrl: './buttons-overlay.component.html',
-  styleUrl: './buttons-overlay.component.scss'
+    selector: 'app-buttons-overlay',
+    standalone: true,
+    imports: [OnScreenKeyboardComponent, RouterLink, NgClass],
+    templateUrl: './buttons-overlay.component.html',
+    styleUrl: './buttons-overlay.component.scss'
 })
 export class ButtonsOverlayComponent {
 

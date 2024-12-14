@@ -8,8 +8,8 @@ describe('Level2QuizQuestionComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Level2QuizQuestionComponent]
-    });
+    imports: [Level2QuizQuestionComponent]
+});
     fixture = TestBed.createComponent(Level2QuizQuestionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

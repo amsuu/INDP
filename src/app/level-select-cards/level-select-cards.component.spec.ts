@@ -8,8 +8,8 @@ describe('LevelSelectCardsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LevelSelectCardsComponent]
-    });
+    imports: [LevelSelectCardsComponent]
+});
     fixture = TestBed.createComponent(LevelSelectCardsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
