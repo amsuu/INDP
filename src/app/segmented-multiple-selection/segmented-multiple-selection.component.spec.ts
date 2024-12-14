@@ -8,8 +8,8 @@ describe('SegmentedMultipleSelectionComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SegmentedMultipleSelectionComponent]
-    });
+    imports: [SegmentedMultipleSelectionComponent]
+});
     fixture = TestBed.createComponent(SegmentedMultipleSelectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

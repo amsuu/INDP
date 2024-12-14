@@ -2,9 +2,10 @@ import { OnInit, Component } from '@angular/core';
 import { ThemeService } from '../theme.service';
 
 @Component({
-  selector: 'app-theme-selector',
-  templateUrl: './theme-selector.component.html',
-  styleUrls: ['./theme-selector.component.scss']
+    selector: 'app-theme-selector',
+    templateUrl: './theme-selector.component.html',
+    styleUrls: ['./theme-selector.component.scss'],
+    standalone: true
 })
 export class ThemeSelectorComponent {
 

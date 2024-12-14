@@ -1,12 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { InputLabelClassKey } from '@material-ui/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 import { ThemeService } from '../theme.service';
+import { NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-level-1-quiz-question',
-  templateUrl: './level-1-quiz-question.component.html',
-  styleUrls: ['./level-1-quiz-question.component.scss']
+    selector: 'app-level-1-quiz-question',
+    standalone: true,
+    imports: [NgIf, RouterLink],
+    templateUrl: './level-1-quiz-question.component.html',
+    styleUrls: ['./level-1-quiz-question.component.scss']
 })
 export class Level1QuizQuestionComponent {
   @Input() word: string = '';

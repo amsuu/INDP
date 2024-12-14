@@ -1,9 +1,12 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
+import { NgFor, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-segmented-multiple-selection',
-  templateUrl: './segmented-multiple-selection.component.html',
-  styleUrls: ['./segmented-multiple-selection.component.scss']
+    selector: 'app-segmented-multiple-selection',
+    templateUrl: './segmented-multiple-selection.component.html',
+    styleUrls: ['./segmented-multiple-selection.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgClass]
 })
 export class SegmentedMultipleSelectionComponent {
   @Input() options = [{name: '', status: false}];

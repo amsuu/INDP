@@ -8,8 +8,8 @@ describe('Level1pageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Level1pageComponent]
-    });
+    imports: [Level1pageComponent]
+});
     fixture = TestBed.createComponent(Level1pageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

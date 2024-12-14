@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { NgFor, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-segmented-single-selection',
-  templateUrl: './segmented-single-selection.component.html',
-  styleUrls: ['./segmented-single-selection.component.scss']
+    selector: 'app-segmented-single-selection',
+    templateUrl: './segmented-single-selection.component.html',
+    styleUrls: ['./segmented-single-selection.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgClass]
 })
 export class SegmentedSingleSelectionComponent {
   @Input() public options = [''];

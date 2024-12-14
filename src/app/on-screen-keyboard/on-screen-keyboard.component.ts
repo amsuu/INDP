@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { NgFor, KeyValuePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-on-screen-keyboard',
-  standalone: false,
-  templateUrl: './on-screen-keyboard.component.html',
-  styleUrl: './on-screen-keyboard.component.scss'
+    selector: 'app-on-screen-keyboard',
+    standalone: true,
+    styleUrl: './on-screen-keyboard.component.scss',
+    imports: [NgFor, KeyValuePipe],
+    templateUrl: './on-screen-keyboard.component.html'
 })
 export class OnScreenKeyboardComponent {
 

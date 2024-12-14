@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from './_learn';
+import { Routes } from '@angular/router';
 
 type RoutingRedirectEntry = {
   path: string,
@@ -99,7 +100,7 @@ export class LearnRoutingService {
     const learnPage = this.structures[learnPageName];
 
     let progress: string[] = [ ];
-    let defaults: RoutingRedirectEntry[] = [];
+    let defaults: RoutingRedirectEntry[] = [ ];
 
     const prefix = `learn/${learnPageName}/`;
 
@@ -182,4 +183,16 @@ export class LearnRoutingService {
     return paths;
   }
 
+  public formatPathsForRoutesTS(compiledPaths: { defaults: RoutingRedirectEntry[], paths: RoutingPathEntry[] }) {
+    const defaults: RoutingRedirectEntry[] = compiledPaths.defaults;
+    const paths: RoutingPathEntry[] = compiledPaths.paths;
+    let routes: Routes = [];
+    for (let i = 0; i < defaults.length; i++) {
+      routes.push(defaults[i]);
+    }
+    for (let i = 0; i < paths.length; i++) {
+      routes.push(paths[i]);
+    }
+    return routes;
+  }
 }
