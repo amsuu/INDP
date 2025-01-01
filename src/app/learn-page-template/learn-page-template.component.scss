@@ -5,7 +5,7 @@ $fancy-font: "UnifrakturMaguntia";
 
 article h2 + p.paragraph-case {
     &:first-letter {
-        font-size: 800%;
+        font-size: 400%;
         float: left;
         font-family: $fancy-font;
         border: solid var(--text) 0.5rem;

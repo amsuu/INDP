@@ -13,7 +13,6 @@ type RoutingPathEntry = {
 };
 export type LearnPageStructure = Record<string, Record<string, any>>;
 
-
 @Injectable({
   providedIn: 'root'
 })
