@@ -70,24 +70,7 @@ After making all your [changes, staging, commiting, pushing,](https://docs.githu
 
 ## Building
 
-Run `npm run build` to build the project. (DON'T run `ng build` unless you know what you're doing, or running the exact script which is under under the hood when you run "`npm run build`", the build URL has to be very specific or else everything breaks for some reason :/) The build artifacts will be stored in the `dist/` directory.
-
-To sync changes with master simply do
-```terminal
-git checkout gh-pages
-git merge master
-```
-build,
-```terminal
-npm run build
-git add -A
-git commit -am "build"
-```
-and push
-```terminal
-git push origin gh-pages
-```
-Github Pages should automatically update the deployment after a while.
+Github Actions automatically builds the code and places it in the `gh-pages` branch on every push and PR to `master`. Then, Github Pages is configured to deploy automatically from `gh-pages`. Changes may take a bit to load.
 
 ## Tests (not implemented)
 
