@@ -10,17 +10,14 @@ jobs:
   angular:
     name: Angular Build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [23]
     steps:
       - name: Checkout the source code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js $
+      - name: Setup Node.js 23
         uses: actions/setup-node@v3
         with:
-          node-version: $
+          node-version: 23
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
