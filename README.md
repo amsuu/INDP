@@ -70,7 +70,7 @@ After making all your [changes, staging, commiting, pushing,](https://docs.githu
 
 ## Building
 
-Run `npm run build` to build the project. (DON'T run `ng build` unless you know what you're doing, or running the exact script which is under under the hood when you run "`npm run build`", the build URL has to be very specific or else everything breaks for some reason :/) The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. (DON'T run `ng build` unless you know what you're doing, or running the exact script which is under under the hood when you run "`npm run build`", the build URL has to be very specific or else everything breaks for some reason :/) The build artifacts will be stored in the `docs/` directory.
 
 To sync changes with master simply do
 ```terminal
