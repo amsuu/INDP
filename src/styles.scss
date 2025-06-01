@@ -2,8 +2,6 @@
 @import 'variables';
 // @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0');
-
-
 // material icons
 @font-face {
   font-family: 'Material Symbols Outlined';
@@ -69,7 +67,7 @@ body, body[font="sans"] {
   * { font-family: $font-sans; }
 }
 body[font="serif"] {
-  font-family: $font-serif; font-weight: medium;
+  font-family: $font-serif;
   * { font-family: $font-serif; font-weight: medium; }
 }
 

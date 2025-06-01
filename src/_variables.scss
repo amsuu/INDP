@@ -1,5 +1,6 @@
 @use 'sass:color' as color;
 @use 'sass:map' as map;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
 $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
@@ -120,15 +121,6 @@ $themes: (
 );
 
 
-
-
-// old debugging
-// :root {
-//     @each $color, $value in map-get($themes, $theme) {
-//         @debug $color, $value;
-//         --#{$color}: #{$value};
-//     }
-// }
 
 body[theme='dark'] {
   @each $color, $values in map-get($themes, $theme-dark) {
