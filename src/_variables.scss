@@ -20,11 +20,13 @@ body {
 }
 
 
+// TODO: figure out what the heck the point of these are:
 $main-element-width--desktop: 100rem;
 $main-element-width--laptop: 78rem;
 $main-element-width--tablet: 56rem;
 $main-element-width--phone: 42rem;
 
+// TODO: figure out what the heck the point of these are:
 $screen-size--desktop: 1800px;  // min size of a big screen
 $screen-size--laptop: 1520px;  // max size of a smaller screen
 $screen-size--lap-tab: 1200px;  // a medial between laptop and tablet, for fine control
@@ -33,6 +35,7 @@ $screen-size--tablet: 768px;  // max size of a tablet
 $screen-size--tablet: 860px;  // max size of a tablet
 $screen-size--phone: 480px;  // max size of a phone
 
+// TODO: figure out what the heck the point of these are:
 $main-element-leftandright-padding-each: 2rem;
 $main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
 
