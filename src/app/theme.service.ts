@@ -11,22 +11,17 @@ export class ThemeService {
   // or anything else into "light" or "dark"
   // Default is "light"
   toTheme(v: unknown): 'light'|'dark' {
-    if (typeof v === typeof '') {
-      // string
-      return v === 'dark' ? 'dark' : 'light';
-    }
-    else if (typeof v === typeof 0) {
-      // number
-      return v === 0 ? 'dark' : 'light';
-    }
-    else if (typeof v === typeof true) {
-      // bool
-      return v ? 'light' : 'dark'
-    }
-    else {
-      // anything else
-      return 'light';
-    }
+    // string
+    if (typeof v === typeof '') { return v === 'dark' ? 'dark' : 'light' }
+
+    // number
+    else if (typeof v === typeof 0) { return v === 0 ? 'dark' : 'light' }
+
+    // bool
+    else if (typeof v === typeof true) { return v ? 'light' : 'dark' }
+
+    // anything else
+    else { return 'light'; }
   }
 
   // gets the current theme as set in local storage
@@ -35,12 +30,12 @@ export class ThemeService {
   }
 
   // compares two strings as theme types
-  compareTheme(a: string, b: string) {
+  compareTheme(a: string, b: string): boolean {
     return this.toTheme(a) === this.toTheme(b);
   }
 
   // compares the current theme against the argument
-  isCurrentThemeName(check: string) {
+  isCurrentThemeName(check: string): boolean {
     return this.getCurrentThemeName() === this.toTheme(check);
   }
 
@@ -48,7 +43,7 @@ export class ThemeService {
   // if there is no theme in local storage, it defaults
   // that the local storage is light, therefore setting
   // the theme to dark now.
-  toggleTheme() {
+  toggleTheme(): void {
 
     let currentTheme = document.body.getAttribute('theme') || 'light';
     let newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -59,7 +54,7 @@ export class ThemeService {
 
   // syncs everything to local storage
   // if local storage doesn't, exists, it defalts to light
-  syncTheme() {
+  syncTheme(): void {
 
     // get the current theme from local storage into a var.
     // if it doesn't exist, default to "light"

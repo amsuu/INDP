@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subscription, firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 
 export type Slovnik = {
   // data===========||
@@ -74,17 +74,6 @@ export class SlovnikService {
 
   private randomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
-  }
-
-  // O(n)
-  private slowStrSearch(arr: string[], match: string) {
-    for (let i = 0; i < arr.length; i++) {
-      const elem = arr[i];
-      if (elem === match) {
-        return elem;
-      }
-    }
-    return null;
   }
 
   public getRandomWord() {

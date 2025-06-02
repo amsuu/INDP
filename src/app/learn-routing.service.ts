@@ -11,6 +11,8 @@ type RoutingPathEntry = {
   path: string,
   component: any
 };
+
+// A category, then an array of: { page title : angular component }
 export type LearnPageStructure = Record<string, Record<string, any>>;
 
 @Injectable({
@@ -18,21 +20,17 @@ export type LearnPageStructure = Record<string, Record<string, any>>;
 })
 export class LearnRoutingService {
 
-  // . isn't technically dangerous to use after the first "/"
-  // (i.e.) https://github.com/somethingsomething
-  //                          ~~~~~~~~~~~~~~~~~~~~~
-  //                                    /\
-  //                              here  ||
-  // but it makes for an ugly URL so i include it in the regex anyway
   nonURLSafeChars = /[\.\ \;\/\?\:\@\=\&\"\<\>\#\%\{\}\|\^\~\[\]\`]/gi;
+  // Note:
+  // the period/dot . isn't technically dangerous to use after the first "/"
+  // (i.e.) https://github.com/somethingsomething
+  //                          ~~~~~~~~~~~~~~~~~~~
+  //                                  /\
+  //                     (i.e.) here  ||
+  //
+  // but it makes for an ugly URL so i include it in the regex anyway
 
-  private trimChar(str: string, char: string) {
-    return str.replace(
-      new RegExp(`(^\\${char}+)|(\\${char}+$)`,"g"),
-      ""
-    );
-  }
-  routify(str: string): string {
+  makeURLSafe(str: string): string {
     str = str.trim().toLowerCase();
     let newStr = "";
 
@@ -51,7 +49,8 @@ export class LearnRoutingService {
     return newStr;
   }
 
-  theoryStructure: LearnPageStructure = {
+  // categories under 'theory'
+  private theoryStructure: LearnPageStructure = {
     'Interslavic. History of Slavic Languages': {
       'History of Slavic Languages': _._Theory._ISV._History._Component,
       'Why Interslavic? The slavic people and more': _._Theory._ISV._WhyISV._Component,
@@ -69,19 +68,24 @@ export class LearnRoutingService {
       'Glossary': _._Theory._Glossary.__Glossary._Component,
     }
   };
-  structures: Record<string, LearnPageStructure> = {
+  public get TheoryStructure() { return this.theoryStructure; }
+
+  // types of pages
+  private structures: Record<string, LearnPageStructure> = {
     'theory': this.theoryStructure,
     'practice': {},
     'concise': {},
   };
+  public get Structures() { return this.structures; }
 
-  compiledPaths: {
+  private compiledPaths: {
       defaults: RoutingRedirectEntry[],
       paths: RoutingPathEntry[]
   } = {
       defaults: [],
       paths: []
   };
+  public get CompiledPaths() { return this.compiledPaths }
 
   constructor() {
     const structureKeys = Object.keys(this.structures);
@@ -110,13 +114,13 @@ export class LearnRoutingService {
       const parentElem: Record<string, any> = learnPage[parentKey];
 
       // push it to the URL
-      progress.push(this.routify(parentKey));
+      progress.push(this.makeURLSafe(parentKey));
 
       // for every child page name
       let childKeys: string[] = Object.keys(parentElem);
 
       // push the first child to the URL
-      progress.push(this.routify(childKeys[0]));
+      progress.push(this.makeURLSafe(childKeys[0]));
 
       // add the url to the parent page
       // and redirect it to the first child
@@ -154,7 +158,7 @@ export class LearnRoutingService {
       const parentElem: Record<string, any> = learnPage[parentKey];
 
       // push it to the URL
-      progress.push(this.routify(parentKey));
+      progress.push(this.makeURLSafe(parentKey));
 
       // for every child page name
       let childKeys = Object.keys(parentElem);
@@ -163,7 +167,7 @@ export class LearnRoutingService {
         const childElem = parentElem[childKey];
 
         // push it to the URL
-        progress.push(this.routify(childKey));
+        progress.push(this.makeURLSafe(childKey));
 
         // add the url to {paths} along with the appropriate component
         const prefix = `learn/${learnPageName}/`;

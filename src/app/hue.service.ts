@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 export type Hue = 'red' | 'orange' | 'yellow' | 'yellow-green' | 'green' | 'goluboy' | 'blue' | 'blue-purple' | 'purple' | 'magenta' | 'pink' | 'grayscale';
 

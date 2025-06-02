@@ -3,6 +3,7 @@
  elements' contents when rendered/compiled/whatevered by the website
  -->
 <!-- Note to note: this is dumb. I'm fixing it soon -->
+<!--Not to note to note: No, I'm not-->
 
 <div class="level-1-quiz-question-wrapper">
     <div class="card-and-title-container">
@@ -23,7 +24,7 @@
     <div class="card-and-title-container answer-card-container">
         <h1 *ngIf="showTitles">Answer:</h1>
         <div class="card-container answer-card-container" #answerCardContainer>
-            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{word}}" name="" id="answer"></div>
+            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{word}}" name="" id="answer" autocomplete="off"></div>
             <button (click)="answerButtonClicked(answerInput, answerButton, answerCardContainer)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
         </div>
     </div>

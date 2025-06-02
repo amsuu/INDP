@@ -26,7 +26,7 @@
     <div class="other-options" id="{{this.id_prefix + i}}">
       <ng-container *ngFor="let adj of this.adjacentValuesOfEachStructureElement[i].top">
         <div class="top">
-          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.routify(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.routify(adj)">{{adj}}</a>
+          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.makeURLSafe(adj)">{{adj}}</a>
         </div>
       </ng-container>
       <ng-container *ngIf="this.adjacentValuesOfEachStructureElement[i]._self">
@@ -36,7 +36,7 @@
       </ng-container>
       <ng-container *ngFor="let adj of this.adjacentValuesOfEachStructureElement[i].bottom" >
         <div class="bottom">
-          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.routify(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.routify(adj)">{{adj}}</a>
+          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.makeURLSafe(adj)">{{adj}}</a>
         </div>
       </ng-container>
     </div>

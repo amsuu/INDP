@@ -1,6 +1,6 @@
 <div class="learn-navigation-side">
   <div class="learn-navigation-side-elem top-level"
-    *ngFor="let parentElem of Object.keys(this.learnRouting.theoryStructure)"
+    *ngFor="let parentElem of Object.keys(this.learnRouting.TheoryStructure)"
     #parent (click)="revealChildren(parent)"
   >
     <div class="content">
@@ -12,8 +12,8 @@
     <div class="children-expand-animation-container">
       <div class="children">
         <div class="child"
-          *ngFor="let childElem of Object.keys(this.learnRouting.theoryStructure[parentElem])"
-          [routerLink]="'../../' + this.learnRouting.routify(parentElem) + '/' + this.learnRouting.routify(childElem)"
+          *ngFor="let childElem of Object.keys(this.learnRouting.TheoryStructure[parentElem])"
+          [routerLink]="'../../' + this.learnRouting.makeURLSafe(parentElem) + '/' + this.learnRouting.makeURLSafe(childElem)"
         >
           <div class="content">
             <div class="learn-navigation-side-title"><a>{{ childElem }}</a></div>

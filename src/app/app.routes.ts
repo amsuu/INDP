@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { Level2PageComponent } from './level-2-page/level-2-page.component';
 import { LearnRoutingService } from "./learn-routing.service";
 
-const routingService = new LearnRoutingService;
+const routingService = new LearnRoutingService();
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
@@ -14,5 +14,5 @@ export const routes: Routes = [
   { path: 'level/2', component: Level2PageComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnPageComponent },
-  ...routingService.formatPathsForRoutesTS(routingService.compiledPaths)
+  ...routingService.formatPathsForRoutesTS(routingService.CompiledPaths)
 ];

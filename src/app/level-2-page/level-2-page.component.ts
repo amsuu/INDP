@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Level2Question, Level2QuizQuestionComponent } from "../level-2-quiz-question/level-2-quiz-question.component";
 import { ButtonsOverlayComponent } from '../buttons-overlay/buttons-overlay.component';
 import { NgFor } from '@angular/common';
@@ -12,7 +12,7 @@ import { NgFor } from '@angular/common';
 })
 export class Level2PageComponent {
 
-  @Input() questions: Level2Question[] = [
+  questions = input<Level2Question[]>([
     {
       phrase: [
         "Ja vidžu", "", "", ".",
@@ -35,6 +35,6 @@ export class Level2PageComponent {
         "jejinų", "knigų", "prijatelju",
       ],
     },
-  ];
+  ]);
   len = this.questions.length;
 }

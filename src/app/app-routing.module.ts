@@ -30,8 +30,8 @@ let routes: Routes = [
 })
 export class AppRoutingModule {
   constructor(private learnRouting: LearnRoutingService) {
-    const defaults = learnRouting.compiledPaths.defaults;
-    const paths = learnRouting.compiledPaths.paths;
+    const defaults = learnRouting.CompiledPaths.defaults;
+    const paths = learnRouting.CompiledPaths.paths;
     for (let i = 0; i < defaults.length; i++) {
       routes.push(defaults[i]);
     }
