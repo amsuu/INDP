@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
-import { ThemeService } from '../theme.service';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
+// suspicious
+import { ThemeService } from '../../settings/theme.service';
 
 @Component({
     selector: 'app-level-1-quiz-question',

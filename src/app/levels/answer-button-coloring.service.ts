@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ThemeService } from './theme.service';
-import { HueService } from './hue.service';
+import { ThemeService } from '../settings/theme.service';
+import { HueService } from '../settings/hue.service';
 
 // this file is OOP hell...
 
