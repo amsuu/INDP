@@ -56,7 +56,7 @@
     }
 }
 
-@media (hover: hover) {
+@include hover {
     .theme-selector:hover {
         background-color: var(--secondary);
         cursor: pointer;

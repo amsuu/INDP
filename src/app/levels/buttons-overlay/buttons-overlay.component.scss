@@ -23,7 +23,7 @@
 
         background-color: var(--border);
 
-        @media (hover: hover) and (pointer: fine) {
+        @include hover {
             &:hover {
                 background-color: var(--secondary20);
             }

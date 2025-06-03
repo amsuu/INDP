@@ -43,13 +43,11 @@
     }
 }
 
-@media (hover: hover) and (pointer: fine) {
-    #topbar {
-        &:hover {
-            background-color: var(--background);
-            color: var(--alt-background);
-        }
-    }
+@include hover {
+  #topbar:hover {
+    background-color: var(--background);
+    color: var(--alt-background);
+  }
 }
 
 // bigger screens

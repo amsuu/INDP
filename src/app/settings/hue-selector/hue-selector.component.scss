@@ -21,10 +21,11 @@
         height: 3rem;
         border-radius: inherit;
 
-        &:hover {
+        @include hover {
+          &:hover {
             cursor: pointer;
+          }
         }
-
         // display the current hue first in the list
         &.selected-hue {
             order: -1

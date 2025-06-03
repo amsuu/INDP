@@ -15,16 +15,18 @@
         align-items: center;
         justify-content: center;
 
+        h2 {
+            color: var(--accent);
+        }
 
-        h1, h2, p {
+        // override default behaviour
+        h2, p {
             margin: 0;
             padding: 0;
             text-indent: 0;
             text-align: center;
         }
-        h2 {
-            color: var(--accent);
-        }
+
 
         width: 16rem;
         height: 9rem;
@@ -33,18 +35,22 @@
         overflow: hidden;
         padding: 1rem;
 
-        @media (hover: hover) and (pointer: fine) {
+        @include hover {
             // reverse comments fot another style of hover
             &:hover {
-                // background: var(--accent);
                 background: var(--secondary20);
+
+                // Alternate hover:
+                //
+                // background: var(--accent);
                 // color: var(--background);
-                h1, h2 {
+                // h1, h2 {
                     // color: var(--secondary20);
-                }
+                // }
             }
         }
-        @media (hover: none) and (pointer: coarse) {
+
+        @include touchscreens {
             &:active {
                 &, * {
                   transition: none;

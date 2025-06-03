@@ -38,7 +38,7 @@
                 width:  3rem;
                 background-color: var(--secondary);
                 border-radius: 0.66rem;
-                @media (hover: hover) and (pointer: fine) {
+                @include hover {
                     &:hover {
                         background-color: var(--alt-background);
                     }

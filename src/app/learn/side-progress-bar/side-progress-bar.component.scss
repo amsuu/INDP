@@ -17,7 +17,7 @@
     padding-inline-start: 1rem;
     border-inline-start: solid var(--border) 0.125rem;
 
-    @media (hover: hover) and (pointer: fine) {
+    @include hover {
       &:hover {
         cursor: pointer;
         color: var(--h3-heading);

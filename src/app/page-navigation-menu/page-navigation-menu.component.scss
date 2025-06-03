@@ -52,7 +52,7 @@
                 aspect-ratio: 1 / 1;
                 padding: 1rem;
                 border-radius: 1rem;
-                @media (hover: hover) and (pointer: fine) {
+                @include hover {
                     &:hover {
                         background-color: var(--accent);
                         color: var(--background);
@@ -101,7 +101,7 @@
     }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@include hover {
     .page-navigation-menu {
         .uncollapse:hover {
             cursor: pointer;
@@ -110,7 +110,7 @@
         }
     }
 }
-@media (hover: none) and (pointer: coarse) {
+@include touchscreens {
     .page-navigation-menu {
         .uncollapse:active {
             transition: none;

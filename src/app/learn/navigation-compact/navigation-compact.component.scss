@@ -52,9 +52,11 @@
       color: var(--background) !important;
     }
 
-    &, &:hover {
-      background-color: #00000000;
-      color: var(--text);
+    @include hover {
+      &, &:hover {
+        background-color: #00000000;
+        color: var(--text);
+      }
     }
   }
 
@@ -63,7 +65,7 @@
     border-radius: 50%;
     background-color: var(--accent);
     color: var(--background);
-    @media (hover: hover) and (pointer: fine) {
+    @include hover {
       &:hover {
         cursor: pointer;
       }

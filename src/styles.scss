@@ -30,8 +30,7 @@
 // accessibility
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
-// touchscreens
-@media (hover: none) and (pointer: coarse) {
+@include touchscreens {
   *, *::before, *::after {
     transition: all 160ms ease-in-out;
   }
@@ -206,9 +205,8 @@ button {
     color: var(--accent);
   }
 }
-@media (hover: hover) {
-  button{
-
+@include hover {
+  button {
     &:hover {
       background-color: var(--secondary);
     }
@@ -283,7 +281,7 @@ body[theme="light"] {
       }
     }
 
-    @media (hover: hover) and (pointer: fine) {
+    @include hover {
       &.answer-card-container:has(> .answer-button:hover) {
         background-color: var(--accent) !important;
 
@@ -293,7 +291,7 @@ body[theme="light"] {
       }
     }
 
-    @media (hover: none) and (pointer: coarse) {
+    @include touchscreens {
       &.answer-card-container:has(> .answer-button:active) {
         background-color: var(--accent) !important;
 

@@ -27,12 +27,12 @@ $border-radius: 0.625rem;
         // background-color: var(--accent);
         // color: var(--text);
 
-        @media (hover: hover) and (pointer: fine) {
+        @include hover {
             &:hover {
                 background-color: var(--secondary);
             }
         }
-        @media (hover: none) and (pointer: coarse) {
+        @include touchscreens {
             &:active {
               &, * {
                   transition: none;
