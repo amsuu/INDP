@@ -1,0 +1,33 @@
+@import '../../../variables';
+
+.side-progress-bar-wrapper {
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 100%;
+  font-size: calc(var(--font-size) * 0.8);
+
+  .side-progress-bar-page {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-inline-start: 1rem;
+    border-inline-start: solid var(--border) 0.125rem;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+        color: var(--h3-heading);
+        border-inline-start: solid var(--secondary) 0.125rem;
+      }
+    }
+
+    &.current {
+      border-inline-start: solid var(--accent) 0.125rem;
+      color: var(--primary);
+    }
+  }
+}

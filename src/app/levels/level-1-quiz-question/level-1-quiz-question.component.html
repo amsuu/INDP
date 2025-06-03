@@ -1,0 +1,31 @@
+<!-- Note: some HTML structures are written on a single line, well-exceeding
+ 80 characters per line. This is done to avoid trailing whitespace in the
+ elements' contents when rendered/compiled/whatevered by the website
+ -->
+<!-- Note to note: this is dumb. I'm fixing it soon -->
+<!--Not to note to note: No, I'm not-->
+
+<div class="level-1-quiz-question-wrapper">
+    <div class="card-and-title-container">
+        <h1 *ngIf="showTitles">Word:</h1>
+        <div class="card-container">
+            <div class="card">{{word}}<button class="context" routerLink="/settings"><span class="card-context-button material-symbols-rounded">settings</span></button></div>
+        </div>
+    </div>
+
+    <div class="card-and-title-container target-card-container">
+        <h1 *ngIf="showTitles">Target Case:</h1>
+        <div class="card-container target-card-container">
+            <div class="card target-card target-case-card">{{case}}<button class="context" routerLink="/learn"><span class="card-context-button material-symbols-rounded">question_mark</span></button></div>
+            <div class="card target-card target-number-card">{{number}}</div>
+        </div>
+    </div>
+
+    <div class="card-and-title-container answer-card-container">
+        <h1 *ngIf="showTitles">Answer:</h1>
+        <div class="card-container answer-card-container" #answerCardContainer>
+            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{word}}" name="" id="answer" autocomplete="off"></div>
+            <button (click)="answerButtonClicked(answerInput, answerButton, answerCardContainer)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
+        </div>
+    </div>
+</div>

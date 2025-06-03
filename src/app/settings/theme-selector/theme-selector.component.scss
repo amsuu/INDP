@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "sass:color";
+
+@import "../../../variables";
+
+.theme-selector {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    min-height: fit-content;
+
+    margin-inline-start: 1rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+
+    transition: all 200ms ease-in-out;
+
+    // switch double declerations across
+    // the stylesheet in order to get
+    // the effect where dark mode is
+    // shown as dark and light mode is
+    // shown as light.
+
+    background-color: var(--accent);
+    background-color: var(--secondary20);
+    color: var(--background);
+    color: var(--text);
+    border: var(--border);
+
+    >button {
+
+        font-size: calc(var(--font-size-settings) - 4pt);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+
+        padding: 0.75rem;
+
+        border: none;
+        border-radius: 2rem;
+
+        background-color: inherit;
+        color: inherit;
+
+        &.active-theme {
+            background-color: var(--background);
+            background-color: var(--accent);
+            color: var(--text);
+            color: var(--background);
+        }
+    }
+}
+
+@media (hover: hover) {
+    .theme-selector:hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+        >* {
+            background-color: var(--secondary);
+        }
+    }
+}
+
+
+// bigger screens
+@media only screen and (min-width: $main-element-width--phone) {
+    .theme-selector {
+        flex-flow: row nowrap;
+        height: 100%;
+        .phone-spacer {
+            display: none;
+        }
+    }
+}
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .theme-selector {
+
+        flex-flow: column nowrap;
+
+        margin-inline-start: 0.5rem;
+
+        min-height: fit-content;
+        height: 100%;
+
+        .mobile-spacer {
+            display: unset;
+            flex-grow: 1;
+        }
+    }
+}

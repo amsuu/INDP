@@ -1,0 +1,36 @@
+<div class="level-2-quiz-question-wrapper" #qwrap>
+    <div class="level-2-phrase-wrapper" #phwrap>
+        <ng-container *ngFor="let phraseEl of phrase; index as i">
+            <span *ngIf="phraseEl !== ''" class="level-2-phrase">
+                {{phraseEl}}
+            </span>
+            <span *ngIf="phraseEl === ''" class="level-2-empty" id="question-{{id}}-{{i}}">
+                <!--
+                    this is a method to make the input element's width
+                    match the size of the placeholder
+                    (no, there's no other (good) way (I found))
+                -->
+                <div class="input-wrapper">
+                    <div class="input-placeholder-width" aria-hidden="true">
+                        ({{getPlaceholderFromPhrase(i)}})
+                    </div>
+                    <input #input type="text" (input)="inputted(input)"
+                        class="level-2-input" id="question-{{id}}-{{i}}"
+                        placeholder="({{getPlaceholderFromPhrase(i)}})"
+                        autocomplete="off"
+                    />
+                </div>
+            </span>
+        </ng-container>
+    </div>
+
+
+    <div class="level-2-button-wrapper">
+        <button #hintButton class="level-2-hint-button"
+          (click)="hint(hintButton, qwrap)"
+        >Hint</button>
+        <button #checkButton class="level-2-check-button"
+          (click)="checkAnswers(hintButton, checkButton, phwrap)"
+        >Check</button>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+@import "../../../variables";
+
+.segmented-multiple-selection {
+
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 0.07rem var(--border);
+    background-color: var(--border);
+
+    width: 75%;
+    border-radius: 1rem;
+    gap: 0.07rem;
+
+    align-items: stretch;
+
+    >* {
+        flex: 1 1 0;
+        padding: 0.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+// larger screens
+@media only screen and (min-width: $screen-size--laptop) {
+    .segmented-multiple-selection {
+        width: 75%;
+    }
+}
+
+// smaller screens
+@media only screen and (max-width: $main-element-width--laptop) {
+    .segmented-multiple-selection {
+        width: 100%;
+    }
+}
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+    .segmented-multiple-selection {
+        font-size: var(--font-size) !important;
+        flex-wrap: wrap;
+        max-width: 90vw;
+        > * {
+            font-size: calc(var(--font-size) * 1.1) !important;
+            flex: unset;
+            flex-grow: 1;
+            min-width: max-content;
+            width: 33%;
+        }
+    }
+}

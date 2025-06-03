@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ThemeService } from './theme.service';
-import { HueService } from './hue.service';
+import { ThemeService } from './settings/theme.service';
+import { HueService } from './settings/hue.service';
 import { TopbarComponent } from "./topbar/topbar.component";
 import { RouterOutlet } from "@angular/router";
 
