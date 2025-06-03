@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LearnPageTemplateComponent } from '../../../../learn-page-template/learn-page-template.component';
+import { LearnPageTemplateComponent } from '../../../../page-template/page-template.component';
 import { PhraseWithMoreInfoComponent } from '../../../../phrase-with-more-info/phrase-with-more-info.component';
 import { PhraseExplainationComponent } from '../../../../phrase-explaination/phrase-explaination.component';
 import { RouterLink } from '@angular/router';

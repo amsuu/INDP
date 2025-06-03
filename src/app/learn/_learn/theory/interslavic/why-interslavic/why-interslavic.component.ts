@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LearnPageTemplateComponent } from "../../../../learn-page-template/learn-page-template.component";
+import { LearnPageTemplateComponent } from "../../../../page-template/page-template.component";
 
 @Component({
   selector: 'app-why-interslavic',

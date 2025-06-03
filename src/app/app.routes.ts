@@ -4,7 +4,7 @@ import { SettingsComponent } from './settings/settings.component'
 import { LearnComponent } from './learn/learn.component';
 import { HomeComponent } from './home/home.component';
 import { Level2PageComponent } from './level-2-page/level-2-page.component';
-import { LearnRoutingService } from "./learn/learn-routing.service";
+import { LearnRoutingService } from "./learn/routing.service";
 
 const routingService = new LearnRoutingService();
 export const routes: Routes = [

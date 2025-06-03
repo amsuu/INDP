@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LearnPageTemplateComponent } from './learn-page-template.component';
+import { LearnPageTemplateComponent } from './page-template.component';
 
 describe('LearnPageTemplateComponent', () => {
   let component: LearnPageTemplateComponent;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LearnPageTemplateComponent } from "../../../../learn-page-template/learn-page-template.component";
+import { LearnPageTemplateComponent } from "../../../../page-template/page-template.component";
 import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
