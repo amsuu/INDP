@@ -1,5 +1,4 @@
 @use "sass:map";
-
 @import '../../variables';
 
 
@@ -10,7 +9,10 @@
     justify-content: flex-start;
     min-height: fit-content;
 
-    font-size: var(--font-size-topbar);
+    font-size: 20pt;
+    @media only screen and (max-width: $main-element-width--phone) {
+      font-size: 16pt;
+    }
 
     background-color: #00000000;
 }

@@ -37,9 +37,13 @@
   }
 }
 
-// I'm not insane
+
+
+
+// General rulesets //
+
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box;  // Translation: I'm not insane
   transition: all 200ms ease-in-out;
 }
 
@@ -71,7 +75,6 @@ body[font="serif"] {
   * { font-family: $font-serif; font-weight: medium; }
 }
 
-
 app-root {
   > * {
     display: flex;
@@ -86,6 +89,7 @@ app-root {
     align-items: flex-start;
   }
 }
+
 app-topbar {
   z-index: 100;
   left: 0;
@@ -118,6 +122,12 @@ main {
 }
 
 
+
+
+// Specific global styles //
+
+
+// typographical
 h1, h2 { text-align: center }
 h1 {
   color: var(--accent-text);
@@ -131,10 +141,7 @@ h2 {
   margin-bottom: 0.5rem;
   color: var(--supressed-heading);
 }
-h3 {
-  color: var(--h3-heading);
-}
-
+h3 { color: var(--h3-heading); }
 ul { list-style-type: '— '; }
 p { text-indent: 2rem; }
 hr { margin: 0px 8rem; }
@@ -143,99 +150,31 @@ abbr { cursor: help; }
 *[lang="sr"] { font-feature-settings: "ss05"; }
 .note { color: var(--h3-heading); }
 .i { font-style: italic; }
+img { max-width: 100%; border: solid 0.5rem var(--border); }
+a         { color: var(--accent); text-decoration: underline; }
+a:visited { color: var(--secondary); }
+.vollkorn-hr {
+  // makes use of the ligature in the Vollkorn font
+  // which is a horizontal line when typing "-.-"
+  // the problem (i think) is that the Google fonts
+  // version doesn't have discretionatory ligatures
 
-// cursor pointer
+  // content: "-.-";
+  font-feature-settings: "dlig";
+  text-align: center;
+  width: 100%;
+}
+
+// cursor: pointer
 label, button, select, summary, [type=radio], [type=submit], [type=checkbox] { cursor: pointer; }
 
-img {
-  max-width: 100%;
-  border: solid 0.5rem var(--border);
-}
 
-a {
-  color: var(--accent);
-  text-decoration: underline;
-  &:visited {
-    color: var(--secondary);
-  }
-}
-
-// makes use of the ligature in the Vollkorn font
-// which is a horizontal line when typing "-.-"
-// the problem (i think) is that the Google fonts
-// version doesn't have discretionatory ligatures
-.vollkorn-hr {
-  content: "-.-";
-  font-feature-settings: "dlig";
-  width: 100%;
-  text-align: center;
-}
-
-
-// table
-table {
-  max-width: 97.5vw !important;
-  width: 100% !important;
-  overflow-x: scroll;
-}
-
-.table-wrapper-no-overflow {
-  display: grid;
-  overflow-x: scroll;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  background: linear-gradient(to left, var(--border), var(--background) 70%);
-}
-
-table, th, td {
-  padding: 0.5rem 1rem;
-  border: 0.125rem var(--border) solid;
-  border-collapse: collapse;
-
-  text-align: center;
-
-  &.accent    { color: var(--accent)    }
-  &.primary   { color: var(--primary)   }
-  &.secondary { color: var(--secondary) }
-}
-
-// I don't even know
-.src {
-  padding-top: 0rem;
-  padding-bottom: 1rem;
-  display: block;
-  width: 100%;
-  font-size: 80%;
-  font-style: italic;
-  text-align: end;
-}
-
-code {
-  font-family: $font-mono !important;
-
-  &.inline {
-    padding: 0.3rem;
-    border-radius: 0.3rem;
-
-    display: inline;
-
-    background-color: var(--secondary20);
-  }
-
-  &::selection {
-    background-color: var(--secondary);
-  }
-}
-
-
-// inputs
-
+// checkboxes
 select, input[type="checkbox"] {
   font-family: inherit;
   font-size: var(--font-size);
-
   vertical-align: baseline;
 }
-
 select {
   margin: 0px;
   min-height: var(--font-size);
@@ -245,15 +184,12 @@ select {
   color: var(--background);
   border: none;
 }
-
 input[type="checkbox"] {
-
   height: calc(var(--font-size) / 2);
-
   aspect-ratio: 1 / 1;
-
   vertical-align: middle;
 }
+
 
 // buttons
 button {
@@ -285,28 +221,53 @@ button.accent-btn     { background-color: var(--accent);    color: var(--backgro
 button.primary-btn    { background-color: var(--primary);   color: var(--background); }
 button.secondary-btn  { background-color: var(--secondary); color: var(--background); }
 
-
-
-.mobile-only {
-  width: 0;
-  display: hidden;
+// table
+table {
+  max-width: 97.5vw !important;
+  width: 100% !important;
+  overflow-x: scroll;
 }
-// phone screens
-@media only screen and (max-width: $main-element-width--phone) {
-  .mobile-only {
-    display: unset;
+table, th, td {
+  padding: 0.5rem 1rem;
+  border: 0.125rem var(--border) solid;
+  border-collapse: collapse;
+
+  text-align: center;
+
+  &.accent    { color: var(--accent)    }
+  &.primary   { color: var(--primary)   }
+  &.secondary { color: var(--secondary) }
+}
+.table-wrapper-no-overflow {
+  display: grid;
+  overflow-x: scroll;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  background: linear-gradient(to left, var(--border), var(--background) 70%);
+}
+
+code {
+  font-family: $font-mono !important;
+
+  &.inline {
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+
+    display: inline;
+
+    background-color: var(--secondary20);
   }
-  .no-mobile {
-    display: hidden;
-  }
-  button {
-    font-size: var(--font-size) !important;
-    padding: calc(0.5rem * 0.8);  // to compensate for the 0.8 -> 1 font size increase
+
+  &::selection {
+    background-color: var(--secondary);
   }
 }
 
 
-// light mode overrides
+
+
+
+// Light mode overrides //
+
 body[theme="light"] {
   .level-1-quiz-question-wrapper >div.card-and-title-container div.card-container {
     div.card.answer-card {
@@ -343,6 +304,60 @@ body[theme="light"] {
   }
 }
 
+
+
+
+// Adaptive design things //
+
+// phone screens
+@media only screen and (max-width: $main-element-width--phone) {
+
+  .mobile-only {
+    display: unset;
+  }
+  .no-mobile {
+    display: hidden;
+  }
+  button {
+    font-size: var(--font-size) !important;
+    padding: calc(0.5rem * 0.8);  // to compensate for the 0.8 -> 1 font size increase
+  }
+
+  body {
+    --font-size: 12pt;
+  }
+  app-topbar {
+    position: fixed;
+    top: unset;
+    bottom: 0;
+  }
+  main {
+    max-width: 100vw;
+    width: 100vw;
+    margin-top: 1rem !important;
+    margin-bottom: 5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  p {
+    text-indent: 1rem;
+    font-size: 14pt;
+  }
+  ul { list-style-position: outside; }
+
+  // light mode overrides
+  body[theme="light"] {
+    #topbar {
+      // shadow for light mode, border for dark mode.
+      // (see light mode overrides in styles.scss)
+      box-shadow: 0rem 0rem 5rem hsla(var(--hue), var(--border-sl), 0.2);
+      border-top: none;
+    }
+    padding-bottom: 2rem;
+  }
+}
+
 // big desktop screens
 @media only screen and (min-width: #{$screen-size--desktop}) {
   body { --font-size: 20pt; }
@@ -357,10 +372,7 @@ body[theme="light"] {
 
 // tablet screens
 @media only screen and (min-width: $main-element-width--phone) and (max-width: $main-element-width--laptop) {
-  body {
-    --font-size: 18pt;
-    --font-size-cards: 8pt;
-  }
+  body { --font-size: 18pt; }
 
   main {
     width: 100%;
@@ -405,40 +417,8 @@ body[theme="light"] {
   }
 }
 
-// phone screens
-@media only screen and (max-width: $main-element-width--phone) {
-  body {
-    --font-size: 12pt;
-    --font-size-topbar: 16pt;
-  }
-  app-topbar {
-    position: fixed;
-    top: unset;
-    bottom: 0;
-  }
-  main {
-    max-width: 100vw;
-    width: 100vw;
-    margin-top: 1rem !important;
-    margin-bottom: 5rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-
-  p {
-    text-indent: 1rem;
-    font-size: 14pt;
-  }
-  ul { list-style-position: outside; }
-
-  // light mode overrides
-  body[theme="light"] {
-    #topbar {
-      // shadow for light mode, border for dark mode.
-      // (see light mode overrides in styles.scss)
-      box-shadow: 0rem 0rem 5rem hsla(var(--hue), var(--border-sl), 0.2);
-      border-top: none;
-    }
-    padding-bottom: 2rem;
-  }
+.mobile-only {
+  width: 0;
+  display: hidden;
 }
+
