@@ -1,0 +1,65 @@
+.learn-navigation-side {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  border: solid 0.125rem var(--border);
+  height: 100%;
+
+  .top-level {
+    font-size: 80% !important;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: -0.125rem;  // to avoid doubling-up of the borders a side effect is that the opacity is affected due to the var(--border) color being transparent
+    > .content {
+      border-bottom: solid 0.125rem var(--border);
+      border-top: solid 0.125rem var(--border);
+    }
+  }
+  .children-expand-animation-container {
+    overflow: hidden;
+    .children {
+      margin-top: -100%;
+      transition: all 250ms ease-in-out;
+      &.show {
+        margin-top: unset;
+      }
+    }
+  }
+  .child {
+    display: flex;
+    font-size: 90% !important;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline-start: 1rem;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    padding: 0.5rem;
+
+    .icon {
+      vertical-align: middle;
+      padding-bottom: 0.5rem;
+      &.show {
+        margin-inline-start: -0.5rem;
+        padding-inline-end: 0.5rem;
+        transform: rotate(90deg);
+        padding-bottom: 0.5rem;
+      }
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
