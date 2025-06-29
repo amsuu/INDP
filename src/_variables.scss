@@ -36,7 +36,7 @@ $desktop: "only screen and (min-width: #{$main-element-width--desktop})";
 $laptop: "only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
 
 
-@mixin touchscreen {
+@mixin touchscreens {
   @media (hover: none) {
     @content;
   }
