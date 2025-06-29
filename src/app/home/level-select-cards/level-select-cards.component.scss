@@ -6,34 +6,23 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-
   gap: 1.2rem;
 
   .level-select-card {
+    overflow: hidden;
+
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
 
-    h2 {
-      color: var(--accent);
-    }
-
-    // override default behaviour
-    h2, p {
-      margin: 0;
-      padding: 0;
-      text-indent: 0;
-      text-align: center;
-    }
-
-
     width: 16rem;
     height: 9rem;
+
+    padding: 1rem;
+
     border-radius: 1.2rem;
     border: solid var(--border) 0.15rem;
-    overflow: hidden;
-    padding: 1rem;
 
     @include hover {
       // reverse comments fot another style of hover
@@ -61,9 +50,21 @@
     &:active {
       background: var(--accent);
       color: var(--background);
-      h1, h2 {
-        color: var(--secondary20);
-      }
+
+
+      h1, h2 { color: var(--secondary20); }
+    }
+
+
+    h2 { color: var(--accent); }
+
+
+    // override default behaviour
+    h2, p {
+      margin: 0;
+      padding: 0;
+      text-indent: 0;
+      text-align: center;
     }
   }
 }

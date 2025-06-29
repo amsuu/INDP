@@ -2,158 +2,149 @@
 
 .overlay {
 
-    &:has(.on-screen-keyboard.show) {
-        #keyboard-btn {
-            border-radius: 0rem 0rem 0.625rem 0.625rem;
-        }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+
+
+  &:has(.on-screen-keyboard.show) {
+    #keyboard-btn {
+      border-radius: 0rem 0rem 0.625rem 0.625rem;
     }
+  }
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 101;
 
-    button {
-        > span {
-            font-size: 2.5rem;
-        }
+  button {
+    height: 5rem;
+    width: 8rem;
 
-        height: 5rem;
-        width: 8rem;
+    background-color: var(--border);
 
-        background-color: var(--border);
-
-        @include hover {
-            &:hover {
-                background-color: var(--secondary20);
-            }
-        }
-        &:active {
-            background-color: var(--accent);
-            color: var(--background);
-        }
-    }
-
-    >* {
-        position: fixed;
-
-        border-radius: 0.625rem;
-
-        z-index: 100;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &.t {
-            top: 6rem;
-            top: 3rem;
-        }
-        &.b {
-            bottom: 3rem;
-        }
-        &.l {
-            left: 8rem;
-        }
-        &.r {
-            right: 8rem;
-        }
-    }
-
-    .on-screen-keyboard {
-        display: none !important;
-        app-on-screen-keyboard {
-            height: 100%;
-            width: 100%;
-        }
-        left: 3rem !important;
-        bottom: 8rem !important;
-        right: unset !important;
-        top: unset !important;
+    @include hover {
+      &:hover {
         background-color: var(--secondary20);
-
-        max-width: fit-content;
-        max-height: fit-content;
-
-        &.show {
-            display: flex !important;
-            z-index: 101 !important;
-        }
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-
-        padding: 0rem 1rem;
-
-        font-size: 1.3rem;
-
-        // phone screens
-        @media only screen and (max-width: $main-element-width--phone) {
-            min-width: fit-content !important;
-            max-width: unset !important;
-            right: 1rem !important;
-            bottom: 5.5rem !important;
-            left: 1rem !important;
-        }
+      }
     }
+
+    &:active {
+      background-color: var(--accent);
+      color: var(--background);
+    }
+
+
+    > span { font-size: 2.5rem; }
+  }
+
+
+  >* {
+    position: fixed;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.625rem;
+
+
+    &.t { top:    3rem; }
+    &.b { bottom: 3rem; }
+    &.l { left:   8rem; }
+    &.r { right:  8rem; }
+  }
+
+
+  .on-screen-keyboard {
+    display: none !important;
+    &.show {
+      display: flex !important;
+      z-index: 101 !important;
+    }
+
+    top: unset !important;
+    right: unset !important;
+    bottom: 8rem !important;
+    left: 3rem !important;
+
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+
+    max-width: fit-content;
+    max-height: fit-content;
+
+    background-color: var(--secondary20);
+
+    padding: 0rem 1rem;
+
+    font-size: 1.3rem;
+
+
+    // phone screens
+    @media only screen and (max-width: $main-element-width--phone) {
+      right: 1rem !important;
+      bottom: 5.5rem !important;
+      left: 1rem !important;
+
+      min-width: fit-content !important;
+      max-width: unset !important;
+    }
+
+
+    app-on-screen-keyboard {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
+
 .hidden {
-    display: none !important;
-    position: relative;
-    bottom: 5rem;
-    left: 5rem;
+  position: relative;
+  bottom: 5rem;
+  left: 5rem;
+
+  display: none !important;
 }
 
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
-    .overlay {
-        button {
-            height: 3.3rem !important;
-            width: 5rem !important;
-            background-color: var(--secondary20) !important;
-            > span {
-                font-size: 1.5rem !important;
-            }
-            &.t {
-                top: 1.5rem !important;
-            }
-            &.b {
-                bottom: 5rem !important;
-                bottom: 1.5rem !important;
-            }
-            &.l {
-                left:  1.5rem !important;
-            }
-            &.r {
-                right: 1.5rem !important;
-            }
-        }
+  .overlay {
+    button {
+      height: 3.3rem !important;
+      width: 5rem !important;
+
+      background-color: var(--secondary20) !important;
+
+
+      > span { font-size: 1.5rem !important; }
+
+
+      &.t { top:    1.5rem !important; }
+      &.b { bottom: 1.5rem !important; }
+      &.l { left:   1.5rem !important; }
+      &.r { right:  1.5rem !important; }
     }
+  }
 }
+
 
 // tablet screens
 @media only screen and (min-width: $main-element-width--phone) and (max-width: $main-element-width--laptop) {
-    .overlay {
-        button {
-            height: 4.5rem !important;
-            width: 7rem !important;
-            > span {
-                font-size: 2rem !important;
-            }
-            &.t {
-                top: 5rem !important;
-                top: 1.4rem !important;
-            }
-            &.b {
-                bottom: 1.4rem !important;
-            }
-            &.l {
-                left:  2rem !important;
-            }
-            &.r {
-                right: 2rem !important;
-            }
-        }
+  .overlay {
+    button {
+      height: 4.5rem !important;
+      width: 7rem !important;
+
+
+      > span { font-size: 2rem !important; }
+
+
+      &.t { top:    1.4rem !important; }
+      &.b { bottom: 1.4rem !important; }
+      &.l { left:   2rem !important; }
+      &.r { right:  2rem !important; }
     }
+  }
 }

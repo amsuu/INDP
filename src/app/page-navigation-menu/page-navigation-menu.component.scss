@@ -3,121 +3,129 @@
 
 .page-navigation-menu {
 
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 
-    border-radius: 1rem;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  font-size: calc(var(--font-size) - 4pt);
+
+  background-color: var(--secondary20);
+  color: var(--text);
+
+  overflow: hidden;
+
+
+  &, * {
+    width: fit-content;
+    height: fit-content;
+  }
+
+
+  &[collapsed="false"] {
+
+    flex-flow: column nowrap;
+    align-items: flex-start;
+
     padding: 2rem;
 
-    font-size: calc(var(--font-size) - 4pt);
+    .uncollapse {
+      position: relative;
+      top: -0.5rem;
+      left: -0.5rem;
 
-    background-color: var(--secondary20);
-    color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
 
-    overflow: hidden;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem 0.5rem 0rem;
 
-    &, * {
-        width: fit-content;
-        height: fit-content;
+
+      span.navmenu-uncoll-text {
+        display: inline;
+        text-wrap: nowrap;
+      }
+
+
+      span.navmenu-uncoll-icon {
+        aspect-ratio: 1 / 1;
+        padding: 1rem;
+        border-radius: 1rem;
+
+        @include hover {
+          &:hover {
+            background-color: var(--accent);
+            color: var(--background);
+            cursor: pointer;
+          }
+        }
+
+      }
     }
+    hr {
+      position: relative;
+      left: -2rem;
 
+      width: calc(100% + 4rem);
 
-    &[collapsed="false"] {
+      margin: 0;
+      margin-bottom: 1rem;
 
-        padding: 2rem;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-
-        .uncollapse {
-            position: relative;
-            top: -0.5rem;
-            left: -0.5rem;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-
-            border-radius: 1rem;
-            padding: 0.5rem 1rem 0.5rem 0rem;
-
-
-            span.navmenu-uncoll-text {
-                display: inline;
-                text-wrap: nowrap;
-            }
-
-            span.navmenu-uncoll-icon {
-                aspect-ratio: 1 / 1;
-                padding: 1rem;
-                border-radius: 1rem;
-                @include hover {
-                    &:hover {
-                        background-color: var(--accent);
-                        color: var(--background);
-                        cursor: pointer;
-                    }
-                }
-
-            }
-        }
-        hr {
-            position: relative;
-            left: -2rem;
-
-            width: calc(100% + 4rem);
-
-            margin: 0;
-            margin-bottom: 1rem;
-
-            border-color: var(--text);
-        }
+      border-color: var(--text);
     }
+  }
 
 
 
-    &[collapsed="true"] {
-        >* {
-            display: none;
-        }
+  &[collapsed="true"] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
+    padding: 0rem;
 
-        padding: 0rem;
 
-        .uncollapse {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 1rem;
-            padding: 2rem;
-            border-radius: inherit;
-        }
+    >* { display: none; }
+
+
+    .uncollapse {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+
+      padding: 2rem;
+      border-radius: inherit;
     }
+  }
 }
 
 @include hover {
-    .page-navigation-menu {
-        .uncollapse:hover {
-            cursor: pointer;
-            background-color: var(--accent);
-            color: var(--background);
-        }
+  .page-navigation-menu {
+    .uncollapse:hover {
+      background-color: var(--accent);
+      color: var(--background);
+
+      cursor: pointer;
     }
+  }
 }
 @include touchscreens {
-    .page-navigation-menu {
-        .uncollapse:active {
-            transition: none;
-            cursor: pointer;
-            background-color: var(--accent);
-            color: var(--background);
-        }
+  .page-navigation-menu {
+    .uncollapse:active {
+      background-color: var(--accent);
+      color: var(--background);
+
+      cursor: pointer;
+
+      transition: none;
     }
+  }
 }
 

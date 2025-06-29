@@ -11,6 +11,8 @@ p.phrase-explaination {
     font-size: calc(var(--font-size) - 4pt);
   }
 }
+
+
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
   p.phrase-explaination {

@@ -7,27 +7,34 @@ $fancy-font: "UnifrakturMaguntia";
   // fancy first letter of paragraph
   article h2 + p.paragraph-case {
     &:first-letter {
-      font-size: 400%;
       float: left;
-      font-family: $fancy-font;
-      border: solid var(--text) 0.5rem;
+
       padding: 1rem;
       margin-inline-end: 1rem;
+
+      font-size: 400%;
+      font-family: $fancy-font;
+
+      border: solid var(--text) 0.5rem;
     }
+
     text-indent: 0rem;
   }
+
 
   // outlined example
   .example {
     // border-inline-start: solid 0.125rem var(--border);
-    background-color: var(--border);
-    border-radius: 5rem;
-    padding-inline-start: 4rem;
-    padding-inline-end: 4rem;
     padding-top:    1rem;
     padding-bottom: 2rem;
+    padding-inline-start: 4rem;
+    padding-inline-end: 4rem;
     margin-inline-start: 3rem;
+
+    background-color: var(--border);
+    border-radius: 5rem;
   }
+
 
   // entire wrapper
   div.learn-page-wrapper {
@@ -38,52 +45,54 @@ $fancy-font: "UnifrakturMaguntia";
 
     width: 100vw;
 
+
     .article-spacer .dir {
       display: none;
     }
 
+
     app-learn-navigation-side {
-      display: none;
       overflow-y: scroll;
+
+      display: none;
       height: 100vw;
     }
   }
 
+
   // header styles
-  h1, h2, h3, h4, h5, h6 {
-    text-align: start;
-  } h1 {
-    text-indent: 2rem;
-  } h2 {
-    text-indent: 4rem;
-  } h3 {
-    text-indent: 5rem;
-    margin: 1rem auto;
-  } h4, h5, h6 {
-    text-indent: 5.5rem;
-    margin: 1rem auto;
-  }
+  h1, h2, h3, h4, h5, h6 { text-align: start; }
+  h1 { text-indent: 2rem; }
+  h2 { text-indent: 4rem; }
+  h3 { text-indent: 5rem; margin: 1rem auto; }
+  h4,
+  h5,
+  h6 { text-indent: 5.5rem; margin: 1rem auto; }
+
 
   // bigger screens / HD laptop screens
   @media only screen and (min-width: $screen-size--laptop) {
     div.learn-page-wrapper {
       font-size: 100% !important;
-      > * {
-        display: inline-block;
-      }
+
+      > * { display: inline-block; }
+
       .navigation-spacer, app-learn-navigation-side {
         display: unset;
         width: 15vw;
       }
+
       .article-spacer {
         width: 65vw;
         padding-inline-start: 3rem;
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
         margin-top: 8rem;
         padding: 0.5rem 5rem;
         width: 20vw;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -96,18 +105,20 @@ $fancy-font: "UnifrakturMaguntia";
   @media only screen and (min-width: $screen-size--lap-tab) and (max-width: $screen-size--laptop) {
     div.learn-page-wrapper {
       font-size: 95% !important;
-      > * {
-        display: inline-block;
-      }
+
+      > * { display: inline-block; }
+
       .article-spacer {
         width: 75vw;
         padding-inline-start: 20vw;
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
         width: 25vw;
         margin-top: 8rem;
         padding: 0.5rem 2rem;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -115,29 +126,25 @@ $fancy-font: "UnifrakturMaguntia";
       }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      text-align: start;
-    } h1 {
-      text-indent: 1rem;
-    } h2 {
-      text-indent: 2rem;
-    } h3 {
-      text-indent: 3rem;
-      margin: 1rem auto;
-    } h4, h5, h6 {
-      text-indent: 4.5rem;
-      margin: 1rem auto;
-    } p {
-      text-indent: 0.75rem !important;
-    }
+
+    h1, h2, h3, h4, h5, h6 { text-align: start; }
+    h1 { text-indent: 1rem; }
+    h2 { text-indent: 2rem; }
+    h3 { text-indent: 3rem; margin: 1rem auto; }
+    h4,
+    h5,
+    h6 { text-indent: 4.5rem; margin: 1rem auto; }
+    p  { text-indent: 0.75rem !important; }
+
 
     .example {
-      border-radius: 3rem;
       padding-inline-start: 2rem;
       padding-inline-end:   2rem;
       padding-top:    0.5rem;
       padding-bottom: 0.5rem;
       margin-inline-start: 1.75rem;
+
+      border-radius: 3rem;
     }
   }
 
@@ -147,24 +154,31 @@ $fancy-font: "UnifrakturMaguntia";
       > * { display: inline-block; }
 
       width: 95vw;
+
       font-size: 90% !important;
 
+
       .article-spacer {
+        width: 80vw;
+        padding-inline-start: 2.5vw;
+
+
         .dir {
           display: block;
           margin-top: 2rem;
         }
-        width: 80vw;
-        padding-inline-start: 2.5vw;
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
         width: 25vw;
+
         margin-top: 8rem;
         padding-top:    0.5rem;
         padding-bottom: 0.5rem;
         padding-left: 2rem;
         padding-right: 2rem;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -172,29 +186,25 @@ $fancy-font: "UnifrakturMaguntia";
       }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      text-align: start;
-    } h1 {
-      text-indent: 1rem;
-    } h2 {
-      text-indent: 1.5rem;
-    } h3 {
-      text-indent: 2rem;
-      margin: 1rem auto;
-    } h4, h5, h6 {
-      text-indent: 3rem;
-      margin: 1rem auto;
-    } p {
-      text-indent: 0.5rem !important;
-    }
+
+    h1, h2, h3, h4, h5, h6 { text-align: start; }
+    h1 { text-indent: 1rem; }
+    h2 { text-indent: 1.5rem; }
+    h3 { text-indent: 2rem; margin: 1rem auto; }
+    h4,
+    h5,
+    h6 { text-indent: 3rem; margin: 1rem auto; }
+    p  { text-indent: 0.5rem !important; }
+
 
     .example {
-      border-radius: 2.5rem;
-      padding-inline-start: 2.5rem;
-      padding-inline-end:   2.5rem;
       padding-top:    1rem;
       padding-bottom: 1rem;
+      padding-inline-start: 2.5rem;
+      padding-inline-end:   2.5rem;
       margin-inline-start: 1.75rem;
+
+      border-radius: 2.5rem;
     }
   }
 
@@ -202,25 +212,30 @@ $fancy-font: "UnifrakturMaguntia";
   @media only screen and (min-width: $screen-size--tablet) and (max-width: $screen-size--1080p) {
     div.learn-page-wrapper {
       width: 95vw;
+
       font-size: 90% !important;
-      > * {
-        display: inline-block;
-      }
+
+      > * { display: inline-block; }
+
+
       .article-spacer {
-        .dir {
-          display: block;
-        }
         width: 80vw;
         padding-inline-start: 2.5vw;
+
+        .dir { display: block; }
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
+        overflow: scroll;
+
         width: 25vw;
         height: 100svh;
         height: 100vh;
-        overflow: scroll;
+
         margin-top: 2rem;
         padding: 0.5rem 2rem;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -228,49 +243,50 @@ $fancy-font: "UnifrakturMaguntia";
       }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      text-align: start;
-    } h1 {
-      text-indent: 1rem;
-    } h2 {
-      text-indent: 1.5rem;
-    } h3 {
-      text-indent: 2rem;
-      margin: 1rem auto;
-    } h4, h5, h6 {
-      text-indent: 3rem;
-      margin: 1rem auto;
-    } p {
-      text-indent: 0.5rem !important;
-    }
+
+    h1, h2, h3, h4, h5, h6 { text-align: start; }
+    h1 { text-indent: 1rem; }
+    h2 { text-indent: 1.5rem; }
+    h3 { text-indent: 2rem; margin: 1rem auto; }
+    h4,
+    h5,
+    h6 { text-indent: 3rem; margin: 1rem auto; }
+    p  { text-indent: 0.5rem !important; }
+
 
     .example {
-      border-radius: 2.5rem;
-      padding-inline-start: 2.5rem;
-      padding-inline-end:   2.5rem;
       padding-top:    1rem;
       padding-bottom: 1rem;
+      padding-inline-start: 2.5rem;
+      padding-inline-end:   2.5rem;
       margin-inline-start: 1.75rem;
+
+      border-radius: 2.5rem;
     }
   }
+
+
   // tablets
   @media only screen and (min-width: $screen-size--phone) and (max-width: $screen-size--tablet) {
     div.learn-page-wrapper {
       width: 95vw;
+
       font-size: 90% !important;
-      > * {
-        display: inline-block;
-      }
+
+
+      > * { display: inline-block; }
+
       .article-spacer {
-        .dir {
-          display: block;
-        }
         width: 95vw;
         padding-inline-start: 2.5vw;
+
+        .dir { display: block; }
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
         display: none;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -278,49 +294,49 @@ $fancy-font: "UnifrakturMaguntia";
       }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      text-align: start;
-    } h1 {
-      text-indent: 1rem;
-    } h2 {
-      text-indent: 1.5rem;
-    } h3 {
-      text-indent: 2rem;
-      margin: 1rem auto;
-    } h4, h5, h6 {
-      text-indent: 3rem;
-      margin: 1rem auto;
-    } p {
-      text-indent: 0.5rem !important;
-    }
+
+    h1, h2, h3, h4, h5, h6 { text-align: start; }
+    h1 { text-indent: 1rem; }
+    h2 { text-indent: 1.5rem; }
+    h3 { text-indent: 2rem; margin: 1rem auto; }
+    h4,
+    h5,
+    h6 { text-indent: 3rem; margin: 1rem auto; }
+    p  { text-indent: 0.5rem !important; }
+
 
     .example {
-      border-radius: 2.5rem;
-      padding-inline-start: 2.5rem;
-      padding-inline-end:   2.5rem;
       padding-top:    1rem;
       padding-bottom: 1rem;
+      padding-inline-start: 2.5rem;
+      padding-inline-end:   2.5rem;
       margin-inline-start: 1.75rem;
+
+      border-radius: 2.5rem;
     }
   }
+
 
   // phone screens
   @media only screen and (max-width: $main-element-width--phone) {
     div.learn-page-wrapper {
       width: 95vw;
-      > * {
-        display: inline-block;
-      }
+
+
+      > * { display: inline-block; }
+
       .article-spacer {
-        .dir {
-          display: block;
-        }
         width: 90vw;
         padding-inline-start: 0vw;
+
+
+        .dir { display: block; }
       }
+
       .side-progress-bar-spacer, app-side-progress-bar {
         display: none;
       }
+
       app-side-progress-bar {
         position: fixed;
         top: 0;
@@ -328,20 +344,15 @@ $fancy-font: "UnifrakturMaguntia";
       }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      text-align: start;
-    } h1 {
-      text-indent: 0.5rem;
-    } h2 {
-      text-indent: 1rem;
-      margin-bottom: 0.25rem;
-    } h3 {
-      text-indent: 1rem;
-      margin: 0.5rem auto;
-    } h4, h5, h6 {
-      text-indent: 3rem;
-      margin: 0.5rem auto;
-    } p {
+
+    h1, h2, h3, h4, h5, h6 { text-align: start; }
+    h1 { text-indent: 0.5rem; }
+    h2 { text-indent: 1rem; margin-bottom: 0.25rem; }
+    h3 { text-indent: 1rem; margin: 0.5rem auto; }
+    h4,
+    h5,
+    h6 { text-indent: 3rem; margin: 0.5rem auto; }
+    p {
       margin-top: 0rem;
       text-indent: 0.75rem !important;
       text-align: justify !important;
@@ -351,14 +362,15 @@ $fancy-font: "UnifrakturMaguntia";
       margin: 0.25rem 0rem;
     }
 
+
     .example {
-      border-radius: 2rem;
       padding-inline-start: 1.5rem;
       padding-inline-end:   1.5rem;
       padding-top:    0.5rem;
       padding-bottom: 0.51rem;
       margin-inline-start: 0rem;
+
+      border-radius: 2rem;
     }
   }
-
 }

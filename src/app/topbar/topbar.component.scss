@@ -4,43 +4,45 @@
 
 #topbar, #topbar>* {
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-    font-size: 20pt;
-    @media only screen and (max-width: $main-element-width--phone) {
-      font-size: 16pt;
-    }
+  min-height: fit-content;
 
-    background-color: #00000000;
+  font-size: 20pt;
+  @media only screen and (max-width: $main-element-width--phone) {
+    font-size: 16pt;
+  }
+
+  background-color: #00000000;
 }
 
 #topbar {
 
-    height: 4rem;
-    width: 100%;
+  height: 4rem;
+  width: 100%;
 
-    padding-left: 1rem;
-    padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background-color: var(--background);
+  border-bottom: solid 1px var(--border);
+
+  button {
+
+    height: 100%;
 
     background-color: var(--background);
-    border-bottom: solid 1px var(--border);
+    color: var(--text);
 
-    button {
+    &.current-page {
+      border-bottom: 0.1rem solid var(--accent);
 
-        height: 100%;
-
-        background-color: var(--background);
-        color: var(--text);
-
-        &.current-page {
-            background-color: var(--background);
-            color: var(--accent);
-            border-bottom: 0.1rem solid var(--accent);
-        }
+      background-color: var(--background);
+      color: var(--accent);
     }
+  }
 }
 
 @include hover {
@@ -52,50 +54,38 @@
 
 // bigger screens
 @media only screen and (min-width: $main-element-width--phone) {
-    #topbar {
-        div > button > span.text {
-            display: inline;
-        }
-        div > button > span.icon {
-            display: none !important;
-        }
-    }
+  #topbar {
+    div > button > span.text { display: inline; }
+    div > button > span.icon { display: none !important; }
+  }
 }
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
-    #topbar {
-        justify-content: space-around;
+  #topbar {
+    justify-content: space-around;
 
-        // shadow for light mode, border for dark mode.
-        // (see light mode overrides in styles.scss)
-        box-shadow: none;
-        border-top: 0.1rem solid var(--border);
+    // shadow for light mode, border for dark mode.
+    // (see light mode overrides in styles.scss)
+    box-shadow: none;
+    border-top: 0.1rem solid var(--border);
 
-        >* {
-            &.text {
-                display: none;
-            }
-            &.icon{
-                display: flex;
-            }
-        }
-
-        #learn {
-          order: -1;
-        }
-
-        &.showtext-mobile {
-            button {
-                display: flex;
-                flex-flow: column-reverse nowrap;
-                justify-content: center;
-                align-items: center;
-
-                span.text {
-                    display: flex;
-                }
-            }
-        }
+    >* {
+      &.text { display: none; }
+      &.icon { display: flex; }
     }
+
+    #learn { order: -1; }
+
+    &.showtext-mobile {
+      button {
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        justify-content: center;
+        align-items: center;
+
+        span.text { display: flex; }
+      }
+    }
+  }
 }

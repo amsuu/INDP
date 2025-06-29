@@ -1,53 +1,56 @@
 @import '../../../variables';
 
+
 .learn-navigation-compact {
   display: flex;
   flex-flow: column nowrap;
 }
 
+
 .other-options {
   display: none;
-  &.show {
-    display: flex;
-  }
-  gap: 0.5rem;
+  &.show { display: flex; }
   flex-flow: column nowrap;
-  background-color: var(--background);
+  gap: 0.5rem;
+
   padding: 1.5rem 2rem 2rem 2rem;
-  a {
-    text-decoration: solid underline;
-  }
-  .self a {
-    color: var(--text) !important;
-  }
+
+  background-color: var(--background);
   border-bottom: 0.125rem solid var(--border);
+
+
+  a { text-decoration: solid underline; }
+
+  .self a { color: var(--text) !important; }
 }
+
 
 .current-structure {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
 
+
   > :last-child {
     background-color: var(--border) !important;
   }
 
+
   .learn-navigation-compact-icon {
     padding: 0.5rem;
   }
+
+
   .learn-navigation-compact-button {
-    .dropdown-title {
-      font-weight: 600;
-    }
-
-    padding: 0.6rem;
-    border-radius: 1rem;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+
+    padding: 0.6rem;
+
+    border-radius: 1rem;
 
     &.show {
       background-color: var(--secondary) !important;
@@ -60,13 +63,20 @@
         color: var(--text);
       }
     }
+
+
+    .dropdown-title { font-weight: 600; }
   }
+
 
   .learn-navigation-compact-icon {
     margin:  0.5rem;
+
     border-radius: 50%;
+
     background-color: var(--accent);
     color: var(--background);
+
     @include hover {
       &:hover {
         cursor: pointer;

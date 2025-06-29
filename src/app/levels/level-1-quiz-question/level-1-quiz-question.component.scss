@@ -11,23 +11,28 @@
   padding: 2.5rem;
   margin-bottom: 25rem;
 
+
   >div.card-and-title-container {
+    flex-shrink: 0;
+
     width: 12.5rem;
     height: fit-content;
-    flex-shrink: 0;
+
 
     h1 {
       margin-top: 0px;
 
-      text-align: center;
       font-size: 2rem;
       font-weight: normal;
+
+      text-align: center;
 
       color: var(--text);
     }
 
     div.card-container {
       border-radius: 0.625rem;
+
 
       &.target-card-container {
         display: flex;
@@ -38,20 +43,25 @@
 
         background-color: var(--secondary20);
       }
+
+
       &.answer-card-container {
+        overflow: hidden;
+
         display: flex;
         flex-flow: column nowrap;
         gap: 0;
 
         height: 3.75rem + 2rem;
-        overflow: hidden;
 
         background-color: var(--secondary);
+
 
         .answer-card {
           overflow: hidden;
 
           background-color: var(--primary);
+
 
           input {
             display: block;
@@ -62,9 +72,10 @@
             font-size: inherit;
             text-align: inherit;
 
+            border: none;
+
             background-color: #00000000;
             color: var(--background);
-            border: none;
 
             &::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
               color: var(--text);
@@ -72,22 +83,29 @@
           }
         }
 
+
         @include hover {
           &:has(> .answer-button:hover) {
             background-color: var(--secondary20);
+
 
             > .answer-button:hover { color: var(--text); }
           }
         }
 
+
         @include touchscreens {
           &:has(> .answer-button:active) {
             background-color: var(--secondary20);
 
+
             &, * { transition: none; }
+
+
             > .answer-button:active { color: var(--text); }
           }
         }
+
 
         .answer-button {
           flex-grow: 1;
@@ -95,6 +113,7 @@
           display: inline;
 
           width: 100%;
+
           margin: 0;
           padding: 0;
 
@@ -103,12 +122,13 @@
         }
       }
 
+
       div.card {
+        flex-shrink: 0;
+
         display: flex;
         align-items: center;
         justify-content: center;
-
-        flex-shrink: 0;
 
         width: 12.5rem;
         height: 3.75rem;
@@ -117,14 +137,16 @@
         font-size: 2rem;
         font-weight: 400;
 
+        border-radius: inherit;
+
         background-color: var(--secondary);
         color: var(--text);
-        border-radius: inherit;
 
 
         @include hover {
           &:hover {
             cursor: default;
+
 
             button.context { opacity: 100%; }
           }
@@ -137,19 +159,6 @@
 
           background-color: var(--context-btn-bg);
           color: var(--context-btn-text);
-
-          @include touchscreens {
-            opacity: 100%;
-          }
-
-          @include hover {
-            opacity: 0%;
-
-            &:hover {
-              background-color: var(--accent);
-              color: var(--background);
-            }
-          }
 
           position: absolute;
           top: 0;
@@ -167,6 +176,20 @@
           height: 1.875rem;
 
           border-radius: 0rem 0.625rem;
+
+
+          @include touchscreens { opacity: 100%; }
+
+
+          @include hover {
+            opacity: 0%;
+
+            &:hover {
+              background-color: var(--accent);
+              color: var(--background);
+            }
+          }
+
 
           span.card-context-button {
             font-size: 18px !important;
@@ -187,6 +210,7 @@
   .level-1-quiz-question-wrapper {
     flex-flow: column nowrap;
     gap: 2rem;
+
     width: fit-content;
   }
 }
