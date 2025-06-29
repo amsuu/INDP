@@ -6,17 +6,9 @@ $font-sans: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
 $font-serif: 'Vollkorn', 'Roboto Slab', 'Noto Serif', 'Helvetica', 'Arial', sans-serif;
 $font-mono: 'Cascadia Code', 'JetBrains Mono Semibold', 'Fira Code', 'mononoki', monospace;
 
-$font-sizes: (
-  font-size: 20pt,
-  font-size-cards: 20pt,  // used in the level selection cards
-  font-size-topbar: 20pt,
-  font-size-settings: 22pt,
-);
 // make font sizes modifiable by viewport width
 body {
-  @each $varname, $value in $font-sizes {
-    --#{$varname}: #{$value};
-  }
+  --font-size: 20pt;
 }
 
 
@@ -39,9 +31,21 @@ $screen-size--phone: 480px;  // max size of a phone
 $main-element-leftandright-padding-each: 2rem;
 $main-element-leftandright-padding-total: calc($main-element-leftandright-padding-each * 2);
 
+// TODO: figure out what the heck the point of these are:
 $desktop: "only screen and (min-width: #{$main-element-width--desktop})";
 $laptop: "only screen and (min-width: #{$screen-size--laptop}) and (max-width: #{$main-element-width--desktop})";
 
+
+@mixin touchscreens {
+  @media (hover: none) {
+    @content;
+  }
+}
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
 
 
 $theme-dark: dark;

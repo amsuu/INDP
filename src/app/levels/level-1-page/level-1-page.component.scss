@@ -2,29 +2,27 @@
 
 
 .level-info, #level-1-quiz-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 
-    h1, h2 {
-        margin-bottom: 0rem;
-    }
-    p {
-        width: 85%;
-        margin-top: 0;
-    }
+  height: 100%;
+
+
+  h1, h2 { margin-bottom: 0rem; }
+
+
+  p { width: 85%; margin-top: 0; }
 }
 
 
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
-    .level-info, .level-1-quiz-wrapper {
-        p {
-            width: 95%;
-            text-align: justify;
-        }
+  .level-info, .level-1-quiz-wrapper {
+    p {
+      width: 95%;
+      text-align: justify;
     }
+  }
 }

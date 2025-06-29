@@ -1,19 +1,21 @@
 @import '../../../variables';
 
 p.phrase-explaination {
-    font-style: italic;
+  font-style: italic;
 }
 
 
 // bigger screens
 @media only screen and (max-width: $main-element-width--phone) {
-    p.phrase-explaination {
-        font-size: calc(var(--font-size) - 4pt);
-    }
+  p.phrase-explaination {
+    font-size: calc(var(--font-size) - 4pt);
+  }
 }
+
+
 // phone screens
 @media only screen and (max-width: $main-element-width--phone) {
-    p.phrase-explaination {
-        font-size: calc(var(--font-size));
-    }
+  p.phrase-explaination {
+    font-size: calc(var(--font-size));
+  }
 }

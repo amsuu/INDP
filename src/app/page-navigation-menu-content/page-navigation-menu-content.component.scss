@@ -1,3 +1,6 @@
+@import '../../variables';
+
+
 .nav-heading-lvl {
     display: flex;
     flex-flow: column nowrap;
@@ -5,9 +8,8 @@
     align-items: flex-start;
     gap: 1rem;
 
-    .subheading-wrapper {
-        font-size: calc(var(--font-size) - 7pt);
 
+    .subheading-wrapper {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
@@ -16,14 +18,17 @@
 
         margin-inline-start: 1rem;
 
-        .subheading {
-            color: var(--supressed-heading);
-        }
+        font-size: calc(var(--font-size) - 7pt);
+
+
+        .subheading { color: var(--supressed-heading); }
     }
+
+
     a {
         text-decoration: solid underline;
-        &:visited {
-            color: var(--accent);
-        }
+
+
+        &:visited { color: var(--accent); }
     }
 }

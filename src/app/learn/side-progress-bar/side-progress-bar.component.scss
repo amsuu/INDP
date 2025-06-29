@@ -9,25 +9,28 @@
 
   width: 100%;
   height: 100%;
+
   font-size: calc(var(--font-size) * 0.8);
+
 
   .side-progress-bar-page {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-inline-start: 1rem;
+
     border-inline-start: solid var(--border) 0.125rem;
 
-    @media (hover: hover) and (pointer: fine) {
+    @include hover {
       &:hover {
-        cursor: pointer;
-        color: var(--h3-heading);
         border-inline-start: solid var(--secondary) 0.125rem;
+        color: var(--h3-heading);
+        cursor: pointer;
       }
     }
 
     &.current {
-      border-inline-start: solid var(--accent) 0.125rem;
       color: var(--primary);
+      border-inline-start: solid var(--accent) 0.125rem;
     }
   }
 }
