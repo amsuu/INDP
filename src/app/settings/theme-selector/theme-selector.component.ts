@@ -7,7 +7,7 @@ import { ThemeService } from '../theme.service';
     styleUrls: ['./theme-selector.component.scss'],
     standalone: true
 })
-export class ThemeSelectorComponent {
+export class ThemeSelectorComponent implements OnInit {
 
   constructor(private themeService: ThemeService) { }
 

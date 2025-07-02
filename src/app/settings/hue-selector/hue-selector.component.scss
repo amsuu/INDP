@@ -1,7 +1,6 @@
 @import "../../../variables";
 
 .hue-selector {
-
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -13,8 +12,10 @@
   padding: 0.5rem;
   margin: 1rem;
 
-  background-color: var(--secondary20);
   border-radius: 2rem;
+
+  background-color: var(--secondary20);
+
 
   .hue {
     display: inline-block;

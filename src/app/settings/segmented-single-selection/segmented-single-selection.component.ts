@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { OnInit, Component, input, model } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
 
 @Component({
@@ -8,24 +8,28 @@ import { NgFor, NgClass } from '@angular/common';
     standalone: true,
     imports: [NgFor, NgClass]
 })
-export class SegmentedSingleSelectionComponent {
-  @Input() public options = [''];
-  @Input() public localizations = [''];
-  @Input() public selection = 0;
-  @Input({ required: true }) public localStorageReference = '';
+export class SegmentedSingleSelectionComponent implements OnInit {
+  public options = input<string[]>(['']);
+  public localizations = input<string[]>(['']);
+  public selection = model<number>(0);
+  public localStorageReference = input.required<string>();
 
   // update with option already stored in local storage
   // if such value exists
   ngOnInit() {
-    this.selection = +(localStorage.getItem(this.localStorageReference) || this.selection);
-    localStorage.setItem(this.localStorageReference, `${this.selection}`);
+    this.checkAlreadySaved();
+  }
+
+  checkAlreadySaved() {
+    let savedSelection = +(localStorage.getItem(this.localStorageReference()) || -1);
+    this.setSelection(savedSelection != -1 ? savedSelection : this.selection());
   }
 
   // change visual AND localstorage AND local variable selected element
   // visual is changed by changing the variable. this is due to the
   // ngClass attribute IN THE HTML FILE being bound to the local variable
   setSelection(n: number) {
-    this.selection = n;
-    localStorage.setItem(this.localStorageReference, `${this.selection}`);
+    this.selection.set(n);
+    localStorage.setItem(this.localStorageReference(), `${this.selection()}`);
   }
 }

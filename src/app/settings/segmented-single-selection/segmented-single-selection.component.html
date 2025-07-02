@@ -1,8 +1,8 @@
 <div class="segmented-single-selection">
     <button class="selection"
-        *ngFor="let option of options; index as i"
-        [ngClass]="selection === i ? 'active' : ''"
+        *ngFor="let option of options(); index as i"
+        [ngClass]="selection() === i ? 'active' : ''"
         (click)="setSelection(i)"
-        lang="{{localizations[i]? localizations[i] : ''}}"
+        lang="{{localizations()[i]? localizations()[i] : ''}}"
     >{{option}}</button>
 </div>
