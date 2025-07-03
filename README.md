@@ -90,3 +90,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 If you need more help on the project, for now the only way to reach me is to create an issue. Also check the "discussions" here on GitHub.
+
+## Versioning
+v`USER`.`DEV`.`BUG`
+
+`USER` - users should revisit or re-read the website, as the changes affect its contents in a major way worth review.
+`DEV` - developers should re-examine the codebase, as the changes affect it in a major way worth review.
+`BUG` - a bug fix, after which everything should be working as expected (i.e. either everything is working the same as before or everything is working as people had previously expected), no need for review by anyone.
