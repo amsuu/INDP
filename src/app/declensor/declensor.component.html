@@ -1,0 +1,20 @@
+<div class="row">
+  <label>
+    Input:
+    <input name="word" placeholder="word" type="text" #word>
+  </label>
+  <label>
+    Disambiguation:
+    <input name="disambig" placeholder="PoS? Gender? Number?" type="text" #disambig>
+  </label>
+  <label>
+    Target:
+    <input name="target" placeholder="Gender Number" type="text" #target>
+  </label>
+  <button class="outline" id="confirm" (click)="getTable(word, disambig, target)">Get Table</button>
+</div>
+<hr>
+<p>Info:</p>
+<ul id="info">
+</ul>
+<p id="out"></p>
