@@ -1,0 +1,38 @@
+{
+  "name": "dawgjs",
+  "version": "0.1.4",
+  "description": "DAWG reader for node.js and the browser",
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
+  "main": "index.node.js",
+  "typings": "index.node.d.ts",
+  "scripts": {
+    "build:w": "typings install && ./node_modules/typescript/bin/tsc -p src -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msklvsk/dawgjs.git"
+  },
+  "keywords": [
+    "DAWG",
+    "DAWG-python",
+    "DAFSA",
+    "dawgdic",
+    "data structure",
+    "dictionary"
+  ],
+  "author": "Bohdan Moskalevskyi <msklvsk@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msklvsk/dawgjs/issues"
+  },
+  "homepage": "https://github.com/msklvsk/dawgjs#readme",
+  "devDependencies": {
+    "tslint": "^4.3.1",
+    "tslint-eslint-rules": "^3.2.3",
+    "tslint-microsoft-contrib": "^4.0.0",
+    "typescript": "^2.1.5"
+  }
+}

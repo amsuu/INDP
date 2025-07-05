@@ -1,10 +1,10 @@
-import { readStringMapDawg, readByteCompletionDawg } from 'dawgjs/factories';
+import { readStringMapDawg, readByteCompletionDawg } from './dawgjs/factories';
 
-import { ByteDawg } from 'dawgjs/byte_dawg';
-import { ByteMapDawg } from 'dawgjs/byte_map_dawg';
-import { MapDawg } from 'dawgjs/map_dawg';
-import { ByteCompletionDawg } from 'dawgjs/byte_completion_dawg';
-import { encodeUtf8 } from 'dawgjs/codec';
+import { ByteDawg } from './dawgjs/byte_dawg';
+import { ByteMapDawg } from './dawgjs/byte_map_dawg';
+import { MapDawg } from './dawgjs/map_dawg';
+import { ByteCompletionDawg } from './dawgjs/byte_completion_dawg';
+import { encodeUtf8 } from './dawgjs/codec';
 
 export class Dawg {
     private format;
