@@ -22,20 +22,10 @@ export class AzService {
   inflectNoun(
     az: AzClass,
     word: string,
-    disambig: {
-      pos?: string,
-      gend?: string,
-      nmbr?: string
-    },
-    target: {
-      CAse: string,
-      NMbr: string
-    },
+    disambig: { pos?: string, gend?: string, nmbr?: string },
+    target: { CAse: string, NMbr: string },
   ) {
-    console.log({word});
-    console.log({az});
     const morphs: DictionaryParse[] = az.morph(word);
-    console.log({morphs});
 
     let declensable: false | Declensable = prioritize(morphs, disambig);
     if (declensable === false) return false;
