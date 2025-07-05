@@ -43,7 +43,6 @@ Finally install the packages required by the repo using NPM. The main ones that 
 ```console
 npm install
 ```
-_(Note to self: the other packages, which are not related to angular core etc., but are still installed, are a result of my debugging and should really be cleaned up.)_
 
 ### Using VSCode Source control (untested)
 
