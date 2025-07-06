@@ -33,7 +33,7 @@ export class DeclensorComponent implements OnInit {
 
   }
 
-  getTable(word: HTMLInputElement, disambig: HTMLInputElement, target: HTMLInputElement) {
+  getDeclense(word: HTMLInputElement, disambig: HTMLInputElement, target: HTMLInputElement) {
     const split1 = splitText(disambig.value);
     const split2 = splitText(target.value);
 
