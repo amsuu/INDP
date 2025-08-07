@@ -1,22 +1,23 @@
-<div class="learn-navigation-side">
-  <div class="learn-navigation-side-elem top-level"
-    *ngFor="let parentElem of Object.keys(this.learnRouting.TheoryStructure)"
-    #parent (click)="revealChildren(parent)"
+<div class="navigation-side">
+  <div class="navigation-side-elem top-level"
+    *ngFor="let parentTitle of Object.keys(this.learnRouting.TheoryStructure)"
+    #parentElem (click)="revealChildren(parentElem)"
   >
     <div class="content">
-      <div class="learn-navigation-side-title">
+      <div class="navigation-side-title">
         <span class="material-symbols-rounded icon">chevron_right</span>
-        {{ parentElem }}
+        {{ parentTitle }}
       </div>
     </div>
+
     <div class="children-expand-animation-container">
       <div class="children">
         <div class="child"
-          *ngFor="let childElem of Object.keys(this.learnRouting.TheoryStructure[parentElem])"
-          [routerLink]="'../../' + this.learnRouting.makeURLSafe(parentElem) + '/' + this.learnRouting.makeURLSafe(childElem)"
+          *ngFor="let childTitle of Object.keys(this.learnRouting.TheoryStructure[parentTitle])"
+          [routerLink]="'../../' + this.learnRouting.makeURLSafe(parentTitle) + '/' + this.learnRouting.makeURLSafe(childTitle)"
         >
           <div class="content">
-            <div class="learn-navigation-side-title"><a>{{ childElem }}</a></div>
+            <div class="navigation-side-title"><a>{{ childTitle }}</a></div>
           </div>
         </div>
       </div>

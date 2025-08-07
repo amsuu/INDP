@@ -7,7 +7,7 @@ import { RouterModule } from "@angular/router";
 @Component({
   selector: 'app-learn-navigation-side',
   standalone: true,
-  imports: [ NgFor, NgIf, RouterModule ],
+  imports: [ NgFor, RouterModule ],
   templateUrl: './navigation-side.component.html',
   styleUrl: './navigation-side.component.scss'
 })

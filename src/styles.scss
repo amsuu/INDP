@@ -36,6 +36,15 @@
   }
 }
 
+:root {
+
+  --topbarHeight: 4rem;
+  --topbarOffsetTop: var(--topbarHeight);
+  // phone screens
+  @media only screen and (max-width: $main-element-width--phone) {
+    --topbarOffsetTop: 0rem;
+  }
+}
 
 
 
