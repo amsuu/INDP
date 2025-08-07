@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as _ from './_learn';
+import * as LEARN from './_learn';
 import { Routes } from '@angular/router';
 
 type RoutingRedirectEntry = {
@@ -52,21 +52,21 @@ export class LearnRoutingService {
   // categories under 'theory'
   private theoryStructure: LearnPageStructure = {
     'Interslavic. History of Slavic Languages': {
-      'History of Slavic Languages': _._Theory._ISV._History._Component,
-      'Why Interslavic? The slavic people and more': _._Theory._ISV._WhyISV._Component,
+      'History of Slavic Languages': LEARN._Theory._ISV._History._Component,
+      'Why Interslavic? The slavic people and more': LEARN._Theory._ISV._WhyISV._Component,
     },
     'Cases': {
-      'Meaning of Cases': _._Theory._Cases._MeaningOfCases._Component,
-      'Direct Object? Indirect Object??': _._Theory._Cases._DirectIndirect._Component,
-      'Prepositions': _._Theory._Cases._Prepos._Component,
+      'Meaning of Cases': LEARN._Theory._Cases._MeaningOfCases._Component,
+      'Direct Object? Indirect Object??': LEARN._Theory._Cases._DirectIndirect._Component,
+      'Prepositions': LEARN._Theory._Cases._Prepos._Component,
     },
     'How to write in Interslavic': {
-      'Keyboard Layouts': _._Theory._Writing._Keybs._Component,
-      'Orthography': _._Theory._Writing._Orthography._Component,
+      'Keyboard Layouts': LEARN._Theory._Writing._Keybs._Component,
+      'Orthography': LEARN._Theory._Writing._Orthography._Component,
     },
-    'Glossary (shortenings)': {
-      'Glossary': _._Theory._Glossary.__Glossary._Component,
-    }
+    //'Glossary (shortenings)': {
+    //  'Glossary': LEARN._Theory._Glossary.__Glossary._Component,
+    //}
   };
   public get TheoryStructure() { return this.theoryStructure; }
 

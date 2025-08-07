@@ -1,44 +1,87 @@
-<div class="learn-navigation-compact">
+<!--
+  this is written with for-loops for future compatibility.
+  In reality there are only two values in the array `structure`:
+  the topic (e.g. 'Cases') and the article (e.g. 'Menaing of Cases')
+-->
 
-  <div class="current-structure">
-    <span id="learn-icon"
-      class="learn-navigation-compact-icon material-symbols-rounded"
-      routerLink="/learn"
-    >school</span>
+<div class="navigation-compact">
 
-    <ng-container *ngFor="let elem of this.structure; index as i">
-      <span class="learn-navigation-compact-arrow material-symbols-rounded"
-        [ngClass]="i === this.structure.length - 1 ? 'active' : ''"
-      >chevron_right</span>
 
-      <button class="learn-navigation-compact-button" id="learn-navigation-compact-button-{{i}}"
-        (click)="this.revealOtherOptions(i)"
-      >
-        <span class="dropdown-title">{{ elem }}</span>
-        <span class="expand-arrow material-symbols-rounded"
-          *ngIf="i <= (this.structure.length - 1) && adjacent(i).all.length > 1"
-        >unfold_more</span>
-      </button>
-    </ng-container>
-  </div>
+<!--This is the stuff at the top-->
+<div class="current-structure">
 
+  <!--icon-->
+  <span id="icon"
+    class="icon material-symbols-rounded"
+    routerLink="/learn"
+  >school</span>
+
+  <!--for every member of `structure`-->
   <ng-container *ngFor="let elem of this.structure; index as i">
-    <div class="other-options" id="{{this.id_prefix + i}}">
-      <ng-container *ngFor="let adj of this.adjacentValuesOfEachStructureElement[i].top">
-        <div class="top">
-          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.makeURLSafe(adj)">{{adj}}</a>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="this.adjacentValuesOfEachStructureElement[i]._self">
-        <div class="self">
-          <a>{{this.adjacentValuesOfEachStructureElement[i]._self}}</a>
-        </div>
-      </ng-container>
-      <ng-container *ngFor="let adj of this.adjacentValuesOfEachStructureElement[i].bottom" >
-        <div class="bottom">
-          <a [routerLink]="(i === 1 ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0])) : ('/learn/theory')) + '/' + this.learnRouting.makeURLSafe(adj)">{{adj}}</a>
-        </div>
-      </ng-container>
+
+
+    <span class="arrow material-symbols-rounded"
+      [ngClass]="i === this.structure.length - 1 ? 'active' : ''"
+    >chevron_right</span>
+
+
+    <!--button-->
+    <button class="button" id="button-{{i}}" (click)="this.revealOtherOptions(i)">
+      <span class="dropdown-title">{{elem}}</span>
+
+      <span *ngIf="adjacentValuesOfEach[i].all.length > 1"
+        class="expand-arrow material-symbols-rounded"
+      >unfold_more</span>
+    </button>
+
+
+  </ng-container>
+</div>
+
+<!--This is the stuff that's revealed when you press one of the top-->
+<!--for every member of `structure`-->
+<ng-container *ngFor="let elem of this.structure; index as i">
+<div class="other-options" id="{{this.id_prefix + i}}">
+
+  <!--top-->
+  <ng-container *ngFor="let adj of this.adjacentValuesOfEach[i].top">
+    <div class="top">
+      <a [routerLink]="
+        (
+          i === 1
+          ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0]))
+          : ('/learn/theory')
+        )
+        + '/'
+        + this.learnRouting.makeURLSafe(adj)"
+      >{{adj}}</a>
     </div>
   </ng-container>
+
+  <!--self-->
+  <ng-container *ngIf="this.adjacentValuesOfEach[i]._self">
+    <div class="self">
+      <a>{{this.adjacentValuesOfEach[i]._self}}</a>
+    </div>
+  </ng-container>
+
+  <!--bottom-->
+  <ng-container *ngFor="let adj of this.adjacentValuesOfEach[i].bottom" >
+    <div class="bottom">
+      <a [routerLink]="
+        (
+          i === 1
+          ? ('../../' + this.learnRouting.makeURLSafe(this.structure[0]))
+          : ('/learn/theory')
+        )
+        + '/'
+        + this.learnRouting.makeURLSafe(adj)"
+      >{{adj}}</a>
+    </div>
+  </ng-container>
+
+</div>
+</ng-container>
+
+
 </div>

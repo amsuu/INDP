@@ -18,9 +18,10 @@
   background-color: #00000000;
 }
 
+
 #topbar {
 
-  height: 4rem;
+  height: var(--topbarHeight);
   width: 100%;
 
   padding-left: 1rem;

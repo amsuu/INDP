@@ -76,7 +76,7 @@ export class LearnStructureService {
 
 
 
-  // unused by anything //
+  // unused by anything: //
 
   // self-explainatory
   private getChildrenValuesOfObject(object: any): any[] {

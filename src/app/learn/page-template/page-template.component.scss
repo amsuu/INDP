@@ -1,6 +1,79 @@
 @import '../../../variables';
+@import '../../topbar/topbar.component.scss';
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
 $fancy-font: "UnifrakturMaguntia";
+
+.show-menu {
+  display: none;
+}
+
+@media only screen and (max-width: $main-element-width--laptop) {
+  .show-menu {
+    position: absolute;
+    top: calc(var(--topbarOffsetTop) + 1ch);
+    left: 1ch;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 4ch;
+    height: 4ch;
+
+    border-radius: 1ch;
+    border: solid 0.15rem var(--border);
+    background-color: var(--context-btn-text);
+    color: var(--context-btn-bg);
+
+    z-index: 2000;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .navigation-spacer, app-learn-navigation-side {
+    display: none;
+
+    &.show {
+      display: flex;
+      position: fixed;
+      top: 0px;
+      height: calc(100vh - var(--topbarHeight)) !important;
+      width: 50vw !important;
+      background-color: var(--secondary);
+      padding-top: 6ch;
+      left: 0;
+    }
+  }
+
+  .side-progress-bar-spacer, app-side-progress-bar {
+    display: none;
+  }
+}
+
+// entire wrapper
+div.learn-page-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+
+  width: 100vw;
+
+
+  // .article-spacer .dir {
+  //   display: none;
+  // }
+
+
+  app-learn-navigation-side {
+    overflow-y: scroll;
+    width: 15vw;
+    height: 100vw;
+    border: solid 0.125rem var(--border);
+  }
+}
 
 ::ng-deep {
 
@@ -36,30 +109,6 @@ $fancy-font: "UnifrakturMaguntia";
   }
 
 
-  // entire wrapper
-  div.learn-page-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: stretch;
-
-    width: 100vw;
-
-
-    .article-spacer .dir {
-      display: none;
-    }
-
-
-    app-learn-navigation-side {
-      overflow-y: scroll;
-
-      display: none;
-      height: 100vw;
-    }
-  }
-
-
   // header styles
   h1, h2, h3, h4, h5, h6 { text-align: start; }
   h1 { text-indent: 2rem; }
@@ -73,14 +122,9 @@ $fancy-font: "UnifrakturMaguntia";
   // bigger screens / HD laptop screens
   @media only screen and (min-width: $screen-size--laptop) {
     div.learn-page-wrapper {
-      font-size: 100% !important;
+      font-size: 100%;
 
       > * { display: inline-block; }
-
-      .navigation-spacer, app-learn-navigation-side {
-        display: unset;
-        width: 15vw;
-      }
 
       .article-spacer {
         width: 65vw;
@@ -104,17 +148,17 @@ $fancy-font: "UnifrakturMaguntia";
   // bigger laptop screens
   @media only screen and (min-width: $screen-size--lap-tab) and (max-width: $screen-size--laptop) {
     div.learn-page-wrapper {
-      font-size: 95% !important;
+      font-size: 95%;
 
       > * { display: inline-block; }
 
       .article-spacer {
         width: 75vw;
-        padding-inline-start: 20vw;
+        padding-inline-start: 5vw;
       }
 
       .side-progress-bar-spacer, app-side-progress-bar {
-        width: 25vw;
+        width: 20vw;
         margin-top: 8rem;
         padding: 0.5rem 2rem;
       }
@@ -155,7 +199,7 @@ $fancy-font: "UnifrakturMaguntia";
 
       width: 95vw;
 
-      font-size: 90% !important;
+      font-size: 90%;
 
 
       .article-spacer {
@@ -163,10 +207,10 @@ $fancy-font: "UnifrakturMaguntia";
         padding-inline-start: 2.5vw;
 
 
-        .dir {
-          display: block;
-          margin-top: 2rem;
-        }
+        // .dir {
+        //   display: block;
+        //   margin-top: 2rem;
+        // }
       }
 
       .side-progress-bar-spacer, app-side-progress-bar {
@@ -213,7 +257,7 @@ $fancy-font: "UnifrakturMaguntia";
     div.learn-page-wrapper {
       width: 95vw;
 
-      font-size: 90% !important;
+      font-size: 90%;
 
       > * { display: inline-block; }
 
@@ -222,7 +266,7 @@ $fancy-font: "UnifrakturMaguntia";
         width: 80vw;
         padding-inline-start: 2.5vw;
 
-        .dir { display: block; }
+        // .dir { display: block; }
       }
 
       .side-progress-bar-spacer, app-side-progress-bar {
@@ -271,7 +315,7 @@ $fancy-font: "UnifrakturMaguntia";
     div.learn-page-wrapper {
       width: 95vw;
 
-      font-size: 90% !important;
+      font-size: 90%;
 
 
       > * { display: inline-block; }
@@ -280,7 +324,7 @@ $fancy-font: "UnifrakturMaguntia";
         width: 95vw;
         padding-inline-start: 2.5vw;
 
-        .dir { display: block; }
+        // .dir { display: block; }
       }
 
       .side-progress-bar-spacer, app-side-progress-bar {
@@ -322,25 +366,11 @@ $fancy-font: "UnifrakturMaguntia";
     div.learn-page-wrapper {
       width: 95vw;
 
-
       > * { display: inline-block; }
 
       .article-spacer {
         width: 90vw;
         padding-inline-start: 0vw;
-
-
-        .dir { display: block; }
-      }
-
-      .side-progress-bar-spacer, app-side-progress-bar {
-        display: none;
-      }
-
-      app-side-progress-bar {
-        position: fixed;
-        top: 0;
-        right: 0;
       }
     }
 
@@ -372,5 +402,13 @@ $fancy-font: "UnifrakturMaguntia";
 
       border-radius: 2rem;
     }
+  }
+}
+
+
+
+@media only screen and (max-width: $main-element-width--laptop) {
+  div.learn-page-wrapper {
+    font-size: 100% !important;
   }
 }

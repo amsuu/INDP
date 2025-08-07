@@ -1,6 +1,6 @@
 @import '../../../variables';
 
-.learn-navigation-side {
+.navigation-side {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
@@ -16,7 +16,7 @@
 
     margin-top: -0.125rem;  // to avoid doubling-up of the borders a side effect is that the opacity is affected due to the var(--border) color being transparent
 
-    font-size: 80% !important;
+    font-size: 80%;
 
 
     > .content {
@@ -43,7 +43,7 @@
 
     padding-inline-start: 1rem;
 
-    font-size: 90% !important;
+    font-size: 90%;
 
     @include hover {
       &:hover {
@@ -79,5 +79,13 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+
+@media only screen and (max-width: $main-element-width--laptop) {
+  .navigation-side {
+    width: 100%;
+    font-size: 100%;
   }
 }
