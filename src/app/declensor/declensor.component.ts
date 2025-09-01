@@ -47,12 +47,10 @@ export class DeclensorComponent implements OnInit {
       gend: disambigGen.value,
       nmbr: disambigNum.value,
     };
-    console.table(disambig);
     let target = {
       CAse: targetCase.value,
       NMbr: targetNum.value,
     };
-    console.table(target);
     this.azS.loadThen((az) => {
 
       let infl = this.azS.inflectNoun(az, word.value, disambig, target);

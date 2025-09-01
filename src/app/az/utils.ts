@@ -65,11 +65,10 @@ export function prioritize(
   let word = new Declensable(morphs[maxIdx]!);
 
   if (!isNounOrAdj(word.morph)) {
-    console.log('not NOUN or ADJ');
+    //console.log('not NOUN or ADJ');
     return false;
   }
 
-  console.log(word);
   return word
 }
 
