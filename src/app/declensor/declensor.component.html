@@ -1,4 +1,4 @@
-<div class="row">
+<div class="col">
   <label id="word">
     Input:
     <input name="word" placeholder="word" type="text" #word>
@@ -7,18 +7,18 @@
     Disambiguation:
     <!--<input name="disambig" placeholder="PoS? Gender? Number?" type="text" #disambig>-->
     <select name="pos" #dispos>
-      <option value="">PoS</option>
+      <option value="">[ part of speech? ]</option>
       <option value="NOUN">Noun</option>
       <option value="ADJF">Adjective</option>
     </select>
     <select name="gend" #disgen>
-      <option value="">Gender</option>
+      <option value="">[ gender? ]</option>
       <option value="masc">Masculine</option>
       <option value="femn">Feminine</option>
       <option value="neut">Neuter</option>
     </select>
     <select name="nmbr" #disnum>
-      <option value="">Number</option>
+      <option value="">[ number? ]</option>
       <option value="sing">Singular</option>
       <option value="plur">Plural</option>
     </select>
@@ -47,8 +47,15 @@
   </label>
   <button class="outline" id="confirm" (click)="getTable(word, dispos, disgen, disnum, tarcas, targen, tarnum)">Get Table</button>
 </div>
+
+<!--<hr>-->
+<!---->
+<!--<div class="info">-->
+<!--  <p>Info:</p>-->
+<!--  <ul id="info">-->
+<!--  </ul>-->
+<!--</div>-->
+
 <hr>
-<p>Info:</p>
-<ul id="info">
-</ul>
+
 <p id="out"></p>

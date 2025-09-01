@@ -191,7 +191,7 @@ select {
   background-color: var(--secondary20);
   color: var(--text);
   border: none;
-  margin-inline: 0.5ch;
+  // margin-inline: 0.5ch;
 }
 input[type="checkbox"] {
   height: calc(var(--font-size) / 2);
