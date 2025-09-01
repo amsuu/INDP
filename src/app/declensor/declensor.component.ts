@@ -33,19 +33,30 @@ export class DeclensorComponent implements OnInit {
 
   }
 
-  getTable(word: HTMLInputElement, disambig: HTMLInputElement, target: HTMLInputElement) {
-    const split1 = splitText(disambig.value);
-    const split2 = splitText(target.value);
-
+  getTable(word: HTMLInputElement,
+           disambigPoS: HTMLSelectElement,
+           disambigGen: HTMLSelectElement,
+           disambigNum: HTMLSelectElement,
+           targetCase: HTMLSelectElement,
+           targetGen: HTMLSelectElement,
+           targetNum: HTMLSelectElement,
+  )
+  {
+    let disambig = {
+      pos: disambigPoS.value,
+      gend: disambigGen.value,
+      nmbr: disambigNum.value,
+    };
+    console.table(disambig);
+    let target = {
+      CAse: targetCase.value,
+      GNdr: targetGen.value,
+      NMbr: targetNum.value,
+    };
+    console.table(target);
     this.azS.loadThen((az) => {
-      let infl = this.azS.inflectNoun(az, word.value, {
-        pos: split1[0],
-        gend: split1[1],
-        nmbr: split1[2],
-      }, {
-        CAse: split2[0],
-        NMbr: split2[1],
-      });
+
+      let infl = this.azS.inflectNoun(az, word.value, disambig, target);
 
       this.outputP(infl ? infl.word : 'Unable to declense -- please check spelling or add disambiguation');
     });

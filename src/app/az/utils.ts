@@ -39,18 +39,18 @@ export function isNounOrAdj(morph: DictionaryParse) {
 export function prioritize(
   morphs: DictionaryParse[],
   wanted: {
-    pos?: string,
-    gend?: string,
-    nmbr?: string
+    pos: string,
+    gend: string,
+    nmbr: string
   },
 ): Declensable | false {
 
   let scores: number[] = [ ];
 
   morphs.forEach((morph, index) => {
-    let PoSScore  = wanted.pos  && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
-    let GendScore = wanted.gend && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
-    let NmbrScore = wanted.nmbr && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
+    let PoSScore  = wanted.pos  !== '' && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
+    let GendScore = wanted.gend !== '' && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
+    let NmbrScore = wanted.nmbr !== '' && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
 
     let word = new Declensable(morph);
 
@@ -69,6 +69,7 @@ export function prioritize(
     return false;
   }
 
+  console.log(word);
   return word
 }
 
