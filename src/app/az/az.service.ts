@@ -23,7 +23,7 @@ export class AzService {
     az: AzClass,
     word: string,
     disambig: { pos: string, gend: string, nmbr: string },
-    target: { CAse: string, GNdr: string, NMbr: string },
+    target: { CAse: string, NMbr: string },
   ) {
     const morphs: DictionaryParse[] = az.morph(word);
 

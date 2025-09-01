@@ -21,7 +21,7 @@ export class Declensable {
   }
 
   // inflect Case Number
-  inflectCN(target: { CAse: string, GNdr: string, NMbr: string }): Declensable | false {
+  inflectCN(target: { CAse: string, NMbr: string }): Declensable | false {
     let infl: DictionaryParse | false = this.morph.inflect(target);
     return infl ? new Declensable(infl) : infl;
   }

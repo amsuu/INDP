@@ -50,7 +50,6 @@ export class DeclensorComponent implements OnInit {
     console.table(disambig);
     let target = {
       CAse: targetCase.value,
-      GNdr: targetGen.value,
       NMbr: targetNum.value,
     };
     console.table(target);
