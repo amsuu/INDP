@@ -188,9 +188,10 @@ select {
   min-height: var(--font-size);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: var(--accent);
-  color: var(--background);
+  background-color: var(--secondary20);
+  color: var(--text);
   border: none;
+  margin-inline: 0.5ch;
 }
 input[type="checkbox"] {
   height: calc(var(--font-size) / 2);

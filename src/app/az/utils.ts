@@ -1,10 +1,15 @@
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 
-const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];
+const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];  // NAGLDIV
 const numbers = [ 'sing', 'plur' ];
 const genders = [ 'masc', 'femn', 'neut' ];
 const poss    = [ 'NOUN', 'ADJF' ];
+
+export type Case   = 'nomn'|'accs'|'gent'|'loct'|'datv'|'ablt'|'voct';
+export type Number = 'sing'|'plur';
+export type Gender = 'masc'|'femn'|'neut';
+export type PoS    = 'NOUN'|'ADJF';
 
 export const names = { cases, numbers, genders, poss };
 
@@ -25,7 +30,7 @@ export function isNounOrAdj(morph: DictionaryParse) {
 
 /**
 * Scores the morphs by how well they
-* match @param wantedPoS, @param wantedGend and @param wantedNmbr,
+* match wanted.pos, wanted.gend and wanted.nmbr,
 * as well as satisfying isNounOrAdj() and not being speculative.
 * Then choses the best result.
 *
@@ -43,9 +48,9 @@ export function prioritize(
   let scores: number[] = [ ];
 
   morphs.forEach((morph, index) => {
-    let PoSScore  = wanted.pos  != null && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
-    let GendScore = wanted.gend != null && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
-    let NmbrScore = wanted.nmbr != null && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
+    let PoSScore  = wanted.pos  && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
+    let GendScore = wanted.gend && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
+    let NmbrScore = wanted.nmbr && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
 
     let word = new Declensable(morph);
 
