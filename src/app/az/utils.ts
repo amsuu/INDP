@@ -1,3 +1,4 @@
+import { Disambig } from "../levels/level-1-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 
@@ -38,26 +39,23 @@ export function isNounOrAdj(morph: DictionaryParse) {
 */
 export function prioritize(
   morphs: DictionaryParse[],
-  wanted: {
-    pos: string,
-    gend: string,
-    nmbr: string
-  },
+  wanted: Disambig
 ): Declensable | false {
 
   let scores: number[] = [ ];
 
   morphs.forEach((morph, index) => {
-    let PoSScore  = wanted.pos  !== '' && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
-    let GendScore = wanted.gend !== '' && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
-    let NmbrScore = wanted.nmbr !== '' && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
+    let PoSScore  = wanted.PoS    !== '' && morph.tag.ud_dict().PoS     == wanted.PoS     ? 1 : 0;
+    let GendScore = wanted.gender !== '' && morph.tag.ud_dict().Gender  == wanted.gender  ? 1 : 0;
+    let NmbrScore = wanted.number !== '' && morph.tag.ud_dict().Number  == wanted.number  ? 1 : 0;
+    let CaseScore = wanted.case   !== '' && morph.tag.ud_dict().Case    == wanted.case    ? 1 : 0;
 
     let word = new Declensable(morph);
 
     scores[index] = (
-      ((PoSScore + GendScore + NmbrScore)
+      ((PoSScore + GendScore + NmbrScore + CaseScore)
       * (isNounOrAdj(word.morph) ? 1 : 0)  // nullifying condition
-      ) + 1 - (word.speculative ? 1 : 0)  // '+1' is to avoid underflow
+      ) + (word.speculative ? 0 : 1)
     );
   });
 

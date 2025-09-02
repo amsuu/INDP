@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AzService } from '../az/az.service';
 import { names, splitText, visualizeArray } from '../az/utils';
+import { Declension, Disambig } from '../levels/level-1-types';
 
 @Component({
   selector: 'app-declensor',
@@ -42,12 +43,12 @@ export class DeclensorComponent implements OnInit {
            targetNum: HTMLSelectElement,
   )
   {
-    let disambig = {
-      pos: disambigPoS.value,
-      gend: disambigGen.value,
-      nmbr: disambigNum.value,
+    let disambig: Disambig = {
+      PoS: disambigPoS.value,
+      gender: disambigGen.value,
+      number: disambigNum.value,
     };
-    let target = {
+    let target: Declension = {
       CAse: targetCase.value,
       NMbr: targetNum.value,
     };

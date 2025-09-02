@@ -4,6 +4,7 @@ import { AzClass } from './azts';
 import { DictionaryParse } from './azts/dictionaryParse';
 import { Declensable } from './word';
 import { prioritize } from './utils';
+import { Declension, Disambig } from '../levels/level-1-types';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class AzService {
   inflectNoun(
     az: AzClass,
     word: string,
-    disambig: { pos: string, gend: string, nmbr: string },
-    target: { CAse: string, NMbr: string },
+    disambig: Disambig,
+    target: Declension
   ) {
     const morphs: DictionaryParse[] = az.morph(word);
 

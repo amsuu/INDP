@@ -1,3 +1,4 @@
+import { Declension } from "../levels/level-1-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { UdDictResult } from "./azts/tag";
 import { isNounOrAdj } from "./utils";
@@ -21,7 +22,7 @@ export class Declensable {
   }
 
   // inflect Case Number
-  inflectCN(target: { CAse: string, NMbr: string }): Declensable | false {
+  inflectCN(target: Declension): Declensable | false {
     let infl: DictionaryParse | false = this.morph.inflect(target);
     return infl ? new Declensable(infl) : infl;
   }
