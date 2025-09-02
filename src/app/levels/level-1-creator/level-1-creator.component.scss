@@ -1,0 +1,78 @@
+@import "../../../variables";
+
+$border-radius: 0.625rem;
+.col {
+  margin-top: 5rem;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+  justify-content: center;
+  > label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5ch;
+    > * {
+      text-align: center;
+      flex-grow: 1;
+    }
+  }
+}
+hr {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+// from level 2
+input {
+  font-size: var(--font-size);
+
+  width: 20ch;
+
+  border: none;
+  border-radius: $border-radius;
+
+  background-color: var(--secondary20);
+  color: var(--text);
+
+  transition: all 50ms linear !important;
+
+  text-align: center;
+
+  &:focus, &:focus-within {
+    background-color: var(--secondary);
+    // color: var(--text);
+  }
+}
+
+button {
+  border-radius: $border-radius;
+  border: solid 0.15rem var(--border);
+  padding: 0 1rem;
+
+  // background-color: var(--accent);
+  // color: var(--text);
+
+  @include hover {
+    &:hover {
+      background-color: var(--secondary);
+    }
+  }
+  @include touchscreens {
+    &:active {
+      &, * {
+        transition: none;
+      }
+    }
+  }
+  &:active {
+    background-color: var(--accent);
+    color: var(--background);
+  }
+}
+
+select[disabled="true"] {
+  color: var(--supressed-heading);
+}

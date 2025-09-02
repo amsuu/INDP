@@ -1,2 +1,54 @@
-<p>level-1-creator works!</p>
-<button (click)='cl()'>ass</button>
+<div class="col">
+  <label id="word">
+    Input:
+    <input name="word" placeholder="word" type="text" #word>
+  </label>
+  <label id="disambig">
+    Disambiguation:
+    <!--<input name="disambig" placeholder="PoS? Gender? Number?" type="text" #disambig>-->
+    <select name="pos" #dispos>
+      <option value="">[ part of speech? ]</option>
+      <option value="NOUN">Noun</option>
+      <option value="ADJF">Adjective</option>
+    </select>
+    <select name="gend" #disgen>
+      <option value="">[ gender? ]</option>
+      <option value="masc">Masculine</option>
+      <option value="femn">Feminine</option>
+      <option value="neut">Neuter</option>
+    </select>
+    <select name="nmbr" #disnum>
+      <option value="">[ number? ]</option>
+      <option value="sing">Singular</option>
+      <option value="plur">Plural</option>
+    </select>
+  </label>
+  <label id="target">
+    Target:
+    <!--<input name="target" placeholder="Gender Number" type="text" #target>-->
+    <select name="case" #tarcas>
+      <option value="nomn">Nominative</option>
+      <option value="accs">Accusative</option>
+      <option value="gent">Genitive</option>
+      <option value="loct">Locative</option>
+      <option value="datv">Dative</option>
+      <option value="ablt">Instrumental</option>
+      <option value="voct">Vocative</option>
+    </select>
+    <select name="gend" disabled="true" aria-disabled="true" #targen>
+      <option value="">[ gender? ]</option>
+      <option value="masc">Masculine</option>
+      <option value="femn">Feminine</option>
+      <option value="neut">Neuter</option>
+    </select>
+    <select name="nmbr" #tarnum>
+      <option value="sing">Singular</option>
+      <option value="plur">Plural</option>
+    </select>
+  </label>
+  <button class="outline" id="confirm" (click)="add(word.value, dispos, disgen, disnum, tarcas, targen, tarnum)">Add</button>
+</div>
+
+<div *ngFor="let q of this.quiz.questions">
+  <app-level-1-quiz-question [word]="q.word" [case]='q.target.CAse' [number]='q.target.NMbr' [answer]='q.correct' />
+</div>
