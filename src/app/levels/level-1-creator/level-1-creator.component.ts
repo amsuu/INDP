@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Declension, Disambig, QuestionFactory, Quiz } from '../level-1-types';
 import { AzService } from '../../az/az.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Level1QuizQuestionComponent } from '../level-1-quiz-question/level-1-quiz-question.component';
 
 @Component({
   selector: 'app-level-1-creator',
   standalone: true,
-  imports: [NgFor, Level1QuizQuestionComponent],
+  imports: [NgIf, NgFor, Level1QuizQuestionComponent],
   templateUrl: './level-1-creator.component.html',
   styleUrl: './level-1-creator.component.scss'
 })
@@ -20,34 +20,62 @@ export class Level1CreatorComponent {
 
   constructor(private azS: AzService) { }
 
-  add(word: string,
-     disambigPoS: HTMLSelectElement,
-     disambigGen: HTMLSelectElement,
-     disambigNum: HTMLSelectElement,
+  add(word: HTMLInputElement,
 
-     targetCase: HTMLSelectElement,
-     targetGen: HTMLSelectElement,
-     targetNum: HTMLSelectElement,
-   ) {
+      disambigPoS: HTMLSelectElement,
+      disambigCase: HTMLSelectElement,
+      disambigNum: HTMLSelectElement,
+      disambigGen: HTMLSelectElement,
 
-     let disambig: Disambig = { case: 'nomn', }
-     if (disambigPoS.value === '') disambig.PoS    = disambigPoS.value;
-     if (disambigGen.value === '') disambig.gender = disambigGen.value;
-     if (disambigNum.value === '') disambig.number = disambigNum.value;
+      targetCase: HTMLSelectElement,
+      targetNum: HTMLSelectElement,
+      targetGen: HTMLSelectElement,
+     ) {
+       // always assume user input to be in lemma form
+       let disambig: Disambig = {
+         PoS: 'NOUN',
+         case: 'nomn',
+         number: 'sing',
+       }
 
-     let target: Declension = {
-       CAse: targetCase.value,
-       NMbr: targetNum.value,
-     };
-     if (targetGen.value !== '') target.GNdr = targetGen.value
+       if (disambigPoS.value === '') disambig.PoS    = disambigPoS.value;
+       if (disambigCase.value === '')disambig.case   = disambigCase.value;
+       if (disambigNum.value === '') disambig.number = disambigNum.value;
+       if (disambigGen.value === '') disambig.gender = disambigGen.value;
 
-     this.azS.loadThen(az => {
-       let x = QuestionFactory(az, word, { disambig, target, });
+       let target: Declension = {
+         CAse: targetCase.value,
+         NMbr: targetNum.value,
+       };
+       if (targetGen.value !== '') target.GNdr = targetGen.value
 
-       if (x) this.quiz.questions.push(x);
-       else console.error('failed');
+         console.table({ disambig });
+         console.table({ target });
 
-       console.log(this.quiz);
-     });
+         this.azS.loadThen(az => {
+           let x = QuestionFactory(az, word.value, { disambig, target, });
+
+           if (x) this.quiz.questions.push(x);
+           else alert("failed");
+
+           word.value = "";
+         });
+     }
+
+   export(author: HTMLInputElement, title: HTMLInputElement) {
+
+     if (author.value !== '') this.quiz.author = author.value;
+     if (title.value !== '') this.quiz.title = title.value;
+
+     const json = JSON.stringify(this.quiz);
+     const blob = new Blob([json], { type: 'application/json' });
+     const url = URL.createObjectURL(blob);
+
+     const a = document.createElement('a');
+     a.href = url;
+     a.download = `${this.quiz.author}_${this.quiz.title}.json`;
+     a.click();
+
+     URL.revokeObjectURL(url);
    }
 }

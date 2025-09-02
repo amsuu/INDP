@@ -1,15 +1,40 @@
 <div class="col">
+  <label id="author-title">
+    Author:
+    <input name="author" placeholder="unknown" type="text" #author>
+    Title:
+    <input name="title" placeholder="unknown" type="text" #title>
+  </label>
+
+  <button class="outline" id="export" (click)="export(author, title)">Export</button>
+
+  <hr>
+
+
+  <div *ngFor="let q of this.quiz.questions">
+    <app-level-1-quiz-question [word]="q.word" [case]='q.target.CAse' [number]='q.target.NMbr' [answer]='q.answer' />
+  </div>
+  <p *ngIf="this.quiz.questions.length === 0">
+  Quiz will appear here. <i>(Add some questions!)</i>
+  </p>
+
+  <hr>
+
   <label id="word">
-    Input:
+    Input word:
     <input name="word" placeholder="word" type="text" #word>
   </label>
   <label id="disambig">
     Disambiguation:
-    <!--<input name="disambig" placeholder="PoS? Gender? Number?" type="text" #disambig>-->
     <select name="pos" #dispos>
-      <option value="">[ part of speech? ]</option>
       <option value="NOUN">Noun</option>
       <option value="ADJF">Adjective</option>
+    </select>
+    <select name="case" disabled="true" aria-disabled="true" #discase>
+      <option value="nomn">Lemma form</option>
+    </select>
+    <select name="nmbr" disabled="true" aria-disabled="true" #disnum>
+      <option value="sing">Singular</option>
     </select>
     <select name="gend" #disgen>
       <option value="">[ gender? ]</option>
@@ -17,15 +42,9 @@
       <option value="femn">Feminine</option>
       <option value="neut">Neuter</option>
     </select>
-    <select name="nmbr" #disnum>
-      <option value="">[ number? ]</option>
-      <option value="sing">Singular</option>
-      <option value="plur">Plural</option>
-    </select>
   </label>
   <label id="target">
-    Target:
-    <!--<input name="target" placeholder="Gender Number" type="text" #target>-->
+    Target Declension:
     <select name="case" #tarcas>
       <option value="nomn">Nominative</option>
       <option value="accs">Accusative</option>
@@ -35,20 +54,16 @@
       <option value="ablt">Instrumental</option>
       <option value="voct">Vocative</option>
     </select>
+    <select name="nmbr" #tarnum>
+      <option value="sing">Singular</option>
+      <option value="plur">Plural</option>
+    </select>
     <select name="gend" disabled="true" aria-disabled="true" #targen>
       <option value="">[ gender? ]</option>
       <option value="masc">Masculine</option>
       <option value="femn">Feminine</option>
       <option value="neut">Neuter</option>
     </select>
-    <select name="nmbr" #tarnum>
-      <option value="sing">Singular</option>
-      <option value="plur">Plural</option>
-    </select>
   </label>
-  <button class="outline" id="confirm" (click)="add(word.value, dispos, disgen, disnum, tarcas, targen, tarnum)">Add</button>
-</div>
-
-<div *ngFor="let q of this.quiz.questions">
-  <app-level-1-quiz-question [word]="q.word" [case]='q.target.CAse' [number]='q.target.NMbr' [answer]='q.correct' />
+  <button class="outline" id="confirm" (click)="add(word, dispos, discase, disnum, disgen, tarcas, tarnum, targen)">Add</button>
 </div>

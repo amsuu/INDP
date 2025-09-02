@@ -32,12 +32,12 @@ export class Target {
 class Question {
   word: string;
   target: Declension;  // used for hint as well
-  correct: string;
+  answer: string;
 
   constructor(word: string, target: Declension, correct: string) {
     this.word = word;
     this.target = target;
-    this.correct = correct;
+    this.answer = correct;
   }
 };
 
@@ -45,11 +45,7 @@ export function QuestionFactory(az: AzClass, word: string, target: Target): Ques
   let azS = new AzService();
 
   let infl = azS.inflectNoun(az, word, target.disambig, target.target);
+  if (!infl) return false;
 
-  if (!infl) {
-    console.error('unable to declense');
-    return false;
-  } else {
-    return new Question(word, target.target, infl.word);
-  }
+  return new Question(word, target.target, infl.word);
 }
