@@ -19,6 +19,7 @@ export class Level1QuizQuestionComponent {
   @Input() number: string = '';
   @Input() answer: string = '';
   @Input() showTitles: boolean = false;
+  @Input() noMargin: boolean = false;
   // @Input() random: boolean = true;
 
   appropriateAnswerButtonText = 'Hint';

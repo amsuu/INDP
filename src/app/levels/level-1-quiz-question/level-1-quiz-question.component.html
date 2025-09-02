@@ -5,7 +5,7 @@
 <!-- Note to note: this is dumb. I'm fixing it soon -->
 <!--Not to note to note: No, I'm not-->
 
-<div class="level-1-quiz-question-wrapper">
+<div class="level-1-quiz-question-wrapper" [style]="noMargin ? 'margin-bottom: 0px;' : ''">
     <div class="card-and-title-container">
         <h1 *ngIf="showTitles">Word:</h1>
         <div class="card-container">
