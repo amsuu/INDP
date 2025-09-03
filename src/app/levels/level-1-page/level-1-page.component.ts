@@ -51,3 +51,4 @@ export class Level1pageComponent {
   ];
   len = this.questions.length;
 }
+
