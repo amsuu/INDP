@@ -38,7 +38,13 @@
 <hr>
 
 <div id="level-1-quiz-wrapper">
-  <p>Quiz <q>{{ this.quiz.title}}</q> by {{ this.quiz.author }}</p>
+  <label for="import" class="outline">
+    Click to import quiz...
+    <input (change)="import($event)" type="file" name="import" id="import" style="display:none"/>
+  </label>
+
+  <span>Current quiz: <q><b>{{ this.quiz.title}}</b></q> by <b>{{ this.quiz.author }}</b></span>
+
   <app-level-1-quiz-question *ngFor="let question of this.quiz.questions; index as i;"
     id="question-{{i}}"
     [question]="question"

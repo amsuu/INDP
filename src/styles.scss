@@ -175,6 +175,12 @@ a:visited { color: var(--secondary); }
 
 // cursor: pointer
 label, button, select, summary, [type=radio], [type=submit], [type=checkbox] { cursor: pointer; }
+$border-radius: 0.625rem;
+.outline {
+  border-radius: $border-radius;
+  border: solid 0.15rem var(--border);
+  padding: 0 1rem;
+}
 
 
 // checkboxes
