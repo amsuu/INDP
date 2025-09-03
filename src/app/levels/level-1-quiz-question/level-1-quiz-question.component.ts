@@ -15,10 +15,37 @@ import { Question } from '../level-1-types';
     styleUrls: ['./level-1-quiz-question.component.scss']
 })
 export class Level1QuizQuestionComponent {
-  //@Input() word: string = '';
-  //@Input() case: string = '';
-  //@Input() number: string = '';
-  //@Input() answer: string = '';
+
+  convert = {
+    CAse: function (s: string) {
+      switch (s) {
+        case "nomn": return "Nominative";
+        case "accs": return "Accusative";
+        case "gent": return "Genitive";
+        case "loct": return "Locative";
+        case "datv": return "Dative";
+        case "ablt": return "Instrumental";
+        case "voct": return "Vocative";
+        default: return "";
+      }
+    },
+    NMbr: function (s: string) {
+      switch (s) {
+        case "sing": return "Singular";
+        case "plur": return "Plural";
+        default: return "";
+      }
+    },
+    GNdr: function (s: string) {
+      switch (s) {
+        case "masc": return "Masculine";
+        case "femn": return "Feminine";
+        case "neut": return "Neuter";
+        default: return "";
+      }
+    },
+  };
+
   question = input.required<Question>();
   showTitles = input<boolean>(false);
   noMargin = input<boolean>(false);
