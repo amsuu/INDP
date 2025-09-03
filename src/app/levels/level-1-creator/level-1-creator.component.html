@@ -11,8 +11,8 @@
   <hr>
 
 
-  <div *ngFor="let q of this.quiz.questions">
-    <app-level-1-quiz-question [word]="q.word" [case]='q.target.CAse' [number]='q.target.NMbr' [answer]='q.answer' [noMargin]="true"/>
+  <div *ngFor="let question of this.quiz.questions">
+    <app-level-1-quiz-question [question]='question' [noMargin]="true"/>
   </div>
   <p *ngIf="this.quiz.questions.length === 0">
     Quiz will appear here. <i>(Add some questions!)</i>
@@ -26,12 +26,11 @@
   </label>
   <label id="disambig">
     Disambiguation:
-    <select name="pos" #dispos>
+    <select name="pos" disabled="true" aria-disabled="true" #dispos>
       <option value="NOUN">Noun</option>
-      <option value="ADJF">Adjective</option>
     </select>
     <select name="case" disabled="true" aria-disabled="true" #discase>
-      <option value="nomn">Lemma form</option>
+      <option value="nomn">Nominative</option>
     </select>
     <select name="nmbr" disabled="true" aria-disabled="true" #disnum>
       <option value="sing">Singular</option>

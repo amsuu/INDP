@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 // suspicious
 import { ThemeService } from '../../settings/theme.service';
+import { Question } from '../level-1-types';
 
 @Component({
     selector: 'app-level-1-quiz-question',
@@ -14,12 +15,13 @@ import { ThemeService } from '../../settings/theme.service';
     styleUrls: ['./level-1-quiz-question.component.scss']
 })
 export class Level1QuizQuestionComponent {
-  @Input() word: string = '';
-  @Input() case: string = '';
-  @Input() number: string = '';
-  @Input() answer: string = '';
-  @Input() showTitles: boolean = false;
-  @Input() noMargin: boolean = false;
+  //@Input() word: string = '';
+  //@Input() case: string = '';
+  //@Input() number: string = '';
+  //@Input() answer: string = '';
+  question = input.required<Question>();
+  showTitles = input<boolean>(false);
+  noMargin = input<boolean>(false);
   // @Input() random: boolean = true;
 
   appropriateAnswerButtonText = 'Hint';
@@ -96,7 +98,7 @@ export class Level1QuizQuestionComponent {
   // After hint + while no input
   revealAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
     this.verifyAnswerInput(answerInput);
-    answerInput.value = this.answer;
+    answerInput.value = this.question().answer;
     this.lock(answerInput);
     this.lock(answerButton);
     answerButton.blur();
@@ -109,7 +111,7 @@ export class Level1QuizQuestionComponent {
 
 
   isAnswerCorrect(answerInput: HTMLInputElement) {
-    return (answerInput.value === this.answer);
+    return (answerInput.value === this.question().answer);
   }
   verifyAnswerInput(answerInput: HTMLInputElement) {
     const answerIsCorrect = this.isAnswerCorrect(answerInput);

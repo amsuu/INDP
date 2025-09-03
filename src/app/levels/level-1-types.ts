@@ -29,7 +29,7 @@ export class Target {
   }
 };
 
-class Question {
+export class Question {
   word: string;
   target: Declension;  // used for hint as well
   answer: string;
