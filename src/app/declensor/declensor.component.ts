@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AzService } from '../az/az.service';
 import { names, splitText, visualizeArray } from '../az/utils';
+import { Declension, Disambig } from '../levels/level-1-types';
 
 @Component({
   selector: 'app-declensor',
@@ -33,19 +34,27 @@ export class DeclensorComponent implements OnInit {
 
   }
 
-  getTable(word: HTMLInputElement, disambig: HTMLInputElement, target: HTMLInputElement) {
-    const split1 = splitText(disambig.value);
-    const split2 = splitText(target.value);
-
+  getTable(word: HTMLInputElement,
+           disambigPoS: HTMLSelectElement,
+           disambigGen: HTMLSelectElement,
+           disambigNum: HTMLSelectElement,
+           targetCase: HTMLSelectElement,
+           targetGen: HTMLSelectElement,
+           targetNum: HTMLSelectElement,
+  )
+  {
+    let disambig: Disambig = {
+      PoS: disambigPoS.value,
+      gender: disambigGen.value,
+      number: disambigNum.value,
+    };
+    let target: Declension = {
+      CAse: targetCase.value,
+      NMbr: targetNum.value,
+    };
     this.azS.loadThen((az) => {
-      let infl = this.azS.inflectNoun(az, word.value, {
-        pos: split1[0],
-        gend: split1[1],
-        nmbr: split1[2],
-      }, {
-        CAse: split2[0],
-        NMbr: split2[1],
-      });
+
+      let infl = this.azS.inflectNoun(az, word.value, disambig, target);
 
       this.outputP(infl ? infl.word : 'Unable to declense -- please check spelling or add disambiguation');
     });

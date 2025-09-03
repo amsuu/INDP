@@ -1,10 +1,16 @@
+import { Disambig } from "../levels/level-1-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 
-const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];
+const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];  // NAGLDIV
 const numbers = [ 'sing', 'plur' ];
 const genders = [ 'masc', 'femn', 'neut' ];
 const poss    = [ 'NOUN', 'ADJF' ];
+
+export type Case   = 'nomn'|'accs'|'gent'|'loct'|'datv'|'ablt'|'voct';
+export type Number = 'sing'|'plur';
+export type Gender = 'masc'|'femn'|'neut';
+export type PoS    = 'NOUN'|'ADJF';
 
 export const names = { cases, numbers, genders, poss };
 
@@ -25,7 +31,7 @@ export function isNounOrAdj(morph: DictionaryParse) {
 
 /**
 * Scores the morphs by how well they
-* match @param wantedPoS, @param wantedGend and @param wantedNmbr,
+* match wanted.pos, wanted.gend and wanted.nmbr,
 * as well as satisfying isNounOrAdj() and not being speculative.
 * Then choses the best result.
 *
@@ -33,26 +39,23 @@ export function isNounOrAdj(morph: DictionaryParse) {
 */
 export function prioritize(
   morphs: DictionaryParse[],
-  wanted: {
-    pos?: string,
-    gend?: string,
-    nmbr?: string
-  },
+  wanted: Disambig
 ): Declensable | false {
 
   let scores: number[] = [ ];
 
   morphs.forEach((morph, index) => {
-    let PoSScore  = wanted.pos  != null && morph.tag.ud_dict().PoS    == wanted.pos  ? 1 : 0;
-    let GendScore = wanted.gend != null && morph.tag.ud_dict().Gender == wanted.gend ? 1 : 0;
-    let NmbrScore = wanted.nmbr != null && morph.tag.ud_dict().Number == wanted.nmbr ? 1 : 0;
+    let PoSScore  = wanted.PoS    !== '' && morph.tag.ud_dict().PoS     == wanted.PoS     ? 1 : 0;
+    let GendScore = wanted.gender !== '' && morph.tag.ud_dict().Gender  == wanted.gender  ? 1 : 0;
+    let NmbrScore = wanted.number !== '' && morph.tag.ud_dict().Number  == wanted.number  ? 1 : 0;
+    let CaseScore = wanted.case   !== '' && morph.tag.ud_dict().Case    == wanted.case    ? 1 : 0;
 
     let word = new Declensable(morph);
 
     scores[index] = (
-      ((PoSScore + GendScore + NmbrScore)
+      ((PoSScore + GendScore + NmbrScore + CaseScore)
       * (isNounOrAdj(word.morph) ? 1 : 0)  // nullifying condition
-      ) + 1 - (word.speculative ? 1 : 0)  // '+1' is to avoid underflow
+      ) + (word.speculative ? 0 : 1)
     );
   });
 
@@ -60,7 +63,7 @@ export function prioritize(
   let word = new Declensable(morphs[maxIdx]!);
 
   if (!isNounOrAdj(word.morph)) {
-    console.log('not NOUN or ADJ');
+    //console.log('not NOUN or ADJ');
     return false;
   }
 

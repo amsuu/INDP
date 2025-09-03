@@ -175,6 +175,12 @@ a:visited { color: var(--secondary); }
 
 // cursor: pointer
 label, button, select, summary, [type=radio], [type=submit], [type=checkbox] { cursor: pointer; }
+$border-radius: 0.625rem;
+.outline {
+  border-radius: $border-radius;
+  border: solid 0.15rem var(--border);
+  padding: 0 1rem;
+}
 
 
 // checkboxes
@@ -188,9 +194,10 @@ select {
   min-height: var(--font-size);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: var(--accent);
-  color: var(--background);
+  background-color: var(--secondary20);
+  color: var(--text);
   border: none;
+  // margin-inline: 0.5ch;
 }
 input[type="checkbox"] {
   height: calc(var(--font-size) / 2);

@@ -1,4 +1,4 @@
-@import "../../variables";
+@import "../../../variables";
 
 $border-radius: 0.625rem;
 .col {
@@ -71,4 +71,13 @@ button {
     background-color: var(--accent);
     color: var(--background);
   }
+}
+
+select[disabled="true"] {
+  color: var(--supressed-heading);
+}
+
+hr {
+  margin-top:     2rem;
+  margin-bottom:  2rem;
 }

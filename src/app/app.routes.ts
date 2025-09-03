@@ -9,12 +9,15 @@ import { Level2PageComponent } from './levels/level-2-page/level-2-page.componen
 
 import { DeclensorComponent } from './declensor/declensor.component';
 
+import { Level1CreatorComponent } from './levels/level-1-creator/level-1-creator.component';
+
 
 const routingService = new LearnRoutingService();
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'level/1', component: Level1pageComponent },
+  { path: 'create/level-1', component: Level1CreatorComponent },
   { path: 'level/2', component: Level2PageComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'learn', component: LearnComponent },
