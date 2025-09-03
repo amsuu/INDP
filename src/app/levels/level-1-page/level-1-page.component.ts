@@ -4,13 +4,14 @@ import { ButtonsOverlayComponent } from '../buttons-overlay/buttons-overlay.comp
 import { Level1QuizQuestionComponent } from '../level-1-quiz-question/level-1-quiz-question.component';
 import { Quiz } from '../level-1-types';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-level1page',
     templateUrl: './level-1-page.component.html',
     styleUrls: ['./level-1-page.component.scss'],
     standalone: true,
-    imports: [ButtonsOverlayComponent, NgIf, NgFor, Level1QuizQuestionComponent]
+    imports: [ButtonsOverlayComponent, RouterLink, NgIf, NgFor, Level1QuizQuestionComponent]
 })
 export class Level1pageComponent implements OnInit {
 

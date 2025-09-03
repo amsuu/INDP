@@ -38,10 +38,11 @@
 <hr>
 
 <div id="level-1-quiz-wrapper">
-  <label for="import" class="outline">
-    Click to import quiz...
-    <input (change)="import($event)" type="file" name="import" id="import" style="display:none"/>
-  </label>
+    <label for="import" class="outline">
+      Import quiz from file...
+      <input (change)="import($event)" type="file" name="import" id="import" style="display:none"/>
+    </label>
+    <button [routerLink]="['/create', 'level-1']" class="outline">Or make your own quiz!</button>
 
   <span>Current quiz: <q><b>{{ this.quiz.title}}</b></q> by <b>{{ this.quiz.author }}</b></span>
 
