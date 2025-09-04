@@ -2,10 +2,10 @@ import { Disambig } from "../levels/level-1-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 
-const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];  // NAGLDIV
-const numbers = [ 'sing', 'plur' ];
-const genders = [ 'masc', 'femn', 'neut' ];
-const poss    = [ 'NOUN', 'ADJF' ];
+export const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];  // NAGLDIV
+export const numbers = [ 'sing', 'plur' ];
+export const genders = [ 'masc', 'femn', 'neut' ];
+export const poss    = [ 'NOUN', 'ADJF' ];
 
 export type Case   = 'nomn'|'accs'|'gent'|'loct'|'datv'|'ablt'|'voct';
 export type Number = 'sing'|'plur';
