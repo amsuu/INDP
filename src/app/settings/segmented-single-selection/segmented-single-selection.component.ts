@@ -12,7 +12,7 @@ export class SegmentedSingleSelectionComponent implements OnInit {
   public options = input<string[]>(['']);
   public localizations = input<string[]>(['']);
   public selection = model<number>(0);
-  public localStorageReference = input.required<string>();
+  public localStorageReference = input<string>('');
 
   // update with option already stored in local storage
   // if such value exists
@@ -21,6 +21,7 @@ export class SegmentedSingleSelectionComponent implements OnInit {
   }
 
   checkAlreadySaved() {
+    if (this.localStorageReference() === '') return;
     let savedSelection = +(localStorage.getItem(this.localStorageReference()) || -1);
     this.setSelection(savedSelection != -1 ? savedSelection : this.selection());
   }
@@ -30,6 +31,7 @@ export class SegmentedSingleSelectionComponent implements OnInit {
   // ngClass attribute IN THE HTML FILE being bound to the local variable
   setSelection(n: number) {
     this.selection.set(n);
+    if (this.localStorageReference() === '') return;
     localStorage.setItem(this.localStorageReference(), `${this.selection()}`);
   }
 }

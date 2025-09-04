@@ -1,68 +1,74 @@
 <div class="col">
-  <label id="author-title">
-    Author:
-    <input name="author" placeholder="unknown" type="text" #author>
-    Title:
-    <input name="title" placeholder="unknown" type="text" #title>
+<label id="author-title">
+  Author:
+  <input name="author" placeholder="unknown" type="text" #author>
+  Title:
+  <input name="title" placeholder="unknown" type="text" #title>
+</label>
+
+<button class="outline" id="export" (click)="export(author, title)">Export</button>
+
+<hr>
+
+
+<div *ngFor="let question of this.quiz.questions" style="display: flex; flex-direction: column; align-items: center;">
+  <app-level-1-quiz-question [question]='question' [noMargin]="true"/>
+</div>
+<p *ngIf="this.quiz.questions.length === 0">
+Quiz will appear here. <i>(Add some questions!)</i>
+</p>
+
+<hr>
+
+Input:
+<label id="word">
+  <input name="word" placeholder="(noun)" type="text" #word>
+  <!--</label>-->
+  <!--<label id="disambig">-->
+  <!--  Disambiguation:-->
+  <select name="pos" disabled="true" aria-disabled="true" #dispos style="display:none">
+    <option value="NOUN">Noun</option>
+  </select>
+  <select name="case" disabled="true" aria-disabled="true" #discase style="display:none">
+    <option value="nomn">Nominative</option>
+  </select>
+  <select name="nmbr" disabled="true" aria-disabled="true" #disnum style="display:none">
+    <option value="sing">Singular</option>
+  </select>
+  <!--<select name="gend" #disgen>-->
+  <!--  <option value="">[gender?]</option>-->
+  <!--  <option value="masc">Masculine</option>-->
+  <!--  <option value="femn">Feminine</option>-->
+  <!--  <option value="neut">Neuter</option>-->
+  <!--</select>-->
+  <app-segmented-single-selection [options]="['(auto)', 'Masc.', 'Fem.', 'Neut.']" [(selection)]="disgenSelection"/>
   </label>
-
-  <button class="outline" id="export" (click)="export(author, title)">Export</button>
-
-  <hr>
-
-
-  <div *ngFor="let question of this.quiz.questions">
-    <app-level-1-quiz-question [question]='question' [noMargin]="true"/>
-  </div>
-  <p *ngIf="this.quiz.questions.length === 0">
-    Quiz will appear here. <i>(Add some questions!)</i>
-  </p>
-
-  <hr>
-
-  <label id="word">
-    Input word:
-    <input name="word" placeholder="word" type="text" #word>
-  </label>
-  <label id="disambig">
-    Disambiguation:
-    <select name="pos" disabled="true" aria-disabled="true" #dispos>
-      <option value="NOUN">Noun</option>
-    </select>
-    <select name="case" disabled="true" aria-disabled="true" #discase>
-      <option value="nomn">Nominative</option>
-    </select>
-    <select name="nmbr" disabled="true" aria-disabled="true" #disnum>
-      <option value="sing">Singular</option>
-    </select>
-    <select name="gend" #disgen>
-      <option value="">[ gender? ]</option>
-      <option value="masc">Masculine</option>
-      <option value="femn">Feminine</option>
-      <option value="neut">Neuter</option>
-    </select>
-  </label>
+  Target:
   <label id="target">
-    Target Declension:
-    <select name="case" #tarcas>
-      <option value="nomn">Nominative</option>
-      <option value="accs">Accusative</option>
-      <option value="gent">Genitive</option>
-      <option value="loct">Locative</option>
-      <option value="datv">Dative</option>
-      <option value="ablt">Instrumental</option>
-      <option value="voct">Vocative</option>
-    </select>
-    <select name="nmbr" #tarnum>
-      <option value="sing">Singular</option>
-      <option value="plur">Plural</option>
-    </select>
-    <select name="gend" disabled="true" aria-disabled="true" #targen>
-      <option value="">[ gender? ]</option>
-      <option value="masc">Masculine</option>
-      <option value="femn">Feminine</option>
-      <option value="neut">Neuter</option>
-    </select>
+    <input style="display:none;" > <!--to avoid hovering on label-->
+
+    <!--<select name="case" #tarcas>-->
+    <!--  <option value="nomn">Nominative</option>-->
+    <!--  <option value="accs">Accusative</option>-->
+    <!--  <option value="gent">Genitive</option>-->
+    <!--  <option value="loct">Locative</option>-->
+    <!--  <option value="datv">Dative</option>-->
+    <!--  <option value="ablt">Instrumental</option>-->
+    <!--  <option value="voct">Vocative</option>-->
+    <!--</select>-->
+    <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
+      <!--<select name="nmbr" #tarnum>-->
+      <!--  <option value="sing">Singular</option>-->
+      <!--  <option value="plur">Plural</option>-->
+      <!--</select>-->
+      <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+
+        <select name="gend" disabled="true" aria-disabled="true" #targen style="display:none">
+          <option value="">[gender?]</option>
+          <option value="masc">Masculine</option>
+          <option value="femn">Feminine</option>
+          <option value="neut">Neuter</option>
+        </select>
   </label>
-  <button class="outline" id="confirm" (click)="add(word, dispos, discase, disnum, disgen, tarcas, tarnum, targen)">Add</button>
+  <button class="outline" id="confirm" (click)="add(word, dispos, discase, disnum, targen)">Add</button>
 </div>
