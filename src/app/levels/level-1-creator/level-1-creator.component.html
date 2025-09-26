@@ -24,9 +24,6 @@ Quiz will appear here. <i>(Add some questions!)</i>
 Input:
 <label id="word">
   <input name="word" placeholder="(noun)" type="text" #word>
-  <select name="pos" disabled="true" aria-disabled="true" #dispos style="display:none"><option value="NOUN">Noun</option></select>
-  <select name="case" disabled="true" aria-disabled="true" #discase style="display:none"><option value="nomn">Nominative</option></select>
-  <select name="nmbr" disabled="true" aria-disabled="true" #disnum style="display:none"><option value="sing">Singular</option></select>
   <app-segmented-single-selection [options]="['(auto)', 'Masc.', 'Fem.', 'Neut.']" [(selection)]="disgenSelection"/>
 </label>
 Target:
@@ -34,15 +31,8 @@ Target:
   <input style="display:none;" > <!--to avoid hovering on label-->
   <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
   <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
-
-  <select name="gend" disabled="true" aria-disabled="true" #targen style="display:none">
-    <option value="">[gender?]</option>
-    <option value="masc">Masculine</option>
-    <option value="femn">Feminine</option>
-    <option value="neut">Neuter</option>
-  </select>
 </label>
 
-<button class="outline" id="confirm" (click)="add(word, dispos, discase, disnum, targen)">Add</button>
+<button class="outline" id="confirm" (click)="add(word)">Add</button>
 
 </div>
