@@ -5,9 +5,10 @@
   <input name="author" placeholder="unknown" type="text" #author>
   Title:
   <input name="title" placeholder="unknown" type="text" #title>
+  &nbsp;
+  <button class="outline" id="export" (click)="export(author, title)">Export</button>
 </label>
 
-<button class="outline" id="export" (click)="export(author, title)">Export</button>
 
 <hr>
 
@@ -16,27 +17,34 @@
   <app-level-2-quiz-question [id]='i' [question]='question'/>
 </div>
 
-<div id="sentence-dialogue">
+<div id="overall-question">
+  <div id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
+    <input type="text" #sentence/>
+  </div>
 
+  <div id="word-dialogue" class="dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
+    <label id="word">
+      <input name="word" placeholder="(noun)" type="text" #word>
+      <select name="gender" id="gender">
+        <option value="">-</option>
+        <option value="masc">m.</option>
+        <option value="femn">f.</option>
+        <option value="neut">n.</option>
+      </select>
+    </label>
+    <label id="target">
+      <input style="display:none;" > <!--to avoid hovering on label-->
+      <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
+        <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+    </label>
+
+  </div>
+
+  <div id="adds">
+    <button class="outline add" (click)="addToSentence()">+ sentence field</button>
+    <button class="outline add" (click)="addWord()">+ input field</button>
+  </div>
 </div>
-
-<div id="word-dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
-  <label id="word">
-    <input name="word" placeholder="(noun)" type="text" #word>
-    <select name="gender" id="gender">
-      <option value="">-</option>
-      <option value="masc">m.</option>
-      <option value="femn">f.</option>
-      <option value="neut">n.</option>
-    </select>
-  </label>
-  <label id="target">
-    <input style="display:none;" > <!--to avoid hovering on label-->
-    <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
-      <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
-  </label>
-
-  <button class="outline" id="confirm" (click)="addWord()">Add</button>
-</div>
+<button class="outline" id="confirm">Add Question</button>
 
 </div>

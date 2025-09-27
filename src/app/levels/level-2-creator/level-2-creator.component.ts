@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Quiz, QuestionFactory } from '../level-2-types';
+import { Quiz, QuestionFactory, Question } from '../level-2-types';
 import { NgFor, NgIf } from '@angular/common';
 import { Level2QuizQuestionComponent } from '../level-2-quiz-question/level-2-quiz-question.component';
 import { SegmentedSingleSelectionComponent } from '../../settings/segmented-single-selection/segmented-single-selection.component';
@@ -31,11 +31,28 @@ export class Level2CreatorComponent {
     questions: []
   };
 
+  currentQuestion: Question = {
+    phrase: [],
+    placeholders: [],
+    disambigs: [],
+    targets: [],
+    correctAnswers: [],
+  };
 
   constructor(private azS: AzService) { }
 
-  addWord() {
+  confirmLast() {
 
+  }
+
+  addWord() {
+    this.confirmLast();
+    this.inputMode = 'word';
+  }
+
+  addToSentence() {
+    this.confirmLast();
+    this.inputMode = 'sentence';
   }
 
   addQuestion() {
