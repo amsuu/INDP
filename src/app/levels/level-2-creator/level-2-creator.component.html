@@ -1,1 +1,38 @@
-<p>level-2-creator works!</p>
+<div class="col">
+
+<label id="author-title">
+  Author:
+  <input name="author" placeholder="unknown" type="text" #author>
+  Title:
+  <input name="title" placeholder="unknown" type="text" #title>
+</label>
+
+<button class="outline" id="export" (click)="export(author, title)">Export</button>
+
+<hr>
+
+
+<div *ngFor="let question of this.quiz.questions; index as i" style="display: flex; flex-direction: column; align-items: center;">
+  <app-level-2-quiz-question [id]='i' [question]='question'/>
+</div>
+<p *ngIf="this.quiz.questions.length === 0">
+Quiz will appear here. <i>(Add some questions!)</i>
+</p>
+
+<hr>
+
+Input:
+<label id="word">
+  <input name="word" placeholder="(noun)" type="text" #word>
+  <app-segmented-single-selection [options]="['(auto)', 'Masc.', 'Fem.', 'Neut.']" [(selection)]="disgenSelection"/>
+</label>
+Target:
+<label id="target">
+  <input style="display:none;" > <!--to avoid hovering on label-->
+  <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
+  <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+</label>
+
+<button class="outline" id="confirm" (click)="addElement()">Add</button>
+
+</div>
