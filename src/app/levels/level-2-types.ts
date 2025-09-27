@@ -1,5 +1,6 @@
 import { AzService } from "../az/az.service";
 import { AzClass } from "../az/azts";
+import { convertPhraseIndex } from "./level-2-quiz-question/utils";
 import { Disambig, Declension, DeclensedWord } from "./level-types";
 
 export type Quiz = {
@@ -26,10 +27,9 @@ export type WordField = {
    * The length must be the same as placeholders' length.
    */
   correctAnswer: string;
-
 }
 
-export type Question = {
+export class Question {
   /**
    * The phrase, where each time the string is broken up into
    * different elements of the array, that represents a gap
@@ -38,18 +38,27 @@ export type Question = {
    */
   phrase: string[];
   wordFields: WordField[];
+
+  constructor(phrase: string[], wordFields: WordField[]) {
+    this.phrase = phrase;
+    this.wordFields = wordFields;
+  }
+
+
+  formatWordFields(format: (wordField: WordField) => string): string[] {
+    let ret: string[] = [];
+    for (let i = 0; i < this.phrase.length; i++) {
+      if (this.phrase[i] !== '') ret.push(this.phrase[i]);
+      else {
+        ret.push(format(this.wordFields[convertPhraseIndex(this, i)]));
+      }
+    }
+    return ret;
+  }
 };
 
-export function QuestionFactory(
-  az: AzClass, phrase: string[], wordFields: WordField[]
-): Question | number {
-
-  let question: Question = {
-    phrase: [...phrase],
-    wordFields: [...wordFields]
-  };
-
-  return question;
+export function QuestionFactory(phrase: string[], wordFields: WordField[]): Question | number {
+  return new Question([...phrase], [...wordFields]);
 }
 
 

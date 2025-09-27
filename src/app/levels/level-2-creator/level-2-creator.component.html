@@ -19,17 +19,24 @@
 
 <div id="overall-question">
 
-  <ng-container *ngFor="let sentenceField of this.currentQuestion.phrase">
-    <fieldset *ngIf="sentenceField !== ''" class="ready-dialogue">
+  <!--variable-->
+
+
+  <ng-container *ngFor="let x of this.currentQuestion.formatWordFields(format)">
+    <fieldset class="ready-dialogue">
       <legend>sentence field</legend>
-      {{sentenceField}}
+      {{x}}
     </fieldset>
   </ng-container>
 
-  <fieldset *ngFor="let wordField of this.currentQuestion.wordFields" class="ready-dialogue">
-    <legend>word field</legend>
-    {{wordField.placeholder}} (→ {{wordField.correctAnswer}})
+  <fieldset *ngIf="this.inputMode === 'none'" class="ready-dialogue">
+    <legend>Add something!</legend>
+    <p style="max-width: 20ch; font-size: 80%; color: var(--supressed-heading);">
+      Select something from the options to add and it will appear here.
+    </p>
   </fieldset>
+
+  <!--constants-->
 
   <fieldset id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
     <legend>sentence field</legend>
@@ -58,12 +65,13 @@
   <div id="adds">
     <button class="outline add" (click)="newSentenceField(word, sentence)">+ plain text (sentence field)</button>
     <button class="outline add" (click)="newWordField(word, sentence)">+ user input (word field)</button>
+    <button class="outline add" (click)="finish('?', word, sentence)">finish with <q>?</q></button>
+    <button class="outline add" (click)="finish('!', word, sentence)">finish with <q>!</q></button>
+    <button class="outline add" (click)="finish('.', word, sentence)">finish with <q>.</q></button>
   </div>
 </div>
 <div id="confirms">
-  <button class="outline confirm" (click)="finish('?', word, sentence)">finish with <q>?</q></button>
-  <button class="outline confirm" (click)="finish('!', word, sentence)">finish with <q>!</q></button>
-  <button class="outline confirm" (click)="finish('.', word, sentence)">finish with <q>.</q></button>
+  <button class="outline confirm" (click)="addQuestion(word, sentence)">Add Question</button>
 </div>
 
 </div>

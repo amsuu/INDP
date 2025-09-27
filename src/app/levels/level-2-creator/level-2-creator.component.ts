@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-import { Quiz, QuestionFactory, Question, WordFieldFactory } from '../level-2-types';
+import { Quiz, QuestionFactory, Question, WordFieldFactory, WordField } from '../level-2-types';
 import { NgFor, NgIf } from '@angular/common';
 import { Level2QuizQuestionComponent } from '../level-2-quiz-question/level-2-quiz-question.component';
 import { SegmentedSingleSelectionComponent } from '../../settings/segmented-single-selection/segmented-single-selection.component';
 import { AzService } from '../../az/az.service';
 import { Declension, Disambig } from '../level-types';
 import { cases, numbers } from '../../az/utils';
+import { convertPhraseIndex } from '../level-2-quiz-question/utils';
 
 const tarnum = [...numbers];
 const tarcas = [...cases];
 
-const emptyQuestion: Question = {
-  phrase: [],
-  wordFields: []
-};
+const emptyQuestion: Question = new Question([], []);
 
 @Component({
   selector: 'app-level-2-creator',
@@ -25,6 +23,8 @@ const emptyQuestion: Question = {
 export class Level2CreatorComponent {
   protected tarnumSelection = 0;
   protected tarcasSelection = 0;
+  protected convertPhraseIndex = convertPhraseIndex;
+  protected format = (wf: WordField) => wf.placeholder + ' → ' + wf.correctAnswer;
 
   inputMode: 'word'|'sentence'|'none' = 'none';
 
@@ -38,13 +38,19 @@ export class Level2CreatorComponent {
 
   constructor(private azS: AzService) { }
 
-  addLastField(word: HTMLInputElement, sentence: HTMLInputElement) {
-    if (this.inputMode === 'sentence' && sentence.value !== '') this.addSentenceField(sentence);
-    else if (this.inputMode === 'word' && word.value !== '') this.addWordField(word);
-    else return;
-    console.log(this.currentQuestion);
+  addLastField(word: HTMLInputElement, sentence: HTMLInputElement, after: any = ()=>{}) {
+    if (this.inputMode === 'sentence' && sentence.value !== '') this.addSentenceField(sentence, after);
+    else if (this.inputMode === 'word' && word.value !== '') this.addWordField(word, after);
+    else after();
   }
-  addWordField(word: HTMLInputElement) {
+  addSentenceField(sentence: HTMLInputElement, after: any = ()=>{}) {
+    // push the sentence field
+    this.currentQuestion.phrase.push(sentence.value);
+    // clear UI
+    sentence.value = "";
+    after();
+  }
+  addWordField(word: HTMLInputElement, after: any = ()=>{}) {
 
     // 1. prepare disambiguation:
     let disambig: Disambig = {
@@ -76,14 +82,9 @@ export class Level2CreatorComponent {
         this.currentQuestion.wordFields.push(x);
         // clear UI
         word.value = "";
+        after();
       }
     });
-  }
-  addSentenceField(sentence: HTMLInputElement) {
-    // push the sentence field
-    this.currentQuestion.phrase.push(sentence.value);
-    // clear UI
-    sentence.value = "";
   }
 
   newWordField(word: HTMLInputElement, sentence: HTMLInputElement) {
@@ -95,14 +96,16 @@ export class Level2CreatorComponent {
     this.inputMode = 'sentence';
   }
   finish(punctuation: string, word: HTMLInputElement, sentence: HTMLInputElement) {
-    this.addLastField(word, sentence);
-    this.currentQuestion.phrase.push(punctuation);
-    this.inputMode = 'none';
-    this.addQuestion();
+    this.addLastField(word, sentence, () => {
+      this.currentQuestion.phrase.push(punctuation);
+      this.inputMode = 'none';
+    });
   }
-  addQuestion() {
-    this.quiz.questions.push(this.currentQuestion);
-    this.currentQuestion = emptyQuestion;
+  addQuestion(word: HTMLInputElement, sentence: HTMLInputElement) {
+    this.addLastField(word, sentence, () => {
+      this.quiz.questions.push(this.currentQuestion);
+      this.currentQuestion = emptyQuestion;
+    });
   }
 
   export(author: HTMLInputElement, title: HTMLInputElement) {

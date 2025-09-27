@@ -12,11 +12,11 @@
                 -->
                 <div class="input-wrapper">
                     <div class="input-placeholder-width" aria-hidden="true">
-                        ({{getPlaceholderFromPhrase(i)}})
+                        ({{getPlaceholderFromPhrase(this.question(), i)}})
                     </div>
                     <input #input type="text" (input)="inputted(input)"
                         class="level-2-input" id="question-{{id()}}-{{i}}"
-                        placeholder="({{getPlaceholderFromPhrase(i)}})"
+                        placeholder="({{getPlaceholderFromPhrase(this.question(), i)}})"
                         autocomplete="off"
                     />
                 </div>

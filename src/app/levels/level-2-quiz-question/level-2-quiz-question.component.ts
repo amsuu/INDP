@@ -2,6 +2,7 @@ import { Component, input, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Question } from '../level-2-types';
+import { getPlaceholderFromPhrase } from './utils';
 
 @Component({
     selector: 'app-level-2-quiz-question',
@@ -16,23 +17,7 @@ export class Level2QuizQuestionComponent {
 
   constructor(private coloring: AnswerButtonColoringService) { }
 
-  convertPhraseIndex(p: number) {
-    let tracker = -1;
-    for (let i = 0; i < this.question().phrase.length; i++) {
-      if (this.question().phrase[i] === "") {
-        tracker++;
-      }
-      if (i === p) {
-        break;
-      }
-    }
-    return tracker;
-  }
-
-  getPlaceholderFromPhrase(p: number) {
-    let i = this.convertPhraseIndex(p);
-    return this.question().wordFields[i].placeholder;
-  }
+  protected getPlaceholderFromPhrase = getPlaceholderFromPhrase;
 
   inputted(input: HTMLInputElement) {
     input.style.width = input.value.length === 0 ? '100%' : (input.value.length + 3) + 'ch';
