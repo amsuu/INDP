@@ -31,7 +31,7 @@ export class Level2QuizQuestionComponent {
 
   getPlaceholderFromPhrase(p: number) {
     let i = this.convertPhraseIndex(p);
-    return this.question().placeholders[i];
+    return this.question().wordFields[i].placeholder;
   }
 
   inputted(input: HTMLInputElement) {
@@ -69,7 +69,7 @@ export class Level2QuizQuestionComponent {
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
 
-      if (input.value !== this.question().correctAnswers[i]) {
+      if (input.value !== this.question().wordFields[i].correctAnswer) {
         correct = false;
         anyIncorrect = true;
       } else {

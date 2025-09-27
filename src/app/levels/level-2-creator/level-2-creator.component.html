@@ -18,6 +18,19 @@
 </div>
 
 <div id="overall-question">
+
+  <ng-container *ngFor="let sentenceField of this.currentQuestion.phrase">
+    <fieldset *ngIf="sentenceField !== ''" class="ready-dialogue">
+      <legend>sentence field</legend>
+      {{sentenceField}}
+    </fieldset>
+  </ng-container>
+
+  <fieldset *ngFor="let wordField of this.currentQuestion.wordFields" class="ready-dialogue">
+    <legend>word field</legend>
+    {{wordField.placeholder}} (→ {{wordField.correctAnswer}})
+  </fieldset>
+
   <fieldset id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
     <legend>sentence field</legend>
     <input type="text" #sentence/>
@@ -43,10 +56,14 @@
   </fieldset>
 
   <div id="adds">
-    <button class="outline add" (click)="addToSentence()">+ sentence field</button>
-    <button class="outline add" (click)="addWord()">+ input field</button>
+    <button class="outline add" (click)="newSentenceField(word, sentence)">+ plain text (sentence field)</button>
+    <button class="outline add" (click)="newWordField(word, sentence)">+ user input (word field)</button>
   </div>
 </div>
-<button class="outline" id="confirm">Add Question</button>
+<div id="confirms">
+  <button class="outline confirm" (click)="finish('?', word, sentence)">finish with <q>?</q></button>
+  <button class="outline confirm" (click)="finish('!', word, sentence)">finish with <q>!</q></button>
+  <button class="outline confirm" (click)="finish('.', word, sentence)">finish with <q>.</q></button>
+</div>
 
 </div>
