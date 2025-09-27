@@ -17,8 +17,6 @@ export class Level2PageComponent implements OnInit {
 
   constructor (private http: HttpClient) { }
 
-  questions = input<Question[]>([]);
-
   quizInput = input<Quiz|false>();
   quiz: Quiz = {
     author: "",
