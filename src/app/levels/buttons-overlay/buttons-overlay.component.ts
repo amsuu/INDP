@@ -15,6 +15,8 @@ export class ButtonsOverlayComponent {
   @Input() currQuestion = -1;
   @Input() pageLevel = 1;  // e.g. level 1 page
   @Input({ required: true }) len: number = 0;
+  @Input() hideNav: boolean = false;
+  @Input() hideHome: boolean = false;
 
   keyboardClicked(keyboard: HTMLDivElement) {
     keyboard.classList.toggle("show");

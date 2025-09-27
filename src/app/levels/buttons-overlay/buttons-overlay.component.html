@@ -9,14 +9,14 @@
   ><span class="material-symbols-rounded">keyboard_keys</span></button>
 
 
-  <button class="t l" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
+  <button class="t l" [style]="hideHome ? 'display:none' : ''" routerLink="/home"><span class="material-symbols-rounded">home</span></button>
 
-  <button class="t r" #back
+  <button class="t r" #back [style]="hideNav ? 'display:none' : ''"
     (click)="backClicked(back)"
     [ngClass]="currQuestion === -1 ? 'hidden' : ''"
   ><span class="material-symbols-rounded">arrow_upward</span></button>
 
-  <button class="b r" #next
+  <button class="b r" #next [style]="hideNav ? 'display:none' : ''"
     (click)="nextClicked(next)"
     [ngClass]="currQuestion === len - 1 ? 'hidden' : ''"
   ><span class="material-symbols-rounded">arrow_downward</span></button>

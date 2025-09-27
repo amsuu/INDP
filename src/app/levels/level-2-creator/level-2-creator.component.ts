@@ -7,6 +7,7 @@ import { AzService } from '../../az/az.service';
 import { Declension, Disambig } from '../level-types';
 import { cases, numbers } from '../../az/utils';
 import { convertPhraseIndex } from '../level-2-quiz-question/utils';
+import { ButtonsOverlayComponent } from '../buttons-overlay/buttons-overlay.component';
 
 const tarnum = [...numbers];
 const tarcas = [...cases];
@@ -16,7 +17,7 @@ const emptyQuestion: Question = new Question([], []);
 @Component({
   selector: 'app-level-2-creator',
   standalone: true,
-  imports: [NgFor, NgIf, Level2QuizQuestionComponent, SegmentedSingleSelectionComponent],
+  imports: [NgFor, NgIf, Level2QuizQuestionComponent, SegmentedSingleSelectionComponent, ButtonsOverlayComponent],
   templateUrl: './level-2-creator.component.html',
   styleUrl: './level-2-creator.component.scss'
 })
