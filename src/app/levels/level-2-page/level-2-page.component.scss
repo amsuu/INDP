@@ -6,6 +6,11 @@ app-level-2-quiz-question {
   padding-inline-start: 1rem;
 }
 
+#quiz-info {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 
 ol {
   display: flex;
