@@ -18,11 +18,13 @@
 </div>
 
 <div id="overall-question">
-  <div id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
+  <fieldset id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
+    <legend>sentence field</legend>
     <input type="text" #sentence/>
-  </div>
+  </fieldset>
 
-  <div id="word-dialogue" class="dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
+  <fieldset id="word-dialogue" class="dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
+    <legend>word field</legend>
     <label id="word">
       <input name="word" placeholder="(noun)" type="text" #word>
       <select name="gender" id="gender">
@@ -35,10 +37,10 @@
     <label id="target">
       <input style="display:none;" > <!--to avoid hovering on label-->
       <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
-        <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+      <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
     </label>
 
-  </div>
+  </fieldset>
 
   <div id="adds">
     <button class="outline add" (click)="addToSentence()">+ sentence field</button>

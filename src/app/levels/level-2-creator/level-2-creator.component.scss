@@ -18,7 +18,7 @@ hr {
 
 #overall-question {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: stretch;
   gap: 1rem;
 
@@ -28,6 +28,9 @@ hr {
     > button.add {
       text-align: start;
     }
+  }
+  >.dialogue {
+    border: solid 0.125rem var(--accent);
   }
 }
 
