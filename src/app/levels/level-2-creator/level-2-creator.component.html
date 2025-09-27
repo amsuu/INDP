@@ -15,24 +15,28 @@
 <div *ngFor="let question of this.quiz.questions; index as i" style="display: flex; flex-direction: column; align-items: center;">
   <app-level-2-quiz-question [id]='i' [question]='question'/>
 </div>
-<p *ngIf="this.quiz.questions.length === 0">
-Quiz will appear here. <i>(Add some questions!)</i>
-</p>
 
-<hr>
+<div id="sentence-dialogue">
 
-Input:
-<label id="word">
-  <input name="word" placeholder="(noun)" type="text" #word>
-  <app-segmented-single-selection [options]="['(auto)', 'Masc.', 'Fem.', 'Neut.']" [(selection)]="disgenSelection"/>
-</label>
-Target:
-<label id="target">
-  <input style="display:none;" > <!--to avoid hovering on label-->
-  <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
-  <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
-</label>
+</div>
 
-<button class="outline" id="confirm" (click)="addElement()">Add</button>
+<div id="word-dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
+  <label id="word">
+    <input name="word" placeholder="(noun)" type="text" #word>
+    <select name="gender" id="gender">
+      <option value="">-</option>
+      <option value="masc">m.</option>
+      <option value="femn">f.</option>
+      <option value="neut">n.</option>
+    </select>
+  </label>
+  <label id="target">
+    <input style="display:none;" > <!--to avoid hovering on label-->
+    <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
+      <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+  </label>
+
+  <button class="outline" id="confirm" (click)="addWord()">Add</button>
+</div>
 
 </div>

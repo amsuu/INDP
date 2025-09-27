@@ -23,6 +23,8 @@ export class Level2CreatorComponent {
   protected tarnumSelection = 0;
   protected tarcasSelection = 0;
 
+  inputMode: 'word'|'sentence'|'none' = 'none';
+
   quiz: Quiz = {
     author: "unknown",
     title: "unknown",
@@ -32,7 +34,7 @@ export class Level2CreatorComponent {
 
   constructor(private azS: AzService) { }
 
-  addElement() {
+  addWord() {
 
   }
 
