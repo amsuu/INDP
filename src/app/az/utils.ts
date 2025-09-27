@@ -1,4 +1,4 @@
-import { Disambig } from "../levels/level-1-types";
+import { Disambig } from "../levels/level-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 

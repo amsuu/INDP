@@ -1,5 +1,6 @@
 import { AzService } from "../az/az.service";
 import { AzClass } from "../az/azts";
+import { DeclensedWord, Declension, Disambig } from "./level-types";
 
 export type Quiz = {
   author: string,
@@ -7,38 +8,13 @@ export type Quiz = {
   questions: Question[],
 };
 
-export type Disambig = {
-  PoS?: string,
-  gender?: string,
-  number?: string,
-  case?: string,
-};
-export type Declension = {
-    CAse: string,
-    NMbr: string,
-    GNdr?: string,  // only for adj.
-};
-
-export class Target {
+export type Target = {
   target: Declension;
   disambig: Disambig;
-
-  constructor(target: Declension, disambig: Disambig) {
-    this.disambig = disambig;
-    this.target = target;
-  }
 };
 
-export class Question {
-  word: string;
-  target: Declension;  // used for hint as well
+export type Question = DeclensedWord&{
   answer: string;
-
-  constructor(word: string, target: Declension, correct: string) {
-    this.word = word;
-    this.target = target;
-    this.answer = correct;
-  }
 };
 
 export function QuestionFactory(az: AzClass, word: string, target: Target): Question | false {
@@ -47,5 +23,12 @@ export function QuestionFactory(az: AzClass, word: string, target: Target): Ques
   let infl = azS.inflectNoun(az, word, target.disambig, target.target);
   if (!infl) return false;
 
-  return new Question(word, target.target, infl.word);
+  let question: Question = {
+    word: word,
+    disambig: target.disambig,
+    target: target.target,
+    answer: infl.word,
+  };
+
+  return question;
 }

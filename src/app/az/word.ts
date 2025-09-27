@@ -1,4 +1,4 @@
-import { Declension } from "../levels/level-1-types";
+import { Declension } from "../levels/level-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { UdDictResult } from "./azts/tag";
 import { isNounOrAdj } from "./utils";

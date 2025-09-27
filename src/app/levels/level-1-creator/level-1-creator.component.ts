@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Declension, Disambig, QuestionFactory, Quiz } from '../level-1-types';
+import { Declension, Disambig } from '../level-types';
+import { QuestionFactory, Quiz } from '../level-1-types';
 import { AzService } from '../../az/az.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Level1QuizQuestionComponent } from '../level-1-quiz-question/level-1-quiz-question.component';

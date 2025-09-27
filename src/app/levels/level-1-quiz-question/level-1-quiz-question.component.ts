@@ -54,7 +54,13 @@ export class Level1QuizQuestionComponent {
   // @Input() random: boolean = true;
 
   // for UI use
-  appropriateAnswerButtonText: 'Hint'|'Check'|'Reveal'|'Correct'|'Incorrect'|'Correct answer' = 'Hint';
+  appropriateAnswerButtonText:
+  'Hint'
+  |'Check'
+  |'Reveal'
+  |'Correct'
+  |'Incorrect'
+  |'Correct answer' = 'Hint';
 
   ngOnInit() { }
 

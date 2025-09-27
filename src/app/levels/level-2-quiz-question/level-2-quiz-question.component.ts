@@ -16,25 +16,8 @@ export type Level2Question = {
     imports: [NgFor, NgIf]
 })
 export class Level2QuizQuestionComponent {
-  /**
-   * The phrase, where each time the string is broken up into
-   * different elements of the array, that represents a gap
-   * in the UI, where the correct form is wanted.
-   * An empty string means a place for an input.
-   */
   @Input() phrase = ['Ja vidžų', '', '', '.'];
-  /**
-   * These are the placeholders (the pre-text that disappears when you
-   * type something) of the input elements in the blank spots of the
-   * phrase.
-   * Analagous to Level-1's "root words"
-   */
   @Input() placeholders = ['dobry', 'mųž'];
-  /**
-   * These are the correct forms of the placeholder words.
-   * ! (when inflection by code is implimented, this should change too)
-   * The length must be the same as placeholders.length.
-   */
   @Input() correctAnswers = ['dobrogo', 'mųža'];
 
   @Input({ required: true }) id = 0;

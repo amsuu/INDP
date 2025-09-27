@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AzService } from '../az/az.service';
 import { names, splitText, visualizeArray } from '../az/utils';
-import { Declension, Disambig } from '../levels/level-1-types';
+import { Declension, Disambig } from '../levels/level-types';
 
 @Component({
   selector: 'app-declensor',
