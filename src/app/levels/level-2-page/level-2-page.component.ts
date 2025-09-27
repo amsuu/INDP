@@ -31,7 +31,7 @@ export class Level2PageComponent {
       disambigs: [],
       targets: [],
       phrase: [
-        "Ona dala", "", "", "k", "", "jej", ".",
+        "Ona dala", "", "", "", "jej", ".",
       ],
       placeholders: [
         "jejina", "kniga", "prijateĺ",
