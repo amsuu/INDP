@@ -1,7 +1,8 @@
 import { Component, input } from '@angular/core';
-import { Level2Question, Level2QuizQuestionComponent } from "../level-2-quiz-question/level-2-quiz-question.component";
+import { Level2QuizQuestionComponent } from "../level-2-quiz-question/level-2-quiz-question.component";
 import { ButtonsOverlayComponent } from '../buttons-overlay/buttons-overlay.component';
 import { NgFor } from '@angular/common';
+import { Question, QuestionFactory } from '../level-2-types';
 
 @Component({
     selector: 'app-level-2-page',
@@ -12,8 +13,10 @@ import { NgFor } from '@angular/common';
 })
 export class Level2PageComponent {
 
-  questions = input<Level2Question[]>([
+  questions = input<Question[]>([
     {
+      disambigs: [],
+      targets: [],
       phrase: [
         "Ja vidžu", "", "", ".",
       ],
@@ -25,6 +28,8 @@ export class Level2PageComponent {
       ],
     },
     {
+      disambigs: [],
+      targets: [],
       phrase: [
         "Ona dala", "", "", "k", "", "jej", ".",
       ],
@@ -36,5 +41,6 @@ export class Level2PageComponent {
       ],
     },
   ]);
-  len = this.questions.length;
+
+  len = this.questions().length;
 }

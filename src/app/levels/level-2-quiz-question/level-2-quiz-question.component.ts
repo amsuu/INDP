@@ -1,12 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 import { NgFor, NgIf } from '@angular/common';
-
-export type Level2Question = {
-  phrase: string[],
-  placeholders: string[],
-  correctAnswers: string[],
-};
+import { Question } from '../level-2-types';
 
 @Component({
     selector: 'app-level-2-quiz-question',
@@ -16,18 +11,15 @@ export type Level2Question = {
     imports: [NgFor, NgIf]
 })
 export class Level2QuizQuestionComponent {
-  @Input() phrase = ['Ja vidžų', '', '', '.'];
-  @Input() placeholders = ['dobry', 'mųž'];
-  @Input() correctAnswers = ['dobrogo', 'mųža'];
-
-  @Input({ required: true }) id = 0;
+  question = input.required<Question>();
+  id = input.required<number>();
 
   constructor(private coloring: AnswerButtonColoringService) { }
 
   convertPhraseIndex(p: number) {
     let tracker = -1;
-    for (let i = 0; i < this.phrase.length; i++) {
-      if (this.phrase[i] === "") {
+    for (let i = 0; i < this.question().phrase.length; i++) {
+      if (this.question().phrase[i] === "") {
         tracker++;
       }
       if (i === p) {
@@ -39,7 +31,7 @@ export class Level2QuizQuestionComponent {
 
   getPlaceholderFromPhrase(p: number) {
     let i = this.convertPhraseIndex(p);
-    return this.placeholders[i];
+    return this.question().placeholders[i];
   }
 
   inputted(input: HTMLInputElement) {
@@ -77,7 +69,7 @@ export class Level2QuizQuestionComponent {
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
 
-      if (input.value !== this.correctAnswers[i]) {
+      if (input.value !== this.question().correctAnswers[i]) {
         correct = false;
         anyIncorrect = true;
       } else {
