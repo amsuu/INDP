@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Declension, Disambig, QuestionFactory, Quiz } from '../level-1-types';
+import { Declension, Disambig } from '../level-types';
+import { QuestionFactory, Quiz } from '../level-1-types';
 import { AzService } from '../../az/az.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Level1QuizQuestionComponent } from '../level-1-quiz-question/level-1-quiz-question.component';
@@ -21,64 +22,70 @@ export class Level1CreatorComponent {
   protected disgenSelection = 0;
   protected tarnumSelection = 0;
   protected tarcasSelection = 0;
+
   quiz: Quiz = {
     author: "unknown",
     title: "unknown",
     questions: []
   };
 
+
   constructor(private azS: AzService) { }
 
-  add(word: HTMLInputElement,
+  add(word: HTMLInputElement) {
 
-      disambigPoS: HTMLSelectElement,
-      disambigCase: HTMLSelectElement,
-      disambigNum: HTMLSelectElement,
+    // 1. prepare disambiguation:
+    let disambig: Disambig = {
+      PoS: 'NOUN',
+      case: 'nomn',
+      number: 'sing',
+    };  // defaults
 
-      targetGen: HTMLSelectElement,
-   ) {
-     // always assume user input to be in lemma form
-     let disambig: Disambig = {
-       PoS: 'NOUN',
-       case: 'nomn',
-       number: 'sing',
-     }
+    // if user selects, override:
+    if (disgen[this.disgenSelection] !== '') disambig.gender = disgen[this.disgenSelection];
 
-     if (disambigPoS.value === '') disambig.PoS    = disambigPoS.value;
-     if (disambigCase.value === '')disambig.case   = disambigCase.value;
-     if (disambigNum.value === '') disambig.number = disambigNum.value;
-     if (disgen[this.disgenSelection] === '') disambig.gender = disgen[this.disgenSelection];
 
-     let target: Declension = {
-       CAse: tarcas[this.tarcasSelection],
-       NMbr: tarnum[this.tarnumSelection],
-     };
-     if (targetGen.value !== '') target.GNdr = targetGen.value
+    // 2. prepare target:
 
-       this.azS.loadThen(az => {
-         let x = QuestionFactory(az, word.value, { disambig, target, });
+    let target: Declension = {
+      CAse: tarcas[this.tarcasSelection],
+      NMbr: tarnum[this.tarnumSelection],
+    };  // defaults
 
-         if (x) this.quiz.questions.push(x);
-         else alert("failed");
 
-         word.value = "";
-       });
-   }
+    // 3. attempt to declense
+    this.azS.loadThen(az => {
+      let x = QuestionFactory(az, word.value, { disambig, target, });
 
-   export(author: HTMLInputElement, title: HTMLInputElement) {
+      if (!x) { alert("failed"); }
+      else {
+        this.quiz.questions.push(x);
 
-     if (author.value !== '') this.quiz.author = author.value;
-     if (title.value !== '') this.quiz.title = title.value;
+        // clear UI
+        word.value = "";
+      }
+    });
+  }
 
-     const json = JSON.stringify(this.quiz);
-     const blob = new Blob([json], { type: 'application/json' });
-     const url = URL.createObjectURL(blob);
+  export(author: HTMLInputElement, title: HTMLInputElement) {
 
-     const a = document.createElement('a');
-     a.href = url;
-     a.download = `${this.quiz.author}_${this.quiz.title}.json`;
-     a.click();
+    // 1. validate
+    if (author.value !== '') this.quiz.author = author.value;
+    if (title.value !== '') this.quiz.title = title.value;
 
-     URL.revokeObjectURL(url);
-   }
+    // 2. download (i copied this code from somewhere)
+    // prepare download
+    const json = JSON.stringify(this.quiz);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    // start download
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${this.quiz.author}_${this.quiz.title}.json`;
+    a.click();
+
+    // finish download
+    URL.revokeObjectURL(url);
+  }
 }

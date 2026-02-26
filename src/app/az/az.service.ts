@@ -4,7 +4,7 @@ import { AzClass } from './azts';
 import { DictionaryParse } from './azts/dictionaryParse';
 import { Declensable } from './word';
 import { prioritize } from './utils';
-import { Declension, Disambig } from '../levels/level-1-types';
+import { Declension, Disambig } from '../levels/level-types';
 
 @Injectable({
   providedIn: 'root'

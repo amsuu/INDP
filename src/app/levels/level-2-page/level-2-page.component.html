@@ -1,4 +1,4 @@
-<app-buttons-overlay [len]="len"></app-buttons-overlay>
+<app-buttons-overlay [len]="len" [hideNav]="true"></app-buttons-overlay>
 
 <h1>Level 2</h1>
 <h2>Word in phrase:</h2>
@@ -9,13 +9,20 @@
 <!-- <p class="vollkorn-hr"> -.- </p> -->
 <hr>
 
+<div id="quiz-info">
+  <label for="import" class="outline">
+    Import quiz from file...
+    <input (change)="import($event)" type="file" name="import" id="import" style="display:none"/>
+  </label>
+  <button [routerLink]="['/create', 'level-2']" class="outline">Or make your own quiz!</button>
+
+  <span>Current quiz: <q><b>{{ this.quiz.title }}</b></q> by <b>{{ this.quiz.author }}</b></span>
+</div>
+
 <ol>
-    <li *ngFor="let question of this.questions(); index as i">
-      <app-level-2-quiz-question
-        [id]="i"
-        [phrase]="question.phrase"
-        [placeholders]="question.placeholders"
-        [correctAnswers]="question.correctAnswers"
-      />
-    </li>
+  <li *ngFor="let question of this.quiz.questions; index as i">
+    <app-level-2-quiz-question
+      [id]="i"
+      [question]="question"/>
+  </li>
 </ol>

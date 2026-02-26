@@ -16,7 +16,8 @@ import { Question } from '../level-1-types';
 })
 export class Level1QuizQuestionComponent {
 
-  convert = {
+  // for internal use
+  public convert = {
     CAse: function (s: string) {
       switch (s) {
         case "nomn": return "Nominative";
@@ -46,19 +47,27 @@ export class Level1QuizQuestionComponent {
     },
   };
 
+  // inputs
   question = input.required<Question>();
   showTitles = input<boolean>(false);
   noMargin = input<boolean>(false);
   // @Input() random: boolean = true;
 
-  appropriateAnswerButtonText = 'Hint';
+  // for UI use
+  appropriateAnswerButtonText:
+  'Hint'
+  |'Check'
+  |'Reveal'
+  |'Correct'
+  |'Incorrect'
+  |'Correct answer' = 'Hint';
 
   ngOnInit() { }
 
   constructor(private coloring: AnswerButtonColoringService, private themeing: ThemeService) { }
 
 
-  answerInputTyped(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
+  userTyped(answerInput: HTMLInputElement, answerButton: HTMLButtonElement) {
     if (answerInput.value === '') {
       this.appropriateAnswerButtonText = "Hint";
     } else {
@@ -67,19 +76,19 @@ export class Level1QuizQuestionComponent {
   }
 
 
-  answerButtonClicked(answerInput: HTMLInputElement, answerButton: HTMLButtonElement, answerCardContainter: HTMLDivElement) {
+  userSubmitted(input: HTMLInputElement, submit: HTMLButtonElement, inputArea: HTMLDivElement) {
     if (this.appropriateAnswerButtonText === 'Hint') {
-      this.showHint(answerInput, answerButton);
+      this.showHint(input, submit);
       this.appropriateAnswerButtonText = 'Reveal';
     }
     else if (this.appropriateAnswerButtonText === 'Check') {
-      this.checkAnswer(answerInput, answerButton, answerCardContainter);
+      this.checkAnswer(input, submit, inputArea);
     }
     else if (
       this.appropriateAnswerButtonText !== 'Incorrect' as string
     ||this.appropriateAnswerButtonText !== 'Correct' as string
     ) {
-      this.revealAnswer(answerInput, answerButton);
+      this.revealAnswer(input, submit);
     }
   }
 
@@ -91,25 +100,25 @@ export class Level1QuizQuestionComponent {
 
 
   // During input
-  checkAnswer(answerInput: HTMLInputElement, answerButton: HTMLButtonElement, answerCardContainter: HTMLDivElement) {
+  checkAnswer(input: HTMLInputElement, submit: HTMLButtonElement, inputArea: HTMLDivElement) {
 
 
     // calling this function itself changes the button text
-    let correct = this.verifyAnswerInput(answerInput)
+    let correct = this.verifyAnswerInput(input)
 
-    this.coloring.colorAppropriately(answerInput, correct);
+    this.coloring.colorAppropriately(input, correct);
 
-    this.coloring.setBackgroundHSL(answerCardContainter,
+    this.coloring.setBackgroundHSL(inputArea,
       correct ? 'green' : 'red',
       this.themeing.isCurrentThemeName("light") ? 'accent' : 'secondary'
     );
 
     if (this.themeing.isCurrentThemeName("light")) {
-      this.coloring.setForegroundVar(answerButton, 'background');
+      this.coloring.setForegroundVar(submit, 'background');
     }
 
     if (correct) {
-      this.revealAnswer(answerInput, answerButton);
+      this.revealAnswer(input, submit);
     } else {
       this.appropriateAnswerButtonText = "Reveal";
       // no revealAnswer here because we want the user to be able to
@@ -118,7 +127,7 @@ export class Level1QuizQuestionComponent {
       // click of the answerbutton call revealAnswer.
     }
 
-    answerInput.disabled = true;
+    input.disabled = true;
   }
 
 

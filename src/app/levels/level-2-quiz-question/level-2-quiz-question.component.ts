@@ -1,12 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { AnswerButtonColoringService } from '../answer-button-coloring.service';
 import { NgFor, NgIf } from '@angular/common';
-
-export type Level2Question = {
-  phrase: string[],
-  placeholders: string[],
-  correctAnswers: string[],
-};
+import { Question } from '../level-2-types';
+import { getPlaceholderFromPhrase } from './utils';
 
 @Component({
     selector: 'app-level-2-quiz-question',
@@ -16,48 +12,12 @@ export type Level2Question = {
     imports: [NgFor, NgIf]
 })
 export class Level2QuizQuestionComponent {
-  /**
-   * The phrase, where each time the string is broken up into
-   * different elements of the array, that represents a gap
-   * in the UI, where the correct form is wanted.
-   * An empty string means a place for an input.
-   */
-  @Input() phrase = ['Ja vidžų', '', '', '.'];
-  /**
-   * These are the placeholders (the pre-text that disappears when you
-   * type something) of the input elements in the blank spots of the
-   * phrase.
-   * Analagous to Level-1's "root words"
-   */
-  @Input() placeholders = ['dobry', 'mųž'];
-  /**
-   * These are the correct forms of the placeholder words.
-   * ! (when inflection by code is implimented, this should change too)
-   * The length must be the same as placeholders.length.
-   */
-  @Input() correctAnswers = ['dobrogo', 'mųža'];
-
-  @Input({ required: true }) id = 0;
+  question = input.required<Question>();
+  id = input.required<number>();
 
   constructor(private coloring: AnswerButtonColoringService) { }
 
-  convertPhraseIndex(p: number) {
-    let tracker = -1;
-    for (let i = 0; i < this.phrase.length; i++) {
-      if (this.phrase[i] === "") {
-        tracker++;
-      }
-      if (i === p) {
-        break;
-      }
-    }
-    return tracker;
-  }
-
-  getPlaceholderFromPhrase(p: number) {
-    let i = this.convertPhraseIndex(p);
-    return this.placeholders[i];
-  }
+  protected getPlaceholderFromPhrase = getPlaceholderFromPhrase;
 
   inputted(input: HTMLInputElement) {
     input.style.width = input.value.length === 0 ? '100%' : (input.value.length + 3) + 'ch';
@@ -94,7 +54,7 @@ export class Level2QuizQuestionComponent {
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i];
 
-      if (input.value !== this.correctAnswers[i]) {
+      if (input.value !== this.question().wordFields[i].correctAnswer) {
         correct = false;
         anyIncorrect = true;
       } else {

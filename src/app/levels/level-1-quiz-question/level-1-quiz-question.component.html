@@ -9,23 +9,45 @@
     <div class="card-and-title-container">
         <h1 *ngIf="showTitles">Word:</h1>
         <div class="card-container">
-            <div class="card">{{question().word}}<button class="context" routerLink="/settings"><span class="card-context-button material-symbols-rounded">settings</span></button></div>
+            <div class="card">
+              {{question().word}}
+              <button class="context" routerLink="/settings">
+                <span class="card-context-button material-symbols-rounded">settings</span>
+              </button>
+            </div>
         </div>
     </div>
 
     <div class="card-and-title-container target-card-container">
         <h1 *ngIf="showTitles">Target Case:</h1>
         <div class="card-container target-card-container">
-            <div class="card target-card target-case-card">{{convert.CAse(question().target.CAse)}}<button class="context" routerLink="/learn"><span class="card-context-button material-symbols-rounded">question_mark</span></button></div>
-            <div class="card target-card target-number-card">{{convert.NMbr(question().target.NMbr)}}</div>
+          <div class="card target-card target-case-card">
+            {{convert.CAse(question().target.CAse)}}
+            <button class="context" routerLink="/learn">
+              <span class="card-context-button material-symbols-rounded">question_mark</span>
+            </button>
+          </div>
+          <div class="card target-card target-number-card">{{convert.NMbr(question().target.NMbr)}}</div>
         </div>
     </div>
 
     <div class="card-and-title-container answer-card-container">
         <h1 *ngIf="showTitles">Answer:</h1>
-        <div class="card-container answer-card-container" #answerCardContainer>
-            <div class="card answer-card"><input (input)="answerInputTyped(answerInput, answerButton)" (keyup.enter)="answerButtonClicked(answerInput, answerButton, answerCardContainer); answerInput.blur(); answerButton.focus();" #answerInput type="text" placeholder="{{question().word}}" name="" id="answer" autocomplete="off"></div>
-            <button (click)="answerButtonClicked(answerInput, answerButton, answerCardContainer)" #answerButton class="answer-button">{{appropriateAnswerButtonText}}</button>
+        <div #answerCardContainer class="card-container answer-card-container">
+            <div class="card answer-card">
+              <input #answerInput
+                (input)="userTyped(answerInput, answerButton)"
+                (keyup.enter)="userSubmitted(answerInput, answerButton, answerCardContainer);
+                              answerInput.blur();
+                              answerButton.focus();"
+                type="text" autocomplete="off" id="answer"
+                placeholder="{{question().word}}">
+            </div>
+
+            <button #answerButton
+              (click)="userSubmitted(answerInput, answerButton, answerCardContainer)"
+              class="answer-button"
+            >{{appropriateAnswerButtonText}}</button>
         </div>
     </div>
 </div>

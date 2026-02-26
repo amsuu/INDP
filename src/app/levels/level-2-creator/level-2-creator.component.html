@@ -1,0 +1,80 @@
+<app-buttons-overlay [len]="0" [hideNav]="true" [hideHome]="true"></app-buttons-overlay>
+
+<div class="col">
+
+<label id="author-title">
+  Author:
+  <input name="author" placeholder="unknown" type="text" #author>
+  Title:
+  <input name="title" placeholder="unknown" type="text" #title>
+  &nbsp;
+  <button class="outline" id="export" (click)="export(author, title)">Export</button>
+</label>
+
+
+<hr>
+
+
+<div *ngFor="let question of this.quiz.questions; index as i" style="display: flex; flex-direction: column; align-items: center;">
+  <app-level-2-quiz-question [id]='i' [question]='question'/>
+</div>
+
+<div id="overall-question">
+
+
+  <!--variable-->
+
+  <ng-container *ngFor="let x of this.currentQuestion.formatWordFields(format)">
+    <fieldset class="ready-dialogue">
+      <legend>sentence field</legend>
+      {{x}}
+    </fieldset>
+  </ng-container>
+
+  <fieldset *ngIf="this.inputMode === 'none'" class="ready-dialogue">
+    <legend>Add something!</legend>
+    <p style="max-width: 20ch; font-size: 80%; color: var(--supressed-heading);">
+      Select something from the options to add and it will appear here.
+    </p>
+  </fieldset>
+
+
+  <!--constants-->
+
+  <fieldset id="sentence-dialogue" class="dialogue" [style]="inputMode === 'sentence' ? '' : 'display: none'">
+    <legend>sentence field</legend>
+    <input type="text" #sentence/>
+  </fieldset>
+
+  <fieldset id="word-dialogue" class="dialogue" [style]="inputMode === 'word' ? '' : 'display: none'">
+    <legend>word field</legend>
+    <label id="word">
+      <input name="word" placeholder="(noun)" type="text" #word>
+      <select name="gender" id="gender">
+        <option value="">-</option>
+        <option value="masc">m.</option>
+        <option value="femn">f.</option>
+        <option value="neut">n.</option>
+      </select>
+    </label>
+    <label id="target">
+      <input style="display:none;" > <!--to avoid hovering on label-->
+      <app-segmented-single-selection [options]="['Nom.', 'Acc.', 'Gen.', 'Loc.', 'Dat.', 'Ins.', 'Voc.']" [(selection)]="tarcasSelection"/>
+      <app-segmented-single-selection [options]="['singular', 'plural']" [(selection)]="tarnumSelection"/>
+    </label>
+
+  </fieldset>
+
+  <div id="adds">
+    <button class="outline add" (click)="newSentenceField(word, sentence)">+ plain text (sentence field)</button>
+    <button class="outline add" (click)="newWordField(word, sentence)">+ user input (word field)</button>
+    <button class="outline add" (click)="finish('?', word, sentence)">finish with <q>?</q></button>
+    <button class="outline add" (click)="finish('!', word, sentence)">finish with <q>!</q></button>
+    <button class="outline add" (click)="finish('.', word, sentence)">finish with <q>.</q></button>
+  </div>
+</div>
+<div id="confirms">
+  <button class="outline confirm" (click)="addQuestion(word, sentence)">Add Question</button>
+</div>
+
+</div>
