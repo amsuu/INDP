@@ -2,17 +2,20 @@ import { Disambig } from "../levels/level-types";
 import { DictionaryParse } from "./azts/dictionaryParse";
 import { Declensable } from "./word";
 
+// Hint: look at `interface UdDictResult`
 export const cases   = [ 'nomn', 'accs', 'gent', 'loct', 'datv', 'ablt', 'voct' ];  // NAGLDIV
 export const numbers = [ 'sing', 'plur' ];
 export const genders = [ 'masc', 'femn', 'neut' ];
 export const poss    = [ 'NOUN', 'ADJF' ];
+export const anims   = [ 'inan', 'anim' ];
 
-export type Case   = 'nomn'|'accs'|'gent'|'loct'|'datv'|'ablt'|'voct';
-export type Number = 'sing'|'plur';
-export type Gender = 'masc'|'femn'|'neut';
-export type PoS    = 'NOUN'|'ADJF';
+export type Case     = 'nomn'|'accs'|'gent'|'loct'|'datv'|'ablt'|'voct';
+export type Number   = 'sing'|'plur';
+export type Gender   = 'masc'|'femn'|'neut';
+export type PoS      = 'NOUN'|'ADJF';
+export type Animacy  = 'inan'|'anim';
 
-export const names = { cases, numbers, genders, poss };
+export const names = { cases, numbers, genders, poss, anims };
 
 
 export function splitText(text: string) {
